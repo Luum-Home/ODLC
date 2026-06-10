@@ -50,3 +50,4 @@ created: 2026-06-10
 - [[Roadmap]] — v0.1 → v2.0
 - [[Preguntas abiertas]] — lo que todavía no sabemos responder
 - [[Recursos externos]] — repositorios de referencia y herramientas clonadas en local
+- [[Especificación de agentes cross-CLI]] — estándar de archivos de configuración de identidad y comportamiento (CLAUDE.md, SOUL.md, VOICE.md)
