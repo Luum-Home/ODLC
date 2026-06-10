@@ -12,21 +12,24 @@ La **Especificación de agentes cross-CLI** es una especificación técnica de a
 
 ## 1. El Problema de la Fragmentación en el Ecosistema
 
-Actualmente, las herramientas de desarrollo potenciadas por IA y los CLI de agentes no comparten un único estándar de archivo para inyectar instrucciones locales. Cada plataforma busca un archivo con un nombre propietario en la raíz del repositorio:
+Actualmente, las herramientas de desarrollo potenciadas por IA y los CLI de agentes no comparten un único estándar de archivo para inyectar instrucciones locales. Cada plataforma busca un archivo con un nombre propietario en la raíz del repositorio o una carpeta oculta de configuración específica:
 
 | Herramienta / CLI | Archivo Buscado | Ubicación Recomendada | Formato Exigido |
 |---|---|---|---|
 | **Claude Code (Anthropic)** | `CLAUDE.md` | Raíz del proyecto | Markdown plano |
 | **Cursor IDE (Legacy)** | `.cursorrules` | Raíz del proyecto | Markdown plano |
-| **Cursor IDE (Moderno)** | `.mdc` Rules | `.cursor/rules/` | Markdown + YAML Frontmatter |
+| **Cursor IDE (Moderno)** | Archivo `.mdc` | `.cursor/rules/` | Markdown + YAML Frontmatter |
 | **GitHub Copilot / VS Code** | `copilot-instructions.md` | `.github/` | Markdown plano |
-| **Windsurf IDE** | `.windsurfrules` | Raíz del proyecto | Markdown plano |
-| **Devin (Cognition)** | `AGENTS.md` o `.devin/instructions.md` | Raíz o carpeta oculta | Markdown o JSON |
+| **Devin Desktop (ex-Windsurf)** | Archivo `.md` | `.devin/rules/` | Markdown + YAML Frontmatter (Opcional) |
+| **Devin Desktop (Legacy)** | `.windsurfrules` | Raíz del proyecto | Markdown plano (Retrocompatible) |
+| **Devin (SaaS / Cloud)** | `AGENTS.md` o `.devin/instructions.md` | Raíz o carpeta oculta | Markdown o JSON |
 | **OpenClaw** | `AGENTS.md` o `.openclaw/USER.md` | Raíz o carpeta oculta | Markdown plano |
 | **Odysseus (PewDiePie)** | `AGENTS.md` o `.odysseus/instructions.md` | Raíz o carpeta oculta | Markdown plano |
 | **Pi.dev** | `AGENTS.md` o `.pi/instructions.md` | Raíz o carpeta oculta | Markdown plano |
 
-Intentar mantener y sincronizar manualmente instrucciones de desarrollo, personalidad y gobernanza en 8 archivos distintos viola el principio de diseño de software **DRY** (Don't Repeat Yourself), provocando "prompt rot" (instrucciones contradictorias e inconsistentes).
+*Nota histórica: En junio de 2026, tras la adquisición de Windsurf por parte de Cognition (creadores de Devin), la aplicación Windsurf fue oficialmente renombrada a **Devin Desktop**. El antiguo asistente "Cascade" fue reemplazado por **Devin Local** (un motor en Rust más eficiente en tokens).*
+
+Intentar mantener y sincronizar manualmente instrucciones de desarrollo, personalidad y gobernanza en múltiples archivos distintos viola el principio de diseño de software **DRY** (Don't Repeat Yourself), provocando "prompt rot" (instrucciones contradictorias e inconsistentes).
 
 ---
 
@@ -40,12 +43,14 @@ graph TD
     SubC[Claude Code] -->|Lee al iniciar| C_MD[CLAUDE.md]
     SubCur[Cursor] -->|Lee al iniciar| C_Rules[.cursor/rules/*.mdc]
     SubCop[Copilot] -->|Lee al iniciar| Cop_Ins[.github/copilot-instructions.md]
+    SubDevD[Devin Desktop] -->|Lee al iniciar| DevD_Rules[.devin/rules/*.md]
     SubOdy[Odysseus / OpenClaw] -->|Lee al iniciar| Ody_Ins[AGENTS.md]
 
     %% Redirecciones
     C_MD -->|Redirección Cognitiva| CoreInst
     C_Rules -->|Redirección Cognitiva| CoreInst
     Cop_Ins -->|Redirección Cognitiva| CoreInst
+    DevD_Rules -->|Redirección Cognitiva| CoreInst
     Ody_Ins -->|Redirección Cognitiva| CoreInst
 
     %% Fuente de Verdad
@@ -65,7 +70,7 @@ graph TD
 
 ### Mecanismo de Funcionamiento
 1.  **Carpeta de Verdad (`.agent/`)**: Se crea un directorio oculto en la raíz del proyecto que contiene las notas de comportamiento atómicas (`INSTRUCTIONS.md`, `SOUL.md`, `VOICE.md`, `MEMORY.md`).
-2.  **Archivos Adaptadores (Root Adapters)**: En la raíz del repositorio se crean los archivos propietarios mínimos exigidos por cada herramienta (`CLAUDE.md`, `.cursorrules`, etc.).
+2.  **Archivos Adaptadores (Root Adapters)**: En la raíz del repositorio o carpetas ocultas se crean los archivos adaptadores mínimos exigidos por cada herramienta (`CLAUDE.md`, `.cursorrules`, etc.).
 3.  **Redirección Cognitiva**: Estos archivos adaptadores no contienen código ni guías de estilo. Contienen únicamente una instrucción de redirección escrita en lenguaje natural que obliga al agente de IA (que lee el archivo al arrancar) a invocar su herramienta de lectura sobre la carpeta `.agent/`.
 
 ---
@@ -116,18 +121,27 @@ Execute your file-viewing tool on:
 3. `.agent/VOICE.md` (to align with our communication guidelines and avoid AI sludge)
 ```
 
-### D. Windsurf IDE (`.windsurfrules` en la raíz)
+### D. Devin Desktop (Moderno: `.devin/rules/hacs-redirect.md`)
+Para el nuevo Devin Desktop (antes Windsurf), el formato recomendado consiste en crear archivos `.md` individuales dentro del directorio `.devin/rules/`:
 ```markdown
-# Windsurf Rules
-AI Instruction: You MUST read the files inside the `.agent/` folder to understand this project's rules, your role, and tone constraints.
+---
+description: Universal HACS/ODLC agent rule redirector
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Devin Local Rule Redirector
+AI Instruction: You MUST read the files inside the `.agent/` folder at the start of your session to understand this project's rules, your role, and tone constraints.
 
 Execute your file-viewing tool on:
-1. `.agent/INSTRUCTIONS.md` (to learn about build/test/run commands and codebase structure)
-2. `.agent/SOUL.md` (to understand your identity core and safety boundaries)
-3. `.agent/VOICE.md` (to align with our communication guidelines and avoid AI sludge)
+1. `.agent/INSTRUCTIONS.md` (for build/test commands and code structure)
+2. `.agent/SOUL.md` (for identity and safety rules)
+3. `.agent/VOICE.md` (for tone guidelines)
 ```
 
-### E. Devin, OpenClaw, Odysseus, Pi.dev (`AGENTS.md` en la raíz)
+*(Nota: Devin Desktop mantiene retrocompatibilidad con las reglas declaradas en un único archivo raíz `.windsurfrules`, por lo que si usas ese formato heredado, puedes colocar allí el mismo contenido plano de redirección).*
+
+### E. Devin (Cloud), OpenClaw, Odysseus, Pi.dev (`AGENTS.md` en la raíz)
 `AGENTS.md` se ha consolidado en la comunidad de código abierto como el estándar unificado e independiente de herramientas ("El README para Agentes"). 
 ```markdown
 # AGENTS.md
@@ -172,7 +186,7 @@ Al modularizar y redactar las instrucciones dentro de `.agent/`, aplicamos los s
 - **Aplicación**: `INSTRUCTIONS.md` debe "gritar" de forma clara la estructura del proyecto y los comandos mágicos de desarrollo, actuando como un índice cognitivo estático.
 
 ### C. KISS y "Screaming Prompts" (Screaming Architecture en Prompts)
-- **KISS (Keep It Simple, Stupid)**: Evitar la sobre-ingeniería en las instrucciones. Los prompts no deben estructurarse con variables complejas o flujos conversacionales aninados innecesarios. Deben consistir en tablas de correspondencia directa y listas de viñetas claras de comportamiento binario.
+- **KISS (Keep It Simple, Stupid)**: Evitar la sobre-ingeniería en las instrucciones. Los prompts no deben estructurarse con variables complejas o flujos conversacionales anidados innecesarios. Deben consistir en tablas de correspondencia directa y listas de viñetas claras de comportamiento binario.
 - **Screaming Architecture (Adaptada a Agentes)**: Acuñado por Robert C. Martin ("Uncle Bob"), este principio establece que la estructura de directorios debe "gritar" el propósito del software. Aplicado a agentes, la estructura de la carpeta de configuración (ej. `.agent/skills/`) debe reflejar inmediatamente las capacidades operativas del agente (ej. `db-migration-skill.md`, `kyc-validation-skill.md`, `security-audit-skill.md`), permitiendo al agente saber qué habilidades tiene disponibles con una sola lectura del directorio.
 
 ### D. Optimización Extrema de Tokens (Token Optimization)
@@ -190,15 +204,17 @@ Al modularizar y redactar las instrucciones dentro de `.agent/`, aplicamos los s
     -   *Enlace*: [OpenClaw Official Documentation](https://openclaw.ai/docs)
 2.  **Anthropic - Claude Code CLI Guidelines**: Documentación oficial del CLI de Claude Code donde se formaliza el uso del archivo `CLAUDE.md` como estándar de arranque de proyectos.
     -   *Enlace*: [Anthropic Claude Code Guide](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code)
-3.  **Odysseus Project**: Workspace de IA local y local-first que permite el despliegue autónomo de agentes con acceso a herramientas locales de sistema de archivos y terminal.
+3.  **Devin Desktop Rebranding Announcement (Cognition AI)**: Lanzamiento de Devin Desktop integrando la tecnología de Windsurf y el nuevo motor Devin Local en Rust.
+    -   *Enlace*: [Cognition AI Devin Desktop Release Notes](https://devin.ai/blog/introducing-devin-desktop)
+4.  **Odysseus Project**: Workspace de IA local y local-first que permite el despliegue autónomo de agentes con acceso a herramientas locales de sistema de archivos y terminal.
     -   *Enlace*: [Odysseus Repository on GitHub](https://github.com/pewdiepie-archdaemon/odysseus)
-4.  **Clean Architecture (Robert C. Martin)**: Principio de diseño de software sobre el reflejo del propósito de la aplicación en la estructura de archivos.
+5.  **Clean Architecture (Robert C. Martin)**: Principio de diseño de software sobre el reflejo del propósito de la aplicación en la estructura de archivos.
     -   *Enlace/Referencia*: Robert C. Martin, *Clean Architecture: A Craftsman's Guide to Software Structure and Design* (Prentice Hall, 2017).
-5.  **"Lost in the Middle: How Language Models Use Long Contexts" (Liu et al., 2023)**: Paper académico que demuestra empíricamente cómo los LLMs pierden precisión de recuperación cuando los prompts son extensos o la información clave se ubica en el centro de ventanas de contexto saturadas.
+6.  **"Lost in the Middle: How Language Models Use Long Contexts" (Liu et al., 2023)**: Paper académico que demuestra empíricamente cómo los LLMs pierden precisión de recuperación cuando los prompts son extensos o la información clave se ubica en el centro de ventanas de contexto saturadas.
     -   *Enlace*: [arXiv:2307.03172](https://arxiv.org/abs/2307.03172)
-6.  **DRY Prompts & Prompt Composition**: Análisis y mejores prácticas de ingeniería de software aplicadas a prompts mediante plantillas modulares.
+7.  **DRY Prompts & Prompt Composition**: Análisis y mejores prácticas de ingeniería de software aplicadas a prompts mediante plantillas modulares.
     -   *Enlace*: [DRY Prompts and Modular Agentic Design](https://neon.com/blog/dry-prompts-modular-agentic-design)
-7.  **AGENTS.md Community Standard**: Iniciativa de código abierto para estandarizar archivos de instrucciones unificados para agentes de IA en repositorios de código.
+8.  **AGENTS.md Community Standard**: Iniciativa de código abierto para estandarizar archivos de instrucciones unificados para agentes de IA en repositorios de código.
     -   *Enlace*: [AGENTS.md Specification and Usage](https://github.com/agents-md/agents.md)
 
 ---
