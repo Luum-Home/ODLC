@@ -16,6 +16,7 @@ REPOS=(
   "https://github.com/open-gsd/gsd-core"
   "https://github.com/Fission-AI/OpenSpec"
   "https://github.com/kirodotdev/Kiro"
+  "https://github.com/betta-tech/byo-coding-agent"
 )
 
 # Crear directorio external si no existe

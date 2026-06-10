@@ -30,6 +30,7 @@ Estos repositorios se encuentran clonados en el directorio local `external/` (el
 | **OpenSpec** | Fission-AI | Especificación abierta y unificada para guiar la comunicación de requerimientos (SDD) consumible por múltiples agentes. | [Fission-AI/OpenSpec](https://github.com/Fission-AI/OpenSpec) |
 | **Kiro** | kirodotdev | IDE y CLI nativo de agentes para desarrollo spec-driven, control de tareas y DevOps automatizado. | [kirodotdev/Kiro](https://github.com/kirodotdev/Kiro) |
 | **luum-cognitive-os** | Luum-Home | Malla de gobernanza de 14 capas desarrollada en colaboración entre Luum y OliveX como arquitectura de referencia. | [Luum-Home/luum-cognitive-os](https://github.com/Luum-Home/luum-cognitive-os) |
+| **byo-coding-agent** | betta-tech | Arnés de agente didáctico y extensible en Go con soporte para TUI, subagentes dinámicos, memoria local y MCP. | [betta-tech/byo-coding-agent](https://github.com/betta-tech/byo-coding-agent) |
 
 ---
 
@@ -39,6 +40,7 @@ Para complementar la investigación técnica de HACS y Cognitive OS, analizamos 
 - [[Análisis - Stop Using Claude Without an Agentic OS]]: Resumen y desglose de las 5 capas arquitectónicas de un sistema operativo de inteligencia artificial, sus beneficios en la automatización empresarial y comparativas de interfaces de usuario.
 - [[Análisis - Adaptando Claude Code para SDD]]: Lecciones y arquitectura sobre la adaptación del orquestador líder, higiene de contexto en archivos físicos y estructuración de especificaciones en notación EARS.
 - [[Análisis - Harness Engineering y la Paradoja de Herramientas]]: Estudio sobre el control de agentes a través de arneses simplificados (lección de Vercel D0), mitigación de la degradación de contexto en el 40% y los tres pilares del desarrollo de IA.
+- [[Análisis - Construyendo un Arnés de IA desde Cero]]: Estudio y desglose detallado de la arquitectura de un arnés de IA basado en Go, detallando el bucle de ejecución dual (RPL y evaluación), gateways de aprobación de comandos, delegación recursiva de subagentes y compactación de tokens.
 
 ---
 
