@@ -1,0 +1,63 @@
+---
+tags: [metricas, organizacion, hacs]
+status: borrador
+created: 2026-06-10
+---
+
+# Métricas organizacionales
+
+Las **métricas organizacionales** evalúan la salud del flujo de información, la reusabilidad del conocimiento y la velocidad de toma de decisiones estratégicas dentro de la estructura completa de [[HACS]]. Estas métricas no miden al agente individual ni el resultado de un solo objetivo, sino la eficiencia colectiva y la capacidad de la organización para operar como un sistema cognitivo distribuido.
+
+## 1. Knowledge Reuse Rate (KRR)
+
+Mide el grado en que los nuevos objetivos capitalizan la [[Memoria organizacional]] existente (ADRs, postmortems, lecciones aprendidas) en lugar de resolver problemas desde cero.
+
+$$KRR = \frac{\text{Decisiones y lecciones en memoria referenciadas en nuevos objetivos}}{\text{Total de decisiones estratégicas tomadas}}$$
+
+### Importancia
+- Un KRR bajo indica "amnesia organizacional", donde humanos y agentes repiten los mismos errores o reescriben soluciones arquitectónicas previamente descartadas.
+- Un KRR alto refleja que la [[Fase 6 - Learning]] está alimentando efectivamente la [[Fase 3 - Strategy]] de los ciclos siguientes.
+
+---
+
+## 2. Context Retrieval Time (CRT)
+
+Mide el tiempo necesario para indexar, buscar y consolidar el contexto histórico requerido antes de iniciar la ejecución de un nuevo objetivo.
+
+$$CRT = T_{\text{contexto\_listo\_para\_ejecución}} - T_{\text{aprobación\_objetivo}}$$
+
+### Optimización en HACS
+- En equipos tradicionales, el CRT es alto y fragmentado (reuniones de onboarding, lectura de wikis desactualizados, chats en Slack).
+- En HACS, el agente Memory y las herramientas de Cognitive OS deben reducir el CRT a minutos u horas mediante la automatización de búsquedas vectoriales y síntesis de grafos de conocimiento.
+
+---
+
+## 3. Decision Lead Time (DLT)
+
+Mide el tiempo que tarda la unidad HACS desde que se define un objetivo con sus restricciones hasta que se elige y aprueba formalmente la estrategia de ejecución.
+
+$$DLT = T_{\text{aprobación\_de\_estrategia}} - T_{\text{definición\_de\_restricciones}}$$
+
+### Comportamiento del DLT
+- Mide la eficiencia de la [[Fase 3 - Strategy]].
+- Si el DLT es demasiado alto, indica parálisis por análisis o fallos en la gobernanza humano-agente para arbitrar alternativas contradictorias.
+- Si el DLT es demasiado bajo, puede significar una falta de exploración de alternativas de diseño críticas, derivando en mayor retrabajo posterior.
+
+---
+
+## Hipótesis
+
+- **H1**: Aumentar el KRR disminuye directamente el *Time To Outcome* (TTO) de los objetivos complejos, ya que se evitan debates de diseño redundantes.
+- **H2**: La automatización de la curaduría de memoria por parte del agente Memory disminuye el CRT de forma lineal con el paso de los ciclos.
+
+## Decisiones
+
+- **D1**: Se requerirá que cada propuesta de estrategia en la [[Fase 3 - Strategy]] referencie explícitamente al menos una entrada previa de la [[Memoria organizacional]] (ADR o postmortem) para garantizar el uso activo del conocimiento acumulado.
+
+## Preguntas abiertas
+
+- ¿Cómo medir el valor cuantitativo (ROI) de evitar que se cometa un error gracias a una lección archivada en memoria?
+- ¿Cómo se escala el CRT cuando el repositorio y el histórico de decisiones crecen exponencialmente?
+
+---
+Relacionado: [[Memoria organizacional]] · [[Fase 3 - Strategy]] · [[README]] · [[Nuevos cuellos de botella]]
