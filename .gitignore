@@ -1,0 +1,6 @@
+# Entornos de ejecución y dependencias externas
+external/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
