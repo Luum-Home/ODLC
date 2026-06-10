@@ -42,6 +42,7 @@ Para complementar la investigación técnica de HACS y Cognitive OS, analizamos 
 - [[Análisis - Adaptando Claude Code para SDD]]: Lecciones y arquitectura sobre la adaptación del orquestador líder, higiene de contexto en archivos físicos y estructuración de especificaciones en notación EARS.
 - [[Análisis - Harness Engineering y la Paradoja de Herramientas]]: Estudio sobre el control de agentes a través de arneses simplificados (lección de Vercel D0), mitigación de la degradación de contexto en el 40% y los tres pilares del desarrollo de IA.
 - [[Análisis - Construyendo un Arnés de IA desde Cero]]: Estudio y desglose detallado de la arquitectura de un arnés de IA basado en Go, detallando el bucle de ejecución dual (RPL y evaluación), gateways de aprobación de comandos, delegación recursiva de subagentes y compactación de tokens.
+- [[Análisis - Escasez de Tokens y la Crisis de Capacidad de la IA]]: La crisis de cómputo actual, racionamiento de tokens, el peaje lingüístico del español, modelos insostenibles de tarifa plana y el inicio de la IA de dos velocidades.
 
 ---
 
