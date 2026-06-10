@@ -41,6 +41,7 @@ Para complementar la investigación técnica de HACS y Cognitive OS, analizamos 
 - [[Análisis - Stop Using Claude Without an Agentic OS]]: Resumen y desglose de las 5 capas arquitectónicas de un sistema operativo de inteligencia artificial, sus beneficios en la automatización empresarial y comparativas de interfaces de usuario.
 - [[Análisis - Adaptando Claude Code para SDD]]: Lecciones y arquitectura sobre la adaptación del orquestador líder, higiene de contexto en archivos físicos y estructuración de especificaciones en notación EARS.
 - [[Análisis - Harness Engineering y la Paradoja de Herramientas]]: Estudio sobre el control de agentes a través de arneses simplificados (lección de Vercel D0), mitigación de la degradación de contexto en el 40% y los tres pilares del desarrollo de IA.
+- [[Análisis - La Cultura del Token]]: Métricas de adopción de IA por tokens consumidos, Goodhart's Law aplicada a la IA (casos Meta, Amazon y Nvidia), los dos errores (tacaño vs performativo) y el concepto de Retorno del Token (Token ROI).
 - [[Análisis - Construyendo un Arnés de IA desde Cero]]: Estudio y desglose detallado de la arquitectura de un arnés de IA basado en Go, detallando el bucle de ejecución dual (RPL y evaluación), gateways de aprobación de comandos, delegación recursiva de subagentes y compactación de tokens.
 - [[Análisis - Escasez de Tokens y la Crisis de Capacidad de la IA]]: La crisis de cómputo actual, racionamiento de tokens, el peaje lingüístico del español, modelos insostenibles de tarifa plana y el inicio de la IA de dos velocidades.
 
