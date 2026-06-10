@@ -44,6 +44,7 @@ created: 2026-06-10
 - [[Análisis - Adaptando Claude Code para SDD]] — lecciones de Harness Engineering y multi-agentes en flujos SDD
 - [[Análisis - Harness Engineering y la Paradoja de Herramientas]] — los tres pilares de un arnés y la degradación de contexto
 - [[Análisis - Construyendo un Arnés de IA desde Cero]] — arquitectura de bucle dual, polimorfismo, subagentes dinámicos y memoria persistente
+- [[Análisis - Escasez de Tokens y la Crisis de Capacidad de la IA]] — racionamiento de tokens, peaje lingüístico, sostenibilidad del modelo de suscripción y la IA de dos velocidades
 
 ## Parte VI — Fundacional
 
