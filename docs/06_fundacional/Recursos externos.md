@@ -31,6 +31,7 @@ Estos repositorios se encuentran clonados en el directorio local `external/` (el
 | **Kiro** | kirodotdev | IDE y CLI nativo de agentes para desarrollo spec-driven, control de tareas y DevOps automatizado. | [kirodotdev/Kiro](https://github.com/kirodotdev/Kiro) |
 | **luum-cognitive-os** | Luum-Home | Malla de gobernanza de 14 capas desarrollada en colaboración entre Luum y OliveX como arquitectura de referencia. | [Luum-Home/luum-cognitive-os](https://github.com/Luum-Home/luum-cognitive-os) |
 | **byo-coding-agent** | betta-tech | Arnés de agente didáctico y extensible en Go con soporte para TUI, subagentes dinámicos, memoria local y MCP. | [betta-tech/byo-coding-agent](https://github.com/betta-tech/byo-coding-agent) |
+| **ai-engineering-lab** | MatiasNAmendola | Laboratorio educativo de Ingeniería de IA implementando primitivas desde cero en Python y arquitectura limpia. | [MatiasNAmendola/ai-engineering-lab](https://github.com/MatiasNAmendola/ai-engineering-lab) |
 
 ---
 
@@ -59,4 +60,4 @@ Ejecuta el script desde la raíz del proyecto para actualizar todos los reposito
 El script verificará si el repositorio ya existe en `external/` y ejecutará un `git pull` para actualizarlo, o lo clonará desde cero si no estuviese presente.
 
 ---
-Relacionado: [[Gobernanza]] · [[Roles de agentes]] · [[Cognitive OS - Arquitectura de referencia]] · [[Repositorios y catálogos de skills]] · [[Catálogo de herramientas y productividad]] · [[Nuevos roles profesionales en la era de IA]]
+Relacionado: [[Gobernanza]] · [[Roles de agentes]] · [[Cognitive OS - Arquitectura de referencia]] · [[Repositorios y catálogos de skills]] · [[Catálogo de herramientas y productividad]] · [[Nuevos roles profesionales en la era de IA]] · [[AI Engineering Lab - Repositorio de referencia]]
