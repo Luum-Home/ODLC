@@ -37,6 +37,7 @@ Estos repositorios se encuentran clonados en el directorio local `external/` (el
 
 Para complementar la investigación técnica de HACS y Cognitive OS, analizamos y recomendamos los siguientes materiales multimedia:
 - [[Análisis - Stop Using Claude Without an Agentic OS]]: Resumen y desglose de las 5 capas arquitectónicas de un sistema operativo de inteligencia artificial, sus beneficios en la automatización empresarial y comparativas de interfaces de usuario.
+- [[Análisis - Adaptando Claude Code para SDD]]: Lecciones y arquitectura sobre la adaptación del orquestador líder, higiene de contexto en archivos físicos y estructuración de especificaciones en notación EARS.
 
 ---
 
