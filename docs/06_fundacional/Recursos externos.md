@@ -29,7 +29,7 @@ Estos repositorios se encuentran clonados en el directorio local `external/` (el
 | **gsd-core** | open-gsd | Framework de meta-prompting y de ingeniería de contexto ágil para evitar la deriva de contexto en sesiones de agentes. | [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) |
 | **OpenSpec** | Fission-AI | Especificación abierta y unificada para guiar la comunicación de requerimientos (SDD) consumible por múltiples agentes. | [Fission-AI/OpenSpec](https://github.com/Fission-AI/OpenSpec) |
 | **Kiro** | kirodotdev | IDE y CLI nativo de agentes para desarrollo spec-driven, control de tareas y DevOps automatizado. | [kirodotdev/Kiro](https://github.com/kirodotdev/Kiro) |
-| **luum-cognitive-os** | Luum-Home | Malla de gobernanza de 14 capas desarrollada en colaboración entre Luum y OliveX (disponible localmente en `~/Projects/luum/luum-agent-os/`). | [Luum-Home/luum-cognitive-os](https://github.com/Luum-Home/luum-cognitive-os) |
+| **luum-cognitive-os** | Luum-Home | Malla de gobernanza de 14 capas desarrollada en colaboración entre Luum y OliveX como arquitectura de referencia. | [Luum-Home/luum-cognitive-os](https://github.com/Luum-Home/luum-cognitive-os) |
 
 ---
 

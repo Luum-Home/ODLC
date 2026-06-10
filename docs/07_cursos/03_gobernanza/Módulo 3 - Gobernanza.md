@@ -40,11 +40,71 @@ Un sistema sin gobernanza (donde un agente puede desplegar a producción sin rev
 
 ---
 
-En el entorno local y en la carpeta `external/` cuentas con herramientas de referencia clave (ver [[Recursos externos]]):
--   `external/gentleman-guardian-angel/`: Un agente diseñado para actuar como "Ángel Guardián" o supervisor de seguridad. Su propósito es interceptar las llamadas a comandos del sistema propuestas por otros agentes, auditar que no contengan comandos peligrosos (como `rm -rf /` o lecturas de secretos del entorno), y requerir la confirmación interactiva de un operador humano antes de su ejecución.
--   **Luum Cognitive OS (`~/Projects/luum/luum-agent-os/`)**: Repositorio desarrollado en colaboración entre **Luum** y **OliveX**. Contiene la implementación real de la malla de gobernanza para agentes de desarrollo (`cos` CLI y ganchos de control).
-    -   *Práctica*: Accede al directorio `~/Projects/luum/luum-agent-os/` y examina el archivo de configuración `cognitive-os.yaml` para comprender cómo se estructuran las fases de proyecto y políticas de calidad. Revisa la carpeta `hooks/` para estudiar el comportamiento de scripts restrictivos como `claim-validator.sh` (evita falsificaciones de tests) y `blast-radius.sh` (restringe el radio de escritura de archivos).
+## 3. La Malla de Seguridad de 14 Capas (14-Layer Safety Mesh)
+
+La gobernanza técnica en la arquitectura de [[Cognitive OS - Arquitectura de referencia]] no depende de un único punto de control. En su lugar, implementa una **Malla de Seguridad de 14 Capas (Safety Mesh)**, una serie de interceptores independientes ejecutados en el ciclo de vida de las herramientas (`PreToolUse` y `PostToolUse`).
+
+### Estructura de la Malla de Seguridad
+
+| Capa | Componente / Hook | Tipo | Momento | Objetivo de Contención / Prevención | Comportamiento |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **1** | `clarification-gate.sh` | Semántico | Pre-Launch | Bloquea tareas redactadas con ambigüedad extrema antes de ejecutarlas. | **BLOCK** si puntaje > 60 |
+| **2** | `blast-radius.sh` | Determinista | Pre-Launch | Advierte sobre el impacto estimado de la tarea en archivos/directorios. | **WARN** (informativo) |
+| **3** | `dry-run-preview.sh` | Determinista | Pre-Launch | Ejecución simulada para validar planes sin consumir recursos. | **BLOCK** si `DRY_RUN=true` |
+| **4** | `rate-limiter.sh` | Determinista | Pre-Tool | Evita loops infinitos de llamadas de API y sobrecostos financieros. | **BLOCK** si excede límites |
+| **5** | `scope-proportionality.sh`| Determinista | Post-Tool | Evita que un arreglo menor se convierta en una reescritura masiva. | **BLOCK** si es desproporcional |
+| **6** | `claim-validator.sh` | Determinista | Post-Tool | Valida en el sistema de archivos las afirmaciones de tests y creación de archivos. | **BLOCK** en producción si hay fallas |
+| **7** | `assumption-tracker.sh` | Semántico | Post-Tool | Detecta y registra suposiciones lingüísticas hechas por el agente. | **WARN** si hay 3+ suposiciones |
+| **8** | `trust-score-validator.sh`| Determinista | Post-Tool | Asegura la presencia y correcto formato de reportes de confianza. | **LOG** (métricas) |
+| **9** | `confidence-gate.sh` | Determinista | Post-Tool | Bloquea la propagación de resultados si el score de confianza es bajo. | **BLOCK** en producción si score < 50 |
+| **10**| `clarification-interceptor.sh`| Semántico | Post-Tool | Intercepta marcas de ambigüedad a mitad del objetivo para guiar al usuario. | **LOG** + Señal al orquestador |
+| **11**| `auto-rollback-trigger.sh`| Determinista | Post-Tool | Revierte automáticamente los cambios a un estado limpio tras fallar retries. | **BLOCK** + Git Revert |
+| **12**| `lib/cross_verifier.py` | Semántico | On-Demand | Un segundo modelo de lenguaje audita y verifica el resultado del primero. | Llamada de biblioteca |
+| **13**| `reinvention-check.sh` | Semántico | Post-Tool | Evita duplicar código al advertir si ya existe una solución en el sistema. | **WARN** + Sugerencia de reúso |
+| **14**| `lib/memory_scanner.py` | Semántico | Session-Start| Escanea memorias semánticas del agente en busca de contradicciones. | Llamada de biblioteca |
+
+---
+
+### Principios de Diseño de la Malla (Defensa en Profundidad)
+
+1. **Independencia de Capas**: Cada capa atiende a un riesgo diferente. Deshabilitar una capa genera una vulnerabilidad ciega que el resto de los filtros no pueden subsanar (ej. la verificación de tests no soluciona el riesgo de sobrecosto del `rate-limiter`).
+2. **Degradación Gradual (Spectrum of Control)**: No todos los filtros detienen al agente. Se clasifican según su impacto:
+   - **BLOCK**: Detención inmediata de la ejecución (Capas 1, 3, 4, 5, 9, 11).
+   - **WARN**: Advertencia al operador humano, permitiendo continuar (Capas 2, 7, 13).
+   - **LOG**: Registro silencioso en `.cognitive-os/metrics/` para auditoría y aprendizaje del sistema (Capas 6, 8, 10).
+3. **Sensibilidad de Fase (Phase Awareness)**: El comportamiento de la malla se adapta al estado del ciclo de vida del proyecto definido en `cognitive-os.yaml`:
+   - En fases de **Reconstrucción** o **Estabilización**, los ganchos de control son más permisivos (alertas prioritarias sobre bloqueos) para acelerar el desarrollo.
+   - En fases de **Producción** o **Mantenimiento**, los ganchos de control se tornan estrictamente prohibitivos para proteger la estabilidad operativa.
+
+---
+
+## 4. Gobernanza Basada en Prompts (Prompt-Driven Governance)
+
+Tradicionalmente, los ganchos de gobernanza se programaban de forma imperativa (ej. scripts en Bash con complejas expresiones regulares de `grep -E`). No obstante, la arquitectura moderna de gobernanza introduce el paradigma de **Prompt-Driven Governance**.
+
+### ¿Por qué migrar a Prompts en Gobernanza?
+- **Juicio Semántico**: Expresiones como "I think" o "Probably" a veces denotan razonamiento válido basados en pruebas de compilador, y no necesariamente suposiciones ciegas. Un script determinista de regex bloquea indiscriminadamente. Un prompt evaluado por un modelo rápido como *Claude Haiku* diferencia el contexto lingüístico real.
+- **Mantenibilidad en Prosa**: Cambiar las reglas de aceptación o los umbrales de ambigüedad implica editar instrucciones en Markdown en lugar de refactorizar scripts Bash y depurar caracteres de escape.
+- **Arquitectura Híbrida**: Los controles aritméticos rápidos (como el presupuesto de API o conteo de archivos modificados) se mantienen en Bash determinista por eficiencia (latencia <100ms, costo $0). Las evaluaciones cognitivas subjetivas (como calidad de intenciones o detección de supuestos) se delegan secuencialmente a prompts semánticos (latencia de 1 a 2s, costo aproximado de $0.0005 por llamada).
+
+---
+
+## 5. Simulación de Ataques y Auditoría de Malla (`/pentest-self`)
+
+Para garantizar que ningún cambio en la configuración de la malla de gobernanza debilite los controles, se utiliza la suite automatizada de pruebas de penetración autónoma `/pentest-self`. Este comando simula ataques semánticos y técnicos sobre el propio entorno:
+- Probar inyecciones de prompts diseñadas para forzar el modo administrador.
+- Intentar escrituras en áreas fuera del Sandbox asignado.
+- Provocar loops de llamadas continuas para validar la efectividad del `rate-limiter`.
+
+---
+
+## 6. Ejercicios Prácticos y Herramientas de Referencia
+
+En la carpeta `external/` cuentas con herramientas de referencia clave (ver [[Recursos externos]]):
+- `external/gentleman-guardian-angel/`: Un agente diseñado para actuar como "Ángel Guardián" o supervisor de seguridad. Intercepta llamadas a comandos de sistema propuestas por otros agentes, audita que no contengan operaciones destructivas, y requiere la confirmación interactiva del operador humano antes de proceder.
+- **Implementación de Referencia en luum-cognitive-os**: Puedes estudiar los flujos y esquemas declarativos en los repositorios públicos de referencia para observar la configuración del orquestador en `cognitive-os.yaml` y el código fuente de los interceptores pre y post-ejecución.
 
 ---
 Siguiente módulo: [[Módulo 4 - Ciberseguridad aplicada]]
-Relacionado: [[Gobernanza]] · [[Manifiesto HACS-ODLC]] · [[Recursos externos]]
+Relacionado: [[Gobernanza]] · [[Manifiesto HACS-ODLC]] · [[Recursos externos]] · [[Riesgos]] · [[Cognitive OS - Arquitectura de referencia]]
+

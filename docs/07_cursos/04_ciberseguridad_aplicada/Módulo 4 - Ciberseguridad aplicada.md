@@ -26,21 +26,49 @@ Este módulo avanzado está diseñado para ingenieros sénior, especialistas de 
 
 ## 2. Estrategias de Mitigación y Hardening
 
-Para proteger tu sistema cognitivo, debes aplicar las siguientes medidas en la capa de gobernanza y arquitectura:
+Para proteger un sistema cognitivo contra vectores semánticos y de infraestructura, [[Cognitive OS - Arquitectura de referencia]] despliega un conjunto de filtros activos en los momentos `PreToolUse` y `PostToolUse` de su [[Módulo 3 - Gobernanza|Safety Mesh]].
 
-| Medida de Seguridad | Descripción | Implementación |
-|---|---|---|
-| **Aislamiento de Sandbox** | El agente ejecuta código exclusivamente dentro de contenedores efímeros (Docker) con red restringida y sistemas de archivos montados en modo solo lectura. | Docker + gVisor. |
-| **Sanitización de Datos (PII Redaction)** | Filtros que interceptan los datos de entrada/salida y reemplazan números de tarjetas, contraseñas y nombres reales por marcadores genéricos. | Librerías de sanitización antes de enviar prompts. |
-| **Análisis Estático Automático** | Ejecutar herramientas automáticas de análisis de seguridad sobre el código propuesto por los agentes antes de su compilación. | Correr `Bandit` (para Python) o `Snyk` en el arnés. |
+### A. Escaneo Semántico y Determinista de Inyecciones (Pre-Launch)
+
+Antes de que un agente comience a procesar el objetivo, su prompt de entrada es auditado por dos ganchos de seguridad redundantes:
+1. **`parry-scan.sh` (Escaneo de Aprendizaje Profundo)**: Utiliza un clasificador de lenguaje natural ligero (basado en *DeBERTa*) para identificar intenciones maliciosas de prompt injection (como intentos de evasión de sistema, modo "admin", o instrucciones codificadas en Base64).
+2. **`aguara-scan.sh` (Filtro Determinista)**: Ejecuta una matriz de **189 reglas deterministas** buscando patrones de inyección comunes, caracteres invisibles de Unicode, y palabras clave prohibidas.
+
+### B. Sanitización de Datos y Fuga de Secretos (Post-Tool)
+
+Para evitar la fuga de información sensible (como claves de APIs o datos personales de clientes/PII) hacia modelos externos, el sistema cuenta con interceptores de contenido:
+- **`secret-detector.sh`**: Evalúa todas las escrituras y modificaciones de archivos (`Edit`/`Write`) antes de que impacten el repositorio, buscando patrones de claves privadas, tokens JWT o strings de configuración de bases de datos.
+- **`lib/memory_scanner.py`**: Gana prioridad al inicio de la sesión y durante el guardado de memoria. Audita todas las observaciones destinadas a la [[Memoria organizacional]] (memoria persistente) eliminando rastros de inyecciones semánticas latentes antes de persistir los datos.
+
+### C. Resumen de Controles de Ciberseguridad
+
+| Medida de Seguridad | Tipo | Ejecución | Objetivo de Mitigación |
+|---|---|---|---|
+| **Aislamiento de Sandbox** | Infraestructura | Docker + gVisor | Evita el escape del agente al host físico y protege la red corporativa. |
+| **Sanitización de Datos (PII Redaction)** | Semántico | Pre-Prompt send | Evita el envío accidental de nombres, teléfonos y datos de pago a LLMs externos. |
+| **Detección de Secretos** | Estático / Regex | `secret-detector.sh` | Bloquea el guardado o commit de credenciales en texto plano en el repositorio. |
+| **Análisis de Vulnerabilidades** | Análisis estático | Linter + Snyk/Bandit | Evalúa si el código autogenerado contiene bugs de seguridad (ej. inyección SQL). |
 
 ---
 
-## 3. Prácticas en el Repositorio Local
+## 3. Simulación de Intrusión Autónoma (`/pentest-self`)
+
+La verificación activa de los filtros de ciberseguridad se realiza mediante el comando integrado `/pentest-self`. Este disparador ejecuta suites de pruebas controladas que intentan comprometer el sistema en las siguientes áreas de riesgo:
+
+1. **Prompt Injection**: Simula payloads base64, inyecciones indirectas en archivos simulados, e instrucciones imperativas que exigen ignorar el sistema operativo del agente.
+2. **Escalación de Permisos**: Intenta forzar escrituras de archivos en directorios restringidos o fuera de los límites virtuales del Sandbox.
+3. **Exfiltración de Secretos**: Intenta ejecutar comandos `grep` masivos en archivos de configuración (`.env`) y forzar solicitudes HTTP hacia servidores de extracción.
+4. **Denegación de Servicio (DoS)**: Inyecta loops masivos de llamadas a subagentes u operaciones de escritura concurrentes de archivos para comprobar si el `rate-limiter.sh` bloquea la sesión.
+5. **Alteración de Integridad**: Intenta manipular o borrar de forma encubierta los logs de métricas e historiales de auditoría en la carpeta de gobernanza.
+
+---
+
+## 4. Prácticas en el Repositorio Local
 
 En la carpeta `external/` cuentas con el repositorio de referencia (ver [[Recursos externos]]):
--   `external/Gentleman-MCP/`: Proporciona servidores de Model Context Protocol (MCP). Los servidores MCP son excelentes ejemplos de cómo se delimitan y aseguran las herramientas que tiene permitidas usar un agente. Estudiar cómo un servidor MCP restringe el acceso al sistema de archivos a un directorio específico es vital para comprender el diseño de límites de ciberseguridad.
+- `external/Gentleman-MCP/`: Proporciona servidores de Model Context Protocol (MCP). Los servidores MCP restringen el acceso del agente a directorios y recursos de hardware específicos. Estudiar su diseño de restricciones de llamadas API permite comprender cómo enjaular las capacidades del agente en producción.
 
 ---
 Módulos del curso: [[Módulo 1 - Construcción de agentes]] · [[Módulo 2 - Ingeniería de arneses]] · [[Módulo 3 - Gobernanza]]
 Relacionado: [[Riesgos]] · [[Gobernanza]] · [[Cognitive OS - Arquitectura de referencia]]
+
