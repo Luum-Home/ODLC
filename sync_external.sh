@@ -12,6 +12,10 @@ REPOS=(
   "https://github.com/external source/Gentleman-MCP"
   "https://github.com/bmad-code-org/BMAD-METHOD"
   "https://github.com/buildermethods/agent-os"
+  "https://github.com/github/spec-kit"
+  "https://github.com/open-gsd/gsd-core"
+  "https://github.com/Fission-AI/OpenSpec"
+  "https://github.com/kirodotdev/Kiro"
 )
 
 # Crear directorio external si no existe
