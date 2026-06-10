@@ -1,42 +1,58 @@
 ---
-tags: [problema, hipotesis]
-status: borrador
+tags: [problema, hipotesis, metodologias, metricas]
+status: evergreen
 created: 2026-06-10
 ---
 
 # Por qué fallan las metodologías actuales
 
-## Hipótesis
+Las metodologías y marcos de trabajo dominantes en la industria del software fueron diseñados para resolver problemas de eras pasadas. Al analizar su propósito de diseño original, se hace evidente por qué resultan inadecuadas frente al paradigma de desarrollo asistido por agentes:
 
-- **Scrum optimiza coordinación humana.** Backlog, historias, sprints y ceremonias existen para sincronizar personas con ancho de banda limitado.
-- **DevOps optimiza entrega.** CI/CD, automatización de infra y feedback loops acortan el camino del commit a producción.
-- **Ninguna optimiza la colaboración humano-agente.** Todas asumen que el trabajo lo producen exclusivamente humanos y que las herramientas son pasivas.
+*   **Waterfall (Cascada)**: Fue diseñada para proyectos con requerimientos altamente previsibles y estables, donde el costo de cambiar el diseño físico o lógico a mitad de camino era prohibitivo.
+*   **Scrum / Agile**: Fueron creadas para gestionar la **incertidumbre funcional** mediante ciclos cortos de retroalimentación, asumiendo que la coordinación entre humanos con ancho de banda y velocidad limitados es el principal reto.
+*   **DevOps**: Fue diseñada para acelerar y automatizar la **entrega y operación** del software (acortando el camino entre el commit humano y producción).
+*   **Platform Engineering (Ingeniería de Plataformas)**: Fue estructurada para **escalar equipos humanos** reduciendo su carga cognitiva a través de portales de autoservicio (IDPs) y caminos dorados (*golden paths*).
+*   **AI Engineering (Ingeniería de IA)**: Se enfoca en la arquitectura técnica para **construir productos que integran IA** (evaluaciones, bases de datos vectoriales y APIs de LLM).
 
-Los modelos actuales de trabajo fueron diseñados para equipos compuestos exclusivamente por humanos.
+## El Nuevo Contexto no Contemplado
 
-## Situación actual vs. señales del cambio
+Ninguno de los marcos anteriores fue diseñado para operar en un contexto caracterizado por las siguientes dinámicas de desarrollo autónomo:
 
-**Situación que asumen las metodologías:** los humanos producen el código, ejecutan los análisis, generan la documentación, realizan las pruebas y toman todas las decisiones operativas.
+1.  **Orquestación de Multi-Agentes**: Un único desarrollador humano actúa como supervisor de **5 a 10 agentes autónomos trabajando en paralelo**.
+2.  **Generación de Código e Infraestructura Autónoma**: Los Pull Requests (PRs) se generan automáticamente por agentes de codificación.
+3.  **Higiene Documental Autónoma**: La documentación del sistema se escribe, refactora y actualiza sola tras cada cambio en el código.
+4.  **Validación de Pruebas Autónoma**: Los casos de prueba, unitarios y de integración se auto-generan y se corrigen solos al mutar las firmas del código.
+5.  **Requerimientos Volátiles**: Los objetivos e intenciones de negocio cambian a nivel de requerimientos diariamente.
+6.  **Costo Marginal Cero**: El costo marginal de producir una nueva línea de código o infraestructura lógica tiende a cero.
 
-**Señales de cambio ya visibles:** generación automática de código, agentes de revisión, agentes de testing, agentes de documentación, agentes de operaciones, agentes de arquitectura.
+---
 
-## Cambio de paradigma
+## Lo que está Muriendo: La Obsolescencia de las Métricas Tradicionales
 
-| Modelo | Flujo |
-|---|---|
-| Tradicional | Humanos → Herramientas → Resultado |
-| AI-Assisted | Humanos → IA Asistiva → Herramientas → Resultado |
-| Human-Agent | Humanos → Agentes Autónomos → Herramientas → Resultado |
+En esta nueva realidad, las métricas tradicionales de productividad y gestión de proyectos pierden su significado y se vuelven inútiles (o fácilmente manipulables por los agentes):
 
-La IA cambia el costo de ejecución, pero los cuellos de botella permanecen en contexto, decisiones, alineación, validación y aprendizaje → [[Nuevos cuellos de botella]].
+*   **Story Points (Puntos de Historia)**: Diseñados para medir la complejidad percibida y el esfuerzo humano. Pierden sentido cuando un agente puede escribir una API completa con 10,000 líneas de código en 30 segundos.
+*   **Velocity (Velocidad de Sprint)**: El concepto de medir cuántas tareas o puntos puede completar un equipo en dos semanas carece de relevancia cuando la producción es instantánea y el cuello de botella se traslada a la toma de decisiones y validaciones.
+*   **Burndown Charts (Gráficos de Trabajo Pendiente)**: Monitorear el progreso diario de tareas humanas en un sprint de tiempo fijo es obsoleto ante bucles de agentes que resuelven backlogs enteros de forma asíncrona.
+*   **Número de PRs y Líneas de Código**: Convertir el volumen de entregas en una métrica de rendimiento incentiva a los agentes a inundar el repositorio con código innecesario, aumentando la deuda técnica y los costos de contexto.
 
-## Evidencia
+---
 
-> ⚠️ Pendiente: esta sección necesita datos reales (estudios DORA, casos propios, postmortems). Hoy la hipótesis se sostiene en observación directa, no en evidencia formal.
+## Por qué ODLC tiene Sentido
 
-## Preguntas abiertas
+Dado que el código se ha vuelto un comodity y su costo marginal tiende a cero, el verdadero reto ya no es *escribir* el programa, sino **garantizar que el software construido satisfaga los objetivos reales del negocio dentro de los límites de seguridad y gobernanza**.
 
-- ¿Falla Scrum, o falla *Scrum aplicado a equipos con agentes*? ¿Es reemplazo o extensión? (ver [[Preguntas abiertas]])
-- ¿Qué partes de Scrum/DevOps sobreviven dentro de [[ODLC]]?
+Aquí es donde entra **ODLC** (Objective-Driven Lifecycle), estructurando el ciclo de vida alrededor de objetivos probabilísticos en lugar de tareas deterministas:
 
-Relacionado: [[Comparativa con metodologías existentes]], [[HACS]]
+$$\text{Objective} \longrightarrow \text{Constraints} \longrightarrow \text{Strategy} \longrightarrow \text{Execution} \longrightarrow \text{Validation} \longrightarrow \text{Learning}$$
+
+-   **Objective (Objetivo)**: Define la intención última (el *outcome* deseado).
+-   **Constraints (Restricciones)**: Límites de autonomía, presupuesto de tokens, API tokens, y reglas de seguridad.
+-   **Strategy (Estrategia)**: Plan de acción y selección de herramientas/modelos por parte del agente.
+-   **Execution (Ejecución)**: Escritura e implementación autónoma mediada por arneses locales.
+-   **Validation (Validación)**: Pruebas de caja negra, Ground Truth Checking y arbitraje ciego para asegurar el cumplimiento del objetivo.
+-   **Learning (Aprendizaje)**: Resumen y persistencia de memoria (memorias persistentes) para la siguiente iteración.
+
+---
+Relacionado: [[Comparativa con metodologías existentes]] · [[HACS]] · [[Nuevos cuellos de botella]] · [[Más código no es más velocidad]]
+
