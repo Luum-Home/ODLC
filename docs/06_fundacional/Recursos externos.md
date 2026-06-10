@@ -33,6 +33,13 @@ Estos repositorios se encuentran clonados en el directorio local `external/` (el
 
 ---
 
+## Recursos Audiovisuales y Multimedia
+
+Para complementar la investigación técnica de HACS y Cognitive OS, analizamos y recomendamos los siguientes materiales multimedia:
+- [[Análisis - Stop Using Claude Without an Agentic OS]]: Resumen y desglose de las 5 capas arquitectónicas de un sistema operativo de inteligencia artificial, sus beneficios en la automatización empresarial y comparativas de interfaces de usuario.
+
+---
+
 ## Cómo mantener los repositorios actualizados
 
 Para simplificar la sincronización de estos repositorios y asegurar que cuenten con las últimas actualizaciones de sus respectivos autores, hemos creado el script de automatización `sync_external.sh` en la raíz del repositorio.
