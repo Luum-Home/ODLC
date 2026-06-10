@@ -42,6 +42,7 @@ created: 2026-06-10
 - [[Caso - Alta Tienda]] — primer caso de aplicación real (a completar)
 - [[Análisis - Stop Using Claude Without an Agentic OS]] — resumen y lecciones del Agentic OS (capas, beneficios y opciones)
 - [[Análisis - Adaptando Claude Code para SDD]] — lecciones de Harness Engineering y multi-agentes en flujos SDD
+- [[Análisis - Harness Engineering y la Paradoja de Herramientas]] — los tres pilares de un arnés y la degradación de contexto
 
 ## Parte VI — Fundacional
 
