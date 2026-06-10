@@ -46,6 +46,7 @@ created: 2026-06-10
 - [[Análisis - La Cultura del Token]] — métricas de token por empleado, Goodhart's Law, teatro de IA y el Retorno del Token (Token ROI)
 - [[Análisis - Construyendo un Arnés de IA desde Cero]] — arquitectura de bucle dual, polimorfismo, subagentes dinámicos y memoria persistente
 - [[Análisis - Escasez de Tokens y la Crisis de Capacidad de la IA]] — racionamiento de tokens, peaje lingüístico, sostenibilidad del modelo de suscripción y la IA de dos velocidades
+- [[Análisis - Token Economics y las 5 Predicciones del Caos]] — token poker, budgets por equipo, pair prompting y la advertencia de deuda técnica
 
 ## Parte VI — Fundacional
 

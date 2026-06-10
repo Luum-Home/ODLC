@@ -44,6 +44,7 @@ Para complementar la investigación técnica de HACS y Cognitive OS, analizamos 
 - [[Análisis - La Cultura del Token]]: Métricas de adopción de IA por tokens consumidos, Goodhart's Law aplicada a la IA (casos Meta, Amazon y Nvidia), los dos errores (tacaño vs performativo) y el concepto de Retorno del Token (Token ROI).
 - [[Análisis - Construyendo un Arnés de IA desde Cero]]: Estudio y desglose detallado de la arquitectura de un arnés de IA basado en Go, detallando el bucle de ejecución dual (RPL y evaluación), gateways de aprobación de comandos, delegación recursiva de subagentes y compactación de tokens.
 - [[Análisis - Escasez de Tokens y la Crisis de Capacidad de la IA]]: La crisis de cómputo actual, racionamiento de tokens, el peaje lingüístico del español, modelos insostenibles de tarifa plana y el inicio de la IA de dos velocidades.
+- [[Análisis - Token Economics y las 5 Predicciones del Caos]]: Cinco escenarios inminentes sobre la economía de tokens corporativa (donaciones, stipends, token poker, budgets por equipo, recompensas por uso), la advertencia de George Hotz y el riesgo de deuda técnica masiva.
 
 ---
 
