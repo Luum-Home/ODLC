@@ -1,0 +1,29 @@
+---
+tags: [hacs, organizacion]
+status: borrador
+created: 2026-06-10
+---
+
+# Unidad organizacional
+
+## Antes → Después
+
+**Antes** (equipo tradicional): Product Manager, Architect, Developers, QA, DevOps.
+
+**Después** (sistema HACS): **Humans + Agents + Memory + Governance.**
+
+## ¿Qué cambia?
+
+1. **Los roles dejan de mapear 1:1 a personas.** "QA" deja de ser una persona y pasa a ser una *capacidad* del sistema, ejercida mayormente por agentes ([[Roles de agentes]]) bajo supervisión humana ([[Gobernanza]]).
+2. **La memoria deja de vivir en las cabezas.** En un equipo humano, el contexto se pierde con la rotación. En HACS, la [[Memoria organizacional]] es un componente de primera clase, no un subproducto.
+3. **La coordinación deja de ser el costo dominante.** Scrum existe porque coordinar humanos es caro. Cuando los ejecutores son agentes con contexto compartido, las ceremonias de sincronización pierden sentido y las reemplaza la alineación por objetivos ([[Fase 1 - Objective]]).
+4. **El humano sube de altitud.** De ejecutar tareas a definir intención, restricciones y criterios de éxito ([[Roles humanos]]).
+
+## Hipótesis
+
+- La carga cognitiva (concepto de Team Topologies) se redistribuye: los agentes absorben la carga *intrínseca* de ejecución; los humanos retienen la carga *germana* de decisión. → a validar.
+
+## Preguntas abiertas
+
+- ¿Cuál es el tamaño mínimo viable de un sistema HACS? ¿Un humano + N agentes ya califica?
+- ¿Cómo se organizan *múltiples* unidades HACS entre sí? (el problema que SAFe intenta resolver para humanos — ver [[Comparativa con metodologías existentes]])

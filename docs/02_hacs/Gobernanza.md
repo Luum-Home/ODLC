@@ -1,0 +1,35 @@
+---
+tags: [hacs, gobernanza]
+status: borrador
+created: 2026-06-10
+---
+
+# Gobernanza
+
+Componente de [[HACS]] que define **seguridad, compliance, auditoría, costos y límites de autonomía**. Materializa el principio **Human Governance** del [[Manifiesto HACS-ODLC]]: los agentes ejecutan; los humanos definen hasta dónde.
+
+## Límites de autonomía (matriz borrador)
+
+| Acción | Humano | Agente |
+|---|---|---|
+| Definir objetivo | ✅ decide | propone, analiza |
+| Decisión de arquitectura | ✅ aprueba | propone con tradeoffs |
+| Escribir código / tests / docs | supervisa | ✅ ejecuta |
+| Merge a main | aprueba (configurable por madurez) | propone PR |
+| **Deploy a producción** | ✅ aprueba | prepara y ejecuta tras aprobación |
+| Cambios de seguridad / accesos | ✅ siempre decide | detecta y propone |
+| Gasto fuera de presupuesto | ✅ siempre decide | alerta |
+
+La matriz **no es fija**: se relaja a medida que sube el nivel de [[Modelo de madurez AI-Native]] y la confianza acumulada (evidencia en [[Memoria organizacional]] de tasas de acierto del agente — [[Métricas de agentes]]).
+
+## Principios de diseño
+
+1. **Autonomía ganada, no otorgada:** un agente amplía sus permisos cuando su historial de precisión lo justifica, no por default.
+2. **Auditoría total:** toda acción de agente queda registrada con contexto, costo y evidencia.
+3. **Reversibilidad como criterio:** acciones reversibles → agente autónomo; irreversibles o externas → aprobación humana.
+4. **Presupuesto explícito:** los agentes tienen costo medible; la gobernanza incluye límites de gasto por objetivo ([[Fase 2 - Constraints]]).
+
+## Preguntas abiertas
+
+- ¿Cómo se audita una *cadena* de decisiones entre agentes (Planner → Builder → Reviewer) cuando el error emerge de la composición?
+- ¿Qué marcos regulatorios aplican (EU AI Act, SOC 2) y cómo mapean a esta matriz? → alimenta [[Riesgos]]
