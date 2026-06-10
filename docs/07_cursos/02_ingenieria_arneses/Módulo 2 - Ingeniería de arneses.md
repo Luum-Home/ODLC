@@ -61,16 +61,37 @@ def run_agent_validation(sandbox_path):
     return True, "Validación exitosa"
 ```
 
+## 3. Validación de Reclamos de Éxito (Ground Truth Checker)
+
+Uno de los principales problemas al delegar tareas críticas a los agentes autónomos de desarrollo es el **auto-reporte ficticio** o alucinaciones de éxito. Un agente puede escribir en su reporte: *"He creado la API de usuarios y todos los 15 tests unitarios pasan exitosamente"*, cuando en realidad no ha creado el archivo correcto o las pruebas fallaron.
+
+Para mitigar esto, dentro del [[Módulo 3 - Gobernanza|Safety Mesh]] de la arquitectura [[Cognitive OS - Arquitectura de referencia]] se integra la herramienta **Ground Truth Checker** (`lib/ground_truth.py` y el hook `claim-validator.sh`).
+
+### ¿Cómo opera el Ground Truth Checker?
+
+1. **Extracción Semántica de Reclamos**: Tras cada finalización de tarea por parte del agente, el sistema lee la salida textual y extrae declaraciones de éxito mediante patrones estructurados:
+   - *"Created file `path/to/file`"*
+   - *"N tests passing"*
+   - *"Build succeeded"*
+2. **Auditoría Determinista contra la Realidad**:
+   - **Verificación de archivos**: Verifica la existencia física del archivo modificado o creado usando funciones del sistema (`os.path.exists`).
+   - **Verificación de funciones/tests**: Realiza búsquedas de texto directo y análisis estático (grep) sobre la suite para validar que las firmas de las funciones y los recuentos declarados coincidan con el archivo final.
+3. **Puntaje de Alucinación (Hallucination Score)**: El componente genera una métrica entre `0.0` (todos los reclamos validados coinciden con la realidad en disco) y `1.0` (ninguno de los reclamos declarados es real).
+4. **Comportamiento en Ganchos (claim-validator.sh)**:
+   - En fases de **Reconstrucción/Estabilización**: Se reporta una alerta descriptiva (**WARN** con exit 0), permitiendo al desarrollador corregir el flujo.
+   - En fases de **Producción/Mantenimiento**: Si se detecta cualquier discrepancia o alucinación de archivo, el gancho detiene la entrega (**BLOCK** con exit 2) y rechaza la propuesta del agente.
+
 ---
 
-## 3. Prácticas en el Repositorio Local
+## 4. Prácticas en el Repositorio Local
 
-En la carpeta `external/` tienes clonados dos repositorios clave de referencia sobre esta materia (ver [[Recursos externos]]):
--   `external/harness-sdd/`: Contiene el framework conceptual y ejemplos de cómo diseñar código guiado por arneses.
--   `external/ejemplo-harness-subagentes/`: Un ejemplo funcional en Python de cómo un agente principal delega subtareas en subagentes enjaulados bajo arneses de testeo y consolida los resultados.
+En la carpeta `external/` de este proyecto tienes clonados dos repositorios clave de referencia sobre esta materia (ver [[Recursos externos]]):
+- `external/harness-sdd/`: Contiene el framework conceptual y ejemplos prácticos de cómo estructurar desarrollos guiados por arneses.
+- `external/ejemplo-harness-subagentes/`: Un ejemplo en Python donde un agente coordinador orquesta y valida a subagentes aislados ejecutando sus suites de pruebas locales (`pytest`) de forma automatizada.
 
-Te recomendamos ingresar a esos directorios, explorar su código y ejecutar sus suites de pruebas locales (`pytest`) para familiarizarte con el patrón de diseño.
+Te recomendamos explorar dichos directorios y familiarizarte con las suites de pruebas para asimilar cómo la verificación determinista de código se complementa con la gobernanza automática.
 
 ---
 Siguiente módulo: [[Módulo 3 - Gobernanza]]
-Relacionado: [[Cognitive OS - Arquitectura de referencia]] · [[Recursos externos]]
+Relacionado: [[Cognitive OS - Arquitectura de referencia]] · [[Recursos externos]] · [[Manifiesto HACS-ODLC]] · [[Riesgos]]
+
