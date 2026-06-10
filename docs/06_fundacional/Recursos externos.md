@@ -23,6 +23,8 @@ Estos repositorios se encuentran clonados en el directorio local `external/` (el
 | **gentle-pi** | external source | Pipelines de ejecución e integración continua optimizados para tareas automáticas. | [external source/gentle-pi](https://github.com/external source/gentle-pi) |
 | **gentleman-guardian-angel** | external source | Agente de supervisión y gobernanza de límites de ejecución y seguridad (Gobernanza humana/agente). | [external source/gentleman-guardian-angel](https://github.com/external source/gentleman-guardian-angel) |
 | **Gentleman-MCP** | external source | Servidores de Model Context Protocol (MCP) para dotar a los agentes de herramientas de lectura/escritura de sistema. | [external source/Gentleman-MCP](https://github.com/external source/Gentleman-MCP) |
+| **BMAD-METHOD** | bmad-code-org | Framework de desarrollo ágil AI-Native y spec-driven mediante equipo de agentes (PM, Architect, QA, Scrum Master). | [bmad-code-org/BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) |
+| **agent-os** | buildermethods | Sistema ligero para descubrir, desplegar e indexar estándares y convenciones de código para agentes locales. | [buildermethods/agent-os](https://github.com/buildermethods/agent-os) |
 
 ---
 

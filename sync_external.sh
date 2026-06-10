@@ -10,6 +10,8 @@ REPOS=(
   "https://github.com/external source/gentle-pi"
   "https://github.com/external source/gentleman-guardian-angel"
   "https://github.com/external source/Gentleman-MCP"
+  "https://github.com/bmad-code-org/BMAD-METHOD"
+  "https://github.com/buildermethods/agent-os"
 )
 
 # Crear directorio external si no existe

@@ -16,6 +16,8 @@ Crítica formal de [[ODLC]]/[[HACS]] contra los marcos dominantes. Cada fila es 
 | **DevOps** | Entrega continua, feedback técnico | Decisión y contexto; optimiza el pipeline, no la intención | Automatización, observabilidad → [[Fase 4 - Execution]] |
 | **Team Topologies** | Estructura de equipos y carga cognitiva | Los "equipos" siguen siendo 100% humanos | Carga cognitiva como límite → base de [[Unidad organizacional]] |
 | **Platform Engineering** | Self-service para desarrolladores | La plataforma sirve humanos, no sistemas humano-agente | Golden paths → análogo para agentes en [[Cognitive OS - Arquitectura de referencia]] |
+| **BMAD-METHOD** | Roles de agentes (PM, Architect, QA) y flujos YAML para desarrollo ágil y spec-driven | Colaboración simétrica e interactiva humano-agente y gobernanza a nivel de negocio | Roles especializados de agentes y enfoque de diseño antes de codificar (spec-driven) |
+| **Agent OS (Builder Methods)** | Captura, indexación y despliegue de estándares y convenciones del código para asistentes de desarrollo (Cursor, Claude Code) | Ciclo de vida de negocio completo orientado a Outcomes, métricas y límites de autonomía de gobernanza | El concepto de indexación y descubrimiento automatizado de estándares en `.agent/INSTRUCTIONS.md` |
 
 ## Diferencia de fondo
 
@@ -23,6 +25,19 @@ SDLC: requerimientos, historias de usuario, desarrollo, testing, mantenimiento.
 ODLC: **objetivos, outcomes, ejecución, validación, aprendizaje, memoria viva**.
 
 ODLC no gira alrededor de backlog, historias o sprints. Gira alrededor de objetivos, evidencia, validación y aprendizaje.
+
+## Alternativas en el Espacio de Desarrollo AI-Native
+
+Además del modelo [[HACS]] y [[ODLC]], existen otros marcos que intentan estructurar el ciclo de vida de desarrollo de software AI-Native (o AIDLC):
+
+1.  **GSD (Getting Stuff Done)**:
+    -   *Enfoque*: Una alternativa mucho más ligera y de "baja ceremonia" frente a BMAD-METHOD. Se centra en meta-prompting y en ingeniería de contexto ágil para iteraciones veloces sin el overhead de simular roles de equipos completos.
+2.  **GitHub Spec Kit**:
+    -   *Enfoque*: Caja de herramientas centrada en comandos rápidos (`/specify`, `/plan`, `/tasks`) integrados a la terminal o IDE para mantener al programador humano en el control absoluto de la orquestación (human-in-the-loop) en lugar de automatizar de forma multi-agente.
+3.  **OpenSpec y AWS Kiro**:
+    -   *Enfoque*: Especificaciones abiertas de comunicación y definición de especificaciones técnicas formateadas para el consumo óptimo por LLMs.
+
+---
 
 ## Preguntas abiertas
 
