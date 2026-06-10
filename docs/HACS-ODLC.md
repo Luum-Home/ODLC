@@ -51,3 +51,7 @@ created: 2026-06-10
 - [[Preguntas abiertas]] — lo que todavía no sabemos responder
 - [[Recursos externos]] — repositorios de referencia y herramientas clonadas en local
 - [[Especificación de agentes cross-CLI]] — estándar de archivos de configuración de identidad y comportamiento (CLAUDE.md, SOUL.md, VOICE.md)
+
+## Parte VII — Capacitación y Educación
+
+- [[Cursos HACS-ODLC]] — programa formativo modular (Construcción de agentes, Arneses, Gobernanza y Ciberseguridad)

@@ -30,6 +30,7 @@ Los PDFs en la raíz del repo (`HACS_Canvas.pdf`, `ODLC_Canvas.pdf`, `HACS_ODLC_
 | `04_metricas/` | Métricas operativas, de agentes y organizacionales |
 | `05_cognitive-os/` | Arquitectura de referencia y casos de uso |
 | `06_fundacional/` | Manifiesto, madurez, glosario, roadmap, riesgos, preguntas abiertas |
+| `07_cursos/` | Programa de capacitación: Construcción de agentes, arneses, gobernanza y ciberseguridad |
 
 **Punto de entrada:** [[HACS-ODLC]]
 
