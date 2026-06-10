@@ -83,15 +83,36 @@ Para mitigar esto, dentro del [[Módulo 3 - Gobernanza|Safety Mesh]] de la arqui
 
 ---
 
-## 4. Prácticas en el Repositorio Local
+## 4. El Patrón del "Día de la Justicia" (Judgment Day) y Arbitraje entre Agentes
 
-En la carpeta `external/` de este proyecto tienes clonados dos repositorios clave de referencia sobre esta materia (ver [[Recursos externos]]):
+Además de las verificaciones deterministas del compilador y el linter, los arneses de pruebas más avanzados implementan **mecanismos de arbitraje cognitivo** para evaluar el código generado por un agente antes de que sea entregado o integrado al repositorio principal. El exponente más claro de esta técnica es el patrón **"Día de la Justicia" (Judgment Day)**.
+
+### Evaluación Ciega y Paralela (Dual Blind Review)
+El principio de este patrón establece que **el agente que escribe el código nunca debe juzgar su propio trabajo**. En su lugar, el arnés de gobernanza orquesta un flujo de revisión ciega:
+1. **Lanzamiento de Jueces en Paralelo**: Se instancian dos agentes de revisión independientes y aislados (Juez A y Juez B) que reciben la misma porción de código y criterios de aceptación, sin ver los reportes del otro.
+2. **Clasificación de Perfiles (Optimista vs. Pesimista)**:
+   - **El Agente Optimista**: Evalúa bajo la premisa de "inocente hasta que se demuestre lo contrario". Valida que el flujo principal de negocio funcione, que la arquitectura propuesta cumpla el objetivo y que la velocidad de entrega sea óptima.
+   - **El Agente Pesimista**: Trabaja bajo el modelado de amenazas y asume "culpable hasta que se demuestre lo contrario". Busca vulnerabilidades de seguridad, condiciones de carrera (race conditions), fugas de memoria, inputs maliciosos y falta de manejo de excepciones.
+3. **Compuertas de Arbitraje**: Al finalizar, un componente orquestador consolida los veredictos mediante reglas de decisión:
+   - **Confirmados (Confirmed)**: Defectos encontrados por ambos jueces de forma independiente. Pasan automáticamente al Agente de Corrección (*Fix Agent*) para su refactorización quirúrgica.
+   - **Sospechosos (Suspect)**: Problemas señalados por un solo juez. Se marcan para revisión pero no se auto-corrigen de inmediato para evitar falsos positivos.
+   - **Contradictorios (Contradictions)**: Si un juez aprueba el cambio y el otro encuentra una discrepancia estructural crítica, el arnés congela la entrega y escala una alerta interactiva para que un humano actúe como árbitro supremo.
+
+### Integración Nativa en Modelos de Frontera (Actor-Critic)
+Modelos de frontera más avanzados (como *Claude Mythos 5* o *Fable 5*) traen estas dinámicas implementadas de forma nativa en sus pipelines internos de razonamiento. A través de arquitecturas de tipo **Actor-Critic**, el modelo realiza múltiples pasadas de autorreflexión antes de emitir una respuesta en su canal de salida: un sub-proceso genera una hipótesis de código (optimista) y otro sub-proceso simula ataques o fallas de ejecución (pesimista), arbitrando la respuesta final para entregar código con una tasa de error significativamente menor.
+
+---
+
+## 5. Prácticas en el Repositorio Local
+
+En la carpeta `external/` de este proyecto tienes clonados repositorios clave de referencia sobre esta materia (ver [[Recursos externos]]):
 - `external/harness-sdd/`: Contiene el framework conceptual y ejemplos prácticos de cómo estructurar desarrollos guiados por arneses.
-- `external/ejemplo-harness-subagentes/`: Un ejemplo en Python donde un agente coordinador orquesta y valida a subagentes aislados ejecutando sus suites de pruebas locales (`pytest`) de forma automatizada.
+- `external/ejemplo-harness-subagentes/`: Un ejemplo en Python de cómo un agente coordinador orquesta y valida subagentes.
+- `external/gentle-pi/`: Contiene la especificación de diseño real y el flujo de ejecución del skill de arbitraje ciego en `skills/judgment-day/SKILL.md`.
 
-Te recomendamos explorar dichos directorios y familiarizarte con las suites de pruebas para asimilar cómo la verificación determinista de código se complementa con la gobernanza automática.
+Te recomendamos explorar dichos directorios para asimilar cómo la verificación determinista de código se complementa con el arbitraje cognitivo.
 
 ---
 Siguiente módulo: [[Módulo 3 - Gobernanza]]
-Relacionado: [[Cognitive OS - Arquitectura de referencia]] · [[Recursos externos]] · [[Manifiesto HACS-ODLC]] · [[Riesgos]]
+Relacionado: [[Cognitive OS - Arquitectura de referencia]] · [[Recursos externos]] · [[Manifiesto HACS-ODLC]] · [[Riesgos]] · [[Gobernanza]]
 
