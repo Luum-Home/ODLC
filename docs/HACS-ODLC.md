@@ -56,6 +56,7 @@ created: 2026-06-10
 - [[Recursos externos]] — repositorios de referencia y herramientas clonadas en local
 - [[Especificación de agentes cross-CLI]] — estándar de archivos de configuración de identidad y comportamiento (CLAUDE.md, SOUL.md, VOICE.md)
 - [[Repositorios y catálogos de skills]] — directorios, registries públicos (skills.sh) y especificación técnica de habilidades para agentes
+- [[Catálogo de herramientas y productividad]] — runtimes, orquestadores, APIs e infraestructura para productividad de desarrollo de IA
 
 ## Parte VII — Capacitación y Educación
 

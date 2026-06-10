@@ -59,4 +59,4 @@ Ejecuta el script desde la raíz del proyecto para actualizar todos los reposito
 El script verificará si el repositorio ya existe en `external/` y ejecutará un `git pull` para actualizarlo, o lo clonará desde cero si no estuviese presente.
 
 ---
-Relacionado: [[Gobernanza]] · [[Roles de agentes]] · [[Cognitive OS - Arquitectura de referencia]] · [[Repositorios y catálogos de skills]]
+Relacionado: [[Gobernanza]] · [[Roles de agentes]] · [[Cognitive OS - Arquitectura de referencia]] · [[Repositorios y catálogos de skills]] · [[Catálogo de herramientas y productividad]]
