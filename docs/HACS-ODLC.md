@@ -40,6 +40,7 @@ created: 2026-06-10
 
 - [[Cognitive OS - Arquitectura de referencia]] — Objectives → Memory → Agents → Execution → Evidence → Learning
 - [[Caso - Alta Tienda]] — primer caso de aplicación real (a completar)
+- [[Análisis - Stop Using Claude Without an Agentic OS]] — resumen y lecciones del Agentic OS (capas, beneficios y opciones)
 
 ## Parte VI — Fundacional
 
