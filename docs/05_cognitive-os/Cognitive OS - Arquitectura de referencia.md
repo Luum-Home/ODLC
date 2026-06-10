@@ -69,6 +69,18 @@ graph TD
 
 ---
 
+## Caso Real de Implementación: Luum Cognitive OS
+
+El motor [luum-cognitive-os](https://github.com/Luum-Home/luum-cognitive-os) es la implementación concreta de esta arquitectura de referencia, desarrollada en colaboración entre **Luum** y **OliveX**. 
+
+### Correspondencia de Componentes:
+- **Kernel y Programador de Procesos**: Orquestado por el CLI nativo en Rust (`cos` CLI) que gobierna el ciclo de ejecución humano-agente.
+- **Interfaz de Límites y Sandbox**: Implementado mediante ganchos (`PreTool` / `PostTool`) y scripts de control (`blast-radius.sh` para acotar escrituras y `claim-validator.sh` para forzar ejecución de tests).
+- **Bus de Memoria (Memory Bus)**: Integración con **memoria persistente** para el guardado de grafos semánticos, decisiones (ADRs) e historial de incidentes.
+- **Base de Políticas (Rules & Governance)**: Ficheros de políticas declarados en la carpeta `policies/` y reglas del repositorio local distribuidas en `rules/`.
+
+---
+
 ## Hipótesis
 
 - **H1**: Desacoplar la orquestación lógica del agente (Cognitive OS) del motor de ejecución físico (Sandbox) permite cambiar de modelos de lenguaje (LLMs) sin modificar la arquitectura de referencia.
