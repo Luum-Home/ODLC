@@ -55,6 +55,7 @@ created: 2026-06-10
 - [[Preguntas abiertas]] — lo que todavía no sabemos responder
 - [[Recursos externos]] — repositorios de referencia y herramientas clonadas en local
 - [[Especificación de agentes cross-CLI]] — estándar de archivos de configuración de identidad y comportamiento (CLAUDE.md, SOUL.md, VOICE.md)
+- [[Repositorios y catálogos de skills]] — directorios, registries públicos (skills.sh) y especificación técnica de habilidades para agentes
 
 ## Parte VII — Capacitación y Educación
 
