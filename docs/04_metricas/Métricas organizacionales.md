@@ -60,4 +60,4 @@ $$DLT = T_{\text{aprobación\_de\_estrategia}} - T_{\text{definición\_de\_restr
 - ¿Cómo se escala el CRT cuando el repositorio y el histórico de decisiones crecen exponencialmente?
 
 ---
-Relacionado: [[Memoria organizacional]] · [[Fase 3 - Strategy]] · [[docs/README|README]] · [[Nuevos cuellos de botella]]
+Relacionado: [[Memoria organizacional]] · [[Fase 3 - Strategy]] · [[README]] · [[Nuevos cuellos de botella]]

@@ -22,7 +22,7 @@ Este **Roadmap** define los hitos de maduración y despliegue del ecosistema **H
 
 ### v0.3 — Whitepaper y Vault Vivo (En Progreso - Actual)
 - **Hito**: Consolidar el whitepaper y migrar la fuente de verdad a un vault interconectado en Markdown, permitiendo que humanos y LLMs interactúen sobre una misma base de verdad.
-- **Entregables ya producidos**: `HACS_ODLC_Whitepaper_v0.1.pdf` y `HACS_ODLC_Master_Document_v0.2.pdf` (snapshots históricos de versiones anteriores, archivados en la raíz del repositorio).
+- **Entregables ya producidos**: `HACS_ODLC_Whitepaper_v0.1.pdf` y `HACS_ODLC_Master_Document_v0.2.pdf` (snapshots históricos de versiones anteriores, archivados en `00_crudo/`).
 - **En progreso**: notas atómicas de Métricas, Cognitive OS y bases Fundacionales en este directorio `docs/` (fuente canónica viva).
 
 ### v1.0 — Especificación formal (Planificado)
