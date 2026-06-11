@@ -4,3 +4,6 @@ external/
 # Archivos del sistema
 .DS_Store
 Thumbs.db
+
+# Configuración local de Obsidian (no se versiona)
+.obsidian/

@@ -44,4 +44,4 @@ grid-layout
 - **Talleres prácticos**: Utiliza los repositorios de referencia clonados en la carpeta `external/` (ver [[Recursos externos]]) para realizar las prácticas del Módulo 2, Módulo 3 y Módulo 4.
 
 ---
-Relacionado: [[docs/README|README]] · [[HACS]] · [[ODLC]] · [[Recursos externos]]
+Relacionado: [[README]] · [[HACS]] · [[ODLC]] · [[Recursos externos]]
