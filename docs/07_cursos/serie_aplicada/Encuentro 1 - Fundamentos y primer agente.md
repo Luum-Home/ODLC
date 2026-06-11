@@ -6,7 +6,7 @@ autor: Damián, OliveX Security
 fuente: "[[Draft Damián - Agentes de IA aplicados al trabajo técnico]]"
 ---
 
-# Encuentro 1 — Fundamentos y primer agente
+# Encuentro 1 — Fundamentos, criterios de selección y primer agente
 
 **Serie aplicada · OliveX Security** | Encuentro 1 de 4 · 2 horas
 
@@ -16,7 +16,7 @@ fuente: "[[Draft Damián - Agentes de IA aplicados al trabajo técnico]]"
 
 ## Objetivo
 
-Comprender el funcionamiento práctico de los modelos actuales y construir el primer asistente sobre información real.
+Comprender el funcionamiento práctico de los modelos actuales, adquirir criterios para priorizar qué procesos automatizar y construir el primer asistente sobre información real.
 
 ---
 
@@ -26,6 +26,8 @@ Comprender el funcionamiento práctico de los modelos actuales y construir el pr
 - Chatbot vs. asistente vs. agente.
 - Panorama de modelos a 2026: ChatGPT, Claude, Gemini y Codex (el Codex 2026 es un agente, distinto del modelo de 2021).
 - Criterios para seleccionar la herramienta según el caso.
+- Criterios de selección: cuándo conviene usar GPTs, cuándo Claude Projects y cuándo mantener la tarea en un chat asistido.
+- Matriz de ROI y priorización: frecuencia, tiempo ahorrado, riesgo y complejidad como criterios para decidir si automatizar o no.
 
 ---
 
@@ -34,6 +36,7 @@ Comprender el funcionamiento práctico de los modelos actuales y construir el pr
 - Identificación de oportunidades de automatización en el área propia.
 - Creación de un primer asistente basado en documentación real.
 - Comparación de resultados entre dos modelos.
+- Aplicación de la matriz de ROI a las oportunidades detectadas para priorizar el primer caso de uso.
 
 ---
 

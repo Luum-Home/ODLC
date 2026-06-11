@@ -27,6 +27,9 @@ Diseñar instrucciones consistentes y transformar el asistente en un activo con 
 - Interacción, evaluación y errores frecuentes.
 - GPTs personalizados, Claude Projects e instrucciones de sistema.
 - Conocimiento propio e introducción a RAG; técnicas para reducir alucinaciones y trazabilidad de respuestas.
+- Gestión de memoria y contexto: diferencia entre ventana de contexto y base de conocimiento.
+  - **Ventana de contexto**: memoria de trabajo; lo que el agente tiene “en la cabeza” durante la conversación.
+  - **Base de conocimiento**: biblioteca; el lugar al que el agente va a buscar información cuando necesita recuperar contenido externo.
 
 ---
 
