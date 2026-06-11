@@ -99,8 +99,8 @@ La seguridad no se concentra en una sola clase: aparece como un cierre concreto 
 | Encuentro | Tema | Descripción |
 |-----------|------|-------------|
 | [[Encuentro 1 - Fundamentos y primer agente\|Encuentro 1]] | Fundamentos y primer agente | Cómo funcionan los modelos actuales; chatbot vs. asistente vs. agente; primer asistente sobre documentación real. |
-| [[Encuentro 2 - Prompting seguro y agentes con conocimiento propio\|Encuentro 2]] | Prompting seguro y agentes con conocimiento propio | Anatomía del prompt robusto; técnicas avanzadas; GPTs/Claude Projects; RAG y conocimiento corporativo. |
-| [[Encuentro 3 - Herramientas, MCP, automatización y operación\|Encuentro 3]] | Herramientas, MCP, automatización y operación | MCP; plataformas no-code (n8n, Make, Zapier, Lindy, Botpress, Langflow, Flowise, Dify); integración con APIs; operación segura. |
+| [[Encuentro 2 - Prompting seguro y agentes con conocimiento propio\|Encuentro 2]] | Prompting seguro y agentes con conocimiento propio | Anatomía del prompt robusto; técnicas avanzadas; GPTs/Claude Projects; memoria de trabajo vs. base de conocimiento; RAG y conocimiento corporativo. |
+| [[Encuentro 3 - Herramientas, MCP, automatización y operación\|Encuentro 3]] | Herramientas, MCP, automatización y operación | MCP; plataformas no-code base (n8n, Make, Zapier, Lindy, Botpress); ecosistema avanzado opcional; integración con APIs; operación segura. |
 | [[Encuentro 4 - Seguridad, evaluación y laboratorio integrador\|Encuentro 4]] | Seguridad, evaluación y laboratorio integrador | Modelo de amenazas de agentes; prompt injection, tool poisoning y más; checklist de seguridad; laboratorio integrador y proyecto final. |
 
 ---
@@ -141,6 +141,19 @@ Durante toda la capacitación los participantes construyen un agente propio basa
 - Primeros casos de uso implementados durante la capacitación.
 
 La propuesta está orientada a generar resultados tangibles desde la primera semana y a dejar capacidades instaladas dentro de los equipos, más allá del uso puntual de una herramienta específica.
+
+---
+
+## Anexo: panorama del ecosistema de agentes
+
+Material de referencia para profundizar fuera del curso:
+
+1. **Runtimes y arneses locales**: ejecución local, control, sandbox y memoria persistente.
+2. **Orquestadores colaborativos**: coordinación de múltiples agentes y revisión humana.
+3. **Infraestructura y APIs**: gateways de modelos, optimización de costos y fine-tuning.
+4. **Productividad y calidad**: revisión asistida, skills, checklists y estándares operativos.
+
+Ver: [[Catálogo de herramientas y productividad]].
 
 ---
 
