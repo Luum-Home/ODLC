@@ -14,15 +14,15 @@ Este **Roadmap** define los hitos de maduración y despliegue del ecosistema **H
 
 ### v0.1 — Concepto (Completado)
 - **Hito**: Formulación de la tesis fundacional: *"la unidad básica de trabajo cambia de equipo humano a sistema cognitivo humano-agente"*.
-- **Entregables**: Whitepaper borrador y canvases preliminares redactados en formato plano.
+- **Entregables**: Captura inicial de ideas (notas de la conversación fundacional sobre AI SDLC).
 
 ### v0.2 — Canvas y Estructuración (Completado)
 - **Hito**: Estructuración del Master Canvas de 20 páginas y formalización del ciclo de 6 fases de [[ODLC]] y los 4 componentes de [[HACS]].
-- **Entregables**: Canvas consolidados en PDFs de referencia histórica en la raíz del repositorio.
+- **Entregables**: `HACS_Canvas.pdf` y `ODLC_Canvas.pdf`, de referencia histórica en la raíz del repositorio.
 
-### v0.3 — Vault Inicial y Markdown Vivo (En Progreso - Actual)
-- **Hito**: Crear y poblar el vault interactivo interconectado en Markdown, permitiendo que humanos y LLMs interactúen sobre una misma base de verdad.
-- **Entregables**: Estructuración y creación de notas atómicas de Métricas, Cognitive OS y bases Fundacionales en este directorio `docs/`.
+### v0.3 — Whitepaper y Vault Vivo (En Progreso - Actual)
+- **Hito**: Consolidar el whitepaper y migrar la fuente de verdad a un vault interconectado en Markdown, permitiendo que humanos y LLMs interactúen sobre una misma base de verdad.
+- **Entregables**: `HACS_ODLC_Whitepaper_v0.1.pdf` y `HACS_ODLC_Master_Document_v0.2.pdf` (snapshots históricos); notas atómicas de Métricas, Cognitive OS y bases Fundacionales en este directorio `docs/` (fuente canónica).
 
 ### v1.0 — Especificación formal (Planificado)
 - **Hito**: Estandarizar los protocolos de datos y esquemas de Cognitive OS para permitir implementaciones interoperables.
@@ -42,7 +42,7 @@ Este **Roadmap** define los hitos de maduración y despliegue del ecosistema **H
 ## Hipótesis de Roadmap
 
 - **H1**: Estandarizar esquemas en la versión v1.0 facilitará que desarrolladores externos creen plugins de agentes compatibles con Cognitive OS.
-- **H2**: La transición al desarrollo v2.0 requiere que los LLMs locales alcancen paridad de razonamiento lógico con los modelos propietarios actuales (GPT-4 / Claude 3.5 Sonnet) para reducir costos de tokens operativos.
+- **H2**: La transición al desarrollo v2.0 requiere que los LLMs locales/open-source alcancen paridad de razonamiento lógico con los modelos de frontera propietarios del momento, para reducir costos de tokens operativos. (Hipótesis formulada en junio 2026; "paridad" debe reevaluarse contra la frontera vigente, no contra modelos fijos.)
 
 ## Preguntas abiertas
 

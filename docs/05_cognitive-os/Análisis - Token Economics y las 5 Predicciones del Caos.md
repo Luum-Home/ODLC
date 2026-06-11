@@ -1,10 +1,20 @@
 ---
 tags: [recursos, cognitive-os, material-audiovisual, tokens, economía, predicciones, deuda-técnica, gobernanza]
-status: evergreen
+status: borrador
 created: 2026-06-10
+fuente:
+  tipo: video
+  titulo: "Unfortunately, I Was Right"
+  titulo_citado_originalmente: "5 Predictions About Token Economics CHAOS in Companies (posible retitulado del video)"
+  canal: "The PrimeTime"
+  url: "https://www.youtube.com/watch?v=m-bT5v5Tm7w"
+  consultado: 2026-06-10
 ---
 
 # Análisis — Token Economics y las 5 Predicciones del Caos
+
+> [!warning] Trazabilidad
+> La declaración de Sam Altman, la cita de George Hotz y el caso ClickUp provienen del video y **no fueron verificados de forma independiente**. Leerlos como "según el video".
 
 Este documento presenta un análisis y resumen estructurado del video **"5 Predictions About Token Economics CHAOS in Companies"** (disponible en [YouTube](https://www.youtube.com/watch?v=m-bT5v5Tm7w)), donde George Hotz advierte sobre los riesgos de integrar agentes de IA en el desarrollo de software y se presentan cinco predicciones inminentes sobre la economía de tokens corporativa: donaciones, stipends, token poker, budgets por equipo y recompensas por uso.
 
@@ -130,7 +140,7 @@ El paralelismo histórico es claro: así como la facilidad de generar código co
 
 ## 9. Implicaciones para Gobernanza HACS y ODLC
 
-Las cinco predicciones y la advertencia de Hotz tienen implicaciones directas para la gobernanza HACS (Human-Agent Cognitive Systems) y el ODLC:
+Las cinco predicciones y la advertencia de Hotz tienen implicaciones directas para la gobernanza de [[HACS]] (Human-Agent Collaborative Systems) y el [[ODLC]]:
 
 | Predicción / Riesgo | Respuesta HACS-ODLC |
 |---|---|
@@ -149,4 +159,4 @@ Para el ODLC, esto implica:
 - **Documentar y auditar decisiones de agentes** que afecten arquitectura, para evitar la acumulación silenciosa de deuda técnica sistémica.
 
 ---
-Relacionado: [[Recursos externos]] · [[HACS-ODLC]] · [[Gobernanza]] · [[Métricas de agentes]] · [[Análisis - La Cultura del Token]] · [[Análisis - Escasez de Tokens y la Crisis de Capacidad de la IA]]
+Relacionado: [[Recursos externos]] · [[HACS-ODLC]] · [[Gobernanza]] · [[Métricas de agentes]] · [[Síntesis - Economía de tokens]] · [[Análisis - La Cultura del Token]] · [[Análisis - Escasez de Tokens y la Crisis de Capacidad de la IA]]

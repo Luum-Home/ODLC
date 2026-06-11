@@ -56,4 +56,20 @@ Este documento define la taxonomía y el vocabulario formal (Ubiquitous Language
 - **Cognitive OS**: La capa de arquitectura de software y tooling de soporte que materializa el funcionamiento lógico de HACS y ODLC. Ver [[Cognitive OS - Arquitectura de referencia]].
 
 ---
+
+## Términos de Arneses y Arbitraje
+
+Patrones operativos usados en la implementación técnica ([[Luum Cognitive OS - Implementación de referencia]]) y en el programa de cursos ([[Módulo 2 - Ingeniería de arneses]]).
+
+- **Arnés (Harness)**: Entorno lógico que envuelve al LLM unificando contexto, herramientas, memoria externa y validaciones automáticas. Hace al sistema agnóstico al modelo.
+- **Safety Mesh (Malla de Seguridad)**: Conjunto de interceptores independientes (hooks `PreToolUse`/`PostToolUse`) que aplican la [[Gobernanza]] en tiempo de ejecución, con comportamientos BLOCK/WARN/LOG sensibles a la fase del proyecto.
+- **HITL (Human-in-the-Loop)**: Compuerta donde el agente pausa su ejecución y espera aprobación humana explícita antes de continuar (deploys, esquemas de datos, secretos).
+- **Ground Truth Checker**: Validador determinista que contrasta los reclamos de éxito del agente ("tests pasan", "archivo creado") contra la realidad del sistema de archivos, generando un puntaje de alucinación.
+- **Judgment Day (Día de la Justicia)**: Patrón de arbitraje cognitivo donde el código generado por un agente es evaluado por jueces independientes antes de integrarse — el autor nunca juzga su propio trabajo.
+- **Dual Blind Review**: Mecanismo del Judgment Day: dos agentes revisores aislados evalúan el mismo código sin ver el veredicto del otro.
+- **Agente Optimista / Agente Pesimista**: Perfiles de los jueces del Dual Blind Review. El optimista valida que el flujo de negocio funcione ("inocente hasta demostrar lo contrario"); el pesimista busca vulnerabilidades, race conditions y fallas de manejo de errores ("culpable hasta demostrar lo contrario").
+- **Compuertas de Arbitraje (Confirmed / Suspect / Contradictions)**: Reglas de consolidación de veredictos: defectos confirmados por ambos jueces van al Fix Agent; los señalados por uno solo se marcan; las contradicciones estructurales escalan a un humano como árbitro.
+- **Fix Agent**: Agente de corrección que refactoriza quirúrgicamente los defectos confirmados por el arbitraje.
+
+---
 Relacionado: [[README]] · [[Manifiesto HACS-ODLC]] · [[Fase 6 - Learning]]

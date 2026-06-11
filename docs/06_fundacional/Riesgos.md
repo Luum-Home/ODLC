@@ -36,6 +36,14 @@ La implementación de **HACS** y la adopción de **ODLC** representan una transf
 - **Descripción**: Entradas obsoletas o erróneas en la memoria organizacional desvían la toma de decisiones de los agentes en ciclos futuros.
 - **Mitigación**: Curaduría obligatoria. El agente Memory debe correr tareas periódicas de purga y consolidación bajo supervisión del rol humano de Architect.
 
+### D. Inyección de Prompts (Directa e Indirecta)
+- **Descripción**: Un atacante secuestra el comportamiento del agente mediante instrucciones maliciosas, ya sea en el prompt directo o —el vector de mayor riesgo— embebidas en datos externos que el agente lee (páginas web, PDFs, correos).
+- **Mitigación**: Escaneo semántico y determinista de entradas antes de procesar el objetivo, y auditoría de la memoria al persistir observaciones. Detalle técnico en [[Módulo 4 - Ciberseguridad aplicada]].
+
+### E. Secuestro de Ejecución en Sandbox
+- **Descripción**: Código vulnerable o malicioso generado por un agente escapa de un sandbox mal aislado y daña el host o la red interna.
+- **Mitigación**: Aislamiento de infraestructura (contenedores con virtualización de syscalls), límites de escritura por directorio y simulación periódica de intrusión (`/pentest-self`). Ver [[Módulo 4 - Ciberseguridad aplicada]].
+
 ---
 
 ## 3. Riesgos Organizacionales
@@ -45,8 +53,8 @@ La implementación de **HACS** y la adopción de **ODLC** representan una transf
 - **Mitigación**: Alinear los incentivos organizacionales. El éxito del equipo se asocia al cumplimiento de objetivos de negocio, no a la producción física de software.
 
 ### B. Fugas de Datos y Privacidad
-- **Descripción**: Envío accidental de credenciales sensibles, claves de bases de datos o información privada de usuarios a las APIs de modelos de lenguaje externos de terceros.
-- **Mitigación**: Filtros de sanitización y PII (Personal Identifiable Information) antes del envío de datos al orquestador. Uso preferente de modelos open-source locales para datos hiper-confidenciales.
+- **Descripción**: Envío accidental de credenciales sensibles, claves de bases de datos o información privada de usuarios (PII) a las APIs de modelos de lenguaje externos de terceros.
+- **Mitigación**: Filtros de sanitización y redacción de PII antes del envío de datos al orquestador, detección de secretos en cada escritura al repositorio, y uso preferente de modelos open-source locales para datos hiper-confidenciales. Detalle técnico en [[Módulo 4 - Ciberseguridad aplicada]].
 
 ---
 

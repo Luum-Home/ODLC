@@ -8,6 +8,9 @@ created: 2026-06-10
 
 Este caso de estudio documenta la primera aplicación real del marco **HACS** y la metodología **ODLC** en **Alta Tienda**, una plataforma de comercio electrónico de rápido crecimiento en América Latina. El objetivo fue rediseñar y automatizar el proceso de alta y verificación de comercios (KYC y pasarelas de pago).
 
+> [!warning] Estado de la evidencia
+> Las métricas de este caso (2.3 horas, 96.4% de acierto OCR, OSR 100%, TTO 16 días, ACR 82%) **no tienen fuente de medición registrada en el vault** (logs, dashboards, queries). Hasta que se documente cómo y cuándo se midieron, deben tratarse como **ilustrativas**, no como evidencia validada — exactamente la distinción que exige [[Fase 5 - Validation]] (Evidence over Opinions).
+
 ---
 
 ## 1. El Problema (Contexto Inicial)

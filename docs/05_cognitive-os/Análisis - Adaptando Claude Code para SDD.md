@@ -1,7 +1,13 @@
 ---
 tags: [recursos, cognitive-os, material-audiovisual, sdd, arneses]
-status: evergreen
+status: borrador
 created: 2026-06-10
+fuente:
+  tipo: video
+  titulo: "Esto es lo que Aprendí Adaptando Claude Code para SDD"
+  canal: "BettaTech"
+  url: "https://www.youtube.com/watch?v=ElGlTv2A_bM"
+  consultado: 2026-06-10
 ---
 
 # Análisis — Adaptando Claude Code para SDD

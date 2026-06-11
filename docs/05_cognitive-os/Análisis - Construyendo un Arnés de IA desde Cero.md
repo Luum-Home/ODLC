@@ -1,12 +1,21 @@
 ---
 tags: [arneses, agent-loop, polimorfismo, seguridad, mcp, memoria, compactacion]
-status: evergreen
+status: borrador
 created: 2026-06-10
+fuente:
+  tipo: repositorio
+  titulo: "byo-coding-agent"
+  autor: betta-tech
+  url: "https://github.com/betta-tech/byo-coding-agent"
+  consultado: 2026-06-10
 ---
 
 # Análisis — Construyendo un Arnés de IA desde Cero
 
-Este documento presenta el análisis técnico y conceptual del repositorio de referencia `external/byo-coding-agent`, el cual implementa un arnés de agente de desarrollo de software completo y extensible escrito en Go. El objetivo de este análisis es entender cómo se construye la capa core (el cerebro y el bucle de ejecución) de un agente inteligente, abstrayéndose de los proveedores de LLM y exponiendo capacidades avanzadas de gobernanza, subagentes dinámicos, memoria persistente y control de contexto.
+> [!note] Fuente
+> A diferencia de los demás "Análisis" (resúmenes de videos), esta nota es el **análisis técnico de un repositorio de código**: [betta-tech/byo-coding-agent](https://github.com/betta-tech/byo-coding-agent), un arnés de agente didáctico escrito en Go. Las referencias a archivos (`internal/agent/agent.go`, etc.) apuntan al clon local en `external/byo-coding-agent/` — carpeta excluida del repo por `.gitignore`; para seguir el código hay que clonarlo primero (ver [[Recursos externos]]).
+
+Este documento presenta el análisis técnico y conceptual del repositorio de referencia `byo-coding-agent`, el cual implementa un arnés de agente de desarrollo de software completo y extensible escrito en Go. El objetivo de este análisis es entender cómo se construye la capa core (el cerebro y el bucle de ejecución) de un agente inteligente, abstrayéndose de los proveedores de LLM y exponiendo capacidades avanzadas de gobernanza, subagentes dinámicos, memoria persistente y control de contexto.
 
 ---
 
@@ -42,7 +51,7 @@ Modelado en `main.go` mediante la librería de interfaces de terminal (TUI) **Bu
 4. **Loop**: Se restablece el estado para esperar una nueva orden.
 
 ### El Bucle Interno (Evaluation Loop)
-Ubicado en [agent.go](../../external/byo-coding-agent/internal/agent/agent.go), implementa la recursividad del modelo:
+Ubicado en `internal/agent/agent.go`, implementa la recursividad del modelo:
 - Se inicia con el método `Send(ctx, prompt)`.
 - En cada turno, el agente envía el historial compactado al modelo y espera su respuesta.
 - Si el modelo retorna un bloque de tipo `tool_use`, el bucle interno **no devuelve el control al usuario**. En su lugar:
@@ -55,7 +64,7 @@ Ubicado en [agent.go](../../external/byo-coding-agent/internal/agent/agent.go), 
 
 ## 2. Abstracción y Polimorfismo: La Capa de Proveedores
 
-Para evitar el acoplamiento rígido con el SDK de un proveedor de IA (como Anthropic o OpenAI), el arnés introduce un puerto polimórfico en [provider.go](../../external/byo-coding-agent/internal/provider/provider.go):
+Para evitar el acoplamiento rígido con el SDK de un proveedor de IA (como Anthropic o OpenAI), el arnés introduce un puerto polimórfico en `internal/provider/provider.go`:
 
 ```go
 type Provider interface {
@@ -67,9 +76,9 @@ type Provider interface {
 
 Esta interfaz traduce las estructuras internas e independientes del arnés (`api.Message`, `api.ToolDef` y `api.Response`) a las llamadas a API nativas de cada proveedor:
 
-- **Anthropic Provider** ([anthropic.go](../../external/byo-coding-agent/internal/provider/anthropic.go)): Mapea llamadas a Claude (por ejemplo, `claude-3-7-sonnet`, `claude-3-5-opus`). Soporta capacidades específicas como el modo *thinking* y traduce bloques multimedia.
-- **OpenAI Provider** ([openai.go](../../external/byo-coding-agent/internal/provider/openai.go)): Mapea la API de Chat Completions tradicional a los modelos GPT.
-- **Mock Provider** ([mock.go](../../external/byo-coding-agent/internal/provider/mock.go)): Emula respuestas del LLM con payloads deterministas para la suite de pruebas unitarias, evitando costos de red.
+- **Anthropic Provider** (`internal/provider/anthropic.go`): Mapea llamadas a Claude (por ejemplo, `claude-3-7-sonnet`, `claude-3-5-opus`). Soporta capacidades específicas como el modo *thinking* y traduce bloques multimedia.
+- **OpenAI Provider** (`internal/provider/openai.go`): Mapea la API de Chat Completions tradicional a los modelos GPT.
+- **Mock Provider** (`internal/provider/mock.go`): Emula respuestas del LLM con payloads deterministas para la suite de pruebas unitarias, evitando costos de red.
 
 > [!NOTE]
 > Gracias a este diseño polimórfico, el comando `/provider <nombre>` puede instanciar y cambiar el motor del agente en caliente a mitad de una sesión sin perder el historial de mensajes de la conversación actual.
@@ -78,7 +87,7 @@ Esta interfaz traduce las estructuras internas e independientes del arnés (`api
 
 ## 3. Gobernanza y Seguridad: Gateway de Permisos
 
-Uno de los mayores riesgos al ejecutar agentes autónomos es que realicen llamadas a herramientas destructivas (como `bash` con `rm -rf` o sobreescriban archivos críticos) sin supervisión. El arnés soluciona esto inyectando un **Gateway de Aprobación** en el método `executeTool` de [agent.go](../../external/byo-coding-agent/internal/agent/agent.go#L144-L185):
+Uno de los mayores riesgos al ejecutar agentes autónomos es que realicen llamadas a herramientas destructivas (como `bash` con `rm -rf` o sobreescriban archivos críticos) sin supervisión. El arnés soluciona esto inyectando un **Gateway de Aprobación** en el método `executeTool` de `internal/agent/agent.go`:
 
 ```go
 if a.Confirm != nil && !a.Confirm(prompt, detail) {
@@ -90,7 +99,7 @@ if a.Confirm != nil && !a.Confirm(prompt, detail) {
 ### Características del Sistema de Gobernanza:
 1. **Intercepción Síncrona**: Cuando el bucle interno detecta un `tool_use`, suspende la ejecución y envía un mensaje de tipo `ui.ApprovalRequest` a la interfaz Bubble Tea.
 2. **Interactividad**: La interfaz física bloquea la terminal del usuario y dibuja un modal interactivo que requiere un consentimiento explícito (`y/n`).
-3. **Cálculo de Diferencias (Visualización de Diff)**: Para la herramienta `write_file`, el arnés compara el contenido propuesto por el agente con el estado actual del archivo en el disco y genera un diff unificado ([diff.go](../../external/byo-coding-agent/internal/agent/diff.go)). Este diff se renderiza dentro del modal de aprobación para que el usuario sepa exactamente qué líneas se agregarán o modificarán antes de confirmar la escritura.
+3. **Cálculo de Diferencias (Visualización de Diff)**: Para la herramienta `write_file`, el arnés compara el contenido propuesto por el agente con el estado actual del archivo en el disco y genera un diff unificado (`internal/agent/diff.go`). Este diff se renderiza dentro del modal de aprobación para que el usuario sepa exactamente qué líneas se agregarán o modificarán antes de confirmar la escritura.
 4. **Respuesta como Error de Tool**: Si el usuario deniega la operación, el arnés retorna al modelo la respuesta genérica `"user denied this tool call"`, permitiendo que el agente se entere de la restricción y trate de plantear una estrategia alternativa en el siguiente turno.
 
 ---
@@ -99,7 +108,7 @@ if a.Confirm != nil && !a.Confirm(prompt, detail) {
 
 Para mitigar la sobrecarga de contexto en tareas extensas de investigación, el agente implementa el patrón de **Subagentes Dinámicos**.
 
-A través de la herramienta polimórfica `DelegateTool` ([delegate.go](../../external/byo-coding-agent/delegate.go)), el modelo raíz puede instanciar un agente secundario especializado (`Research` subagent):
+A través de la herramienta polimórfica `DelegateTool` (`delegate.go`), el modelo raíz puede instanciar un agente secundario especializado (`Research` subagent):
 
 ```go
 type DelegateTool struct {
@@ -119,7 +128,7 @@ type DelegateTool struct {
 
 ## 5. Control de la Ventana de Contexto (Compactación)
 
-A medida que el diálogo progresa y se ejecutan múltiples herramientas, el historial de mensajes se expande y consume tokens rápidamente. Para mitigar la degradación semántica y controlar los costos, el agente utiliza interfaces de compactación ([strategy.go](../../external/byo-coding-agent/internal/compact/strategy.go)).
+A medida que el diálogo progresa y se ejecutan múltiples herramientas, el historial de mensajes se expande y consume tokens rápidamente. Para mitigar la degradación semántica y controlar los costos, el agente utiliza interfaces de compactación (`internal/compact/strategy.go`).
 
 El arnés implementa tres estrategias que se pueden alternar mediante el comando `/compact <estrategia>`:
 
@@ -140,7 +149,7 @@ Cuando el número de mensajes supera un umbral determinado (`Threshold`), el arn
 
 ## 6. Sistema de Memoria de Sesiones
 
-A diferencia de las variables del proceso en RAM que se destruyen al cerrar la terminal, el arnés implementa una capa de persistencia simple basada en archivos locales en la carpeta `.harness/` ([sessionfiles.go](../../external/byo-coding-agent/internal/memory/sessionfiles.go)).
+A diferencia de las variables del proceso en RAM que se destruyen al cerrar la terminal, el arnés implementa una capa de persistencia simple basada en archivos locales en la carpeta `.harness/` (`internal/memory/sessionfiles.go`).
 
 ```mermaid
 graph LR
