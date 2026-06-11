@@ -71,7 +71,8 @@ La gobernanza técnica en la arquitectura de [[Cognitive OS - Arquitectura de re
 2. **Degradación Gradual (Spectrum of Control)**: No todos los filtros detienen al agente. Se clasifican según su impacto:
    - **BLOCK**: Detención inmediata de la ejecución (Capas 1, 3, 4, 5, 9, 11).
    - **WARN**: Advertencia al operador humano, permitiendo continuar (Capas 2, 7, 13).
-   - **LOG**: Registro silencioso en `.cognitive-os/metrics/` para auditoría y aprendizaje del sistema (Capas 6, 8, 10).
+   - **LOG**: Registro silencioso en `.cognitive-os/metrics/` para auditoría y aprendizaje del sistema (Capas 8, 10).
+   - **Dependiente de fase**: la Capa 6 (`claim-validator.sh`) alerta/loguea en fases permisivas y **bloquea** en Producción/Mantenimiento (ver Phase Awareness, punto 3).
 3. **Sensibilidad de Fase (Phase Awareness)**: El comportamiento de la malla se adapta al estado del ciclo de vida del proyecto definido en `cognitive-os.yaml`:
    - En fases de **Reconstrucción** o **Estabilización**, los ganchos de control son más permisivos (alertas prioritarias sobre bloqueos) para acelerar el desarrollo.
    - En fases de **Producción** o **Mantenimiento**, los ganchos de control se tornan estrictamente prohibitivos para proteger la estabilidad operativa.
@@ -99,6 +100,9 @@ Para garantizar que ningún cambio en la configuración de la malla de gobernanz
 ---
 
 ## 6. Ejercicios Prácticos y Herramientas de Referencia
+
+> [!warning] Setup previo
+> Estas prácticas requieren los repositorios de referencia clonados en `external/` (carpeta fuera del control de versiones). Instrucciones de clonado en [[Recursos externos]].
 
 En la carpeta `external/` cuentas con herramientas de referencia clave (ver [[Recursos externos]]):
 - `external/gentleman-guardian-angel/`: Un agente diseñado para actuar como "Ángel Guardián" o supervisor de seguridad. Intercepta llamadas a comandos de sistema propuestas por otros agentes, audita que no contengan operaciones destructivas, y requiere la confirmación interactiva del operador humano antes de proceder.

@@ -65,6 +65,9 @@ La verificación activa de los filtros de ciberseguridad se realiza mediante el 
 
 ## 4. Prácticas en el Repositorio Local
 
+> [!warning] Setup previo
+> Esta práctica requiere el repositorio de referencia clonado en `external/` (carpeta fuera del control de versiones). Instrucciones de clonado en [[Recursos externos]].
+
 En la carpeta `external/` cuentas con el repositorio de referencia (ver [[Recursos externos]]):
 - `external/Gentleman-MCP/`: Proporciona servidores de Model Context Protocol (MCP). Los servidores MCP restringen el acceso del agente a directorios y recursos de hardware específicos. Estudiar su diseño de restricciones de llamadas API permite comprender cómo enjaular las capacidades del agente en producción.
 

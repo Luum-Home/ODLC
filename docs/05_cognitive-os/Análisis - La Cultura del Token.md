@@ -1,10 +1,19 @@
 ---
 tags: [recursos, cognitive-os, material-audiovisual, métricas, tokens, goodhart, adopción-ia]
-status: evergreen
+status: borrador
 created: 2026-06-10
+fuente:
+  tipo: video
+  titulo: "La Nueva Cultura del Token: Así se medirá tu trabajo"
+  canal: "Inteligencia Artificial"
+  url: "https://www.youtube.com/watch?v=_exF3cBMbcM"
+  consultado: 2026-06-10
 ---
 
 # Análisis — La Cultura del Token
+
+> [!warning] Trazabilidad
+> Las cifras y casos citados en esta nota (Meta "Clouenomics", Amazon, declaración de Jensen Huang, consumos de tokens) provienen del video y **no fueron verificados de forma independiente**. Tratarlos como "según el video", no como hechos del vault.
 
 Este documento presenta un análisis y resumen estructurado del video referencial **"La Cultura del Token"** (disponible en [YouTube](https://www.youtube.com/watch?v=_exF3cBMbcM)). El video aborda las implicancias organizacionales y estratégicas de medir el consumo de tokens por empleado como métrica de adopción de IA, los riesgos de aplicar la Ley de Goodhart, los errores simétricos que cometen las empresas (tacaño vs. performativo) y el concepto de **Retorno del Token (Token ROI)**.
 
@@ -134,7 +143,7 @@ Ejemplos de Token ROI bajo:
 
 ## 11. Implicaciones para Gobernanza HACS y ODLC
 
-Los conceptos de Token ROI y buena gobernanza de tokens se alinean directamente con las métricas de HACS (Human-Agent Cognitive Systems):
+Los conceptos de Token ROI y buena gobernanza de tokens se alinean directamente con las métricas de [[HACS]] (Human-Agent Collaborative Systems):
 
 | Concepto del Video | Métrica HACS equivalente |
 |---|---|
@@ -143,11 +152,11 @@ Los conceptos de Token ROI y buena gobernanza de tokens se alinean directamente 
 | Tokens convertidos en conocimiento reutilizable | **Knowledge Reuse**: qué porcentaje de soluciones se almacenan y reutilizan |
 | Cultura de resultado, no de teatro | **Time to Resolution**: tiempo real en resolver, no tiempo en consumir |
 
-Para el ODLC (Operational Digital Lifecycle), esto implica:
+Para el [[ODLC]] (Objective Driven Lifecycle), esto implica:
 - **No incluir consumo bruto de tokens como KPI** en dashboards de gobernanza sin contexto de resultado.
 - **Definir umbrales mínimos de uso** (como sugiere Jensen Huang) como indicador de sub-adopción, no máximo de uso como restricción.
 - **Priorizar acceso a tokens** según el nivel de impacto del equipo o rol, no de forma uniforme.
 - **Medir Token ROI** a nivel de feature/proyecto, no solo a nivel de persona.
 
 ---
-Relacionado: [[Recursos externos]] · [[HACS-ODLC]] · [[Gobernanza]] · [[Métricas de agentes]] · [[Métricas organizacionales]]
+Relacionado: [[Recursos externos]] · [[HACS-ODLC]] · [[Gobernanza]] · [[Métricas de agentes]] · [[Métricas organizacionales]] · [[Síntesis - Economía de tokens]] · [[Análisis - Escasez de Tokens y la Crisis de Capacidad de la IA]] · [[Análisis - Token Economics y las 5 Predicciones del Caos]]

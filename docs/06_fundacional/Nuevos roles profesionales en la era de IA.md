@@ -1,6 +1,6 @@
 ---
 tags: [fundacional, roles, empleo, caio, ai-engineer, organizacion]
-status: evergreen
+status: borrador
 created: 2026-06-10
 ---
 
@@ -82,7 +82,7 @@ Especialista encargado de insertar los flujos y resultados generados por los age
 
 ## 4. Alineación con el Modelo HACS
 
-El modelo organizacional **HACS** (Human-Agent Cognitive System) clasifica la interacción en cuatro grandes roles humanos. La siguiente tabla mapea cómo estas nuevas posiciones del mercado se asocian e interactúan dentro del sistema HACS:
+El modelo organizacional **HACS** (Human-Agent Collaborative Systems) clasifica la interacción en cuatro grandes roles humanos, **definidos canónicamente en [[Roles humanos]]** — esa nota es la fuente de verdad; esta tabla solo *mapea* puestos de mercado contra esos roles, sin redefinirlos:
 
 | Rol HACS | Puesto de Trabajo Emergente | Tipo de Intervención en el Sistema Cognitivo |
 |---|---|---|

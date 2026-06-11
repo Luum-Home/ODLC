@@ -99,13 +99,16 @@ El principio de este patrón establece que **el agente que escribe el código nu
    - **Contradictorios (Contradictions)**: Si un juez aprueba el cambio y el otro encuentra una discrepancia estructural crítica, el arnés congela la entrega y escala una alerta interactiva para que un humano actúe como árbitro supremo.
 
 ### Integración Nativa en Modelos de Frontera (Actor-Critic)
-Modelos de frontera más avanzados (como *Claude Mythos 5* o *Fable 5*) traen estas dinámicas implementadas de forma nativa en sus pipelines internos de razonamiento. A través de arquitecturas de tipo **Actor-Critic**, el modelo realiza múltiples pasadas de autorreflexión antes de emitir una respuesta en su canal de salida: un sub-proceso genera una hipótesis de código (optimista) y otro sub-proceso simula ataques o fallas de ejecución (pesimista), arbitrando la respuesta final para entregar código con una tasa de error significativamente menor.
+Modelos de frontera más avanzados (como *Claude Fable 5*) traen dinámicas de este estilo en sus pipelines internos de razonamiento. A través de arquitecturas de tipo **Actor-Critic**, el modelo realiza múltiples pasadas de autorreflexión antes de emitir una respuesta en su canal de salida: un sub-proceso genera una hipótesis de código (optimista) y otro sub-proceso simula ataques o fallas de ejecución (pesimista), arbitrando la respuesta final para entregar código con una tasa de error significativamente menor.
 
 ---
 
 ## 5. Prácticas en el Repositorio Local
 
-En la carpeta `external/` de este proyecto tienes clonados repositorios clave de referencia sobre esta materia (ver [[Recursos externos]]):
+> [!warning] Setup previo
+> Estas prácticas requieren los repositorios de referencia clonados en `external/` (carpeta fuera del control de versiones). Instrucciones de clonado en [[Recursos externos]].
+
+En la carpeta `external/` de este proyecto se clonan repositorios clave de referencia sobre esta materia (ver [[Recursos externos]]):
 - `external/harness-sdd/`: Contiene el framework conceptual y ejemplos prácticos de cómo estructurar desarrollos guiados por arneses.
 - `external/ejemplo-harness-subagentes/`: Un ejemplo en Python de cómo un agente coordinador orquesta y valida subagentes.
 - `external/gentle-pi/`: Contiene la especificación de diseño real y el flujo de ejecución del skill de arbitraje ciego en `skills/judgment-day/SKILL.md`.

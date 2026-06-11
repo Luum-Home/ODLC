@@ -1,7 +1,13 @@
 ---
 tags: [recursos, cognitive-os, material-audiovisual, arquitectura]
-status: evergreen
+status: borrador
 created: 2026-06-10
+fuente:
+  tipo: video
+  titulo: "Stop Using Claude Without an Agentic OS"
+  canal: "Ben AI"
+  url: "https://www.youtube.com/watch?v=1x32W8zAtrg"
+  consultado: 2026-06-10
 ---
 
 # Análisis — Stop Using Claude Without an Agentic OS

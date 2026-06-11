@@ -1,10 +1,19 @@
 ---
 tags: [recursos, cognitive-os, material-audiovisual, arneses, contexto, herramientas]
-status: evergreen
+status: borrador
 created: 2026-06-10
+fuente:
+  tipo: video
+  titulo: "¿Qué es esto del Harness Engineering?"
+  canal: "BettaTech"
+  url: "https://www.youtube.com/watch?v=q9Vaoz0hd0U"
+  consultado: 2026-06-10
 ---
 
 # Análisis — Harness Engineering y la Paradoja de Herramientas
+
+> [!warning] Trazabilidad
+> Las cifras del caso Vercel D0 (3x velocidad, −37% tokens) y los umbrales de degradación de contexto (20%/40%) provienen del video y **no fueron verificados de forma independiente**.
 
 Este documento presenta un análisis y resumen estructurado del video referencial **"Harness Engineering: Cómo controlar a la IA que hace código"** (disponible en [YouTube](https://www.youtube.com/watch?v=q9Vaoz0hd0U)). El video aborda la disciplina de **Harness Engineering** (Ingeniería de Arneses), analizando la paradoja del exceso de herramientas, la degradación de la ventana de contexto y los tres pilares de un ecosistema de desarrollo de IA robusto.
 

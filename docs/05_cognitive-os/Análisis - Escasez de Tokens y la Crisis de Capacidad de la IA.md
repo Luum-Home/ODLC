@@ -1,10 +1,19 @@
 ---
 tags: [recursos, cognitive-os, material-audiovisual, tokens, capacidad, costos, gobernanza]
-status: evergreen
+status: borrador
 created: 2026-06-10
+fuente:
+  tipo: video
+  titulo: "La IA se queda SIN GASOLINA y lo vamos a pagar MUY CARO"
+  canal: "Gustavo Entrala"
+  url: "https://www.youtube.com/watch?v=ZsKszAkq0jI"
+  consultado: 2026-06-10
 ---
 
 # Análisis — Escasez de Tokens y la Crisis de Capacidad de la IA
+
+> [!warning] Trazabilidad
+> Esta nota contiene cifras muy específicas (uptime de Claude, cancelación de Sora, recortes de Gemini, pérdidas de OpenAI/Anthropic, medición de Singular sobre el peaje lingüístico, proyecciones de Goldman Sachs). Todas provienen del video, que a su vez cita fuentes secundarias, y **no fueron verificadas de forma independiente**. Leerlas como "según el video".
 
 Este documento presenta un análisis y resumen estructurado del video referencial **"La IA se está quedando sin gasolina"** (disponible en [YouTube](https://www.youtube.com/watch?v=ZsKszAkq0jI)). El video aborda la crisis de capacidad de cómputo que afecta a los principales proveedores de IA, el racionamiento de tokens, el peaje lingüístico del español y la emergencia de una IA de dos velocidades.
 
@@ -116,11 +125,11 @@ Sin embargo, la tendencia dominante del mercado va en sentido contrario: concent
 
 Esta crisis de capacidad tiene implicaciones directas para el diseño de sistemas cognitivos humano-agente:
 
-- **Diversificación de proveedores**: un Cognitive OS debe ser agnóstico al modelo y capaz de alternar entre proveedores según disponibilidad y costo ([[Harness Engineering y la Paradoja de Herramientas]] demuestra que es posible con arneses bien diseñados).
+- **Diversificación de proveedores**: un Cognitive OS debe ser agnóstico al modelo y capaz de alternar entre proveedores según disponibilidad y costo ([[Análisis - Harness Engineering y la Paradoja de Herramientas]] demuestra que es posible con arneses bien diseñados).
 - **Gestión eficiente de tokens**: la orquestación multi-agente con contextos destilados (no heredar el chat completo) y el límite del 40% de ventana de contexto son mecanismos de defensa directos contra la escasez.
 - **Presupuesto de tokens como métrica de gobernanza**: los roles de gobernanza HACS deben contemplar el costo de tokens como restricción operativa, no solo la calidad de output.
 - **Memoria externa como amortiguador**: persistir conocimiento en sistemas como [[Memoria organizacional|memoria persistente]] reduce la dependencia de re-procesar contexto costoso en cada sesión.
 - **Evaluación del peaje lingüístico**: para equipos hispanohablantes, las métricas de Agent Cost deben considerar el sobrecosto estructural del idioma.
 
 ---
-Relacionado: [[Cognitive OS - Arquitectura de referencia]] · [[Gobernanza]] · [[Recursos externos]] · [[Análisis - Harness Engineering y la Paradoja de Herramientas]] · [[Métricas de agentes]] · [[Memoria organizacional]]
+Relacionado: [[Cognitive OS - Arquitectura de referencia]] · [[Gobernanza]] · [[Recursos externos]] · [[Análisis - Harness Engineering y la Paradoja de Herramientas]] · [[Métricas de agentes]] · [[Memoria organizacional]] · [[Síntesis - Economía de tokens]] · [[Análisis - La Cultura del Token]] · [[Análisis - Token Economics y las 5 Predicciones del Caos]]
