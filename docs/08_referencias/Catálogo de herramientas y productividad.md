@@ -1,6 +1,6 @@
 ---
-tags: [fundacional, herramientas, productividad, infraestructura, agents, workspaces]
-status: evergreen
+tags: [referencias, herramientas, productividad, infraestructura, agents, workspaces]
+status: borrador
 created: 2026-06-10
 ---
 

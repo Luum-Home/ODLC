@@ -1,6 +1,6 @@
 ---
-tags: [fundacional, especificacion, cross-cli, openclaw]
-status: evergreen
+tags: [referencias, especificacion, cross-cli, openclaw]
+status: borrador
 created: 2026-06-10
 ---
 
@@ -27,7 +27,7 @@ Actualmente, las herramientas de desarrollo potenciadas por IA y los CLI de agen
 | **Odysseus (PewDiePie)** | `AGENTS.md` o `.odysseus/instructions.md` | Raíz o carpeta oculta | Markdown plano |
 | **Pi.dev** | `AGENTS.md` o `.pi/instructions.md` | Raíz o carpeta oculta | Markdown plano |
 
-*Nota histórica: En junio de 2026, tras la adquisición de Windsurf por parte de Cognition (creadores de Devin), la aplicación Windsurf fue oficialmente renombrada a **Devin Desktop**. El antiguo asistente "Cascade" fue reemplazado por **Devin Local** (un motor en Rust más eficiente en tokens).*
+*Nota histórica (✅ verificado 2026-06-10 contra el [anuncio oficial de Cognition](https://devin.ai/blog/windsurf-is-now-devin-desktop/)): el 2 de junio de 2026, tras la adquisición de Windsurf por parte de Cognition (creadores de Devin), la aplicación Windsurf fue renombrada a **Devin Desktop** vía actualización over-the-air. El antiguo asistente "Cascade" fue reemplazado por **Devin Local**, un motor reescrito en Rust hasta un 30% más eficiente en tokens, con soporte de subagentes y del protocolo abierto ACP.*
 
 Intentar mantener y sincronizar manualmente instrucciones de desarrollo, personalidad y gobernanza en múltiples archivos distintos viola el principio de diseño de software **DRY** (Don't Repeat Yourself), provocando "prompt rot" (instrucciones contradictorias e inconsistentes).
 
@@ -205,7 +205,7 @@ Al modularizar y redactar las instrucciones dentro de `.agent/`, aplicamos los s
 2.  **Anthropic - Claude Code CLI Guidelines**: Documentación oficial del CLI de Claude Code donde se formaliza el uso del archivo `CLAUDE.md` como estándar de arranque de proyectos.
     -   *Enlace*: [Anthropic Claude Code Guide](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code)
 3.  **Devin Desktop Rebranding Announcement (Cognition AI)**: Lanzamiento de Devin Desktop integrando la tecnología de Windsurf y el nuevo motor Devin Local en Rust.
-    -   *Enlace*: [Cognition AI Devin Desktop Release Notes](https://devin.ai/blog/introducing-devin-desktop)
+    -   *Enlace*: [Windsurf is now Devin Desktop (Cognition)](https://devin.ai/blog/windsurf-is-now-devin-desktop/) (verificado 2026-06-10)
 4.  **Odysseus Project**: Workspace de IA local y local-first que permite el despliegue autónomo de agentes con acceso a herramientas locales de sistema de archivos y terminal.
     -   *Enlace*: [Odysseus Repository on GitHub](https://github.com/pewdiepie-archdaemon/odysseus)
 5.  **Clean Architecture (Robert C. Martin)**: Principio de diseño de software sobre el reflejo del propósito de la aplicación en la estructura de archivos.

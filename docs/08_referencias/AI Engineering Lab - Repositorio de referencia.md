@@ -1,6 +1,6 @@
 ---
-tags: [fundacional, referencias, laboratorio, rag, agent-runtime, clean-architecture, mcp, frameworks, nem, testing]
-status: evergreen
+tags: [referencias, laboratorio, rag, agent-runtime, clean-architecture, mcp, frameworks, nem, testing]
+status: borrador
 created: 2026-06-10
 ---
 
