@@ -24,7 +24,7 @@ Componente de [[HACS]] que conserva conocimiento y contexto de forma **persisten
 
 ## Modelo de memoria (hipótesis)
 
-- Cada entrada es **atómica, fechada y linkeable** (los mismos principios de este vault — ver [[README]]).
+- Cada entrada es **atómica, fechada y linkeable** (los mismos principios de este vault — ver [[docs/README|README]]).
 - Distinción entre memoria *episódica* (qué pasó: incidentes, validaciones) y *semántica* (qué sabemos: convenciones, arquitectura, lecciones).
 - La memoria se **cura**: el agente Memory ([[Roles de agentes]]) consolida duplicados y marca entradas obsoletas; memoria sin curaduría degenera en el mismo ruido que la documentación tradicional.
 

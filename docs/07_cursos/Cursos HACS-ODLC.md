@@ -31,7 +31,7 @@ grid-layout
     *   *Público objetivo*: Ingenieros de software y desarrolladores de agentes.
     *   *Foco*: Diseño de arneses de prueba (Test Harness), validaciones automatizadas y ejecución en entornos seguros de Sandbox.
 3.  **[[Módulo 3 - Gobernanza]]**
-    *   *Público objetivo*: Líderes de producto, Scrum Masters, DevOps e ingenieros.
+    *   *Público objetivo*: Líderes de producto, ingenieros y roles en transición desde marcos ágiles (Scrum Masters, DevOps).
     *   *Foco*: Establecimiento de límites de autonomía humano-agente, control presupuestario de APIs y flujos de aprobación (Human-in-the-loop).
 4.  **[[Módulo 4 - Ciberseguridad aplicada]]**
     *   *Público objetivo*: Desarrolladores sénior, auditores y especialistas de seguridad.
@@ -41,7 +41,7 @@ grid-layout
 
 ## Cómo utilizar este material
 - **Autocapacitación**: Lee secuencialmente cada uno de los módulos en tu lector de Markdown o editor de Obsidian.
-- **Talleres prácticos**: Utiliza los repositorios de referencia clonados en la carpeta `external/` (ver [[Recursos externos]]) para realizar las prácticas del Módulo 2 y Módulo 4.
+- **Talleres prácticos**: Utiliza los repositorios de referencia clonados en la carpeta `external/` (ver [[Recursos externos]]) para realizar las prácticas del Módulo 2, Módulo 3 y Módulo 4.
 
 ---
-Relacionado: [[README]] · [[HACS]] · [[ODLC]] · [[Recursos externos]]
+Relacionado: [[docs/README|README]] · [[HACS]] · [[ODLC]] · [[Recursos externos]]

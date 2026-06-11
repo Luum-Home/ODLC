@@ -150,7 +150,7 @@ Los conceptos de Token ROI y buena gobernanza de tokens se alinean directamente 
 | Token ROI (valor por token) | **Objective Success Rate**: tasa de éxito de objetivos resueltos por agentes |
 | No medir consumo bruto | **Agent Cost**: costo por agente/tarea, no costo total acumulado |
 | Tokens convertidos en conocimiento reutilizable | **Knowledge Reuse**: qué porcentaje de soluciones se almacenan y reutilizan |
-| Cultura de resultado, no de teatro | **Time to Resolution**: tiempo real en resolver, no tiempo en consumir |
+| Cultura de resultado, no de teatro | **[[Métricas operativas\|Time To Outcome (TTO)]]**: tiempo real en obtener el resultado de negocio, no tiempo en consumir tokens |
 
 Para el [[ODLC]] (Objective Driven Lifecycle), esto implica:
 - **No incluir consumo bruto de tokens como KPI** en dashboards de gobernanza sin contexto de resultado.

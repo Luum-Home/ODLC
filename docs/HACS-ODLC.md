@@ -41,7 +41,7 @@ created: 2026-06-10
 
 ## Parte V — Cognitive OS (la implementación)
 
-- [[Cognitive OS - Arquitectura de referencia]] — Objectives → Memory → Agents → Execution → Evidence → Learning
+- [[Cognitive OS - Arquitectura de referencia]] — Interfaz de Definición → Bus de Memoria → Motor de Orquestación de Agentes → Sandbox de Ejecución → Motor de Validación y Observabilidad
 - [[Luum Cognitive OS - Implementación de referencia]] — la Safety Mesh de 14 capas que materializa la Gobernanza
 - [[Caso - Alta Tienda]] — primer caso de aplicación real (métricas pendientes de evidencia)
 - [[Síntesis - Economía de tokens]] — implicaciones consolidadas de los tres análisis de tokens

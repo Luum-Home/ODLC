@@ -23,7 +23,7 @@ En el desarrollo con agentes de IA, el comportamiento no es 100% determinista. U
 
 ## 2. Desarrollo Guiado por Arneses (Harness-SDD)
 
-El **Harness-Software Design Development (Harness-SDD)** propone que todo desarrollo realizado por agentes autónomos deba iniciarse y gobernarse por un arnés.
+El **Harness-Software Design Development (Harness-SDD)** — patrón propuesto por el repositorio de referencia [betta-tech/harness-sdd](https://github.com/betta-tech/harness-sdd) (ver [[Recursos externos]]) — propone que todo desarrollo realizado por agentes autónomos deba iniciarse y gobernarse por un arnés.
 
 ### Flujo Operativo:
 ```
@@ -65,7 +65,7 @@ def run_agent_validation(sandbox_path):
 
 Uno de los principales problemas al delegar tareas críticas a los agentes autónomos de desarrollo es el **auto-reporte ficticio** o alucinaciones de éxito. Un agente puede escribir en su reporte: *"He creado la API de usuarios y todos los 15 tests unitarios pasan exitosamente"*, cuando en realidad no ha creado el archivo correcto o las pruebas fallaron.
 
-Para mitigar esto, dentro del [[Módulo 3 - Gobernanza|Safety Mesh]] de la arquitectura [[Cognitive OS - Arquitectura de referencia]] se integra la herramienta **Ground Truth Checker** (`lib/ground_truth.py` y el hook `claim-validator.sh`).
+Para mitigar esto, dentro de la Safety Mesh (ver [[Módulo 3 - Gobernanza#3. La Malla de Seguridad de 14 Capas (14-Layer Safety Mesh)|Módulo 3 § Safety Mesh]]) de la arquitectura [[Cognitive OS - Arquitectura de referencia]] se integra la herramienta **Ground Truth Checker** (`lib/ground_truth.py` y el hook `claim-validator.sh`).
 
 ### ¿Cómo opera el Ground Truth Checker?
 

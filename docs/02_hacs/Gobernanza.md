@@ -22,6 +22,8 @@ Componente de [[HACS]] que define **seguridad, compliance, auditoría, costos y 
 
 La matriz **no es fija**: se relaja a medida que sube el nivel de [[Modelo de madurez AI-Native]] y la confianza acumulada (evidencia en [[Memoria organizacional]] de tasas de acierto del agente — [[Métricas de agentes]]).
 
+**Regla de suspensión:** si el *Rework Rate* de un agente supera el 40% durante tres objetivos consecutivos, el agente debe ser suspendido y su sistema de prompts o recuperación de memoria auditado (Decisión D1 en [[Métricas de agentes]]).
+
 ## Implementación de referencia
 
 La gobernanza de HACS se materializa técnicamente en [[Luum Cognitive OS - Implementación de referencia]]: una malla de seguridad de 14 capas (Safety Mesh) que intercepta las acciones de los agentes con hooks `PreToolUse`/`PostToolUse`. El detalle técnico vive en esa nota y en [[Módulo 3 - Gobernanza]]; esta nota define solo el QUÉ conceptual.

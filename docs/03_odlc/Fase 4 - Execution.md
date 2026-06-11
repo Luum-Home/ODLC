@@ -36,4 +36,4 @@ execution:
 
 ## Métricas asociadas
 
-Agent Contribution Ratio, Human Leverage Ratio ([[Métricas de agentes]], [[Métricas operativas]]), Autonomous Execution Rate.
+Agent Contribution Ratio ([[Métricas de agentes]]), Human Leverage Ratio ([[Métricas de agentes]]).
