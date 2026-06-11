@@ -11,11 +11,13 @@ created: 2026-06-10
 > Los equipos ya no están compuestos únicamente por personas.
 > El objetivo no es automatizar trabajo; el objetivo es amplificar la capacidad cognitiva colectiva de una organización."
 
-Como profesionales del desarrollo de software y la ingeniería de sistemas organizacionales, reconocemos que el advenimiento de agentes de software autónomos rompe las suposiciones básicas de las metodologías tradicionales (Scrum, DevOps, Agile). Para prosperar en una era AI-Native, adoptamos una nueva unidad de trabajo y un nuevo modelo de colaboración humano-agente basado en los siguientes cinco valores:
+Como profesionales del desarrollo de software y la ingeniería de sistemas organizacionales, reconocemos que el advenimiento de agentes de software autónomos rompe las suposiciones básicas de las metodologías tradicionales (Scrum, DevOps, Agile). Para prosperar en una era AI-Native, adoptamos una nueva unidad de trabajo y un nuevo modelo de colaboración humano-agente basado en los siguientes seis valores:
+
+> Los cinco primeros valores provienen de los canvases fundacionales (PDFs en la raíz del repo); el sexto (Purpose over Technology) fue incorporado durante la evolución del vault.
 
 ---
 
-## Los 5 Valores Fundamentales
+## Los 6 Valores Fundamentales
 
 ### 1. Intent over Tasks (Intención sobre Tareas)
 *Valoramos la definición explícita de la intención por encima de la gestión detallada de tareas.*
@@ -55,7 +57,29 @@ Como profesionales del desarrollo de software y la ingeniería de sistemas organ
 
 ---
 
+## El Manifiesto ODLC
+
+De los canvases fundacionales, la declaración operativa que resume el ciclo:
+
+> **"No optimizamos la producción de software.**
+> **Optimizamos el logro de objetivos.**
+> **El código es un medio.**
+> **El resultado es el producto.**
+> **Todo ciclo debe producir aprendizaje.**
+> **Todo aprendizaje debe alimentar el siguiente objetivo."**
+
 Al priorizar los elementos de la izquierda sobre los de la derecha, cambiamos la escala del desarrollo de software: de un ciclo de producción a un **ciclo de aprendizaje continuo orientado a objetivos**.
 
 ---
-Relacionado: [[HACS]] · [[ODLC]] · [[Por qué fallan las metodologías actuales]]
+
+## Adaptación sobre imposición (cómo adoptar este manifiesto)
+
+Como el Manifiesto Ágil, esto es una **declaración de valores, no un proceso a imponer**. HACS y ODLC deben adaptarse al contexto y las circunstancias de cada organización; imponerlos como dinámica rígida repite el error que convirtió a Agile en ceremonia vacía.
+
+- **Esto se construye antes de tiempo, a propósito.** El marco se diseña para el camino hacia sistemas cada vez más capaces (AGI / superinteligencia), donde la unidad humano-agente será la norma. Que el destino sea ese no significa que hoy se adopte completo.
+- **Cherry-picking deliberado.** Ante las falencias actuales de los modelos (alucinaciones, deriva de contexto, costo, validación inmadura — ver [[Riesgos]]), se aconseja **seleccionar los pasos, fases y herramientas que aporten valor hoy** y dejar el resto documentado para cuando la capacidad de los modelos lo habilite. Adoptar la [[Fase 1 - Objective]] y la [[Fase 6 - Learning]] sin agentes ya es ODLC; usar la matriz de [[Gobernanza]] con un solo agente ya es HACS.
+- **El nivel de adopción lo marca la madurez, no la ambición.** El [[Modelo de madurez AI-Native]] existe exactamente para esto: cada nivel habilita prácticas nuevas; saltar niveles impone un marco que el sistema (humanos + modelos) todavía no puede sostener.
+- **La evidencia decide qué se adopta.** Cada práctica incorporada se valida contra resultados ([[Fase 5 - Validation]]); lo que no aporta en tu contexto, se descarta sin culpa — y eso también es aprendizaje.
+
+---
+Relacionado: [[HACS]] · [[ODLC]] · [[Modelo de madurez AI-Native]] · [[Riesgos]] · [[Por qué fallan las metodologías actuales]]
