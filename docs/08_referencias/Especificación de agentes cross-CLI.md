@@ -8,6 +8,9 @@ created: 2026-06-10
 
 La **Especificación de agentes cross-CLI** es una especificación técnica de arquitectura lógica para el diseño, comportamiento, personalidad e interoperabilidad de agentes autónomos de software. Este estándar resuelve la fragmentación de herramientas del ecosistema mediante una estructura de archivos desacoplada y un patrón de carga de contexto universal.
 
+> [!warning] Estado de verificación
+> Verificado al 2026-06-11: esta especificación es un **patrón HACS-ODLC vendor-neutral**, no una funcionalidad oficial de Claude Cowork. Claude Code documenta subagentes en `.claude/agents/`; OpenClaw documenta el uso de `AGENTS.md`, `SOUL.md`, `USER.md` y memoria. La carpeta `.agent/` de este documento es una capa de normalización propuesta por el vault para evitar duplicación entre herramientas.
+
 ---
 
 ## 1. El Problema de la Fragmentación en el Ecosistema
@@ -69,9 +72,10 @@ graph TD
 ```
 
 ### Mecanismo de Funcionamiento
-1.  **Carpeta de Verdad (`.agent/`)**: Se crea un directorio oculto en la raíz del proyecto que contiene las notas de comportamiento atómicas (`INSTRUCTIONS.md`, `SOUL.md`, `VOICE.md`, `MEMORY.md`).
-2.  **Archivos Adaptadores (Root Adapters)**: En la raíz del repositorio o carpetas ocultas se crean los archivos adaptadores mínimos exigidos por cada herramienta (`CLAUDE.md`, `.cursorrules`, etc.).
-3.  **Redirección Cognitiva**: Estos archivos adaptadores no contienen código ni guías de estilo. Contienen únicamente una instrucción de redirección escrita en lenguaje natural que obliga al agente de IA (que lee el archivo al arrancar) a invocar su herramienta de lectura sobre la carpeta `.agent/`.
+1.  **Carpeta de Verdad (`.agent/`)**: Se crea un directorio oculto en la raíz del proyecto que contiene notas de comportamiento atómicas (`INSTRUCTIONS.md`, `SOUL.md`, `VOICE.md`, `MEMORY.md`). Esta carpeta es una convención del vault, no un path oficial universal.
+2.  **Archivos Adaptadores (Root Adapters)**: En la raíz del repositorio o carpetas ocultas se crean los archivos adaptadores mínimos exigidos por cada herramienta (`CLAUDE.md`, `.cursor/rules/*.mdc`, `AGENTS.md`, etc.).
+3.  **Redirección Cognitiva**: Estos archivos adaptadores no contienen reglas duplicadas. Contienen una instrucción de redirección escrita en lenguaje natural para que el agente lea la fuente de verdad del proyecto.
+4.  **Compatibilidad explícita**: Cuando una herramienta sí define un formato propio de agentes (por ejemplo, Claude Code en `.claude/agents/`), ese formato debe usarse para subagentes ejecutables; `.agent/` queda como canon documental y de gobernanza, no como sustituto automático del runtime.
 
 ---
 
@@ -161,10 +165,10 @@ Execute your file-viewing tool on:
 - **Responsabilidad**: Contiene los comandos del sistema para compilar, testear y desplegar del proyecto, y un mapa semántico de los directorios para evitar que el agente explore a ciegas el sistema de archivos (evitando *Codebase Trips* inútiles).
 
 ### B. `SOUL.md` (La Constitución / Identity Core)
-- **Responsabilidad**: Define los límites éticos, valores innegociables, nivel de autonomía asignado en el proyecto e instrucciones de seguridad.
+- **Responsabilidad**: Define límites, postura, valores innegociables, nivel de autonomía asignado en el proyecto y rasgos estables de identidad. En OpenClaw, `SOUL.md` está documentado como archivo de voz, tono y límites; en HACS-ODLC se eleva a constitución operativa para mantener la Safety Mesh explícita.
 
 ### C. `VOICE.md` (Estilo Editorial / Tone)
-- **Responsabilidad**: Regula el comportamiento comunicativo, prohíbe las respuestas vacías y el "AI Sludge", y exige concisión extrema orientada a hechos.
+- **Responsabilidad**: Regula el comportamiento comunicativo, prohíbe las respuestas vacías y el "AI Sludge", y exige concisión extrema orientada a hechos. Es una separación propia de este patrón: OpenClaw puede concentrar voz en `SOUL.md`, pero el vault la separa para facilitar revisión editorial.
 
 ### D. `MEMORY.md` (Memoria Semántica y Hechos)
 - **Responsabilidad**: Registro de decisiones de arquitectura (ADRs), incidentes de producción históricos y datos estables de negocio.
@@ -200,21 +204,23 @@ Al modularizar y redactar las instrucciones dentro de `.agent/`, aplicamos los s
 
 ## 6. Referencias y Fuentes Bibliográficas
 
-1.  **OpenClaw Specification**: Framework oficial e instrucciones para la creación de agentes autónomos con guías y plantillas para `SOUL.md` y `VOICE.md`.
-    -   *Enlace*: [OpenClaw Official Documentation](https://openclaw.ai/docs)
-2.  **Anthropic - Claude Code CLI Guidelines**: Documentación oficial del CLI de Claude Code donde se formaliza el uso del archivo `CLAUDE.md` como estándar de arranque de proyectos.
-    -   *Enlace*: [Anthropic Claude Code Guide](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code)
-3.  **Devin Desktop Rebranding Announcement (Cognition AI)**: Lanzamiento de Devin Desktop integrando la tecnología de Windsurf y el nuevo motor Devin Local en Rust.
+1.  **OpenClaw Workspace / SOUL.md**: Documentación oficial de OpenClaw sobre `SOUL.md` como archivo de voz, límites y personalidad, y `AGENTS.md` como reglas operativas con lectura de memoria.
+    -   *Enlaces*: [SOUL.md personality guide](https://docs.openclaw.ai/concepts/soul), [Default AGENTS.md](https://docs.openclaw.ai/reference/AGENTS.default) (verificado 2026-06-11)
+2.  **Anthropic - Claude Code subagents**: Documentación oficial donde se formaliza el uso de `.claude/agents/` y `~/.claude/agents/` para subagentes con prompt, herramientas y permisos propios.
+    -   *Enlace*: [Claude Code subagents](https://docs.anthropic.com/en/docs/claude-code/sub-agents) (verificado 2026-06-11)
+3.  **Claude Cowork**: Documentación oficial de disponibilidad y alcance de Cowork; relevante para distinguir Cowork de la carpeta `.agent/` propuesta por este vault.
+    -   *Enlace*: [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) (verificado 2026-06-11)
+4.  **Devin Desktop Rebranding Announcement (Cognition AI)**: Lanzamiento de Devin Desktop integrando la tecnología de Windsurf y el nuevo motor Devin Local en Rust.
     -   *Enlace*: [Windsurf is now Devin Desktop (Cognition)](https://devin.ai/blog/windsurf-is-now-devin-desktop/) (verificado 2026-06-10)
-4.  **Odysseus Project**: Workspace de IA local y local-first que permite el despliegue autónomo de agentes con acceso a herramientas locales de sistema de archivos y terminal.
-    -   *Enlace*: [Odysseus Repository on GitHub](https://github.com/pewdiepie-archdaemon/odysseus)
-5.  **Clean Architecture (Robert C. Martin)**: Principio de diseño de software sobre el reflejo del propósito de la aplicación en la estructura de archivos.
+5.  **Odysseus Project**: Workspace de IA local y local-first que permite el despliegue autónomo de agentes con acceso a herramientas locales de sistema de archivos y terminal.
+    -   *Enlace*: [Odysseus Repository on GitHub](https://github.com/pewdiepie-archdaemon/odysseus) (verificado 2026-06-11)
+6.  **Clean Architecture (Robert C. Martin)**: Principio de diseño de software sobre el reflejo del propósito de la aplicación en la estructura de archivos.
     -   *Enlace/Referencia*: Robert C. Martin, *Clean Architecture: A Craftsman's Guide to Software Structure and Design* (Prentice Hall, 2017).
-6.  **"Lost in the Middle: How Language Models Use Long Contexts" (Liu et al., 2023)**: Paper académico que demuestra empíricamente cómo los LLMs pierden precisión de recuperación cuando los prompts son extensos o la información clave se ubica en el centro de ventanas de contexto saturadas.
+7.  **"Lost in the Middle: How Language Models Use Long Contexts" (Liu et al., 2023)**: Paper académico que demuestra empíricamente cómo los LLMs pierden precisión de recuperación cuando los prompts son extensos o la información clave se ubica en el centro de ventanas de contexto saturadas.
     -   *Enlace*: [arXiv:2307.03172](https://arxiv.org/abs/2307.03172)
-7.  **DRY Prompts & Prompt Composition**: Análisis y mejores prácticas de ingeniería de software aplicadas a prompts mediante plantillas modulares.
+8.  **DRY Prompts & Prompt Composition**: Análisis y mejores prácticas de ingeniería de software aplicadas a prompts mediante plantillas modulares.
     -   *Enlace*: [DRY Prompts and Modular Agentic Design](https://neon.com/blog/dry-prompts-modular-agentic-design)
-8.  **AGENTS.md Community Standard**: Iniciativa de código abierto para estandarizar archivos de instrucciones unificados para agentes de IA en repositorios de código.
+9.  **AGENTS.md Community Standard**: Iniciativa de código abierto para estandarizar archivos de instrucciones unificados para agentes de IA en repositorios de código.
     -   *Enlace*: [AGENTS.md Specification and Usage](https://github.com/agents-md/agents.md)
 
 ---
