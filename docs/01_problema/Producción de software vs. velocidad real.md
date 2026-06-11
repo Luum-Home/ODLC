@@ -12,7 +12,9 @@ Una empresa puede generar 100.000 líneas de código por semana con agentes y te
 
 ## Lo que la IA sí optimiza
 
-| Fase | Aceleración típica | Riesgo |
+> Las aceleraciones de la tabla son **estimaciones ilustrativas**, no mediciones — pendiente de respaldarlas con datos (DORA, estudios de Copilot, casos propios).
+
+| Fase | Aceleración típica (ilustrativa) | Riesgo |
 |---|---|---|
 | Planificación | Especificación automática (PRDs, historias, ADRs) | Especificaciones ambiguas → agentes las interpretan mal |
 | Codificación | 5x-10x en generación de features | Sloppy code, inconsistencia de patrones |
@@ -25,7 +27,7 @@ Una empresa puede generar 100.000 líneas de código por semana con agentes y te
 
 - **CI/CD pipelines**: los agentes escriben YAML, pero no diseñan estrategias de despliegue ni eligen trade-offs (blue/green, canary, rolling).
 - **Seguridad como cultura**: agentes detectan vulnerabilidades conocidas pero no comprenden superficies de ataque de organización.
-- **Observabilidad con propósito**: agents pueden instrumentar, pero decidir QUÉ medir y CÓMO alertar sigue siendo humano.
+- **Observabilidad con propósito**: los agentes pueden instrumentar, pero decidir QUÉ medir y CÓMO alertar sigue siendo humano.
 - **Feature flags, rollbacks, circuit breakers**: decisiones operativas que requieren conocimiento del negocio.
 - **Deployment risk**: un agente puede crear un Dockerfile, pero no decide si se pone en producción un cambio de base de datos crítica.
 - **Reversibilidad**: los agentes raramente preguntan "¿qué pasa si esto falla?" antes de ejecutar.
@@ -42,7 +44,7 @@ Una empresa puede generar 100.000 líneas de código por semana con agentes y te
 
 ### Infraestructura como código
 
-Agents crean IaC (Terraform, Pulumi, CloudFormation) pero arquitectos humanos deciden el diseño. El agente es ejecutor, no diseñador de resiliencia regional.
+Los agentes crean IaC (Terraform, Pulumi, CloudFormation) pero arquitectos humanos deciden el diseño. El agente es ejecutor, no diseñador de resiliencia regional.
 
 ### Pipelines CI/CD
 
@@ -62,7 +64,7 @@ Agents crean IaC (Terraform, Pulumi, CloudFormation) pero arquitectos humanos de
 ### Observabilidad de producción
 
 - **Logs estructurados, métricas, trazas distribuidas** (OpenTelemetry, Langfuse, LangSmith).
-- Agents analizan logs y sugieren parches, pero humanos deciden prioridades.
+- Los agentes analizan logs y sugieren parches, pero humanos deciden prioridades.
 - SLOs/SLIs como requisitos no funcionales que los agentes deben respetar.
 
 ### Gobernanza de despliegue
