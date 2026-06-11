@@ -56,6 +56,15 @@ Este curso está diseñado para que profesionales técnicos sin experiencia en p
 - Para el encuentro de herramientas: una herramienta o API de prueba del equipo y una cuenta en una plataforma no-code.
 - Para el laboratorio de seguridad: un conjunto de datos de prueba en un entorno aislado.
 
+> [!warning] Trazabilidad
+> Las capacidades disponibles por plan cambian con frecuencia. Estado verificado contra fuentes al 2026-06-11:
+> - **ChatGPT — GPTs personalizados**: crearlos y editarlos requiere plan pago (Go, Plus, Pro, Business o Enterprise); el plan Free no permite crear GPTs propios ([help.openai.com](https://help.openai.com/en/articles/8554397-creating-a-gpt)).
+> - **ChatGPT — Workspace Agents** (sucesor anunciado de los GPTs para organizaciones, research preview de abril 2026): solo planes Business, Enterprise y Edu. No disponibles en planes individuales por ahora.
+> - **Claude — Agent SDK** (base de Claude Code y Cowork): disponible en planes Pro, Max, Team y Enterprise, con crédito mensual incluido ([support.claude.com](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)). No disponible en el plan Free.
+> - ⚠️ Pendiente de verificación: el mecanismo de carpeta `.agent/` con notas atómicas (`INSTRUCTIONS.md`, `SOUL.md`, `VOICE.md`, `MEMORY.md`) atribuido a Cowork no pudo confirmarse contra fuente oficial directa; la documentación oficial de Claude Code describe subagentes vía `.claude/agents/`. Confirmar antes de usarlo como contenido del curso.
+>
+> No asumir que una cuenta de pago individual garantiza acceso a todas las funcionalidades de construcción de agentes en ambas plataformas; re-verificar antes de cada dictado.
+
 ---
 
 ## Objetivos de aprendizaje
@@ -85,94 +94,12 @@ La seguridad no se concentra en una sola clase: aparece como un cierre concreto 
 
 ## Programa
 
-### Encuentro 1 — Fundamentos y primer agente
-
-**Objetivo:** comprender el funcionamiento práctico de los modelos actuales y construir el primer asistente sobre información real.
-
-**Contenidos:**
-- Cómo funcionan los modelos de lenguaje: contexto, memoria, alucinaciones y límites.
-- Chatbot vs. asistente vs. agente.
-- Panorama de modelos a 2026: ChatGPT, Claude, Gemini y Codex (el Codex 2026 es un agente, distinto del modelo de 2021).
-- Criterios para seleccionar la herramienta según el caso.
-
-**Taller:**
-- Identificación de oportunidades de automatización en el área propia.
-- Creación de un primer asistente basado en documentación real.
-- Comparación de resultados entre dos modelos.
-
-> **Cómo hacerlo seguro:** clasificar la documentación antes de cargarla y definir qué información nunca va al agente, entendiendo que todo lo que entra al contexto puede salir.
-
-**Entregable:**
-- Primer asistente funcional.
-- Mapa inicial de oportunidades de automatización.
-
----
-
-### Encuentro 2 — Prompting seguro y agentes con conocimiento propio
-
-**Objetivo:** diseñar instrucciones consistentes y transformar el asistente en un activo con conocimiento corporativo.
-
-**Contenidos:**
-- Anatomía de un prompt robusto: rol, contexto, restricciones, formato y ejemplos.
-- Técnicas: few-shot, descomposición de tareas, razonamiento paso a paso y salida estructurada.
-- Interacción, evaluación y errores frecuentes.
-- GPTs personalizados, Claude Projects e instrucciones de sistema.
-- Conocimiento propio e introducción a RAG; técnicas para reducir alucinaciones y trazabilidad de respuestas.
-
-**Taller:**
-- Conversión de una tarea real en un prompt maestro reutilizable, probado en dos modelos.
-- Construcción de un agente con runbooks, procedimientos, políticas, FAQs y documentación técnica.
-
-> **Cómo hacerlo seguro:** no incluir credenciales ni secretos en los prompts, escribir instrucciones que el agente respete aunque le pidan lo contrario, y controlar el acceso y la curaduría de la base de conocimiento —definiendo quién ve qué y usando solo fuentes confiables.
-
-**Entregable:**
-- Prompt maestro versionado y biblioteca inicial de prompts.
-- Agente con conocimiento corporativo.
-
----
-
-### Encuentro 3 — Herramientas, MCP, automatización y operación
-
-**Objetivo:** permitir que los agentes ejecuten acciones sobre sistemas reales y dejarlos listos para operar.
-
-**Contenidos:**
-- Introducción a MCP (Model Context Protocol): arquitectura y casos de uso. Ver también [[Módulo 4 - Ciberseguridad aplicada]] para los aspectos de seguridad en servidores MCP.
-- Herramientas no-code: n8n, Make, Zapier, Lindy y Botpress.
-- Introducción a Claude Code y Codex para tareas de sistemas.
-- Integración con APIs y herramientas corporativas.
-- Operación: human-in-the-loop (ver [[Glosario y taxonomía]]), observabilidad, costos y consumo de tokens, versionado.
-
-**Taller:**
-- Conexión de un agente a un sistema externo y construcción de un flujo automatizado.
-- Dejar el agente monitoreado, acotado y versionado.
-
-> **Cómo hacerlo seguro:** aplicar mínimo privilegio en los conectores, allowlist de herramientas y dominios, aprobación humana para acciones irreversibles y verificación del origen de los servidores MCP. Ningún agente con autoaprobación ciega; límites operativos y de costo como control.
-
-**Entregable:**
-- Agente conectado a herramientas reales, monitoreado y documentado.
-
----
-
-### Encuentro 4 — Seguridad, evaluación y laboratorio integrador
-
-**Objetivo:** evaluar y blindar los agentes construidos y consolidar el proyecto final en una jornada de práctica.
-
-**Contenidos:**
-- Nuevo modelo de amenazas de los agentes de IA.
-- Prompt injection y prompt injection indirecta, tool poisoning, knowledge poisoning, data exfiltration y confused deputy. Ver [[Módulo 4 - Ciberseguridad aplicada]] para el tratamiento técnico de estas vulnerabilidades.
-- Seguridad en MCP, mínimo privilegio, sandboxing, logging y auditoría.
-- Gobierno y control operativo de agentes.
-
-**Taller:**
-- Evaluación de seguridad de los propios agentes contra un checklist, sobre datos de prueba en un entorno aislado.
-- Identificación de riesgos, aplicación de mitigaciones y refuerzo de los agentes.
-- Cierre y presentación del proyecto final integrador.
-
-> **Cómo hacerlo seguro:** toda la evaluación se corre sobre datos de prueba y en sandbox, nunca sobre información real, para no exponer nada durante el ejercicio.
-
-**Entregable:**
-- Informe de hallazgos y checklist de seguridad.
-- Agentes reforzados y proyecto final funcional.
+| Encuentro | Tema | Descripción |
+|-----------|------|-------------|
+| [[Encuentro 1 - Fundamentos y primer agente\|Encuentro 1]] | Fundamentos y primer agente | Cómo funcionan los modelos actuales; chatbot vs. asistente vs. agente; primer asistente sobre documentación real. |
+| [[Encuentro 2 - Prompting seguro y agentes con conocimiento propio\|Encuentro 2]] | Prompting seguro y agentes con conocimiento propio | Anatomía del prompt robusto; técnicas avanzadas; GPTs/Claude Projects; RAG y conocimiento corporativo. |
+| [[Encuentro 3 - Herramientas, MCP, automatización y operación\|Encuentro 3]] | Herramientas, MCP, automatización y operación | MCP; plataformas no-code (n8n, Make, Zapier, Lindy, Botpress, Langflow, Flowise, Dify); integración con APIs; operación segura. |
+| [[Encuentro 4 - Seguridad, evaluación y laboratorio integrador\|Encuentro 4]] | Seguridad, evaluación y laboratorio integrador | Modelo de amenazas de agentes; prompt injection, tool poisoning y más; checklist de seguridad; laboratorio integrador y proyecto final. |
 
 ---
 
