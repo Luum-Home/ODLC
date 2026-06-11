@@ -2,6 +2,12 @@
 tags: [referencias, laboratorio, rag, agent-runtime, clean-architecture, mcp, frameworks, nem, testing]
 status: borrador
 created: 2026-06-10
+fuente:
+  tipo: repositorio
+  titulo: "AI Engineering Lab"
+  autor: "MatiasNAmendola"
+  url: "https://github.com/MatiasNAmendola/ai-engineering-lab"
+  consultado: 2026-06-10
 ---
 
 # AI Engineering Lab — Repositorio de Referencia (Análisis Exhaustivo)

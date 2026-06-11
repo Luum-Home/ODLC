@@ -42,7 +42,7 @@ En esta nueva realidad, las métricas tradicionales de productividad y gestión 
 
 Dado que el código se ha vuelto un comodity y su costo marginal tiende a cero, el verdadero reto ya no es *escribir* el programa, sino **garantizar que el software construido satisfaga los objetivos reales del negocio dentro de los límites de seguridad y gobernanza**.
 
-Aquí es donde entra **ODLC** (Objective-Driven Lifecycle), estructurando el ciclo de vida alrededor de objetivos probabilísticos en lugar de tareas deterministas:
+Aquí es donde entra **ODLC** (Objective Driven Lifecycle), estructurando el ciclo de vida alrededor de objetivos probabilísticos en lugar de tareas deterministas:
 
 $$\text{Objective} \longrightarrow \text{Constraints} \longrightarrow \text{Strategy} \longrightarrow \text{Execution} \longrightarrow \text{Validation} \longrightarrow \text{Learning}$$
 

@@ -80,7 +80,7 @@ El autor describe tres caminos arquitectónicos para construir la interfaz del A
 
 ## 5. El Enfoque HACS-ODLC (MVP de Interfaz)
 
-El video propone una metodología alineada al quinto valor de [[Manifiesto HACS-ODLC|Gobernanza Humana]] e [[Fase 6 - Learning|Iteración Continua]]:
+El video propone una metodología alineada al quinto valor del [[Manifiesto HACS-ODLC|Gobernanza Humana]] y con [[Fase 6 - Learning|la Fase 6 del ciclo ODLC (Learning)]], donde el aprendizaje e iteración continua son características propias de esa fase, no valores del manifiesto:
 - **Primero la Visualización (80% del valor)**: No intentes construir el sistema de automatización total el primer día. Empieza diseñando la capa de interfaz para leer y digerir información relevante de tu día.
 - **Incorporación de Acciones según Fricción**: Solo agrega botones de ejecución agéntica una vez que identifiques tareas repetitivas y molestas en tu día a día.
 

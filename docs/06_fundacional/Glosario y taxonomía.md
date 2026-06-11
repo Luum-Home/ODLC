@@ -72,4 +72,4 @@ Patrones operativos usados en la implementación técnica ([[Luum Cognitive OS -
 - **Fix Agent**: Agente de corrección que refactoriza quirúrgicamente los defectos confirmados por el arbitraje.
 
 ---
-Relacionado: [[README]] · [[Manifiesto HACS-ODLC]] · [[Fase 6 - Learning]]
+Relacionado: [[docs/README|README]] · [[Manifiesto HACS-ODLC]] · [[Fase 6 - Learning]]

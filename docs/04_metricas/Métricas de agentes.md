@@ -32,7 +32,8 @@ $$\text{Rework Rate} = \frac{\text{Artefactos de agentes rechazados o modificado
 
 ### Rangos de Referencia:
 - **Precisión Óptima (Rework < 10%)**: El agente opera de forma fluida. Sus decisiones están bien alineadas con las [[Fase 2 - Constraints]] y la [[Memoria organizacional]].
-- **Degeneración de Autonomía (Rework > 30%)**: Los humanos actúan constantemente como correctores detallados de código o diseño. Indica desalineación de contexto o limitaciones del modelo LLM.
+- **Señal de degradación (Rework > 30%)**: Los humanos actúan constantemente como correctores detallados de código o diseño. Indica desalineación de contexto o limitaciones del modelo LLM. Acción: revisar el arnés y el contexto del agente.
+- **Umbral de suspensión (Rework > 40% sostenido por 3 objetivos consecutivos)**: Se activa la Decisión D1 — ver sección Decisiones.
 
 ---
 

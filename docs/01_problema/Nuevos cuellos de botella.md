@@ -27,7 +27,7 @@ Cuando los agentes abaratan la ejecución, el cuello de botella se desplaza. El 
 
 ## Observaciones
 
-- Cada uno de estos cuellos mapea a un componente de [[HACS]]: contexto/memoria → [[Memoria organizacional]]; decisión → [[Roles humanos]] + [[Gobernanza]]; validación → [[Fase 5 - Validation]]; alineación → [[Fase 1 - Objective]].
+- Cada uno de estos cuellos mapea a un componente de [[HACS]]: comprensión del problema → [[Fase 1 - Objective]] + [[Roles humanos]] (rol Product); contexto/memoria → [[Memoria organizacional]]; decisión → [[Roles humanos]] + [[Gobernanza]]; validación → [[Fase 5 - Validation]]; alineación → [[Fase 1 - Objective]].
 - El foco pasa de "líneas de código generadas" a "tiempo desde la idea hasta el valor en producción" → [[Más código no es más velocidad]].
 
 ## Preguntas abiertas

@@ -31,7 +31,7 @@ La unidad básica de trabajo deja de ser exclusivamente humana. Los equipos pasa
 
 ## Flujo de trabajo base
 
-Objective → Context → Decision → Execution → Observation → Learning. La formalización de este flujo es [[ODLC]].
+Objective → Constraints → Strategy → Execution → Validation → Learning. La formalización de este flujo es [[ODLC]].
 
 ## Relacionado
 
