@@ -72,7 +72,7 @@ Amazon detectó el comportamiento y **cerró el leaderboard**. Es uno de los cas
 
 Jensen Huang, CEO de Nvidia, afirmó públicamente:
 
-> **"Si un ingeniero que cobra $500,000 al año no consume al menos $250,000 en tokens, me preocuparía profundamente."**
+> **"Si un ingeniero que cobra \$500,000 al año no consume al menos \$250,000 en tokens, me preocuparía profundamente."**
 
 La declaración es significativa porque:
 - Fija un **umbral mínimo** de consumo como indicador de productividad.

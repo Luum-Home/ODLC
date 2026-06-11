@@ -25,7 +25,7 @@ $$OSR = \frac{\text{Objetivos validados con éxito}}{\text{Total de objetivos in
 
 El **Tiempo hasta el Resultado** mide el tiempo total transcurrido desde la formalización de un objetivo hasta la validación y obtención del resultado de negocio esperado.
 
-$$TTO = T_{\text{validación\_outcome}} - T_{\text{definición\_objetivo}}$$
+$$TTO = T_{\text{validación del outcome}} - T_{\text{definición del objetivo}}$$
 
 ### Diferencia con Lead Time / Cycle Time
 - El *Cycle Time* tradicional mide desde que se empieza a codificar una tarea hasta que se despliega.

@@ -24,7 +24,7 @@ $$KRR = \frac{\text{Decisiones y lecciones en memoria referenciadas en nuevos ob
 
 Mide el tiempo necesario para indexar, buscar y consolidar el contexto histórico requerido antes de iniciar la ejecución de un nuevo objetivo.
 
-$$CRT = T_{\text{contexto\_listo\_para\_ejecución}} - T_{\text{aprobación\_objetivo}}$$
+$$CRT = T_{\text{contexto listo para ejecución}} - T_{\text{aprobación del objetivo}}$$
 
 ### Optimización en HACS
 - En equipos tradicionales, el CRT es alto y fragmentado (reuniones de onboarding, lectura de wikis desactualizados, chats en Slack).
@@ -36,7 +36,7 @@ $$CRT = T_{\text{contexto\_listo\_para\_ejecución}} - T_{\text{aprobación\_obj
 
 Mide el tiempo que tarda la unidad HACS desde que se define un objetivo con sus restricciones hasta que se elige y aprueba formalmente la estrategia de ejecución.
 
-$$DLT = T_{\text{aprobación\_de\_estrategia}} - T_{\text{definición\_de\_restricciones}}$$
+$$DLT = T_{\text{aprobación de estrategia}} - T_{\text{definición de restricciones}}$$
 
 ### Comportamiento del DLT
 - Mide la eficiencia de la [[Fase 3 - Strategy]].

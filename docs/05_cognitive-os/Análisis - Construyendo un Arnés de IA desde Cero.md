@@ -21,17 +21,17 @@ Este documento presenta el análisis técnico y conceptual del repositorio de re
 
 ## 1. La Arquitectura del Bucle Dual (Agent Loop)
 
-En el desarrollo de agentes cognitivos, la interacción se modela a través de un **bucle de ejecución dual** inspirado en el *game loop* de los videojuegos (Read-Eval-Print-Loop o RPL). Este sistema separa la interacción con el usuario (hilo de interfaz) de la ejecución autónoma y recursiva de herramientas.
+En el desarrollo de agentes cognitivos, la interacción se modela a través de un **bucle de ejecución dual** inspirado en el *game loop* de los videojuegos (Read-Eval-Print-Loop o REPL). Este sistema separa la interacción con el usuario (hilo de interfaz) de la ejecución autónoma y recursiva de herramientas.
 
 ```mermaid
 graph TD
-    subgraph Bucle Externo (RPL - UI)
+    subgraph ext ["Bucle Externo (REPL - UI)"]
         A[Leer entrada del usuario] --> B[Evaluar comando o entrada]
         B --> C[Imprimir salida / Renderizar TUI]
         C --> D[Iterar / Volver a empezar]
     end
 
-    subgraph Bucle Interno (Evaluación / LLM)
+    subgraph inner ["Bucle Interno (Evaluación / LLM)"]
         B1[Enviar contexto + mensajes a LLM] --> B2{¿Requiere herramienta?}
         B2 -- Sí --> B3[Ejecutar Tool en Arnés]
         B3 --> B4[Añadir resultado al contexto]
@@ -43,7 +43,7 @@ graph TD
     B5 -.-> C
 ```
 
-### El Bucle Externo (RPL Loop)
+### El Bucle Externo (REPL)
 Modelado en `main.go` mediante la librería de interfaces de terminal (TUI) **Bubble Tea** de Charm:
 1. **Read**: El usuario escribe un prompt en la caja de texto.
 2. **Eval**: Se interceptan comandos especiales (como `/debug`, `/compact`, `/provider`) y las entradas generales se delegan al agente.

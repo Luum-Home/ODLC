@@ -14,13 +14,12 @@ Este programa formativo está diseñado para educar a miembros de la organizaci�
 
 El curso se divide en **cuatro módulos independientes** que cubren el espectro de habilidades requeridas para operar en una organización AI-Native:
 
-```mermaid
-grid-layout
-  "Módulo 1: Construcción de Agentes" : "Para todo público. Diseño de identidad y comportamiento (SOUL/VOICE)."
-  "Módulo 2: Ingeniería de Arneses" : "Técnico. Validación automática, sandboxes y entornos de prueba."
-  "Módulo 3: Gobernanza" : "Híbrido. Límites de autonomía, auditoría y control de costos."
-  "Módulo 4: Ciberseguridad Aplicada" : "Avanzado. Prompt injection, fuga de datos y seguridad en sandboxes."
-```
+| Módulo | Público | Descripción |
+|--------|---------|-------------|
+| Módulo 1: Construcción de Agentes | Todo público | Diseño de identidad y comportamiento (SOUL/VOICE). |
+| Módulo 2: Ingeniería de Arneses | Técnico | Validación automática, sandboxes y entornos de prueba. |
+| Módulo 3: Gobernanza | Híbrido | Límites de autonomía, auditoría y control de costos. |
+| Módulo 4: Ciberseguridad Aplicada | Avanzado | Prompt injection, fuga de datos y seguridad en sandboxes. |
 
 ### Módulos Formativos
 
