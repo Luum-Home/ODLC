@@ -7,7 +7,7 @@ fuente:
   titulo: "AI Engineering Lab"
   autor: "MatiasNAmendola"
   url: "https://github.com/MatiasNAmendola/ai-engineering-lab"
-  consultado: 2026-06-10
+  consultado: 2026-06-11
 ---
 
 # AI Engineering Lab — Repositorio de Referencia (Análisis Exhaustivo)
@@ -77,11 +77,13 @@ Implementa la mecánica fundamental de interacción con modelos de lenguaje:
 
 *   **Conexión HTTP Cruda**: Realiza llamadas directas a APIs de proveedores utilizando `urllib.request` sin envoltorios SDK. Construye los requests manualmente con headers, autenticación Bearer y payloads JSON.
 *   **Server-Sent Events (SSE)**: Implementa un parser iterativo para consumir streams de texto token por token. Lee el stream línea por línea, parsea eventos del formato `data: {...}`, extrae el delta de contenido y renderiza incrementalmente en stdout.
-*   **Cost Tracker en Tiempo Real**: Multiplica los tokens de entrada y salida reportados en la respuesta por las tarifas vigentes del modelo. Incluye tabla de precios de junio 2026:
-    *   GPT-5.5: \$2.50/1M input, \$10.00/1M output
-    *   Claude Opus 4.8: \$15.00/1M input, \$75.00/1M output
-    *   Gemini 2.5 Pro: \$3.50/1M input, \$10.50/1M output
-    *   MiniMax M3: \$0.40/1M input, \$1.60/1M output
+*   **Cost Tracker en Tiempo Real**: Multiplica los tokens de entrada y salida reportados en la respuesta por las tarifas vigentes del modelo. Incluye tabla de precios de junio 2026 (USD por 1M tokens, precio estándar/lista):
+    *   GPT-5.5: \$5.00/1M input, \$30.00/1M output *(actualizado; fuente: [developers.openai.com/api/docs/pricing](https://developers.openai.com/api/docs/pricing))*
+    *   Claude Opus 4.8: \$5.00/1M input, \$25.00/1M output *(actualizado; fuente: [platform.claude.com/docs/en/about-claude/pricing](https://platform.claude.com/docs/en/about-claude/pricing))*
+    *   Gemini 2.5 Pro: \$1.25/1M input, \$10.00/1M output (contexto ≤200k) *(actualizado; fuente: [ai.google.dev/gemini-api/docs/pricing](https://ai.google.dev/gemini-api/docs/pricing))*
+    *   Gemini 3.5 Flash: \$1.50/1M input, \$9.00/1M output *(nuevo; fuente: [ai.google.dev/gemini-api/docs/pricing](https://ai.google.dev/gemini-api/docs/pricing))*
+    *   MiniMax M3: \$0.30/1M input, \$1.20/1M output *(precio vigente con descuento permanente 50%; lista: \$0.60/\$2.40; fuente: [platform.minimax.io/docs/guides/pricing-paygo](https://platform.minimax.io/docs/guides/pricing-paygo))*
+    *   Qwen3.7-Max: \$2.50/1M input, \$7.50/1M output (lista Alibaba Cloud; promo 50%: \$1.25/\$3.75) *(nuevo; fuente: [alibabacloud.com/help/en/model-studio/model-pricing](https://www.alibabacloud.com/help/en/model-studio/model-pricing))*
 *   **Structured Output Parsing**: Fuerza respuestas JSON mediante tool calling nativo del proveedor, eliminando parses manuales sobre texto libre.
 *   **Soporte Multi-Proveedor**: Implementa adaptadores para OpenAI, Anthropic, Google y MiniMax con normalización de respuestas.
 

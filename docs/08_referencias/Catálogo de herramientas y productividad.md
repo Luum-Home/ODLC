@@ -54,7 +54,22 @@ Servicios de revisión automática y extensiones de diseño de comportamiento qu
 
 ---
 
-## 5. Directrices de Selección
+## 5. Plataformas No-Code para Agentes y Automatización LLM
+
+Constructores visuales de flujos y agentes orientados a perfiles técnicos sin experiencia en programación. Permiten conectar LLMs, herramientas, bases de conocimiento y APIs sin escribir código.
+
+*   **[n8n](https://n8n.io/)**: Orquestador de automatizaciones open-source con interfaz visual de nodos. Soporta cientos de servicios, ejecución self-hosted y nodos de IA nativos. Consultado 2026-06-11.
+*   **[Make](https://www.make.com/)**: Plataforma visual de automatización (antes Integromat) con escenarios multistep, mapeo de datos y más de 1.000 conectores listos. Consultado 2026-06-11.
+*   **[Zapier](https://zapier.com/)**: Automatización sin código entre apps populares; énfasis en simplicidad y velocidad de despliegue para flujos de dos pasos. Consultado 2026-06-11.
+*   **[Lindy](https://www.lindy.ai/)**: Agentes de IA no-code con tareas programadas, integraciones, memoria de largo plazo y capacidad de delegar subtareas. Consultado 2026-06-11.
+*   **[Botpress](https://botpress.com/)**: Plataforma visual para construir y desplegar chatbots y agentes conversacionales sobre LLMs, con flujos de diálogo y canales integrados. Consultado 2026-06-11.
+*   **[Langflow](https://www.langflow.org/)**: Interfaz visual de flujos sobre LangChain; permite conectar componentes LLM, RAG, herramientas y memoria sin programar. Open-source y desplegable en local o cloud. Consultado 2026-06-11.
+*   **[Flowise](https://flowiseai.com/)**: Constructor visual de flujos LLM open-source orientado a RAG, agentes y chatbots. Desplegable en local (Node.js) o en servicios cloud; API integrada. Consultado 2026-06-11.
+*   **[Dify](https://dify.ai/)**: Plataforma de desarrollo de aplicaciones LLM con editor visual de flujos, RAG integrado, gestión de prompts, variables de entorno y observabilidad incorporada. Open-source con opción cloud. Consultado 2026-06-11.
+
+---
+
+## 6. Directrices de Selección
 
 > [!TIP]
 > **¿Cómo elegir el entorno de ejecución de tu Agente?**
