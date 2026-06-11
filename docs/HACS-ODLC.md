@@ -15,6 +15,8 @@ created: 2026-06-10
 - [[Nuevos cuellos de botella]] — del código al contexto, de la implementación a la decisión
 - [[Más código no es más velocidad]] — la crítica de AWS al "AI coding" como métrica
 - [[Comparativa con metodologías existentes]] — Scrum, SAFe, DevOps, Team Topologies, Platform Engineering
+- [[Producción de software vs. velocidad real]] — qué optimiza la IA y qué no: CI/CD, testing automation, observabilidad y gobernanza de despliegue como disciplina
+- [[Software bloated]] — el anti-patrón de código, dependencias y funcionalidad sobredimensionada, y por qué los agentes lo producen estructuralmente
 
 ## Parte II — HACS (el modelo organizacional)
 
@@ -29,6 +31,7 @@ created: 2026-06-10
 
 - [[ODLC]] — el ciclo completo y diferencias con SDLC/Scrum
 - [[Fase 1 - Objective]] → [[Fase 2 - Constraints]] → [[Fase 3 - Strategy]] → [[Fase 4 - Execution]] → [[Fase 5 - Validation]] → [[Fase 6 - Learning]]
+- [[Requisitos funcionales y no funcionales]] — adaptación de la distinción clásica al modelo AI-Native, mapeo a Constraints y Gobernanza
 
 ## Parte IV — Métricas
 
