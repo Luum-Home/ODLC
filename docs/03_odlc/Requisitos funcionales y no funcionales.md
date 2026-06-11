@@ -10,7 +10,7 @@ created: 2026-06-10
 
 En la ingeniería de software tradicional, todo proyecto se divide en:
 - **Requisitos funcionales (RF)**: qué debe hacer el sistema (features, casos de uso)
-- **Requisitos no funcionales (RNF)**: cómo debe hacerlo (performance, seguridad, escalabilidad, mantención, disponibilidad)
+- **Requisitos no funcionales (RNF)**: cómo debe hacerlo (performance, seguridad, escalabilidad, mantenibilidad, disponibilidad)
 
 En la ingeniería AI-Native (HACS + ODLC) esa distinción no desaparece, pero se reformula. Los agentes pueden ejecutar funcionalidades rápido, pero cumplir RNF requiere gobernanza: [[Fase 2 - Constraints]] es donde los RNF viven de forma natural, pero no hay un documento que lo formalice.
 
@@ -53,7 +53,7 @@ requisitos_no_funcionales:
 
   - id: RNF-02
     categoria: seguridad
-    descripcion: "Toda llamada externa a provechores LLM debe sanitizar PII"
+    descripcion: "Toda llamada externa a proveedores LLM debe sanitizar PII"
     medicion: "Auditoría de logs y pruebas de filtración"
     constraint_vinculada: "[[Fase 2 - Constraints]] - seguridad + [[Gobernanza]]"
     herramienta: "[[Gobernanza]] - PII Redaction en Safety Mesh"
@@ -100,7 +100,7 @@ Adicional a los RNF clásicos, los sistemas cognitivos humano-agente requieren:
 - Linkeado a [[Fase 6 - Learning]]
 
 ### 3. Gobernanza y autonomía
-- Matriz de acciones autonomas vs con aprobación humana ([[Gobernanza]])
+- Matriz de acciones autónomas vs con aprobación humana ([[Gobernanza]])
 - Rate limits de herramientas críticas
 - Kill switches para ejecución destructiva
 

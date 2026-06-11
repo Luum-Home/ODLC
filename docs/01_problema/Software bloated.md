@@ -39,7 +39,7 @@ La consecuencia: un equipo con agentes puede producir 10x código pero también 
 
 ## Antídotos en HACS-ODLC
 
-- **Purpose over Technology** ([[Manifiesto HACS-ODLC]]): toda línea responde a un propósito de negocio verificable.
+- **Purpose over Technology y Outcomes over Output** ([[Manifiesto HACS-ODLC]]): toda línea responde a un propósito de negocio verificable; el volumen producido no es valor.
 - **Constraints de simplicidad** ([[Fase 2 - Constraints]]): declarar como restricción "mínima implementación para lograr el objetivo".
 - **Gobernanza de revisión** ([[Gobernanza]]): agentes deben pasar el filtro de "¿esto es necesario o es bloat?" antes de commit.
 - **Validación por evidencia** ([[Fase 5 - Validation]]): medir el valor entregado, no el volumen generado.
