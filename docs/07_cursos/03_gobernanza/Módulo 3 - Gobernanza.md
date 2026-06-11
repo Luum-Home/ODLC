@@ -86,7 +86,7 @@ Tradicionalmente, los ganchos de gobernanza se programaban de forma imperativa (
 ### ¿Por qué migrar a Prompts en Gobernanza?
 - **Juicio Semántico**: Expresiones como "I think" o "Probably" a veces denotan razonamiento válido basados en pruebas de compilador, y no necesariamente suposiciones ciegas. Un script determinista de regex bloquea indiscriminadamente. Un prompt evaluado por un modelo rápido como *Claude Haiku* diferencia el contexto lingüístico real.
 - **Mantenibilidad en Prosa**: Cambiar las reglas de aceptación o los umbrales de ambigüedad implica editar instrucciones en Markdown en lugar de refactorizar scripts Bash y depurar caracteres de escape.
-- **Arquitectura Híbrida**: Los controles aritméticos rápidos (como el presupuesto de API o conteo de archivos modificados) se mantienen en Bash determinista por eficiencia (latencia <100ms, costo $0). Las evaluaciones cognitivas subjetivas (como calidad de intenciones o detección de supuestos) se delegan secuencialmente a prompts semánticos (latencia de 1 a 2s, costo aproximado de $0.0005 por llamada).
+- **Arquitectura Híbrida**: Los controles aritméticos rápidos (como el presupuesto de API o conteo de archivos modificados) se mantienen en Bash determinista por eficiencia (latencia <100ms, costo \$0). Las evaluaciones cognitivas subjetivas (como calidad de intenciones o detección de supuestos) se delegan secuencialmente a prompts semánticos (latencia de 1 a 2s, costo aproximado de \$0.0005 por llamada).
 
 ---
 

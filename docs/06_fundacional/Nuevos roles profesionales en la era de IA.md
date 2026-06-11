@@ -92,4 +92,4 @@ El modelo organizacional **HACS** (Human-Agent Collaborative Systems) clasifica 
 | **Operator (Humano)** | AI Integration Specialist / Prompt Engineer | Interactúa con los agentes en el día a día, aprueba sus propuestas a través de gateways de diff, ajusta prompts finos y monitorea ejecuciones. |
 
 > [!IMPORTANT]
-> En organizaciones AI-Native, las disciplinas tradicionales de desarrollo se fusionan. Un Ingeniero de Software moderno opera como un **AI Architect** (diseñando el arnés) y un **AI Operator** (guiando el bucle RPL de los agentes). La especialización hacia la ingeniería de contexto y memoria es crítica para mantener la escalabilidad de los sistemas de agentes en paralelo.
+> En organizaciones AI-Native, las disciplinas tradicionales de desarrollo se fusionan. Un Ingeniero de Software moderno opera como un **AI Architect** (diseñando el arnés) y un **AI Operator** (guiando el bucle REPL de los agentes). La especialización hacia la ingeniería de contexto y memoria es crítica para mantener la escalabilidad de los sistemas de agentes en paralelo.

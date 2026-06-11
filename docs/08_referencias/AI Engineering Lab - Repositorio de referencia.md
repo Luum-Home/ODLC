@@ -78,10 +78,10 @@ Implementa la mecánica fundamental de interacción con modelos de lenguaje:
 *   **Conexión HTTP Cruda**: Realiza llamadas directas a APIs de proveedores utilizando `urllib.request` sin envoltorios SDK. Construye los requests manualmente con headers, autenticación Bearer y payloads JSON.
 *   **Server-Sent Events (SSE)**: Implementa un parser iterativo para consumir streams de texto token por token. Lee el stream línea por línea, parsea eventos del formato `data: {...}`, extrae el delta de contenido y renderiza incrementalmente en stdout.
 *   **Cost Tracker en Tiempo Real**: Multiplica los tokens de entrada y salida reportados en la respuesta por las tarifas vigentes del modelo. Incluye tabla de precios de junio 2026:
-    *   GPT-5.5: $2.50/1M input, $10.00/1M output
-    *   Claude Opus 4.8: $15.00/1M input, $75.00/1M output
-    *   Gemini 2.5 Pro: $3.50/1M input, $10.50/1M output
-    *   MiniMax M3: $0.40/1M input, $1.60/1M output
+    *   GPT-5.5: \$2.50/1M input, \$10.00/1M output
+    *   Claude Opus 4.8: \$15.00/1M input, \$75.00/1M output
+    *   Gemini 2.5 Pro: \$3.50/1M input, \$10.50/1M output
+    *   MiniMax M3: \$0.40/1M input, \$1.60/1M output
 *   **Structured Output Parsing**: Fuerza respuestas JSON mediante tool calling nativo del proveedor, eliminando parses manuales sobre texto libre.
 *   **Soporte Multi-Proveedor**: Implementa adaptadores para OpenAI, Anthropic, Google y MiniMax con normalización de respuestas.
 
