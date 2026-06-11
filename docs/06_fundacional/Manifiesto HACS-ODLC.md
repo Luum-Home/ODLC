@@ -47,6 +47,12 @@ Como profesionales del desarrollo de software y la ingeniería de sistemas organ
 - **Por qué**: Delegar la responsabilidad del negocio y la ética a agentes autónomos es irresponsable. Los agentes ejecutan, sugieren y validan, pero los humanos lideran la visión y deciden los límites de riesgo aceptables.
 - **En la práctica**: Establecemos políticas de [[Gobernanza]] claras donde el despliegue a producción, cambios críticos de arquitectura y aprobación de presupuestos requieren supervisión humana.
 
+### 6. Purpose over Technology (Propósito sobre Tecnología)
+*Valoramos el propósito y el resultado por encima de la tecnología, el framework o el lenguaje específico.*
+
+- **Por qué**: El código, el framework, la base de datos y el lenguaje son medios para alcanzar un objetivo, no fines en sí mismos. Atarse a una tecnología específica convierte al equipo en rehén de decisiones transitorias en un entorno donde los modelos, frameworks y proveedores cambian cada trimestre. La arquitectura correcta es la que permite reemplazar cualquier componente sin rescribir el sistema ([[Nuevos cuellos de botella]], [[Producción de software vs. velocidad real]]).
+- **En la práctica**: Diseñamos sistemas con arquitectura limpia (puertos y adaptadores), interfaces estables y protocolos abiertos (MCP, OpenAPI). Los agentes son agnósticos al modelo LLM subyacente. Las decisiones tecnológicas se documentan como ADRs descartables; las decisiones de propósito y restricciones de negocio permanecen en [[Memoria organizacional]].
+
 ---
 
 Al priorizar los elementos de la izquierda sobre los de la derecha, cambiamos la escala del desarrollo de software: de un ciclo de producción a un **ciclo de aprendizaje continuo orientado a objetivos**.
