@@ -1,5 +1,5 @@
 ---
-tags: [fundacional, recursos, herramientas]
+tags: [referencias, recursos, herramientas]
 status: borrador
 created: 2026-06-10
 ---
@@ -8,7 +8,8 @@ created: 2026-06-10
 
 Este documento registra los **repositorios y recursos de referencia externos** que sirven de inspiración, base tecnológica o ejemplos prácticos para el diseño y construcción de los agentes en [[HACS]] y las implementaciones de [[Cognitive OS - Arquitectura de referencia]].
 
-Estos repositorios se encuentran clonados en el directorio local `external/` (el cual está excluido del control de versiones mediante el archivo `.gitignore` para evitar duplicaciones).
+> [!warning] Setup requerido (el vault es portable; tu clon no)
+> Las notas del vault que referencian rutas `external/...` (los módulos del curso y [[Análisis - Construyendo un Arnés de IA desde Cero]]) asumen que estos repositorios fueron clonados localmente en el directorio `external/`, que está **excluido del control de versiones** vía `.gitignore`. Si clonaste solo este repo, esas rutas no existen todavía: ejecutá primero la sincronización descripta al final de esta nota.
 
 ---
 
@@ -48,13 +49,13 @@ Para complementar la investigación técnica de HACS y Cognitive OS, analizamos 
 
 ---
 
-## Cómo mantener los repositorios actualizados
+## Cómo clonar y mantener los repositorios actualizados
 
-Para simplificar la sincronización de estos repositorios y asegurar que cuenten con las últimas actualizaciones de sus respectivos autores, hemos creado el script de automatización `sync_external.sh` en la raíz del repositorio.
+Para simplificar el clonado inicial y la sincronización de estos repositorios, existe el script de automatización `sync_external.sh` en la raíz del repositorio (si no está presente en tu clon, cloná manualmente los repos de la tabla dentro de `external/`).
 
 ### Instrucciones de sincronización:
 
-Ejecuta el script desde la raíz del proyecto para actualizar todos los repositorios clonados en la carpeta `external/`:
+Ejecuta el script desde la raíz del proyecto para clonar/actualizar todos los repositorios en la carpeta `external/`:
 
 ```bash
 ./sync_external.sh
