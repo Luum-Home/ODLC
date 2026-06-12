@@ -17,6 +17,7 @@ created: 2026-06-10
 - [[Comparativa con metodologías existentes]] — Scrum, SAFe, DevOps, Team Topologies, Platform Engineering
 - [[Producción de software vs. velocidad real]] — qué optimiza la IA y qué no: CI/CD, testing automation, observabilidad y gobernanza de despliegue como disciplina
 - [[Software bloated]] — el anti-patrón de código, dependencias y funcionalidad sobredimensionada, y por qué los agentes lo producen estructuralmente
+- [[Defectos perceptuales generados por IA]] — flickering, layout shift, pérdida de foco y otros defectos UI que no aparecen en builds verdes ni capturas estáticas
 
 ## Parte II — HACS (el modelo organizacional)
 
