@@ -39,6 +39,7 @@ Una empresa puede generar 100.000 líneas de código por semana con agentes y te
 3. **Pipeline como decoración**: pipelines CI/CD verdes sin tests de integración reales, sin smoke tests en staging.
 4. **Feature-flag mania**: desplegar rápido no es lo mismo que desplegar bien.
 5. **"Funciona en mi sandbox"**: agentes que producen código que pasa tests locales pero falla en producción porque no conocen el entorno.
+6. **UI estática, experiencia rota**: pantallas que compilan y se ven bien en una captura, pero tienen flickering, layout shift, pérdida de foco o estados intermedios inconsistentes durante el uso real → [[Defectos perceptuales generados por IA]].
 
 ## Cómo sí optimizar la producción
 
@@ -60,6 +61,7 @@ Los agentes crean IaC (Terraform, Pulumi, CloudFormation) pero arquitectos human
 - **ATDD (Acceptance Test-Driven Development)**: los agentes generan tests contra criterios de aceptación definidos en [[Fase 1 - Objective]].
 - **Property-based testing** para encontrar casos borde que agentes no anticipan.
 - **Chaos engineering** para validar robustez del sistema que agentes no modelan.
+- **Validación perceptual de UI**: pruebas interactivas, latencia simulada, traces/video, visual regression y checks de accesibilidad para detectar defectos que una captura estática no muestra → [[Defectos perceptuales generados por IA]].
 
 ### Observabilidad de producción
 
@@ -111,4 +113,4 @@ La IA acelera. HACS-ODLC optimiza: velocidad con gobernanza, calidad y aprendiza
 - ¿Qué papel juega un agente "DevOps Agent" especializado en [[Roles de agentes]]?
 
 ---
-Relacionado: [[Más código no es más velocidad]] · [[Nuevos cuellos de botella]] · [[AI SDLC]] · [[Fase 4 - Execution]] · [[Fase 5 - Validation]] · [[Métricas operativas]] · [[Métricas de agentes]] · [[Análisis - Token Economics y las 5 Predicciones del Caos]]
+Relacionado: [[Más código no es más velocidad]] · [[Nuevos cuellos de botella]] · [[AI SDLC]] · [[Fase 4 - Execution]] · [[Fase 5 - Validation]] · [[Métricas operativas]] · [[Métricas de agentes]] · [[Defectos perceptuales generados por IA]] · [[Análisis - Token Economics y las 5 Predicciones del Caos]]

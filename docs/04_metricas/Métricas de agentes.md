@@ -35,6 +35,8 @@ $$\text{Rework Rate} = \frac{\text{Artefactos de agentes rechazados o modificado
 - **Señal de degradación (Rework > 30%)**: Los humanos actúan constantemente como correctores detallados de código o diseño. Indica desalineación de contexto o limitaciones del modelo LLM. Acción: revisar el arnés y el contexto del agente.
 - **Umbral de suspensión (Rework > 40% sostenido por 3 objetivos consecutivos)**: Se activa la Decisión D1 — ver sección Decisiones.
 
+En trabajos de frontend, el *Rework Rate* debe incluir defectos perceptuales aunque no rompan el build: flickering, layout shift, pérdida de foco, estados loading/empty/error inconsistentes, regresiones responsive y fallas básicas de accesibilidad. Ver [[Defectos perceptuales generados por IA]].
+
 ---
 
 ## 3. Agent Cost (Costo y Eficiencia de Agentes)
@@ -62,4 +64,4 @@ A diferencia del costo de salarios humanos, el costo de agentes es altamente el�
 - ¿Cómo calcular el costo de oportunidad de que un humano esté "esperando" las respuestas de un agente lento?
 
 ---
-Relacionado: [[Roles de agentes]] · [[Roles humanos]] · [[Métricas operativas]] · [[Gobernanza]]
+Relacionado: [[Roles de agentes]] · [[Roles humanos]] · [[Métricas operativas]] · [[Gobernanza]] · [[Defectos perceptuales generados por IA]]

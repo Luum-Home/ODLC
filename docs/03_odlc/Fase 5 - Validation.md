@@ -30,6 +30,12 @@ validation:
 3. **Quien valida no es quien ejecutó.** El veredicto lo da el dueño humano del objetivo ([[Roles humanos]]: Product/Sponsor), con análisis preparado por agentes.
 4. **Fallar es un resultado válido** — si produce aprendizaje ([[Fase 6 - Learning]]). Lo inválido es no poder determinar si se falló.
 
+## Validación perceptual
+
+En interfaces generadas o modificadas por agentes, un build verde o una captura estática no alcanzan. También hay que validar defectos perceptuales como flickering, layout shift, pérdida de foco, estados loading/empty/error inconsistentes y fallas responsive o de accesibilidad.
+
+Ver: [[Defectos perceptuales generados por IA]].
+
 ## Métricas asociadas
 
 Objective Success Rate y Time To Outcome ([[Métricas operativas]]) se calculan en esta fase.
@@ -37,3 +43,6 @@ Objective Success Rate y Time To Outcome ([[Métricas operativas]]) se calculan 
 ## Preguntas abiertas
 
 - ¿Cuánto se espera para validar métricas que tardan en moverse (churn, retención)? ¿Validación diferida como estado del ciclo?
+
+---
+Relacionado: [[ODLC]] · [[Métricas operativas]] · [[Defectos perceptuales generados por IA]]
