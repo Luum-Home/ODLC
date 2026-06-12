@@ -9,9 +9,13 @@ created: 2026-06-10
 **Autor:** Matías Nahuel Améndola.
 **Contribuciones:** Sebastián Gauna, Damián Gambacorta.
 
+> [!note] Si estás leyendo esto desde GitHub
+> La explicación general del repositorio está en `../README.md`.
+> Este archivo explica cómo usar `docs/` como vault de conocimiento.
+
 Este vault es el **documento de trabajo vivo** de HACS (Human-Agent Collaborative Systems) y ODLC (Objective Driven Lifecycle). No es un whitepaper terminado: es la base editable desde la cual se construye la metodología, al estilo de cómo evolucionaron el Agile Manifesto, Team Topologies o Domain-Driven Design.
 
-Los PDFs en la raíz del repo (`HACS_Canvas.pdf`, `ODLC_Canvas.pdf`, `HACS_ODLC_Whitepaper_v0.1.pdf`, `HACS_ODLC_Master_Document_v0.2.pdf`) son **snapshots históricos**. La fuente canónica de verdad es este vault en markdown.
+Los PDFs históricos están en `00_crudo/` (`HACS_Canvas.pdf`, `ODLC_Canvas.pdf`, `HACS_ODLC_Whitepaper_v0.1.pdf`, `HACS_ODLC_Master_Document_v0.2.pdf`). Son **snapshots históricos**; la fuente canónica de verdad es este vault en markdown.
 
 ## Principios del vault (estilo Karpathy)
 
@@ -19,7 +23,7 @@ Los PDFs en la raíz del repo (`HACS_Canvas.pdf`, `ODLC_Canvas.pdf`, `HACS_ODLC_
 2. **Una idea por nota (notas atómicas).** Cada nota es autocontenida: se entiende sin haber leído las demás. Si una nota crece con dos ideas, se divide.
 3. **Append-and-review.** Todo lo crudo entra primero a `00_crudo/` (inbox). En cada revisión, lo que madura se promueve a nota atómica; lo que no, se borra o se queda esperando.
 4. **Documentos vivos, no prosa cerrada.** Las notas capturan *hipótesis*, *evidencia*, *decisiones* y *preguntas abiertas* — explícitamente separadas. Una afirmación sin evidencia se marca como hipótesis, no se disfraza de hecho.
-5. **Links sobre jerarquía.** Las carpetas son una conveniencia; la estructura real son los `[[wikilinks]]` y el mapa de contenido [[HACS-ODLC]]. Un link a una nota que no existe todavía marca trabajo pendiente, no un error.
+5. **Links sobre jerarquía.** Las carpetas son una conveniencia; la estructura real son los enlaces internos tipo wikilink y el mapa de contenido [[HACS-ODLC]]. Un link a una nota que no existe todavía marca trabajo pendiente, no un error.
 6. **Escrito para tu yo futuro y para agentes.** Contexto explícito, sin sobreentendidos. Fechas absolutas, no relativas. Ejemplos concretos antes que abstracciones.
 
 ## Estructura
@@ -37,6 +41,28 @@ Los PDFs en la raíz del repo (`HACS_Canvas.pdf`, `ODLC_Canvas.pdf`, `HACS_ODLC_
 | `08_referencias/` | Catálogos volátiles: repos externos, herramientas, skills, especificaciones de terceros |
 
 **Punto de entrada:** [[HACS-ODLC]]
+
+## Rutas de lectura rápidas
+
+**Para entender el marco completo:**
+
+1. [[HACS-ODLC]]
+2. [[Por qué fallan las metodologías actuales]]
+3. [[HACS]]
+4. [[ODLC]]
+5. [[Cognitive OS - Arquitectura de referencia]]
+6. [[Manifiesto HACS-ODLC]]
+
+**Para capacitación y ofertas:**
+
+- [[Cursos HACS-ODLC]]
+- [[Curso - Agentes de IA aplicados al trabajo técnico]]
+- [[Propuesta comercial - Agentes de IA aplicados al trabajo técnico]]
+
+**Para herramientas y referencias externas:**
+
+- [[Recursos externos]]
+- [[Catálogo de herramientas y productividad]]
 
 ## Convenciones de notas
 
