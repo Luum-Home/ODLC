@@ -19,6 +19,18 @@ Los agentes en [[HACS]] aportan: **análisis, ejecución, validación, documenta
 
 Equivale al pipeline multi-agente del [[AI SDLC]] avanzado (PM Agent → Architect Agent → Developer Agent → Tester Agent → Security Agent → DevOps Agent), pero con dos diferencias: comparten [[Memoria organizacional]] como sustrato común, y operan bajo límites de autonomía explícitos.
 
+## Loops de revisión entre agentes
+
+El rol Builder produce cambios, pero el rol Reviewer debe validar con distancia crítica. Para cambios relevantes, el patrón recomendado es:
+
+```text
+apply → fresh review → findings → fix → re-review → merge
+```
+
+La separación de contexto reduce sesgo de confirmación: quien valida no debería depender únicamente del hilo que produjo la implementación.
+
+Ver: [[Patrones de loops agénticos para repositorios#Apply/Judge/Fix loop]] y [[Patrones de loops agénticos para repositorios#Fresh-context validation]].
+
 ## Hipótesis
 
 - La especialización por rol (vs. un agente generalista) mejora trazabilidad y auditoría, aunque los modelos subyacentes sean el mismo. El rol es un *contrato*, no una capacidad técnica distinta.

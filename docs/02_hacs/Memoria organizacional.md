@@ -22,6 +22,20 @@ Componente de [[HACS]] que conserva conocimiento y contexto de forma **persisten
 - ☑ **Costos** (de ejecución humana y de agentes)
 - ☑ **Lecciones aprendidas** (salida de cada [[Fase 6 - Learning]])
 
+## Memoria con ciclo de vida
+
+La memoria organizacional no debe ser acumulativa sin caducidad. Las decisiones, políticas y preferencias necesitan señales de vigencia.
+
+Patrón mínimo:
+
+```text
+memoria creada → memoria activa → memoria stale / necesita revisión → revisión humana/agente → actualizar, superseder o marcar vigente
+```
+
+Una memoria vieja no es necesariamente falsa, pero tampoco debe ser usada como verdad vigente sin verificación. El agente Memory debe poder distinguir entre memoria activa, memoria que necesita revisión, memoria supersedida y memoria descartada.
+
+Ver: [[Patrones de loops agénticos para repositorios#Memoria con ciclo de vida]].
+
 ## Modelo de memoria (hipótesis)
 
 - Cada entrada es **atómica, fechada y linkeable** (los mismos principios de este vault — ver [[README]]).
