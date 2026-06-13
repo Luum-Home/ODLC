@@ -36,11 +36,15 @@ La implementación de **HACS** y la adopción de **ODLC** representan una transf
 - **Descripción**: Entradas obsoletas o erróneas en la memoria organizacional desvían la toma de decisiones de los agentes en ciclos futuros.
 - **Mitigación**: Curaduría obligatoria. El agente Memory debe correr tareas periódicas de purga y consolidación bajo supervisión del rol humano de Architect.
 
-### D. Inyección de Prompts (Directa e Indirecta)
+### D. Obsolescencia de Memoria
+- **Descripción**: Una memoria verdadera en su momento envejece y sigue siendo recuperada como guía vigente. Esto produce context rot por memoria persistente: decisiones, políticas o preferencias obsoletas contaminan loops futuros.
+- **Mitigación**: Ciclo de vida de memoria con estados de vigencia, revisión periódica, relaciones de supersession y obligación de verificar memorias stale antes de usarlas como fuente de decisión. Ver [[Patrones de loops agénticos para repositorios#Stale memory como failure mode]].
+
+### E. Inyección de Prompts (Directa e Indirecta)
 - **Descripción**: Un atacante secuestra el comportamiento del agente mediante instrucciones maliciosas, ya sea en el prompt directo o —el vector de mayor riesgo— embebidas en datos externos que el agente lee (páginas web, PDFs, correos).
 - **Mitigación**: Escaneo semántico y determinista de entradas antes de procesar el objetivo, y auditoría de la memoria al persistir observaciones. Detalle técnico en [[Módulo 4 - Ciberseguridad aplicada]].
 
-### E. Secuestro de Ejecución en Sandbox
+### F. Secuestro de Ejecución en Sandbox
 - **Descripción**: Código vulnerable o malicioso generado por un agente escapa de un sandbox mal aislado y daña el host o la red interna.
 - **Mitigación**: Aislamiento de infraestructura (contenedores con virtualización de syscalls), límites de escritura por directorio y simulación periódica de intrusión (`/pentest-self`). Ver [[Módulo 4 - Ciberseguridad aplicada]].
 
@@ -69,4 +73,4 @@ La implementación de **HACS** y la adopción de **ODLC** representan una transf
 - ¿Qué responsabilidad legal asume la organización si un agente autónomo causa daños directos en producción debido a una alucinación no detectada? → [[Gobernanza]]
 
 ---
-Relacionado: [[Gobernanza]] · [[Roles humanos]] · [[Por qué fallan las metodologías actuales]] · [[Agent Loop Engineering]]
+Relacionado: [[Gobernanza]] · [[Roles humanos]] · [[Por qué fallan las metodologías actuales]] · [[Agent Loop Engineering]] · [[Patrones de loops agénticos para repositorios]]

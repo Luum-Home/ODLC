@@ -25,6 +25,14 @@ learning:
 2. **Aprende el sistema, no solo las personas.** La diferencia con la retro de Scrum: el aprendizaje queda disponible para los agentes (que lo citarán como evidencia) y sobrevive a la rotación de personas.
 3. **Lo descartado también se guarda.** Saber qué no funcionó y por qué evita re-explorar callejones sin salida — es la base del Knowledge Reuse Rate ([[Métricas organizacionales]]).
 
+## Curaduría y vigencia
+
+El aprendizaje no termina al guardar una memoria. Cada decisión, política o preferencia relevante debe tener una expectativa de revisión: cuándo puede quedar obsoleta, qué la supersede y quién puede marcarla vigente.
+
+Sin ciclo de vida, Learning puede transformarse en acumulación de contexto viejo que contamina ciclos futuros.
+
+Ver: [[Patrones de loops agénticos para repositorios#Memoria con ciclo de vida]].
+
 ## Métricas asociadas
 
 Learning Velocity ([[Métricas operativas]]), Knowledge Reuse Rate ([[Métricas organizacionales]]).

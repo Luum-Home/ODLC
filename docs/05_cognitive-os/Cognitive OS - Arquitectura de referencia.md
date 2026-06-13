@@ -57,6 +57,14 @@ graph TD
   - *Base de datos de grafos* para trazar dependencias de decisiones (ADRs) y dependencias de código.
   - Integración directa con el historial Git del repositorio (los commits y PRs se enlazan con decisiones en la memoria).
 
+### Repositorios como superficies operativas
+
+El Cognitive OS no opera sobre repositorios pasivos. Un repositorio AI-native debe exponer process-as-code: instrucciones, skills, reglas de contribución, playbooks de revisión, tests y gates que el orquestador pueda leer como estado operacional.
+
+Esto permite que el motor de orquestación decida por estado — phase readiness, blockers, artifacts y next recommended action — en lugar de improvisar desde el historial conversacional.
+
+Ver: [[Patrones de loops agénticos para repositorios]].
+
 ### 3. Motor de Orquestación de Agentes (Agent Orchestration Engine)
 - **Función**: Ciclo de vida y comunicación de los agentes de IA ([[Roles de agentes]]). *Nota: "Architect" aquí es un [[Roles de agentes|rol de agente]], distinto del [[Roles humanos|rol humano Architect]] — son homónimos con responsabilidades distintas.*
 - **Mecanismo**: Arquitectura basada en mensajes. Los agentes leen del Memory Bus, discuten alternativas para proponer la estrategia de ejecución ([[Fase 3 - Strategy]]), y el agente Planner coordina la ejecución en paralelo. El diseño concreto de trigger, goal, state, action policy, observation parser, termination y memory update se formaliza en [[Agent Loop Engineering]].
@@ -78,7 +86,7 @@ El motor [luum-cognitive-os](https://github.com/Luum-Home/luum-cognitive-os) es 
 ### Correspondencia de Componentes:
 - **Kernel y Programador de Procesos**: Orquestado por el CLI nativo en Rust (`cos` CLI) que gobierna el ciclo de ejecución humano-agente.
 - **Interfaz de Límites y Sandbox**: Implementado mediante ganchos (`PreToolUse` / `PostToolUse`) y scripts de control (`blast-radius.sh` para acotar escrituras y `claim-validator.sh` para forzar ejecución de tests).
-- **Bus de Memoria (Memory Bus)**: Integración con **memoria persistente** para el guardado de grafos semánticos, decisiones (ADRs) e historial de incidentes.
+- **Bus de Memoria (Memory Bus)**: Integración con un sistema de memoria persistente para el guardado de grafos semánticos, decisiones (ADRs) e historial de incidentes.
 - **Base de Políticas (Rules & Governance)**: Ficheros de políticas declarados en la carpeta `policies/` y reglas del repositorio local distribuidas en `rules/`.
 
 ---

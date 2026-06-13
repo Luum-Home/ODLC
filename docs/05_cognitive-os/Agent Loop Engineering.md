@@ -266,6 +266,126 @@ La memoria es parte del loop, pero también puede envenenarlo.
 
 ---
 
+## Patrón aplicado: TDD para agentes
+
+TDD para agentes no se resuelve diciendo "hacé TDD" en el prompt. Se resuelve diseñando un loop donde el agente no pueda saltarse el ciclo de aprendizaje y verificación.
+
+El patrón operativo es:
+
+```text
+Init de capacidades → Estado persistente → Apply con evidencia obligatoria → Verify que audita proceso → Dispatcher de siguiente paso → Memoria/artifacts para continuidad
+```
+
+### 1. Init de capacidades
+
+Antes de exigir TDD, el sistema debe detectar qué capacidades reales tiene el proyecto:
+
+- test runner disponible;
+- comandos de test por capa;
+- cobertura;
+- linter/typechecker;
+- estructura de tests existente;
+- restricciones de edición;
+- convenciones del repo.
+
+Sin esta fase, el agente inventa comandos, promete cobertura inexistente o aplica una receta genérica que no encaja con el proyecto.
+
+### 2. Estado persistente
+
+El TDD agéntico necesita estado fuera de la conversación:
+
+- capacidades detectadas;
+- modo TDD activo/inactivo;
+- tareas pendientes;
+- progreso por task;
+- tests escritos;
+- evidencia RED/GREEN/REFACTOR;
+- bloqueos;
+- archivos tocados;
+- resultados de verificación.
+
+Ese estado puede vivir en memoria, archivos OpenSpec, artefactos del repo o una combinación. Lo importante es que el siguiente turno o subagente pueda reconstruir dónde está parado el loop.
+
+### 3. Apply con evidencia obligatoria
+
+La fase de implementación debe exigir evidencia por unidad de trabajo, no solo resultado final.
+
+Evidencia mínima:
+
+| Paso | Evidencia esperada | Riesgo que evita |
+|---|---|---|
+| **RED** | test nuevo falla por la razón correcta | escribir código sin test o test irrelevante |
+| **GREEN** | implementación mínima hace pasar el test | sobre-ingeniería y cambios no necesarios |
+| **TRIANGULATE** | segundo caso evita green falso | tests tautológicos o hardcodeados |
+| **REFACTOR** | mejora interna con tests pasando | deuda técnica y regresiones silenciosas |
+
+Si el agente no registra esta evidencia, la tarea no debería considerarse completa.
+
+### 4. Verify que audita proceso
+
+La verificación no debe limitarse a "los tests pasan". Debe auditar también el proceso:
+
+- si hubo RED real;
+- si el test toca código productivo;
+- si las assertions verifican comportamiento y no tautologías;
+- si hay casos suficientes para el escenario;
+- si la capa de test elegida corresponde al riesgo;
+- si el resultado cubre spec, design y constraints;
+- si hay warnings por cobertura, mocks excesivos o smoke tests débiles.
+
+Esto transforma TDD en una práctica verificable, no en una declaración de intención.
+
+### 5. Dispatcher que decide el siguiente paso
+
+Un dispatcher evita que el agente decida desde intuición conversacional. Debe computar:
+
+- qué artifacts existen;
+- qué dependencias están listas;
+- qué tasks faltan;
+- si apply está bloqueado, listo o completo;
+- si verify pasó o dejó issues;
+- cuál es el próximo paso recomendado.
+
+El agente debería rutear por estado estructurado, no por "me parece que ya seguimos".
+
+### 6. Memoria y artifacts para continuidad
+
+El loop debe guardar outputs reutilizables:
+
+- testing capabilities;
+- apply-progress;
+- verify-report;
+- decisiones;
+- gotchas;
+- comandos válidos;
+- fallos encontrados;
+- cambios de alcance.
+
+La continuidad es clave porque TDD agéntico suele cruzar subagentes, compactaciones, sesiones y ramas. Sin artifacts, cada agente vuelve a empezar y aumenta el riesgo de context rot o premature success.
+
+### Lectura desde ODLC
+
+Este patrón ubica TDD dentro de ODLC:
+
+- **Objective**: comportamiento esperado y criterios de aceptación.
+- **Constraints**: comandos reales, capas de test, límites de edición y seguridad.
+- **Strategy**: selección de capa de test y plan de ciclos.
+- **Execution**: RED/GREEN/TRIANGULATE/REFACTOR con evidencia.
+- **Validation**: auditoría independiente de resultado y proceso.
+- **Learning**: persistencia de capacidades, reportes, fallos y convenciones.
+
+La diferencia central con TDD humano informal es que el agente necesita un arnés que le impida hacer trampa: estado explícito, compuertas, evidencia y verificación independiente.
+
+---
+
+## Patrones de repositorio para loops agénticos
+
+Cuando el loop opera sobre un repositorio, el diseño debe incluir patrones específicos: process-as-code, memoria con ciclo de vida, revisión fresca adversarial, implementación basada en evidencia y dispatcher por estado.
+
+Estos patrones convierten el repo en una superficie operativa para agentes, no solo en un lugar donde guardar código.
+
+Ver: [[Patrones de loops agénticos para repositorios]].
+
 ## Guardrails y human-in-the-loop
 
 Un loop serio necesita compuertas para acciones riesgosas:

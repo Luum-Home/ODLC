@@ -28,6 +28,14 @@ La matriz **no es fija**: se relaja a medida que sube el nivel de [[Modelo de ma
 
 La gobernanza de HACS se materializa técnicamente en [[Luum Cognitive OS - Implementación de referencia]]: una malla de seguridad de 14 capas (Safety Mesh) que intercepta las acciones de los agentes con hooks `PreToolUse`/`PostToolUse`. El detalle técnico vive en esa nota y en [[Módulo 3 - Gobernanza]]; esta nota define solo el QUÉ conceptual.
 
+## Process-as-code y evidencia
+
+La gobernanza debe estar codificada en artefactos que los agentes puedan leer y ejecutar: reglas del repo, skills, playbooks, tests, PR gates y criterios de cierre. Un agente no debería inferir el proceso desde conversación; debería seguir reglas versionadas.
+
+Además, todo loop agéntico con efectos reales debe cerrar por evidencia auditable — diff, tests, docs, revisión y checks — no por declaración del agente.
+
+Ver: [[Patrones de loops agénticos para repositorios#Process-as-code para agentes]] y [[Patrones de loops agénticos para repositorios#Evidence-driven implementation]].
+
 ## Principios de diseño
 
 1. **Autonomía ganada, no otorgada:** un agente amplía sus permisos cuando su historial de precisión lo justifica, no por default.
