@@ -30,7 +30,7 @@ La implementación de **HACS** y la adopción de **ODLC** representan una transf
 
 ### B. Bucles Infinitos de Ejecución (Infinite Loops)
 - **Descripción**: Un agente Builder intenta resolver recursivamente un test roto y consume miles de dólares en tokens en pocas horas.
-- **Mitigación**: Límites rígidos y alertas de costos (Cost Caps) a nivel del orquestador en [[Cognitive OS - Arquitectura de referencia]]. Límite de 5 reintentos automáticos antes de requerir intervención de un operador humano.
+- **Mitigación**: Límites rígidos y alertas de costos (Cost Caps) a nivel del orquestador en [[Cognitive OS - Arquitectura de referencia]]. Límite de 5 reintentos automáticos antes de requerir intervención de un operador humano. Ver [[Agent Loop Engineering]] para failure modes como loop infinito, tool ping-pong, observation blindness, context rot, memory poisoning y premature success.
 
 ### C. Contaminación de Memoria
 - **Descripción**: Entradas obsoletas o erróneas en la memoria organizacional desvían la toma de decisiones de los agentes en ciclos futuros.
@@ -69,4 +69,4 @@ La implementación de **HACS** y la adopción de **ODLC** representan una transf
 - ¿Qué responsabilidad legal asume la organización si un agente autónomo causa daños directos en producción debido a una alucinación no detectada? → [[Gobernanza]]
 
 ---
-Relacionado: [[Gobernanza]] · [[Roles humanos]] · [[Por qué fallan las metodologías actuales]]
+Relacionado: [[Gobernanza]] · [[Roles humanos]] · [[Por qué fallan las metodologías actuales]] · [[Agent Loop Engineering]]
