@@ -128,7 +128,7 @@ Esta crisis de capacidad tiene implicaciones directas para el diseño de sistema
 - **Diversificación de proveedores**: un Cognitive OS debe ser agnóstico al modelo y capaz de alternar entre proveedores según disponibilidad y costo ([[Análisis - Harness Engineering y la Paradoja de Herramientas]] demuestra que es posible con arneses bien diseñados).
 - **Gestión eficiente de tokens**: la orquestación multi-agente con contextos destilados (no heredar el chat completo) y el límite del 40% de ventana de contexto son mecanismos de defensa directos contra la escasez.
 - **Presupuesto de tokens como métrica de gobernanza**: los roles de gobernanza HACS deben contemplar el costo de tokens como restricción operativa, no solo la calidad de output.
-- **Memoria externa como amortiguador**: persistir conocimiento en sistemas como [[Memoria organizacional|memoria persistente]] reduce la dependencia de re-procesar contexto costoso en cada sesión.
+- **Memoria externa como amortiguador**: persistir conocimiento en la [[Memoria organizacional]] reduce la dependencia de re-procesar contexto costoso en cada sesión.
 - **Evaluación del peaje lingüístico**: para equipos hispanohablantes, las métricas de Agent Cost deben considerar el sobrecosto estructural del idioma.
 
 ---

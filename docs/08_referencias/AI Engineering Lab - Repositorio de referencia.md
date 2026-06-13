@@ -690,8 +690,6 @@ Propósito: Análisis local de código de terceros, estudio de patrones, benchma
 7.  **`driftdb/`** ([DavidLiedle/DriftDB](https://github.com/DavidLiedle/DriftDB)): Motor de sincronización P2P en tiempo real. Referencia para colaboración distribuida.
 8.  **`duckdb/`** ([duckdb/duckdb](https://github.com/duckdb/duckdb)): Base de datos analítica SQL in-process. Referencia para OLAP y procesamiento de logs masivos.
 9.  **`ejemplo-harness-subagentes/`**: Ejemplo de arnés de sub-agentes (orquestación multi-agente).
-10. **`memoria persistente/`**: Sistema de memoria persistente para agentes (episodic + semantic memory).
-11. **`agent workflow repository/`**: Framework ligero de agentes con enfoque en simplicidad.
 12. **`lancedb/`** ([lancedb/lancedb](https://github.com/lancedb/lancedb)): Base de datos vectorial serverless e in-process. Referencia para RAG sin infraestructura externa.
 
 ---

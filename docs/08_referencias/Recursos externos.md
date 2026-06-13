@@ -19,11 +19,6 @@ Este documento registra los **repositorios y recursos de referencia externos** q
 |---|---|---|---|
 | **ejemplo-harness-subagentes** | betta-tech | Ejemplo práctico de arneses de pruebas para subagentes y flujos de trabajo autónomos. | [betta-tech/ejemplo-harness-subagentes](https://github.com/betta-tech/ejemplo-harness-subagentes) |
 | **harness-sdd** | betta-tech | Framework y plantillas para diseño de software guiado por arneses de pruebas ejecutados por agentes. | [betta-tech/harness-sdd](https://github.com/betta-tech/harness-sdd) |
-| **memoria persistente** | external source | Herramientas de almacenamiento y estructuración de memoria semántica y grafos para asistentes de IA. | [external memory lifecycle repository](https://github.com/external memory lifecycle repository) |
-| **agent workflow repository** | external source | Utilidades de inteligencia artificial y orquestación liviana. | [external agent workflow repository](https://github.com/external agent workflow repository) |
-| **gentle-pi** | external source | Pipelines de ejecución e integración continua optimizados para tareas automáticas. | [external source/gentle-pi](https://github.com/external source/gentle-pi) |
-| **gentleman-guardian-angel** | external source | Agente de supervisión y gobernanza de límites de ejecución y seguridad (Gobernanza humana/agente). | [external source/gentleman-guardian-angel](https://github.com/external source/gentleman-guardian-angel) |
-| **Gentleman-MCP** | external source | Servidores de Model Context Protocol (MCP) para dotar a los agentes de herramientas de lectura/escritura de sistema. | [external source/Gentleman-MCP](https://github.com/external source/Gentleman-MCP) |
 | **BMAD-METHOD** | bmad-code-org | Framework de desarrollo ágil AI-Native y spec-driven mediante equipo de agentes (PM, Architect, QA, Scrum Master). | [bmad-code-org/BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) |
 | **agent-os** | buildermethods | Sistema ligero para descubrir, desplegar e indexar estándares y convenciones de código para agentes locales. | [buildermethods/agent-os](https://github.com/buildermethods/agent-os) |
 | **spec-kit** | github | Toolkit oficial de GitHub para Spec-Driven Development, estructurando flujos de specify/plan/tasks/implement. | [github/spec-kit](https://github.com/github/spec-kit) |
