@@ -17,6 +17,8 @@ fuente:
 
 Este documento presenta el análisis técnico y conceptual del repositorio de referencia `byo-coding-agent`, el cual implementa un arnés de agente de desarrollo de software completo y extensible escrito en Go. El objetivo de este análisis es entender cómo se construye la capa core (el cerebro y el bucle de ejecución) de un agente inteligente, abstrayéndose de los proveedores de LLM y exponiendo capacidades avanzadas de gobernanza, subagentes dinámicos, memoria persistente y control de contexto.
 
+Para el concepto paraguas que generaliza este diseño —trigger, goal, state, action policy, observation parser, termination y memory update— ver [[Agent Loop Engineering]].
+
 ---
 
 ## 1. La Arquitectura del Bucle Dual (Agent Loop)
@@ -192,3 +194,4 @@ Este arnés de referencia demuestra de manera práctica los conceptos clave de l
 1. **Bucle de Evaluación Restringido**: El bucle interno del agente representa la capa de ejecución y evidencia en [[Cognitive OS - Arquitectura de referencia]], recopilando pruebas deterministas antes de reportar la finalización.
 2. **Gobernanza Práctica**: La intercepción manual de herramientas mediante confirmaciones visuales es la realización básica del límite de autonomía humano/agente descrito en [[Gobernanza]].
 3. **Resiliencia de Contexto**: La separación de tareas a subagentes restringidos (`delegate_research`) demuestra cómo estructurar los roles de agentes definidos en [[Roles de agentes]] para evitar la contaminación de memoria semántica.
+4. **Agent Loop Engineering**: El repositorio materializa un loop concreto con tool-use recursivo, stop conditions, compactación, memoria, HITL y debug/tracing, que son componentes canónicos de [[Agent Loop Engineering]].

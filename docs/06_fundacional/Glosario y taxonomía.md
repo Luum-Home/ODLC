@@ -54,6 +54,7 @@ Este documento define la taxonomía y el vocabulario formal (Ubiquitous Language
 - **HACS (Human-Agent Collaborative Systems)**: El modelo organizacional que define a los equipos de software como unidades cognitivas distribuidas de humanos y agentes sobre una memoria compartida. Ver [[HACS]].
 - **ODLC (Objective Driven Lifecycle)**: La metodología de trabajo ágil e iterativa de HACS que desplaza el foco del código hacia la consecución de objetivos y el aprendizaje continuo. Ver [[ODLC]].
 - **Cognitive OS**: La capa de arquitectura de software y tooling de soporte que materializa el funcionamiento lógico de HACS y ODLC. Ver [[Cognitive OS - Arquitectura de referencia]].
+- **Agent Loop Engineering**: Disciplina de diseño del loop de control de un agente: trigger, goal, state, action policy, observation parser, termination, memory update, guardrails, tracing y evals. Ver [[Agent Loop Engineering]].
 
 ---
 
@@ -62,6 +63,7 @@ Este documento define la taxonomía y el vocabulario formal (Ubiquitous Language
 Patrones operativos usados en la implementación técnica ([[Luum Cognitive OS - Implementación de referencia]]) y en el programa de cursos ([[Módulo 2 - Ingeniería de arneses]]).
 
 - **Arnés (Harness)**: Entorno lógico que envuelve al LLM unificando contexto, herramientas, memoria externa y validaciones automáticas. Hace al sistema agnóstico al modelo.
+- **Agent Loop (Bucle de Agente)**: Ciclo repetible en el que un agente observa, razona/planifica, actúa con herramientas, interpreta resultados, actualiza estado/memoria y decide si termina, reintenta o escala.
 - **Safety Mesh (Malla de Seguridad)**: Conjunto de interceptores independientes (hooks `PreToolUse`/`PostToolUse`) que aplican la [[Gobernanza]] en tiempo de ejecución, con comportamientos BLOCK/WARN/LOG sensibles a la fase del proyecto.
 - **HITL (Human-in-the-Loop)**: Compuerta donde el agente pausa su ejecución y espera aprobación humana explícita antes de continuar (deploys, esquemas de datos, secretos).
 - **Ground Truth Checker**: Validador determinista que contrasta los reclamos de éxito del agente ("tests pasan", "archivo creado") contra la realidad del sistema de archivos, generando un puntaje de alucinación.
@@ -72,4 +74,4 @@ Patrones operativos usados en la implementación técnica ([[Luum Cognitive OS -
 - **Fix Agent**: Agente de corrección que refactoriza quirúrgicamente los defectos confirmados por el arbitraje.
 
 ---
-Relacionado: [[README]] · [[Manifiesto HACS-ODLC]] · [[Fase 6 - Learning]]
+Relacionado: [[README]] · [[Manifiesto HACS-ODLC]] · [[Fase 6 - Learning]] · [[Agent Loop Engineering]]

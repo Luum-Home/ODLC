@@ -8,6 +8,8 @@ created: 2026-06-10
 
 El **Cognitive OS** (Sistema Operativo Cognitivo) es la infraestructura tecnológica y el motor de software que implementa los principios de [[HACS]] y el ciclo de vida [[ODLC]]. No es un sistema operativo clásico a nivel de kernel de hardware, sino un entorno de ejecución lógico que coordina humanos, agentes de IA, memoria persistente compartida y gobernanza de código.
 
+La unidad operativa microscópica del Cognitive OS es el [[Agent Loop Engineering|agent loop]]: el ciclo por el cual un agente observa, planifica, actúa con herramientas, interpreta resultados, actualiza estado/memoria y decide si termina, reintenta o escala.
+
 ## Diagrama Conceptual del Flujo
 
 El flujo de información en el Cognitive OS es cíclico y centrado en la memoria:
@@ -57,7 +59,7 @@ graph TD
 
 ### 3. Motor de Orquestación de Agentes (Agent Orchestration Engine)
 - **Función**: Ciclo de vida y comunicación de los agentes de IA ([[Roles de agentes]]). *Nota: "Architect" aquí es un [[Roles de agentes|rol de agente]], distinto del [[Roles humanos|rol humano Architect]] — son homónimos con responsabilidades distintas.*
-- **Mecanismo**: Arquitectura basada en mensajes. Los agentes leen del Memory Bus, discuten alternativas para proponer la estrategia de ejecución ([[Fase 3 - Strategy]]), y el agente Planner coordina la ejecución en paralelo.
+- **Mecanismo**: Arquitectura basada en mensajes. Los agentes leen del Memory Bus, discuten alternativas para proponer la estrategia de ejecución ([[Fase 3 - Strategy]]), y el agente Planner coordina la ejecución en paralelo. El diseño concreto de trigger, goal, state, action policy, observation parser, termination y memory update se formaliza en [[Agent Loop Engineering]].
 
 ### 4. Sandbox de Ejecución (Execution Environment)
 - **Función**: Entorno aislado donde los agentes interactúan con el mundo físico (bases de datos, terminales, compiladores).
@@ -96,4 +98,4 @@ El motor [luum-cognitive-os](https://github.com/Luum-Home/luum-cognitive-os) es 
 - ¿Qué nivel de permisos debe tener el Sandbox de ejecución sobre infraestructuras en producción? → [[Gobernanza]]
 
 ---
-Relacionado: [[HACS]] · [[ODLC]] · [[Memoria organizacional]] · [[Roles de agentes]]
+Relacionado: [[HACS]] · [[ODLC]] · [[Memoria organizacional]] · [[Roles de agentes]] · [[Agent Loop Engineering]]

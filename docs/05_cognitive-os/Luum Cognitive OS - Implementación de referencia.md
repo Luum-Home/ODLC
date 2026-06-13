@@ -11,6 +11,8 @@ Implementación técnica de la [[Gobernanza]] de [[HACS]]: [luum-cognitive-os](h
 
 Esta nota documenta el **CÓMO** técnico. El **QUÉ** conceptual (principios y matriz de autonomía) vive en [[Gobernanza]].
 
+En términos de [[Agent Loop Engineering]], `luum-cognitive-os` no reemplaza el loop del agente: lo gobierna. Sus hooks intervienen action policy, observation parsing, termination, retries, claim validation, budgets y rollback.
+
 ## La Malla de Seguridad de 14 Capas (Safety Mesh)
 
 `luum-cognitive-os` intercepta las llamadas de los agentes en el ciclo de vida del CLI usando hooks (`PreToolUse` / `PostToolUse`). La tabla completa de las 14 capas está documentada en [[Módulo 3 - Gobernanza]]. Las cinco capas más representativas:
@@ -31,4 +33,4 @@ Es la materialización del principio de [[Gobernanza]] "autonomía ganada, no ot
 
 ## Relacionado
 
-[[Gobernanza]] · [[Cognitive OS - Arquitectura de referencia]] · [[Módulo 3 - Gobernanza]] · [[Módulo 4 - Ciberseguridad aplicada]] · [[Recursos externos]]
+[[Gobernanza]] · [[Cognitive OS - Arquitectura de referencia]] · [[Agent Loop Engineering]] · [[Módulo 3 - Gobernanza]] · [[Módulo 4 - Ciberseguridad aplicada]] · [[Recursos externos]]
