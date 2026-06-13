@@ -51,7 +51,7 @@ Vercel desarrolló un agente interno llamado **D0** para realizar consultas anal
 A pesar de las ventanas de contexto gigantescas en modelos modernos, el rendimiento de la IA se degrada significativamente antes de llenarse:
 - **Pérdida de Atención**: La degradación en la precisión comienza alrededor del **20%** de la ventana de contexto.
 - **El Límite del 40%**: Se recomienda vaciar la ventana de contexto del agente o iniciar una nueva sesión limpia (ej. reiniciar `Claude Code`) una vez que el contexto acumulado cruce el **40%**, ya que la tasa de alucinaciones y errores se dispara.
-- **Mitigación por Memoria Externa**: Para evitar inundar la ventana del modelo, el arnés debe persistir los datos intermedios fuera de la conversación (en archivos JSON o bases de datos SQLite como [[Memoria organizacional|memoria persistente]]) y proporcionar a los sub-agentes únicamente el contexto mínimo para su tarea (evitando el "teléfono descompuesto" al no heredar el chat completo del agente padre).
+- **Mitigación por Memoria Externa**: Para evitar inundar la ventana del modelo, el arnés debe persistir los datos intermedios fuera de la conversación (en archivos JSON, bases de datos SQLite o sistemas de [[Memoria organizacional]]) y proporcionar a los sub-agentes únicamente el contexto mínimo para su tarea (evitando el "teléfono descompuesto" al no heredar el chat completo del agente padre).
 
 ---
 

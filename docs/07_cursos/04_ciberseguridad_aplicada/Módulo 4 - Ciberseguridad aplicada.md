@@ -38,7 +38,7 @@ Antes de que un agente comience a procesar el objetivo, su prompt de entrada es 
 
 Para evitar la fuga de información sensible (como claves de APIs o datos personales de clientes/PII) hacia modelos externos, el sistema cuenta con interceptores de contenido:
 - **`secret-detector.sh`**: Evalúa todas las escrituras y modificaciones de archivos (`Edit`/`Write`) antes de que impacten el repositorio, buscando patrones de claves privadas, tokens JWT o strings de configuración de bases de datos.
-- **`lib/memory_scanner.py`**: Gana prioridad al inicio de la sesión y durante el guardado de memoria. Audita todas las observaciones destinadas a la [[Memoria organizacional]] (memoria persistente) eliminando rastros de inyecciones semánticas latentes antes de persistir los datos.
+- **`lib/memory_scanner.py`**: Gana prioridad al inicio de la sesión y durante el guardado de memoria. Audita todas las observaciones destinadas a la [[Memoria organizacional]], eliminando rastros de inyecciones semánticas latentes antes de persistir los datos.
 
 ### C. Resumen de Controles de Ciberseguridad
 

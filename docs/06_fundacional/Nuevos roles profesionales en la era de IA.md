@@ -88,7 +88,7 @@ El modelo organizacional **HACS** (Human-Agent Collaborative Systems) clasifica 
 |---|---|---|
 | **Sponsor (Humano)** | Chief AI Officer (CAIO) | Define la visión estratégica, aprueba el presupuesto de cómputo y establece los límites de autonomía de la malla de gobernanza corporativa. |
 | **Product (Humano)** | AI Product Manager | Diseña los objetivos de negocio y traduce las restricciones del cliente a directrices que consumen los agentes y herramientas. |
-| **Architect (Humano)** | AI Engineer / Context Engineer / Memory Engineer | Diseña e implementa el hardware cognitivo, los arneses de software local, los pipelines de RAG y las bases de datos de memorias persistentes de memoria. |
+| **Architect (Humano)** | AI Engineer / Context Engineer / Memory Engineer | Diseña e implementa el hardware cognitivo, los arneses de software local, los pipelines de RAG y las bases de datos de memoria persistente. |
 | **Operator (Humano)** | AI Integration Specialist / Prompt Engineer | Interactúa con los agentes en el día a día, aprueba sus propuestas a través de gateways de diff, ajusta prompts finos y monitorea ejecuciones. |
 
 > [!IMPORTANT]

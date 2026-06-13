@@ -51,7 +51,7 @@ $$\text{Objective} \longrightarrow \text{Constraints} \longrightarrow \text{Stra
 -   **Strategy (Estrategia)**: Los agentes proponen alternativas con tradeoffs y evidencia; **la decisión es humana** (Human Governance) → [[Fase 3 - Strategy]].
 -   **Execution (Ejecución)**: Escritura e implementación autónoma mediada por arneses locales, bajo la matriz de [[Gobernanza]] → [[Fase 4 - Execution]].
 -   **Validation (Validación)**: Pruebas de caja negra, Ground Truth Checking y arbitraje ciego para asegurar el cumplimiento del objetivo, validando contra el objetivo y no contra la implementación → [[Fase 5 - Validation]].
--   **Learning (Aprendizaje)**: Resumen y persistencia de memoria (memorias persistentes) para la siguiente iteración → [[Fase 6 - Learning]].
+-   **Learning (Aprendizaje)**: Resumen y persistencia de memoria reutilizable para la siguiente iteración → [[Fase 6 - Learning]].
 
 ---
 Relacionado: [[Comparativa con metodologías existentes]] · [[HACS]] · [[Nuevos cuellos de botella]] · [[Más código no es más velocidad]]
