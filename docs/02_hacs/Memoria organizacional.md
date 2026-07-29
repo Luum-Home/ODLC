@@ -34,7 +34,7 @@ memoria creada → memoria activa → memoria stale / necesita revisión → rev
 
 Una memoria vieja no es necesariamente falsa, pero tampoco debe ser usada como verdad vigente sin verificación. El agente Memory debe poder distinguir entre memoria activa, memoria que necesita revisión, memoria supersedida y memoria descartada.
 
-Ver: [[Patrones de loops agénticos para repositorios#Memoria con ciclo de vida]].
+Ver: [[Patrones de loops agénticos para repositorios#3. Memoria con ciclo de vida]].
 
 ## Modelo de memoria (hipótesis)
 

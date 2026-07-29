@@ -178,7 +178,7 @@ Evidencia mínima por tarea:
 
 El agente no debería marcar una tarea como completa si no puede mostrar evidencia del ciclo.
 
-Ver también: [[Agent Loop Engineering#Patrón aplicado TDD para agentes]].
+Ver también: [[Agent Loop Engineering#Patrón aplicado: TDD para agentes]].
 
 ---
 

@@ -37,13 +37,14 @@ created: 2026-06-10
 ## Parte IV — Métricas
 
 - [[Métricas operativas]] — Objective Success Rate, Time To Outcome, Learning Velocity
-- [[Métricas de agentes]] — Agent Contribution, Agent Accuracy, Agent Cost
+- [[Métricas de agentes]] — Agent Contribution Ratio, Human Leverage Ratio, Agent Accuracy, Agent Cost
 - [[Métricas organizacionales]] — Knowledge Reuse, Context Retrieval Time, Decision Lead Time
 
 ## Parte V — Cognitive OS (la implementación)
 
 - [[Cognitive OS - Arquitectura de referencia]] — Interfaz de Definición → Bus de Memoria → Motor de Orquestación de Agentes → Sandbox de Ejecución → Motor de Validación y Observabilidad
 - [[Agent Loop Engineering]] — diseño del ciclo trigger → goal → state → action → observation → validation → memory/termination que gobierna agentes, herramientas, retries y evals
+- [[Patrones de loops agénticos para repositorios]] — repo como sistema operativo para agentes: process-as-code, memoria con ciclo de vida, Apply/Judge/Fix loop, TDD con evidencia y fresh-context validation
 - [[Luum Cognitive OS - Implementación de referencia]] — la Safety Mesh de 14 capas que materializa la Gobernanza
 - [[Caso - Alta Tienda]] — primer caso de aplicación real (métricas pendientes de evidencia)
 - [[Síntesis - Economía de tokens]] — implicaciones consolidadas de los tres análisis de tokens

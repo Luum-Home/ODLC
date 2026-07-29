@@ -34,7 +34,7 @@ La gobernanza debe estar codificada en artefactos que los agentes puedan leer y 
 
 Además, todo loop agéntico con efectos reales debe cerrar por evidencia auditable — diff, tests, docs, revisión y checks — no por declaración del agente.
 
-Ver: [[Patrones de loops agénticos para repositorios#Process-as-code para agentes]] y [[Patrones de loops agénticos para repositorios#Evidence-driven implementation]].
+Ver: [[Patrones de loops agénticos para repositorios#2. Process-as-code para agentes]] y [[Patrones de loops agénticos para repositorios#8. Evidence-driven implementation]].
 
 ## Principios de diseño
 

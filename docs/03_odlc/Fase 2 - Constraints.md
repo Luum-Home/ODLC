@@ -21,7 +21,7 @@ constraints:
 
 ## Reglas
 
-1. **Las constraints las fijan humanos** ([[Roles humanos]]: Sponsor, Architect); los agentes las *verifican* durante [[Fase 4 - Execution]].
+1. **Las constraints las fijan humanos** ([[Roles humanos]]: Product, Architect); los agentes las *verifican* durante [[Fase 4 - Execution]].
 2. **El presupuesto de agentes es una constraint de primera clase.** Los agentes tienen costo medible ([[Métricas de agentes]]); ignorarlo repite el error de tratar la ejecución como gratis.
 3. **Constraint violada = ciclo detenido.** Si una estrategia en curso choca contra una restricción, se escala a humano, no se "negocia" silenciosamente.
 
