@@ -78,7 +78,7 @@ type Provider interface {
 
 Esta interfaz traduce las estructuras internas e independientes del arnés (`api.Message`, `api.ToolDef` y `api.Response`) a las llamadas a API nativas de cada proveedor:
 
-- **Anthropic Provider** (`internal/provider/anthropic.go`): Mapea llamadas a Claude (por ejemplo, `claude-3-7-sonnet`, `claude-3-5-opus`). Soporta capacidades específicas como el modo *thinking* y traduce bloques multimedia.
+- **Anthropic Provider** (`internal/provider/anthropic.go`): Mapea llamadas a Claude. Los modelos que el arnés reconoce y tarifa están declarados en `internal/provider/anthropic.go:80-83`: `claude-opus-4-7`, `claude-opus-4-6`, `claude-sonnet-4-6` y `claude-haiku-4-5`. Soporta capacidades específicas como el modo *thinking* y traduce bloques multimedia.
 - **OpenAI Provider** (`internal/provider/openai.go`): Mapea la API de Chat Completions tradicional a los modelos GPT.
 - **Mock Provider** (`internal/provider/mock.go`): Emula respuestas del LLM con payloads deterministas para la suite de pruebas unitarias, evitando costos de red.
 
