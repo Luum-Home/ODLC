@@ -98,8 +98,11 @@ El principio de este patrón establece que **el agente que escribe el código nu
    - **Sospechosos (Suspect)**: Problemas señalados por un solo juez. Se marcan para revisión pero no se auto-corrigen de inmediato para evitar falsos positivos.
    - **Contradictorios (Contradictions)**: Si un juez aprueba el cambio y el otro encuentra una discrepancia estructural crítica, el arnés congela la entrega y escala una alerta interactiva para que un humano actúe como árbitro supremo.
 
-### Integración Nativa en Modelos de Frontera (Actor-Critic)
-Modelos de frontera más avanzados (como *Claude Fable 5*) traen dinámicas de este estilo en sus pipelines internos de razonamiento. A través de arquitecturas de tipo **Actor-Critic**, el modelo realiza múltiples pasadas de autorreflexión antes de emitir una respuesta en su canal de salida: un sub-proceso genera una hipótesis de código (optimista) y otro sub-proceso simula ataques o fallas de ejecución (pesimista), arbitrando la respuesta final para entregar código con una tasa de error significativamente menor.
+### Una Analogía Útil: el Patrón Actor-Critic
+El arbitraje ciego se puede pensar como una versión explícita del patrón **Actor-Critic** del aprendizaje por refuerzo, donde un componente propone una acción y otro la evalúa, y el resultado surge del arbitraje entre ambos: el juez optimista ocupa el rol de *actor* y el pesimista el de *critic*. La diferencia es que acá cada rol es un agente separado, con su propio contexto y su propio reporte auditable, en lugar de un componente interno del modelo.
+
+> [!note] Sobre el razonamiento interno de los modelos
+> Los modelos de frontera actuales razonan antes de responder —es una capacidad documentada por los proveedores—, pero **no hay documentación pública que describa esa deliberación como una arquitectura Actor-Critic con sub-procesos optimista y pesimista**. Conviene presentarlo como analogía didáctica y no como afirmación sobre el funcionamiento interno de un producto concreto.
 
 ---
 

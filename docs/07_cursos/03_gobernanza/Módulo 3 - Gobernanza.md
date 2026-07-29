@@ -73,6 +73,7 @@ La gobernanza técnica en la arquitectura de [[Cognitive OS - Arquitectura de re
    - **WARN**: Advertencia al operador humano, permitiendo continuar (Capas 2, 7, 13).
    - **LOG**: Registro silencioso en `.cognitive-os/metrics/` para auditoría y aprendizaje del sistema (Capas 8, 10).
    - **Dependiente de fase**: la Capa 6 (`claim-validator.sh`) alerta/loguea en fases permisivas y **bloquea** en Producción/Mantenimiento (ver Phase Awareness, punto 3).
+   - **Sin clasificar**: las Capas 12 (`lib/cross_verifier.py`) y 14 (`lib/memory_scanner.py`) se invocan como llamadas de biblioteca (On-Demand y Session-Start respectivamente) y todavía no están categorizadas dentro del espectro. *Pendiente de definición del autor antes del dictado.*
 3. **Sensibilidad de Fase (Phase Awareness)**: El comportamiento de la malla se adapta al estado del ciclo de vida del proyecto definido en `cognitive-os.yaml`:
    - En fases de **Reconstrucción** o **Estabilización**, los ganchos de control son más permisivos (alertas prioritarias sobre bloqueos) para acelerar el desarrollo.
    - En fases de **Producción** o **Mantenimiento**, los ganchos de control se tornan estrictamente prohibitivos para proteger la estabilidad operativa.
@@ -105,7 +106,7 @@ Para garantizar que ningún cambio en la configuración de la malla de gobernanz
 > Estas prácticas requieren los repositorios de referencia clonados en `external/` (carpeta fuera del control de versiones). Instrucciones de clonado en [[Recursos externos]].
 
 En la carpeta `external/` cuentas con herramientas de referencia clave (ver [[Recursos externos]]):
-- `external/gentleman-guardian-angel/`: Un agente diseñado para actuar como "Ángel Guardián" o supervisor de seguridad. Intercepta llamadas a comandos de sistema propuestas por otros agentes, audita que no contengan operaciones destructivas, y requiere la confirmación interactiva del operador humano antes de proceder.
+- `external/gentleman-guardian-angel/`: Un revisor de código asistido por IA, agnóstico de proveedor (Claude, Gemini, Codex, Ollama y otros), escrito en Bash puro y sin dependencias. Se instala como hook de `pre-commit` y valida los archivos en *staging* contra los estándares declarados en el `AGENTS.md` del proyecto, aprobando o bloqueando el commit. Sirve como ejemplo de compuerta automática en el ciclo de vida —un control preventivo antes de que el cambio entre al repositorio—, no de interceptación de llamadas al sistema.
 - **Implementación de Referencia en luum-cognitive-os**: Puedes estudiar los flujos y esquemas declarativos en los repositorios públicos de referencia para observar la configuración del orquestador en `cognitive-os.yaml` y el código fuente de los interceptores pre y post-ejecución.
 
 ---
