@@ -25,8 +25,7 @@ Evaluar y blindar los agentes construidos y consolidar el proyecto final en una 
 - Nuevo modelo de amenazas de los agentes de IA.
 - [[Módulo 4 - Ciberseguridad aplicada|Prompt injection]] y prompt injection indirecta, [[Módulo 4 - Ciberseguridad aplicada|tool poisoning]], knowledge poisoning, data exfiltration y confused deputy. Ver [[Módulo 4 - Ciberseguridad aplicada]] para el tratamiento técnico de estas vulnerabilidades.
 - Seguridad en MCP, [[Módulo 4 - Ciberseguridad aplicada|mínimo privilegio]], [[Módulo 4 - Ciberseguridad aplicada|sandboxing]], logging y auditoría.
-- Gobierno y control operativo de agentes (ver [[Gobernanza]]).
-- Gobierno de agentes: definición de roles, propiedad del activo, procesos de aprobación de cambios y protocolos de auditoría interna.
+- Gobierno y control operativo de agentes: definición de roles, propiedad del activo, procesos de aprobación de cambios y protocolos de auditoría interna (ver [[Gobernanza]]).
 
 ---
 

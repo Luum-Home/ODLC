@@ -40,7 +40,7 @@ Diseñar instrucciones consistentes y transformar el asistente en un activo con 
 
 ---
 
-> **Cómo hacerlo seguro:** no incluir credenciales ni secretos en los prompts, escribir instrucciones que el agente respete aunque le pidan lo contrario (ver [[Módulo 4 - Ciberseguridad aplicada]] para el tratamiento técnico de [[Módulo 4 - Ciberseguridad aplicada|prompt injection]]), y controlar el acceso y la curaduría de la base de conocimiento —definiendo quién ve qué y usando solo fuentes confiables.
+> **Cómo hacerlo seguro:** no incluir credenciales ni secretos en los prompts; separar instrucción de dato —lo que llega desde documentos, páginas o correos se trata como contenido a analizar, nunca como órdenes— y sostener esa separación con controles fuera del prompt: [[Módulo 4 - Ciberseguridad aplicada|mínimo privilegio]], allowlist de herramientas y dominios, aprobación humana para acciones irreversibles y validación de la salida antes de usarla. Las instrucciones del prompt orientan al agente pero no son un control de seguridad: la inyección consiste justamente en romperlas (ver [[Módulo 4 - Ciberseguridad aplicada]] para el tratamiento técnico de [[Módulo 4 - Ciberseguridad aplicada|prompt injection]]). Además, controlar el acceso y la curaduría de la base de conocimiento —definiendo quién ve qué y usando solo fuentes confiables.
 
 ---
 
