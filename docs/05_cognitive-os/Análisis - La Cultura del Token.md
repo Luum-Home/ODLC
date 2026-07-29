@@ -13,7 +13,7 @@ fuente:
 # Análisis — La Cultura del Token
 
 > [!warning] Trazabilidad
-> Las cifras y casos citados en esta nota (Amazon, declaración de Jensen Huang, consumos de tokens) provienen del video y **no fueron verificados de forma independiente**. Tratarlos como "según el video", no como hechos del vault. Excepción: el caso Meta (sección 4) fue corregido contra la cobertura de prensa y lleva su fuente citada.
+> Las cifras y casos citados en esta nota (declaración de Jensen Huang, consumos de tokens) provienen del video y **no fueron verificados de forma independiente**. Tratarlos como "según el video", no como hechos del vault. Excepción: los casos Meta (sección 4) y Amazon (sección 5) fueron verificados contra la cobertura de prensa y llevan su fuente citada. Son **dos eventos distintos**, en empresas distintas y con causas de cierre distintas (verificado 2026-07-28).
 
 Este documento presenta un análisis y resumen estructurado del video referencial **"La Cultura del Token"** (disponible en [YouTube](https://www.youtube.com/watch?v=_exF3cBMbcM)). El video aborda las implicancias organizacionales y estratégicas de medir el consumo de tokens por empleado como métrica de adopción de IA, los riesgos de aplicar la Ley de Goodhart, los errores simétricos que cometen las empresas (tacaño vs. performativo) y el concepto de **Retorno del Token (Token ROI)**.
 
@@ -39,7 +39,7 @@ El consumo de tokens es una señal **legítima** cuando refleja un uso productiv
 
 > **"Cuando una medida se convierte en un objetivo, deja de ser una buena medida."**
 
-La Ley de Goodhart aplica directamente al consumo de tokens: si se premia a quienes más tokens consumen, los empleados comenzarán a **inflar su consumo** sin generar resultados reales. El caso paradigmático es el de Amazon (ver sección 5), donde empleados empezaron a generar consultas innecesarias para subir en el ranking, forzando el cierre del leaderboard.
+La Ley de Goodhart aplica directamente al consumo de tokens: si se premia a quienes más tokens consumen, los empleados comenzarán a **inflar su consumo** sin generar resultados reales. El caso paradigmático es el de Amazon (ver sección 5), donde empleados empezaron a lanzar agentes con tareas innecesarias para subir en el ranking, forzando el cierre del leaderboard.
 
 Este patrón es especialmente peligroso en IA porque el consumo de tokens tiene un **costo real** (infraestructura, licencias, capacidad de cómputo), y el "teatro de tokens" puede generar gastos significativos sin retorno demostrable.
 
@@ -47,7 +47,7 @@ Este patrón es especialmente peligroso en IA porque el consumo de tokens tiene 
 
 ## 4. Caso Meta: Claudeonomics
 
-Meta implementó un dashboard interno llamado **"Claudeonomics"** —visible para más de **85.000 empleados**— que rankeaba a los **250 mayores consumidores** de tokens. En un período de **30 días**, el consumo total registrado en el dashboard superó los **60 billones de tokens** (60 × 10¹², *trillion* en inglés). Fuente: [Fortune, 09/04/2026](https://fortune.com/2026/04/09/meta-killed-employee-ai-token-dashboard/).
+Un empleado de Meta —no la empresa— construyó un dashboard interno llamado **"Claudeonomics"**, visible en una organización de más de **85.000 empleados**, que rankeaba a los **250 mayores consumidores** de tokens. En un período de **30 días**, el consumo total registrado en el dashboard superó los **60 billones de tokens** (60 × 10¹², *trillion* en inglés). El dashboard se dio de baja en abril de 2026, dos días después de que la prensa lo cubriera: lo bajó el propio empleado, por haberse filtrado los datos hacia afuera, y Meta aclaró que no pidió esa baja. Fuente: [Fortune, 09/04/2026](https://fortune.com/2026/04/09/meta-killed-employee-ai-token-dashboard/).
 
 El sistema incluía títulos gamificados:
 - **Token Legend**
@@ -58,11 +58,11 @@ El sistema incluía títulos gamificados:
 
 ---
 
-## 5. Caso Amazon: El Leaderboard Cerrado
+## 5. Caso Amazon: KiroRank, el Leaderboard Cerrado
 
-Amazon implementó un leaderboard interno de consumo de IA. Rápidamente, empleados comenzaron a **inflar sus scores** con consultas irrelevantes o redundantes, no porque el trabajo lo requiriera sino para subir en el ranking.
+Amazon implementó un leaderboard interno llamado **"KiroRank"**, que rankeaba a su gente según la actividad sobre **Kiro**, la plataforma de desarrollo con IA de la empresa. Rápidamente, empleados comenzaron a **inflar sus scores** poniendo agentes autónomos a ejecutar acciones innecesarias, no porque el trabajo lo requiriera sino para subir en el ranking —práctica que en el ambiente se bautizó **"tokenmaxxing"**—, con el costo de cómputo asociado.
 
-Amazon detectó el comportamiento y **cerró el leaderboard**. Es uno de los casos más claros de Goodhart's Law aplicada a la adopción de IA: la métrica se contaminó con el incentivo perverso del ranking.
+Amazon **cerró el leaderboard** en mayo de 2026 y migró a una métrica que llama *normalised deployments*. Dave Treadwell, SVP de Amazon, dijo al equipo que la herramienta había nacido con buenas intenciones y pidió: *"Please don't use AI just for the sake of using AI."* Es uno de los casos más claros de Goodhart's Law aplicada a la adopción de IA: la métrica se contaminó con el incentivo perverso del ranking. Primicia del Financial Times; fuente consultada: [InfoWorld, 05/2026](https://www.infoworld.com/article/4178824/amazon-deletes-devs-tokenmaxxing-leaderboard-to-minimize-costs.html).
 
 > **Lección:** Un leaderboard de tokens sin contexto de resultado incentiva el consumo vacío. La presión social por "aparecer arriba" distorsiona la señal real de adopción.
 
