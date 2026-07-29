@@ -17,4 +17,4 @@ Acá entra **todo lo sin procesar**: transcripciones de conversaciones, ideas su
 
 ## Fuentes originales ya procesadas
 
-Los 4 PDFs de la raíz del repo y la conversación fundacional sobre AI SDLC (2026-06-10) ya fueron destilados al vault. Ver [[HACS-ODLC]].
+Los 4 PDFs de esta carpeta (`00_crudo/`) y la conversación fundacional sobre AI SDLC (2026-06-10) ya fueron destilados al vault. Ver [[HACS-ODLC]].

@@ -31,6 +31,9 @@ Para transicionar de un nivel a otro, la organización debe medir y cumplir cier
 - **De Nivel 2 a Nivel 3**: Implementar bases de datos vectoriales de contexto de arquitectura y decisiones históricas (ADRs) conectadas a los agentes. Medir la tasa de reutilización (*Knowledge Reuse Rate*).
 - **De Nivel 3 a Nivel 4**: Reemplazar sprints de Scrum y tickets de Jira por plantillas de objetivos e implementar entornos seguros de Sandbox para la validación autónoma de agentes.
 
+> [!warning] Transiciones sin definir
+> Los criterios de **0 → 1** y **4 → 5** todavía no están escritos. El modelo describe los seis niveles en la tabla de arriba, pero solo especifica cómo se cruzan tres de los cinco umbrales. No se completan acá de forma especulativa: definirlos exige decidir qué evidencia habilita el salto, y esa es una definición del autor, no una omisión de redacción. Ver [[Modelo de madurez AI-Native#Preguntas abiertas|Preguntas abiertas]].
+
 ---
 
 ## Hipótesis
@@ -44,6 +47,8 @@ Para transicionar de un nivel a otro, la organización debe medir y cumplir cier
 
 ## Preguntas abiertas
 
+- ¿Qué habilita la transición **0 → 1**? ¿Alcanza con la adopción individual de herramientas de IA, o hay un umbral mínimo de uso sostenido que distinga "probamos Copilot" de "el equipo trabaja en Nivel 1"?
+- ¿Qué habilita la transición **4 → 5**? El Nivel 5 supone auto-remediación en producción y coordinación multi-agente de sub-objetivos: falta definir qué evidencia de confiabilidad justifica retirar al humano de la ejecución.
 - ¿Cómo auditar la madurez de manera objetiva sin depender puramente de autoevaluaciones del equipo?
 - ¿El Nivel 5 es deseable para todas las industrias, o sectores regulados (como fintech o salud) deben detenerse permanentemente en el Nivel 4?
 

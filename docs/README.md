@@ -52,6 +52,7 @@ Los PDFs históricos están en `00_crudo/` (`HACS_Canvas.pdf`, `ODLC_Canvas.pdf`
 4. [[ODLC]]
 5. [[Cognitive OS - Arquitectura de referencia]]
 6. [[Manifiesto HACS-ODLC]]
+7. [[Glosario y taxonomía]] — vocabulario formal del marco; sirve también como consulta suelta mientras se leen las demás notas.
 
 **Para capacitación y ofertas:**
 
@@ -71,13 +72,16 @@ Frontmatter mínimo en cada nota:
 ```yaml
 ---
 tags: [hacs | odlc | problema | metricas | ...]
-status: semilla | borrador | evergreen
+status: crudo | semilla | borrador | evergreen
 created: YYYY-MM-DD
 ---
 ```
 
+- `crudo`: material sin destilar, tal como entró al inbox. Exclusivo de `00_crudo/`: no es una nota atómica todavía y no debería enlazarse como fuente canónica.
 - `semilla`: idea capturada, mayormente preguntas abiertas.
 - `borrador`: estructura completa, contenido en evolución.
 - `evergreen`: estable, se actualiza solo con nueva evidencia.
+
+El orden refleja el flujo de *append-and-review*: lo que entra como `crudo` se promueve a nota atómica (`semilla` → `borrador` → `evergreen`) o se descarta.
 
 Secciones recurrentes dentro de las notas: **Hipótesis**, **Evidencia**, **Decisiones**, **Preguntas abiertas**. Mantenerlas separadas es deliberado: es lo que distingue un documento de trabajo de marketing.

@@ -27,8 +27,10 @@ Actualmente, las herramientas de desarrollo potenciadas por IA y los CLI de agen
 | **Devin Desktop (Legacy)** | `.windsurfrules` | Raíz del proyecto | Markdown plano (Retrocompatible) |
 | **Devin (SaaS / Cloud)** | `AGENTS.md` o `.devin/instructions.md` | Raíz o carpeta oculta | Markdown o JSON |
 | **OpenClaw** | `AGENTS.md` o `.openclaw/USER.md` | Raíz o carpeta oculta | Markdown plano |
-| **Odysseus (PewDiePie)** | `AGENTS.md` o `.odysseus/instructions.md` | Raíz o carpeta oculta | Markdown plano |
-| **Pi.dev** | `AGENTS.md` o `.pi/instructions.md` | Raíz o carpeta oculta | Markdown plano |
+| **Odysseus (PewDiePie)** | `AGENTS.md` o `.odysseus/instructions.md` ⚠️ | Raíz o carpeta oculta | Markdown plano |
+| **Pi.dev** | `AGENTS.md` o `.pi/instructions.md` ⚠️ | Raíz o carpeta oculta | Markdown plano |
+
+*⚠️ Rutas no verificadas (2026-07-28): no se encontró documentación oficial ni código que confirme que Odysseus lea `.odysseus/instructions.md` ni que Pi.dev lea `.pi/instructions.md`. Se dejan en la tabla como conjetura a confirmar, no como comportamiento documentado — el soporte de `AGENTS.md` en ambas herramientas es lo único que corresponde dar por válido hasta contrastarlas contra su documentación.*
 
 *Nota histórica (✅ verificado 2026-06-10 contra el [anuncio oficial de Cognition](https://devin.ai/blog/windsurf-is-now-devin-desktop/)): el 2 de junio de 2026, tras la adquisición de Windsurf por parte de Cognition (creadores de Devin), la aplicación Windsurf fue renombrada a **Devin Desktop** vía actualización over-the-air. El antiguo asistente "Cascade" fue reemplazado por **Devin Local**, un motor reescrito en Rust hasta un 30% más eficiente en tokens, con soporte de subagentes y del protocolo abierto ACP.*
 
@@ -221,7 +223,7 @@ Al modularizar y redactar las instrucciones dentro de `.agent/`, aplicamos los s
 8.  **DRY Prompts & Prompt Composition**: Análisis y mejores prácticas de ingeniería de software aplicadas a prompts mediante plantillas modulares.
     -   *Enlace*: [DRY Prompts and Modular Agentic Design](https://neon.com/blog/dry-prompts-modular-agentic-design)
 9.  **AGENTS.md Community Standard**: Iniciativa de código abierto para estandarizar archivos de instrucciones unificados para agentes de IA en repositorios de código.
-    -   *Enlace*: [AGENTS.md Specification and Usage](https://github.com/agents-md/agents.md)
+    -   *Enlace*: [AGENTS.md Specification and Usage](https://github.com/openai/agents.md) (repositorio canónico verificado 2026-07-28; la URL previa `github.com/agents-md/agents.md` devuelve 404)
 
 ---
 Relacionado: [[Recursos externos]] · [[Roles de agentes]] · [[Gobernanza]] · [[Cognitive OS - Arquitectura de referencia]]

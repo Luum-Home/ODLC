@@ -18,7 +18,7 @@ Este **Roadmap** define los hitos de maduración y despliegue del ecosistema **H
 
 ### v0.2 — Canvas y Estructuración (Completado)
 - **Hito**: Estructuración del Master Canvas de 20 páginas y formalización del ciclo de 6 fases de [[ODLC]] y los 4 componentes de [[HACS]].
-- **Entregables**: `HACS_Canvas.pdf` y `ODLC_Canvas.pdf`, de referencia histórica en la raíz del repositorio.
+- **Entregables**: `HACS_Canvas.pdf` y `ODLC_Canvas.pdf`, de referencia histórica en `00_crudo/`.
 
 ### v0.3 — Whitepaper y Vault Vivo (En Progreso - Actual)
 - **Hito**: Consolidar el whitepaper y migrar la fuente de verdad a un vault interconectado en Markdown, permitiendo que humanos y LLMs interactúen sobre una misma base de verdad.

@@ -45,6 +45,16 @@ $$DLT = T_{\text{aprobación de estrategia}} - T_{\text{definición de restricci
 
 ---
 
+## Instrumentación pendiente
+
+Como en [[Métricas operativas]] y [[Métricas de agentes]], las fórmulas están definidas pero **la recolección del dato no**. Falta, para cada una, fuente del evento, unidad y responsable del registro.
+
+| Métrica | Qué falta definir |
+|---|---|
+| **KRR** | Qué cuenta como **"referenciar" una entrada de memoria**: si es una cita explícita en el documento de estrategia, un enlace, o una recuperación registrada por el agente Memory. La diferencia importa porque la recuperación automática puede inflar el numerador sin que la lección haya influido en la decisión. Falta también qué califica como "decisión estratégica" en el denominador. |
+| **CRT** | Los **timestamps** de inicio y fin, y sobre todo qué significa "contexto listo para ejecución" — hoy no hay un evento observable que lo marque. En el modo tradicional que la nota usa como comparación (reuniones, lectura de wikis), ese tiempo directamente no se registra en ningún sistema, así que la comparación con HACS no tiene línea base. |
+| **DLT** | Dónde se registran la **aprobación formal de la estrategia** y la definición de restricciones. La nota interpreta valores altos y bajos del DLT en sentidos opuestos (parálisis por análisis vs. falta de exploración), pero sin un rango de referencia calibrado esa lectura queda a criterio de quien mire el número. |
+
 ## Hipótesis
 
 - **H1**: Aumentar el KRR disminuye directamente el *Time To Outcome* (TTO) de los objetivos complejos, ya que se evitan debates de diseño redundantes.

@@ -47,6 +47,16 @@ Este documento define la taxonomía y el vocabulario formal (Ubiquitous Language
 - **Propósito**: Garantiza que las acciones críticas (como el despliegue a producción o gastos de presupuesto) requieran validación humana.
 - **Ver en el vault**: [[Gobernanza]].
 
+### 8. Outcome (Resultado)
+- **Definición**: El cambio observable en el negocio o en el comportamiento de los usuarios que produce un ciclo de trabajo, verificado con [[Glosario y taxonomía#4. Evidence (Evidencia)|Evidencia]]. Se distingue del *output* (el entregable producido: código, documento, despliegue): "lanzar el módulo X" es output, "reducir el churn 2 puntos" es outcome.
+- **Propósito**: Es la unidad de éxito de [[ODLC]] — un objetivo se cierra cuando su outcome está validado, no cuando el entregable está en producción. Sostiene el valor *Outcomes over Output* del [[Manifiesto HACS-ODLC]] y es lo que miden el *Objective Success Rate* y el *Time To Outcome*.
+- **Ver en el vault**: [[Fase 1 - Objective]] · [[Fase 5 - Validation]] · [[Métricas operativas]].
+
+### 9. Sandbox (Entorno de Ejecución)
+- **Definición**: El entorno aislado y con permisos acotados donde los agentes ejecutan acciones con efectos reales (CLI, Git, compilador, test runner) sin alcanzar directamente los sistemas productivos.
+- **Propósito**: Separa la orquestación lógica del agente de la ejecución física, de modo que un error o una alucinación tenga un radio de impacto contenido. Es donde se materializan los límites de la [[Gobernanza]] en tiempo de ejecución y donde se recolecta buena parte de la evidencia de validación.
+- **Ver en el vault**: [[Cognitive OS - Arquitectura de referencia]] · [[Gobernanza]].
+
 ---
 
 ## Términos del Sistema
