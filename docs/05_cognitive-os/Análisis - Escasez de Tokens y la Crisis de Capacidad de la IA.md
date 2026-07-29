@@ -13,7 +13,7 @@ fuente:
 # Análisis — Escasez de Tokens y la Crisis de Capacidad de la IA
 
 > [!warning] Trazabilidad
-> Esta nota contiene cifras muy específicas (uptime de Claude, cancelación de Sora, recortes de Gemini, pérdidas de OpenAI/Anthropic, medición de Singular sobre el peaje lingüístico, proyecciones de Goldman Sachs). Todas provienen del video, que a su vez cita fuentes secundarias, y **no fueron verificadas de forma independiente**. Leerlas como "según el video".
+> Esta nota contiene cifras muy específicas que provienen del video, que a su vez cita fuentes secundarias. Las que ya fueron contrastadas llevan su fuente citada en el cuerpo de la nota; las que no resistieron el contraste quedan marcadas en cursiva como **no verificadas** en el lugar donde aparecen. El resto sigue siendo "según el video", no un hecho del vault.
 
 Este documento presenta un análisis y resumen estructurado del video referencial **"La IA se está quedando sin gasolina"** (disponible en [YouTube](https://www.youtube.com/watch?v=ZsKszAkq0jI)). El video aborda la crisis de capacidad de cómputo que afecta a los principales proveedores de IA, el racionamiento de tokens, el peaje lingüístico del español y la emergencia de una IA de dos velocidades.
 
@@ -33,13 +33,13 @@ El recurso escaso no es el petróleo, son los **tokens**. Cuando un usuario escr
 - **Sesión de trabajo de una hora con un agente**: entre 50.000 y 500.000 tokens.
 - **IA agéntica**: consume entre **10 y 100 veces más** que una pregunta simple.
 
-Es equivalente a pasar de encender una bombilla a poner en marcha una fábrica entera. Al mismo tiempo, hay más usuarios, más consultas y tareas cada vez más sofisticadas. El caso extremo conocido: un programador gastó casi **$15.000 USD en 2,5 horas** de sesión de IA. El CTO de Uber reportó que el presupuesto anual de IA de la empresa se agotó en solo 4 meses.
+Es equivalente a pasar de encender una bombilla a poner en marcha una fábrica entera. Al mismo tiempo, hay más usuarios, más consultas y tareas cada vez más sofisticadas. El caso extremo conocido: un programador gastó casi **$15.000 USD en 2,5 horas** de sesión de IA *(cifra del video; no se localizó fuente pública que la respalde — tratarla como no verificada)*. El CTO de Uber reportó que el presupuesto anual de IA de la empresa se agotó en solo 4 meses.
 
 ---
 
 ## 3. El Peaje Lingüístico del Español
 
-Las IA no usan los mismos tokens en español que en inglés para expresar la misma idea. La empresa Singular ha medido que un mismo párrafo técnico consume **62 tokens en español** frente a **39 tokens en inglés**, un **59% más de consumo**. Esto significa que:
+Las IA no usan los mismos tokens en español que en inglés para expresar la misma idea. La consultora **Sngular** ha medido que un mismo párrafo técnico consume **62 tokens en español** frente a **39 tokens en inglés**, un **58,9% más de consumo** ([Sngular, "Why Speak to LLMs in English?"](https://www.sngular.com/insights/415/why-speak-to-llms-in-english-the-technical-reality-behind-ais-most-repeated-advice)). Esto significa que:
 
 - Los usuarios hispanohablantes con planes gratuitos alcanzan sus límites antes.
 - En planes con tope de tokens, el límite llega antes hablando en español.
@@ -51,7 +51,7 @@ Las IA no usan los mismos tokens en español que en inglés para expresar la mis
 
 ## 4. Caso Anthropic/Claude: Uptime, Racionamiento y Esfuerzo de Razonamiento
 
-La API de Claude ha registrado un **98,95% de uptime** durante algunas fases del año, acumulando casi **24 horas de cortes**. Marzo de 2026 fue el peor mes con **13 horas de caída** en un solo mes (el estándar del sector exige 99,99%, los "cuatro nueves"). Medidas concretas de Anthropic:
+La API de Claude ha registrado un **98,95% de uptime** durante algunas fases del año, acumulando casi **24 horas de cortes**. Marzo de 2026 fue el peor mes con **13 horas de caída** en un solo mes (el estándar del sector exige 99,99%, los "cuatro nueves"). *Estas tres cifras salen del video y no se localizó fuente pública que las respalde: la [página de estado de Anthropic](https://status.claude.com/) publica uptime a 90 días móviles, no un histórico mensual. Tratarlas como no verificadas.* Medidas concretas de Anthropic:
 
 - **Racionamiento en horas pico**: límites de tokens impuestos entre las 5 y 11 AM Pacific (1 a 7 PM en España).
 - **Mayor consumo por modelo**: Claude 4.7 consume un **46% más de tokens** que su predecesor por el mismo texto, reflejando el costo del razonamiento extendido.
@@ -68,7 +68,7 @@ La API de Claude ha registrado un **98,95% de uptime** durante algunas fases del
 ### Google Gemini
 - **4 recortes en 4 meses** sin aviso previo a usuarios.
 - **Diciembre 2025**: la capa gratuita sufrió una caída del **92%** en capacidad.
-- **Marzo 2026**: incluso los usuarios Ultra (máximo nivel de suscripción) fueron recortados.
+- **Marzo 2026**: incluso los usuarios Ultra (máximo nivel de suscripción) fueron recortados *(dato del video; no se localizó fuente pública que lo respalde — tratarlo como no verificado)*.
 
 > **Patrón:** Los proveedores ajustan la capacidad de forma opaca, sin comunicación transparente, erosionando la confianza del usuario.
 
@@ -79,8 +79,8 @@ La API de Claude ha registrado un **98,95% de uptime** durante algunas fases del
 La inversión en centros de datos es masiva pero aún insuficiente:
 
 - **$700.000 millones** invertidos este año para ampliar centros de datos.
-- **Goldman Sachs** proyecta que la demanda superará la oferta en **10 GW de consumo eléctrico al año** hasta 2028.
-- **Proyecto Stargate** ($500.000M) fue **suspendido** en Texas.
+- **Goldman Sachs** proyecta que la demanda superará la oferta en **10 GW de consumo eléctrico al año** hasta 2028 *(cifra del video; no se localizó publicación de Goldman Sachs con ese déficit. Lo que sí publica es la proyección de demanda eléctrica de centros de datos en EE.UU. de 31 GW en 2025 a 66 GW en 2027, y un aumento global del 165% a 2030 — [Goldman Sachs Research](https://www.goldmansachs.com/insights/articles/ai-to-drive-165-increase-in-data-center-power-demand-by-2030))*.
+- **Proyecto Stargate** ($500.000M): no fue suspendido. En marzo de 2026 Oracle y OpenAI **cancelaron la ampliación de 600 MW** prevista en el campus de Abilene, Texas, mientras el campus original sigue en construcción y con edificios ya operativos ([Data Center Dynamics](https://www.datacenterdynamics.com/en/news/oracleopenai-drop-plans-to-expand-flagship-abilene-stargate-site-meta-in-talks-to-pick-up-crusoe-capacity-with-nvidias-help/)).
 
 La infraestructura física (energía, refrigeración, chips) no escala al ritmo de la demanda de tokens, especialmente con el auge de la IA agéntica.
 
@@ -104,7 +104,7 @@ La tendencia apunta hacia **suscripciones más elevadas** para usuarios intensiv
 La crisis de capacidad está creando una **IA de dos velocidades**: quienes más paguen tendrán acceso a más inteligencia, mejor rendimiento y mayor disponibilidad. Esto genera un bucle de desigualdad:
 
 - El bien escaso ya no es la tierra ni el capital, es la **inteligencia**.
-- Los hispanohablantes parten con un **hándicap estructural** (peaje lingüístico del 59%).
+- Los hispanohablantes parten con un **hándicap estructural** (peaje lingüístico del 58,9%).
 - Las organizaciones con presupuesto limitado quedan relegadas a modelos degradados o racionados.
 
 ---

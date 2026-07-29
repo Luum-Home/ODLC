@@ -13,7 +13,7 @@ fuente:
 # Análisis — Harness Engineering y la Paradoja de Herramientas
 
 > [!warning] Trazabilidad
-> Las cifras del caso Vercel D0 (3x velocidad, −37% tokens) y los umbrales de degradación de contexto (20%/40%) provienen del video y **no fueron verificados de forma independiente**.
+> Los umbrales de degradación de contexto (20%/40%) provienen del video y **no fueron verificados de forma independiente**. Las cifras del caso Vercel D0 sí fueron contrastadas contra el blog de Vercel y llevan su fuente citada en la sección 2.
 
 Este documento presenta un análisis y resumen estructurado del video referencial **"Harness Engineering: Cómo controlar a la IA que hace código"** (disponible en [YouTube](https://www.youtube.com/watch?v=q9Vaoz0hd0U)). El video aborda la disciplina de **Harness Engineering** (Ingeniería de Arneses), analizando la paradoja del exceso de herramientas, la degradación de la ventana de contexto y los tres pilares de un ecosistema de desarrollo de IA robusto.
 
@@ -40,7 +40,7 @@ Equipar a los agentes de IA con herramientas altamente complejas e hiper-especia
 Vercel desarrolló un agente interno llamado **D0** para realizar consultas analíticas complejas de big data.
 - **Enfoque inicial (Complejo)**: Le proporcionaron wrappers específicos para escribir queries SQL y herramientas personalizadas de conexión a bases de datos.
 - **Enfoque final (Simple)**: Los ingenieros removieron las herramientas complejas y le dieron al modelo acceso directo únicamente a comandos simples del ecosistema Unix (`grep` para buscar, `cat` para leer, `ls` para listar directorios).
-- **Resultado**: La versión con herramientas Unix más simples incrementó **más de 3 veces la velocidad** de resolución y redujo un **37% el consumo de tokens** (abaratando significativamente la operación), superando a la versión compleja en el 100% de los tests.
+- **Resultado**: La versión con herramientas Unix más simples resultó **3,5 veces más rápida** (274,8 s → 77,4 s por consulta), redujo un **37% el consumo de tokens** (~102.000 → ~61.000) y un **42% los pasos** necesarios. La **tasa de éxito** pasó del **80%** de la versión compleja al **100%** de la versión simple ([Vercel, "We removed 80% of our agent's tools"](https://vercel.com/blog/we-removed-80-percent-of-our-agents-tools)).
 
 > **Lección de Diseño:** Cuanto más abstracto y simple sea el set de herramientas provisto al agente, mejor es su capacidad de resolver problemas de forma autónoma.
 

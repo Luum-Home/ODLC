@@ -14,7 +14,7 @@ fuente:
 # Análisis — Token Economics y las 5 Predicciones del Caos
 
 > [!warning] Trazabilidad
-> La declaración de Sam Altman, la cita de George Hotz y el caso ClickUp provienen del video y **no fueron verificados de forma independiente**. Leerlos como "según el video".
+> La cita de George Hotz proviene del video y **no fue verificada de forma independiente**. Leerla como "según el video". La declaración de Sam Altman (sección 1) y el caso ClickUp (sección 6) fueron contrastados con la prensa y llevan su fuente citada; en ambos se marca explícitamente qué parte es hecho documentado y qué parte es predicción del video.
 
 Este documento presenta un análisis y resumen estructurado del video **"5 Predictions About Token Economics CHAOS in Companies"** (disponible en [YouTube](https://www.youtube.com/watch?v=m-bT5v5Tm7w)), donde George Hotz advierte sobre los riesgos de integrar agentes de IA en el desarrollo de software y se presentan cinco predicciones inminentes sobre la economía de tokens corporativa: donaciones, stipends, token poker, budgets por equipo y recompensas por uso.
 
@@ -22,7 +22,7 @@ Este documento presenta un análisis y resumen estructurado del video **"5 Predi
 
 ## 1. La Predicción que se Cumplió: Los Costos de Tokens como Crisis
 
-Sam Altman confirmó públicamente a principios de 2026 que los **costos de tokens se convirtieron en un problema enorme** para las empresas. Esta declaración llegó apenas **8 días después** de que el creador del video hiciera exactamente esa predicción, validando la tesis central: la economía de tokens no es un tema teórico sino una crisis organizacional en tiempo real.
+Sam Altman confirmó públicamente en **junio de 2026**, en el evento "Intelligence at Work" de OpenAI, que los **costos de tokens se convirtieron en un problema enorme** para las empresas ([Tom's Hardware](https://www.tomshardware.com/tech-industry/artificial-intelligence/openai-ceo-sam-altman-admits-ai-token-costs-are-becoming-a-huge-issue-company-seeks-improved-value-as-overspending-becomes-a-meme)). Lo que Altman ubicó a principios de 2026 fue el **origen** del problema —hasta entonces nadie se quejaba del gasto—, no su propia declaración. Según el video, esa declaración llegó apenas **8 días después** de que su creador hiciera exactamente esa predicción *(la ventana de 8 días no es verificable de forma independiente)*.
 
 > **Los costos de tokens dejaron de ser una línea presupuestaria menor para convertirse en un problema estratégico de primer orden.** Lo que empezó como gastos de experimentación ahora compite con partidas de infraestructura y headcount.
 
@@ -102,7 +102,7 @@ La quinta predicción conecta con el caso ClickUp y el concepto de **"organizaci
 - Los mayores productores reciben **presupuestos ilimitados** de tokens.
 - La lógica: si produces 100x más código, mereces 100x más recursos de IA.
 
-El caso ClickUp ilustra esta tendencia: al adoptar la filosofía de "100x organization", la empresa identificó a sus mayores productores de código y les asignó proporcionalmente más presupuesto de IA, mientras reducía personal en áreas de menor producción.
+ClickUp se cita como ilustración de esta tendencia, pero conviene separar el hecho de la predicción. **Hecho documentado:** en mayo de 2026 la empresa recortó el 22% de su plantilla y su CEO, Zeb Evans, planteó la reestructuración como una apuesta por la "100x organization", con bandas salariales de hasta $1M para quienes generen "impacto 100x" construyendo o dirigiendo sistemas de IA ([TechRepublic](https://www.techrepublic.com/article/news-clickup-cuts-staff-ai-restructuring/)). **Predicción del video, no hecho:** que la asignación de presupuesto de IA se decida revisando git logs para identificar a los mayores productores de código — eso no está documentado en ninguna fuente pública sobre ClickUp.
 
 > **Premiar a los mayores consumidores con base en git logs es medir productividad por volumen de código, no por valor entregado.** Es Goodhart's Law con una capa adicional: ahora se incentiva producir más código (posiblemente innecesario) para justificar más tokens, que generan más código, que justifica más tokens.
 

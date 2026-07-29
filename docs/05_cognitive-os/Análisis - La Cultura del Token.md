@@ -13,7 +13,7 @@ fuente:
 # Análisis — La Cultura del Token
 
 > [!warning] Trazabilidad
-> Las cifras y casos citados en esta nota (Meta "Clouenomics", Amazon, declaración de Jensen Huang, consumos de tokens) provienen del video y **no fueron verificados de forma independiente**. Tratarlos como "según el video", no como hechos del vault.
+> Las cifras y casos citados en esta nota (Amazon, declaración de Jensen Huang, consumos de tokens) provienen del video y **no fueron verificados de forma independiente**. Tratarlos como "según el video", no como hechos del vault. Excepción: el caso Meta (sección 4) fue corregido contra la cobertura de prensa y lleva su fuente citada.
 
 Este documento presenta un análisis y resumen estructurado del video referencial **"La Cultura del Token"** (disponible en [YouTube](https://www.youtube.com/watch?v=_exF3cBMbcM)). El video aborda las implicancias organizacionales y estratégicas de medir el consumo de tokens por empleado como métrica de adopción de IA, los riesgos de aplicar la Ley de Goodhart, los errores simétricos que cometen las empresas (tacaño vs. performativo) y el concepto de **Retorno del Token (Token ROI)**.
 
@@ -45,9 +45,9 @@ Este patrón es especialmente peligroso en IA porque el consumo de tokens tiene 
 
 ---
 
-## 4. Caso Meta: Clouenomics
+## 4. Caso Meta: Claudeonomics
 
-Meta implementó un dashboard interno llamado **"Clouenomics"** que rankeaba a más de **85,000 empleados** por su consumo de tokens. En solo **30 días**, la organización consumió **60 mil millones de tokens**.
+Meta implementó un dashboard interno llamado **"Claudeonomics"** —visible para más de **85.000 empleados**— que rankeaba a los **250 mayores consumidores** de tokens. En un período de **30 días**, el consumo total registrado en el dashboard superó los **60 billones de tokens** (60 × 10¹², *trillion* en inglés). Fuente: [Fortune, 09/04/2026](https://fortune.com/2026/04/09/meta-killed-employee-ai-token-dashboard/).
 
 El sistema incluía títulos gamificados:
 - **Token Legend**
