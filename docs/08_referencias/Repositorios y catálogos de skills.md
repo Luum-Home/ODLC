@@ -44,7 +44,7 @@ graph TD
 *   **Portal de Documentación**: [antigravity-awesome-skills Pages](https://sickn33.github.io/antigravity-awesome-skills/)
 
 ### Características:
-- **Catálogo de más de 1,500 Skills** (cifra según el README del repo, consultado 2026-06-10): Cubre una enorme gama de especializaciones como diseño de software ágil, auditorías de seguridad, administración de bases de datos, despliegue en nube (AWS/GCP), debugging de fugas de memoria y optimización de rendimiento web.
+- **Catálogo de más de 1,993 Skills** (cifra según el README del repo, consultado 2026-07-28; eran "más de 1,500" al 2026-06-10): Cubre una enorme gama de especializaciones como diseño de software ágil, auditorías de seguridad, administración de bases de datos, despliegue en nube (AWS/GCP), debugging de fugas de memoria y optimización de rendimiento web.
 - **Estructuración en Roles**: Las habilidades se encuentran agrupadas para que un agente pueda "ponerse el sombrero" de un rol específico (ej. Ingeniero de Accesibilidad Web, Administrador de Syslogs, Auditor de Contratos Inteligentes).
 - **Scripts Incorporados**: La mayoría de las habilidades adjuntan utilidades en Python, Node.js o Bash que el agente puede invocar de forma local para realizar diagnósticos o refactorizaciones automáticas.
 

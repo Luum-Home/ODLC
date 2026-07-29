@@ -285,7 +285,7 @@ Implementa patrones de renderizado de estado de agentes:
 
 #### 3.2.3 Pi Coding Agent (`pi_demo.ts`)
 
-**Framework**: [Pi](https://github.com/earendel-works/pi/) (`@earendel-works/pi-coding-agent`)  
+**Framework**: [Pi](https://github.com/earendel-works/pi/) ⚠️ enlace caído (404 verificado 2026-07-28; el paquete `@earendel-works/pi-coding-agent` tampoco figura en el registro de npm — sin reemplazo canónico identificado) (`@earendel-works/pi-coding-agent`)  
 **Propósito**: Agente de codificación terminal-first ultra-ligero  
 
 Implementa un agente de codificación embebido:
@@ -926,7 +926,7 @@ El **AI Engineering Lab** representa la infraestructura tecnológica de referenc
 *   [LlamaIndex](https://github.com/run-llama/llama_index) - RAG avanzado
 *   [Gollem](https://github.com/fugue-labs/gollem) - Máquinas de estado deterministas
 *   [Flue](https://github.com/withastro/flue) - Integraciones nativas web (Astro)
-*   [Pi](https://github.com/earendel-works/pi/) - Agente de codificación terminal-first ultra-ligero
+*   [Pi](https://github.com/earendel-works/pi/) ⚠️ enlace caído (404 verificado 2026-07-28; el paquete `@earendel-works/pi-coding-agent` tampoco figura en el registro de npm — sin reemplazo canónico identificado) - Agente de codificación terminal-first ultra-ligero
 
 ### 13.3 Referencias y Fuentes
 

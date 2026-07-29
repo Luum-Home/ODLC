@@ -40,7 +40,7 @@ Servicios y tecnologías de backend que facilitan el acceso, ruteo y entrenamien
 
 *   **[OpenRouter](https://openrouter.ai/)**: Un gateway y enrutador unificado de APIs que permite acceder a cientos de modelos de LLM (tanto propietarios como de código abierto) con optimización de costos y balances automáticos.
 *   **[Hugging Face](https://huggingface.co/)**: El hub de colaboración más grande del mundo para compartir y descubrir modelos de machine learning, conjuntos de datos (datasets) y aplicaciones interactivas (Spaces).
-*   **[Unsloth](https://unsloth.ai/)**: Un framework de optimización de código abierto que acelera el ajuste fino (fine-tuning) de LLMs locales (como Llama 3 o Mistral). Reduce el consumo de RAM hasta en un 80% y multiplica la velocidad de entrenamiento hasta por 30x.
+*   **[Unsloth](https://unsloth.ai/)**: Un framework de optimización de código abierto que acelera el ajuste fino (fine-tuning) de LLMs locales (como Llama 3 o Mistral). Según cifras publicadas por el propio proveedor, reduce el consumo de RAM hasta en un 80% y multiplica la velocidad de entrenamiento hasta por 30x; son valores de marketing en configuraciones no especificadas y sin baseline público, no mediciones independientes.
 
 ---
 

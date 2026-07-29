@@ -31,6 +31,10 @@ Mide la calidad del trabajo autónomo y la necesidad de intervención o correcci
 $$\text{Rework Rate} = \frac{\text{Artefactos de agentes rechazados o modificados por humanos}}{\text{Total de artefactos generados por agentes}}$$
 
 ### Rangos de Referencia:
+
+> [!warning] Umbrales sin base empírica
+> Los tres valores de abajo (10%, 30%, 40%) son una **heurística inicial**, no un resultado medido: no provienen de un estudio, un benchmark ni de datos históricos del equipo. Se documentan como punto de partida para poder discutirlos, y quedan **pendientes de calibrar** contra retrabajo real una vez que la métrica se instrumente. El caso más delicado es el 40%: dispara una regla ejecutable (suspender un agente, D1) y se replica en [[Gobernanza]] y en [[Requisitos funcionales y no funcionales]], de modo que recalibrarlo obliga a actualizar los tres lugares.
+
 - **Precisión Óptima (Rework < 10%)**: El agente opera de forma fluida. Sus decisiones están bien alineadas con las [[Fase 2 - Constraints]] y la [[Memoria organizacional]].
 - **Señal de degradación (Rework > 30%)**: Los humanos actúan constantemente como correctores detallados de código o diseño. Indica desalineación de contexto o limitaciones del modelo LLM. Acción: revisar el arnés y el contexto del agente.
 - **Umbral de suspensión (Rework > 40% sostenido por 3 objetivos consecutivos)**: Se activa la Decisión D1 — ver sección Decisiones.
@@ -48,6 +52,19 @@ $$\text{Costo por Objetivo} = \text{Costo de APIs de LLMs} + \text{Cómputo en S
 A diferencia del costo de salarios humanos, el costo de agentes es altamente elástico y escalable. Sin embargo, loops infinitos o la falta de límites de ejecución pueden disparar los costos sin agregar valor.
 
 ---
+
+## Instrumentación pendiente
+
+Las fórmulas de arriba están definidas; **la instrumentación no**. Ninguna de estas métricas declara todavía de qué evento sale el dato, con qué herramienta se recolecta ni quién lo registra, así que hoy no son medibles de forma reproducible: dos personas midiendo el mismo ciclo obtendrían números distintos. Se deja explícito qué falta, en vez de asumir que la fórmula alcanza.
+
+| Métrica | Qué falta definir |
+|---|---|
+| **ACR** | Una **unidad común de "artefacto"**. Hoy la definición mezcla líneas de código, pruebas, diagramas, documentación y scripts de despliegue, que no son conmensurables: un diagrama no equivale a 200 líneas. Falta decidir si se cuenta por artefacto discreto (PR, archivo, documento) o si se pondera, y de dónde sale el conteo (¿autoría de commits? ¿etiquetas en el PR?). Falta también el criterio de atribución cuando el artefacto es mixto (agente genera, humano corrige). |
+| **HLR** | Cómo se contabiliza una **hora de intervención humana**: si es tiempo de reloj, tiempo imputado, o tiempo activo sobre la herramienta; si incluye definir el objetivo y gobernar, o solo corregir al agente; y quién lo registra (¿imputación manual? ¿telemetría del IDE?). Sin esa definición el denominador es arbitrario. |
+| **Rework Rate** | Qué cuenta como **"modificado por un humano"** y con qué granularidad (¿un typo corregido es retrabajo?), sobre qué ventana se mide, y de qué fuente sale el evento (¿diffs sobre el commit del agente? ¿estados del PR?). Se cruza con la pregunta abierta de distinguir corrección constructiva de corrección por error. |
+| **Costo por Objetivo** | Cómo se **atribuye el gasto a un objetivo**: falta una clave de correlación entre las llamadas a la API, el cómputo de Sandbox y el almacenamiento de memoria, por un lado, y el objetivo que los originó, por el otro. Sin esa trazabilidad solo se puede medir el costo agregado del equipo, no el de un ciclo. |
+
+Instrumentar esto es requisito para calibrar los umbrales de la sección anterior: hasta entonces, los números de esta nota son hipótesis de trabajo, no mediciones.
 
 ## Hipótesis
 

@@ -45,6 +45,16 @@ $$LV = \frac{\text{Lecciones validadas e integradas en memoria}}{\text{Ciclos de
 
 ---
 
+## Instrumentación pendiente
+
+Las tres métricas tienen fórmula pero **no tienen definición operativa**: falta declarar de qué evento sale cada dato, con qué herramienta se registra y quién es responsable de hacerlo. Mientras eso no exista, son marcos conceptuales, no mediciones reproducibles.
+
+| Métrica | Qué falta definir |
+|---|---|
+| **OSR** | Qué sistema es la **fuente de registro de un objetivo** (dónde se declara, dónde se cierra) y quién dictamina el resultado binario. Falta el criterio para objetivos abandonados o reformulados a mitad de ciclo: si cuentan como fallo, se excluyen, o abren un objetivo nuevo — la decisión cambia el denominador. |
+| **TTO** | Los dos **timestamps** de la fórmula: qué evento concreto marca la "definición del objetivo" (¿el borrador? ¿la aprobación formal?) y cuál la "validación del outcome". Falta también cómo se trata el tiempo de espera en producción para recolectar evidencia, que puede dominar la métrica y no es tiempo de trabajo. |
+| **LV** | Quién valida que una lección sea **"reutilizable"** y en qué momento, dado que el criterio hoy es cualitativo. Falta la fuente del conteo (¿entradas nuevas en la [[Memoria organizacional]]?) y cómo se evita el incentivo perverso de inflar la métrica registrando lecciones triviales. |
+
 ## Hipótesis
 
 - **H1**: Centrar las métricas en OSR en lugar de "cantidad de código" o "tickets cerrados" reduce el desperdicio y la deuda técnica (en línea con la crítica de AWS: [[Más código no es más velocidad]]).

@@ -38,7 +38,7 @@ La implementación de **HACS** y la adopción de **ODLC** representan una transf
 
 ### D. Obsolescencia de Memoria
 - **Descripción**: Una memoria verdadera en su momento envejece y sigue siendo recuperada como guía vigente. Esto produce context rot por memoria persistente: decisiones, políticas o preferencias obsoletas contaminan loops futuros.
-- **Mitigación**: Ciclo de vida de memoria con estados de vigencia, revisión periódica, relaciones de supersession y obligación de verificar memorias stale antes de usarlas como fuente de decisión. Ver [[Patrones de loops agénticos para repositorios#Stale memory como failure mode]].
+- **Mitigación**: Ciclo de vida de memoria con estados de vigencia, revisión periódica, relaciones de supersession y obligación de verificar memorias stale antes de usarlas como fuente de decisión. Ver [[Patrones de loops agénticos para repositorios#4. Stale memory como failure mode|Stale memory como failure mode]].
 
 ### E. Inyección de Prompts (Directa e Indirecta)
 - **Descripción**: Un atacante secuestra el comportamiento del agente mediante instrucciones maliciosas, ya sea en el prompt directo o —el vector de mayor riesgo— embebidas en datos externos que el agente lee (páginas web, PDFs, correos).
