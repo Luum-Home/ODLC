@@ -29,7 +29,7 @@ apply → fresh review → findings → fix → re-review → merge
 
 La separación de contexto reduce sesgo de confirmación: quien valida no debería depender únicamente del hilo que produjo la implementación.
 
-Ver: [[Patrones de loops agénticos para repositorios#Apply/Judge/Fix loop]] y [[Patrones de loops agénticos para repositorios#Fresh-context validation]].
+Ver: [[Patrones de loops agénticos para repositorios#5. Apply/Judge/Fix loop]] y [[Patrones de loops agénticos para repositorios#7. Fresh-context validation]].
 
 ## Hipótesis
 

@@ -37,4 +37,4 @@ strategy:
 ## Preguntas abiertas
 
 - ¿Cuándo amerita un *spike* de ejecución exploratoria antes de elegir? ¿Cómo se acota?
-- ¿Decision Lead Time ([[Métricas organizacionales]]) se mide de fin de Constraints a estrategia elegida?
+- Decision Lead Time se mide de fin de Constraints a estrategia elegida: ver [[Métricas organizacionales#3. Decision Lead Time (DLT)]].

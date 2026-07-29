@@ -31,7 +31,7 @@ El aprendizaje no termina al guardar una memoria. Cada decisión, política o pr
 
 Sin ciclo de vida, Learning puede transformarse en acumulación de contexto viejo que contamina ciclos futuros.
 
-Ver: [[Patrones de loops agénticos para repositorios#Memoria con ciclo de vida]].
+Ver: [[Patrones de loops agénticos para repositorios#3. Memoria con ciclo de vida]].
 
 ## Métricas asociadas
 

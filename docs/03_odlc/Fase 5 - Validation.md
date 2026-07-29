@@ -29,8 +29,8 @@ validation:
 2. **Evidence over Opinions:** la validación cita datos auditables, no impresiones ("se siente más rápido").
 3. **Quien valida no es quien ejecutó.** El veredicto lo da el dueño humano del objetivo ([[Roles humanos]]: Product/Sponsor), con análisis preparado por agentes.
 4. **Fallar es un resultado válido** — si produce aprendizaje ([[Fase 6 - Learning]]). Lo inválido es no poder determinar si se falló.
-5. **Validar proceso además de resultado:** en loops agénticos, especialmente TDD, la validación debe auditar la evidencia del ciclo, no solo que el estado final pase tests. Ver [[Agent Loop Engineering#Patrón aplicado TDD para agentes]].
-6. **Revisión con contexto fresco:** para cambios relevantes, la validación debe separar el contexto que produjo la implementación del contexto que la revisa. Ver [[Patrones de loops agénticos para repositorios#Fresh-context validation]].
+5. **Validar proceso además de resultado:** en loops agénticos, especialmente TDD, la validación debe auditar la evidencia del ciclo, no solo que el estado final pase tests. Ver [[Agent Loop Engineering#Patrón aplicado: TDD para agentes]].
+6. **Revisión con contexto fresco:** para cambios relevantes, la validación debe separar el contexto que produjo la implementación del contexto que la revisa. Ver [[Patrones de loops agénticos para repositorios#7. Fresh-context validation]].
 
 ## Validación perceptual
 
