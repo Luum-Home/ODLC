@@ -140,7 +140,7 @@ def main():
     repo = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else ".")
     vault = os.path.join(repo, "docs")
 
-    if not os.path.isdir(os.path.join(repo, ".git")):
+    if not os.path.exists(os.path.join(repo, ".git")):
         print(f"ERROR: {repo} no parece la raíz de un repo git.", file=sys.stderr)
         return 2
     if not os.path.isdir(vault):
