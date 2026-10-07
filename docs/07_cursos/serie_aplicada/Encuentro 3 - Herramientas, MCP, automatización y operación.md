@@ -30,7 +30,7 @@ Permitir que los agentes ejecuten acciones sobre sistemas reales y dejarlos list
   - **[Lindy](https://www.lindy.ai/)** — agentes de IA no-code con tareas programadas, integraciones y memoria de largo plazo.
   - **[Botpress](https://botpress.com/)** — plataforma visual para construir y desplegar chatbots y agentes conversacionales con LLMs.
 - Ecosistema avanzado opcional para proyectos que requieran mayor control técnico, ejecución local o composición de flujos LLM:
-  - **Hermes Agent**, **Odysseus**, **OpenClaw** y **Agent Zero** como referencias de arneses, runtimes locales o agentes autónomos.
+  - **Hermes Agent**, **Odysseus**, **OpenClaw** y **Agent Zero** como referencias de arneses, runtimes locales o agentes autónomos. Se discuten, no se instalan en la máquina de trabajo: los cuatro tuvieron fallas de ejecución remota reportadas en 2026. Riesgos y advertencias en [[Agentes abiertos y planes SaaS - Verificación]].
   - **[Langflow](https://www.langflow.org/)** — interfaz visual de flujos sobre LangChain; permite conectar componentes LLM, RAG, herramientas y memoria sin programar.
   - **[Flowise](https://flowiseai.com/)** — constructor visual de flujos LLM open-source; orientado a RAG, agentes y chatbots desplegables en local o cloud.
   - **[Dify](https://dify.ai/)** — plataforma de desarrollo de aplicaciones LLM con editor visual, RAG integrado, gestión de prompts y observabilidad.
