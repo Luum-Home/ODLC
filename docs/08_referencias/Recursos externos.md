@@ -31,6 +31,17 @@ Este documento registra los **repositorios y recursos de referencia externos** q
 
 ---
 
+## Libros y marcos de referencia
+
+| Recurso | Autor | Relación con HACS-ODLC | Enlace |
+|---|---|---|---|
+| **Sooner Safer Happier: Antipatterns and Patterns for Business Agility** (IT Revolution, 2020) | Jon Smart (con Zsolt Berend, Myles Ogilvie y Simon Rohrer) | Agilidad de negocio con meta *Better Value Sooner Safer Happier* (BVSSH) y foco en resultados; ver la fila en [[Comparativa con metodologías existentes]]. | [soonersaferhappier.com](https://www.soonersaferhappier.com/) |
+| **Manifiesto Ágil** (2001) | Beck, Cockburn, Fowler, Schwaber, Sutherland y otros | Valores y principios releídos uno por uno en [[Relectura del Manifiesto Ágil]]. | [agilemanifesto.org](https://agilemanifesto.org/) |
+
+*Verificación (2026-10-07): el sitio de Sooner Safer Happier declara BVSSH como meta, "Focus on Outcomes" como patrón y el uso de OKRs; el libro no se leyó para esta nota. Los coautores están verificados en `https://itrevolution.com/product/sooner-safer-happier/`. Comando del sitio: `curl -sL https://www.soonersaferhappier.com/ | sed 's/<[^>]*>/ /g' | tr -s ' \n' | LC_ALL=C /usr/bin/grep -oiE "[^.]{0,100}(better value|outcome|antipattern)[^.]{0,100}"`*
+
+---
+
 ## Recursos Audiovisuales y Multimedia
 
 Para complementar la investigación técnica de HACS y Cognitive OS, analizamos y recomendamos los siguientes materiales multimedia:

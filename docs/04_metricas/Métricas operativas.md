@@ -6,7 +6,7 @@ created: 2026-06-10
 
 # Métricas operativas
 
-Las **métricas operativas** en [[ODLC]] evalúan la efectividad general del ciclo de vida de desarrollo de software desde una perspectiva de negocio y eficiencia de entrega. A diferencia de las métricas ágiles tradicionales (como la velocidad del Sprint en Story Points o las horas trabajadas), las métricas operativas de ODLC se centran en el valor entregado y en la capacidad de aprendizaje continuo del sistema [[HACS]].
+Las **métricas operativas** en [[ODLC]] evalúan la efectividad general del ciclo de vida de desarrollo de software desde una perspectiva de negocio y eficiencia de entrega. A diferencia de las métricas de esfuerzo de Scrum y XP (como la velocidad del Sprint en Story Points o las horas trabajadas), y más cerca de las métricas de flujo de Kanban (lead time, cycle time, throughput), las métricas operativas de ODLC se centran en el valor entregado y en la capacidad de aprendizaje continuo del sistema [[HACS]].
 
 ## 1. Objective Success Rate (OSR)
 
@@ -45,6 +45,21 @@ $$LV = \frac{\text{Lecciones validadas e integradas en memoria}}{\text{Ciclos de
 
 ---
 
+## Pronóstico probabilístico (simulación Monte Carlo)
+
+No es una métrica sino la forma de **pronosticar** con las métricas anteriores. Viene de la gestión de flujo (Kanban): en lugar de estimar esfuerzo, se remuestrea el historial real (por ejemplo, throughput por semana) miles de veces y se obtiene una distribución de resultados posibles. La respuesta deja de ser "termina el viernes" y pasa a ser "85% de probabilidad de validarse antes del viernes". Encaja con ODLC porque los objetivos ya se tratan como probabilísticos ([[Por qué fallan las metodologías actuales]]) y reemplaza a la estimación por Story Points que descarta la decisión D1.
+
+Ajustes para un sistema humano-agente:
+
+- **Simular el cuello de botella, no la ejecución.** El throughput de los agentes crece tanto que deja de limitar. Lo que hay que remuestrear es el ritmo humano de decisión y validación ([[Nuevos cuellos de botella]]) y la distribución histórica del **TTO**.
+- **Pocas muestras.** Los objetivos son pocos y heterogéneos; con menos de una decena de cierres la simulación da una falsa precisión. Conviene simular sobre sub-objetivos o validaciones, que se repiten más.
+- **Costo, no solo tiempo.** Remuestrear el costo histórico en tokens por objetivo da una distribución de presupuesto en vez de una estimación puntual ([[Fase 2 - Constraints]]).
+- **Distribución, no promedio.** El TTO incluye esperas largas en producción para juntar evidencia; un promedio esconde la cola. Se reportan percentiles (50, 85, 95).
+
+Requisito previo: el historial existe solo si OSR y TTO están instrumentados (sección siguiente). Sin eso no hay qué remuestrear.
+
+---
+
 ## Instrumentación pendiente
 
 Las tres métricas tienen fórmula pero **no tienen definición operativa**: falta declarar de qué evento sale cada dato, con qué herramienta se registra y quién es responsable de hacerlo. Mientras eso no exista, son marcos conceptuales, no mediciones reproducibles.
@@ -68,6 +83,7 @@ Las tres métricas tienen fórmula pero **no tienen definición operativa**: fal
 
 - ¿Cómo medir objetivos que requieren largos períodos de observación (ej. métricas de retención de usuarios a 3 meses) sin congelar el ciclo ODLC?
 - ¿Cómo ponderar el impacto de factores externos incontrolables (ej. caídas de mercado) en la OSR de un equipo HACS?
+- ¿Cuántos objetivos cerrados hacen falta para que un pronóstico Monte Carlo sobre el TTO sea más útil que el juicio del dueño del objetivo?
 
 ---
 Relacionado: [[Métricas de agentes]] · [[Métricas organizacionales]] · [[Fase 5 - Validation]]

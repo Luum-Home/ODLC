@@ -23,7 +23,8 @@ constraints:
 
 1. **Las constraints las fijan humanos** ([[Roles humanos]]: Product, Architect); los agentes las *verifican* durante [[Fase 4 - Execution]].
 2. **El presupuesto de agentes es una constraint de primera clase.** Los agentes tienen costo medible ([[Métricas de agentes]]); ignorarlo repite el error de tratar la ejecución como gratis.
-3. **Constraint violada = ciclo detenido.** Si una estrategia en curso choca contra una restricción, se escala a humano, no se "negocia" silenciosamente.
+3. **El presupuesto se expresa como distribución cuando hay historial.** Con costos de objetivos anteriores, una simulación Monte Carlo da percentiles ("85% de probabilidad de gastar menos de X") en lugar de una cifra puntual; la constraint se fija sobre un percentil explícito ([[Métricas operativas#Pronóstico probabilístico (simulación Monte Carlo)]], [[Análisis - Token Economics y las 5 Predicciones del Caos]]).
+4. **Constraint violada = ciclo detenido.** Si una estrategia en curso choca contra una restricción, se escala a humano, no se "negocia" silenciosamente.
 
 ## Relación con Gobernanza
 

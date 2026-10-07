@@ -15,8 +15,10 @@ Este documento consolida las principales **preguntas abiertas** e interrogantes 
 ### 1. Adopción e Integración Organizacional
 - **¿Cómo se certifica o audita un sistema HACS?**
   - Si una empresa desea transicionar a ODLC, ¿existe un framework objetivo de certificación o auditoría independiente? ¿Cómo se evalúa la veracidad de su nivel de madurez?
-- **¿Cómo coexiste HACS con equipos Scrum tradicionales?**
-  - En organizaciones grandes, la migración completa es inviable en el corto plazo. ¿Cómo interactúa una unidad cognitiva HACS orientada a objetivos con un equipo Scrum que trabaja por historias y sprints? ¿Cómo mapear dependencias entre ambos mundos?
+- **¿Cómo coexiste HACS con equipos Scrum, XP o Kanban?**
+  - En organizaciones grandes, la migración completa es inviable en el corto plazo. ¿Cómo interactúa una unidad cognitiva HACS orientada a objetivos con un equipo Scrum que trabaja por historias y sprints, o con un equipo Kanban que trabaja por flujo continuo? ¿Cómo mapear dependencias entre ambos mundos?
+- **¿Qué pasa con un humano que no es proactivo?**
+  - HACS supone que el humano define objetivos, decide y valida por iniciativa propia. Scrum compensaba la falta de iniciativa con sprints y compromisos; ODLC no tiene un equivalente. ¿Cómo se mide si las salvaguardas de diseño (plantilla que no arranca sin métrica, validación que no se aprueba sin evidencia) alcanzan? → [[Relectura del Manifiesto Ágil#El humano que no es proactivo]]
 
 ### 2. Economía y Retorno de Inversión (ROI)
 - **¿Cómo se calcula el ROI real de implementar Cognitive OS?**
@@ -35,7 +37,7 @@ Este documento consolida las principales **preguntas abiertas** e interrogantes 
 ---
 
 ## Próximos Pasos para la Investigación
-1.  **Modelado híbrido**: Diseñar un caso de estudio sobre un equipo mixto (humanos en Scrum usando agentes de soporte) para trazar puntos de fricción reales.
+1.  **Modelado híbrido**: Diseñar un caso de estudio sobre un equipo mixto (humanos en Scrum o Kanban usando agentes de soporte) para trazar puntos de fricción reales.
 2.  **Esquema de Sandbox**: Prototipar una configuración segura y rápida en un contenedor Docker local para medir la latencia y robustez de la validación automatizada de código.
 
 ---

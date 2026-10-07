@@ -11,10 +11,11 @@ created: 2026-06-10
 ## Parte I — El Problema
 
 - [[AI SDLC]] — cómo la IA se integra en cada fase del ciclo de vida tradicional, y por qué eso no alcanza
-- [[Por qué fallan las metodologías actuales]] — Scrum optimiza coordinación humana; DevOps optimiza entrega; ninguna optimiza colaboración humano-agente
+- [[Por qué fallan las metodologías actuales]] — Scrum optimiza coordinación humana; Kanban optimiza flujo; DevOps optimiza entrega; ninguna optimiza colaboración humano-agente
 - [[Nuevos cuellos de botella]] — del código al contexto, de la implementación a la decisión
 - [[Más código no es más velocidad]] — la crítica de AWS al "AI coding" como métrica
-- [[Comparativa con metodologías existentes]] — Scrum, SAFe, DevOps, Team Topologies, Platform Engineering
+- [[Comparativa con metodologías existentes]] — Manifiesto Ágil, Scrum, XP, Kanban, SAFe, DevOps, Team Topologies, Platform Engineering
+- [[Relectura del Manifiesto Ágil]] — los 4 valores y 12 principios uno por uno: qué se mantiene, qué se reemplaza, qué se invierte con agentes, y el supuesto del humano proactivo
 - [[Producción de software vs. velocidad real]] — qué optimiza la IA y qué no: CI/CD, testing automation, observabilidad y gobernanza de despliegue como disciplina
 - [[Software bloated]] — el anti-patrón de código, dependencias y funcionalidad sobredimensionada, y por qué los agentes lo producen estructuralmente
 - [[Defectos perceptuales generados por IA]] — flickering, layout shift, pérdida de foco y otros defectos UI que no aparecen en builds verdes ni capturas estáticas

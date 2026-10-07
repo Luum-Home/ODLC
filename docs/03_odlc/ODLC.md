@@ -27,6 +27,8 @@ Objective → Constraints → Strategy → Execution → Validation → Learning
 
 ## Diferencias con SDLC y Scrum
 
+La comparación es contra SDLC y Scrum porque son el punto de partida más común. Kanban ya no tiene sprints y mide flujo, así que está más cerca de ODLC en cadencia; la diferencia que se mantiene es la unidad de trabajo (tarjeta vs. objetivo) y el criterio de cierre. Los valores del Manifiesto Ágil no se reemplazan: ver [[Relectura del Manifiesto Ágil]].
+
 | | SDLC / Scrum | ODLC |
 |---|---|---|
 | Unidad de trabajo | Requerimiento, historia, ticket | **Objetivo medible** |

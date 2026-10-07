@@ -62,7 +62,7 @@ Este documento define la taxonomía y el vocabulario formal (Ubiquitous Language
 ## Términos del Sistema
 
 - **HACS (Human-Agent Collaborative Systems)**: El modelo organizacional que define a los equipos de software como unidades cognitivas distribuidas de humanos y agentes sobre una memoria compartida. Ver [[HACS]].
-- **ODLC (Objective Driven Lifecycle)**: La metodología de trabajo ágil e iterativa de HACS que desplaza el foco del código hacia la consecución de objetivos y el aprendizaje continuo. Ver [[ODLC]].
+- **ODLC (Objective Driven Lifecycle)**: La metodología de trabajo iterativa de HACS, heredera de los valores del Manifiesto Ágil ([[Relectura del Manifiesto Ágil]]), que desplaza el foco del código hacia la consecución de objetivos y el aprendizaje continuo. Ver [[ODLC]].
 - **Cognitive OS**: La capa de arquitectura de software y tooling de soporte que materializa el funcionamiento lógico de HACS y ODLC. Ver [[Cognitive OS - Arquitectura de referencia]].
 - **Agent Loop Engineering**: Disciplina de diseño del loop de control de un agente: trigger, goal, state, action policy, observation parser, termination, memory update, guardrails, tracing y evals. Ver [[Agent Loop Engineering]].
 
