@@ -29,7 +29,7 @@ La memoria organizacional no debe ser acumulativa sin caducidad. Las decisiones,
 Patrón mínimo:
 
 ```text
-memoria creada → memoria activa → memoria stale / necesita revisión → revisión humana/agente → actualizar, superseder o marcar vigente
+memoria creada → memoria activa → memoria stale / necesita revisión → revisión humana/agente → actualizar, superseder, marcar vigente o descartar
 ```
 
 Una memoria vieja no es necesariamente falsa, pero tampoco debe ser usada como verdad vigente sin verificación. El agente Memory debe poder distinguir entre memoria activa, memoria que necesita revisión, memoria supersedida y memoria descartada.

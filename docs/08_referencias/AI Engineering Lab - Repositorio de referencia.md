@@ -20,7 +20,7 @@ Este documento ofrece un **análisis exhaustivo y de bajo nivel** de todos los c
 
 ## 1. Estructura del Vault de Conocimiento (Estilo Karpathy)
 
-El repositorio está organizado siguiendo la metodología de **Obsidian Vault / LLM Wiki** recomendada por Andrej Karpathy para bases de código co-mantenidas por agentes de IA:
+El repositorio está organizado siguiendo la metodología de **Obsidian Vault / LLM Wiki** propuesta por Andrej Karpathy para bases de conocimiento mantenidas por un LLM (gist ["llm-wiki"](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f), 2026-04-04):
 
 ### 1.1 Archivos de Configuración y Rieles Operativos
 
@@ -46,11 +46,11 @@ El repositorio está organizado siguiendo la metodología de **Obsidian Vault / 
     *   `mcp-education`: Servidor MCP de Plataforma Educativa (puerto 8000), depende de `db` healthy
     *   `mcp-wallet`: Servidor MCP de Virtual Wallet (puerto 8001), depende de `db` healthy
 *   **`.pre-commit-config.yaml`**: Configuración de hooks de pre-commit para validación automática.
-*   **`.gitignore`**: Excluye `.venv/`, `node_modules/`, `__pycache__/`, `external/` (12 repos clonados), `*.db`, entre otros.
+*   **`.gitignore`**: Excluye `.venv/`, `node_modules/`, `__pycache__/`, `external/` (12 repos clonados localmente), `*.db`, entre otros.
 
 ### 1.2 Directorios Principales
 
-*   **`/00_primitives_scratch/`**: 5 scripts standalone de Python (~200 líneas cada uno) que implementan primitivas de IA desde cero sin dependencias externas.
+*   **`/00_primitives_scratch/`**: 5 scripts standalone de Python (entre 210 y 286 líneas cada uno) que implementan primitivas de IA desde cero sin dependencias externas.
 *   **`/01_python_frameworks/`**: 15 demos de frameworks Python evaluados.
 *   **`/02_typescript_frameworks/`**: 3 demos de frameworks TypeScript (Mastra, Flue, Pi).
 *   **`/03_go_frameworks/`**: 1 demo de framework Go (Gollem).
@@ -66,7 +66,7 @@ El repositorio está organizado siguiendo la metodología de **Obsidian Vault / 
 
 ## 2. Primitivas Técnicas desde Cero (`00_primitives_scratch/`)
 
-El núcleo educativo del laboratorio reside en sus scripts standalone de Python, diseñados con principios de simplicidad (KISS), You Aren't Gonna Need It (YAGNI) y responsabilidad única (SRP). Cada script tiene ~200 líneas y es auto-contenido.
+El núcleo educativo del laboratorio reside en sus scripts standalone de Python, diseñados con principios de simplicidad (KISS), You Aren't Gonna Need It (YAGNI) y responsabilidad única (SRP). Cada script tiene entre 210 y 286 líneas (`wc -l 00_primitives_scratch/*.py`) y es auto-contenido.
 
 ### 2.1 Inferencia de LLMs y Protocolos de Red (`01_llm_inference_scratch.py`)
 
@@ -77,13 +77,26 @@ Implementa la mecánica fundamental de interacción con modelos de lenguaje:
 
 *   **Conexión HTTP Cruda**: Realiza llamadas directas a APIs de proveedores utilizando `urllib.request` sin envoltorios SDK. Construye los requests manualmente con headers, autenticación Bearer y payloads JSON.
 *   **Server-Sent Events (SSE)**: Implementa un parser iterativo para consumir streams de texto token por token. Lee el stream línea por línea, parsea eventos del formato `data: {...}`, extrae el delta de contenido y renderiza incrementalmente en stdout.
-*   **Cost Tracker en Tiempo Real**: Multiplica los tokens de entrada y salida reportados en la respuesta por las tarifas vigentes del modelo. Incluye tabla de precios de junio 2026 (USD por 1M tokens, precio estándar/lista):
-    *   GPT-5.5: \$5.00/1M input, \$30.00/1M output *(actualizado; fuente: [developers.openai.com/api/docs/pricing](https://developers.openai.com/api/docs/pricing))*
-    *   Claude Opus 4.8: \$5.00/1M input, \$25.00/1M output *(actualizado; fuente: [platform.claude.com/docs/en/about-claude/pricing](https://platform.claude.com/docs/en/about-claude/pricing))*
-    *   Gemini 2.5 Pro: \$1.25/1M input, \$10.00/1M output (contexto ≤200k) *(actualizado; fuente: [ai.google.dev/gemini-api/docs/pricing](https://ai.google.dev/gemini-api/docs/pricing))*
-    *   Gemini 3.5 Flash: \$1.50/1M input, \$9.00/1M output *(nuevo; fuente: [ai.google.dev/gemini-api/docs/pricing](https://ai.google.dev/gemini-api/docs/pricing))*
-    *   MiniMax M3: \$0.30/1M input, \$1.20/1M output *(precio vigente con descuento permanente 50%; lista: \$0.60/\$2.40; fuente: [platform.minimax.io/docs/guides/pricing-paygo](https://platform.minimax.io/docs/guides/pricing-paygo))*
-    *   Qwen3.7-Max: \$2.50/1M input, \$7.50/1M output (lista Alibaba Cloud; promo 50%: \$1.25/\$3.75) *(nuevo; fuente: [alibabacloud.com/help/en/model-studio/model-pricing](https://www.alibabacloud.com/help/en/model-studio/model-pricing))*
+*   **Cost Tracker en Tiempo Real**: Multiplica los tokens de entrada y salida reportados en la respuesta por las tarifas vigentes del modelo. Incluye la tabla `PRICING` del script (USD por 1M tokens, comentada como "Updated June 2026"; copiada tal cual, no son precios verificados por este vault):
+
+    | Modelo (clave en `PRICING`) | Input | Output | Nota en el script |
+    |---|---|---|---|
+    | `gpt-5.5` | \$5.00 | \$30.00 | |
+    | `gpt-5.4` | \$2.50 | \$15.00 | |
+    | `gpt-5.4-mini` | \$0.75 | \$4.50 | |
+    | `gpt-4o-mini` | \$0.15 | \$0.60 | |
+    | `claude-opus-4.8` | \$5.00 | \$25.00 | |
+    | `claude-sonnet-4.6` | \$3.00 | \$15.00 | |
+    | `claude-haiku-4.5` | \$1.00 | \$5.00 | |
+    | `gemini-2.5-flash` | \$0.075 | \$0.30 | |
+    | `gemini-1.5-flash` | \$0.075 | \$0.30 | |
+    | `nemotron-3-ultra` | \$0.00 | \$0.00 | free tier vía NVIDIA NIM |
+    | `minimax-m3` | \$0.29 | \$1.16 | precio promocional 50%, CNY a ~7.25 CNY/USD |
+    | `minimax-m3-long` | \$0.58 | \$2.32 | ídem |
+    | `qwen-3.7-max` | \$0.00 | \$0.00 | placeholder: "Check Aliyun console for exact rates" |
+    | `mock-model` | \$0.00 | \$0.00 | para pruebas offline |
+
+    *Verificación: `sed -n 20,52p 00_primitives_scratch/01_llm_inference_scratch.py` en el clon del lab.*
 *   **Structured Output Parsing**: Fuerza respuestas JSON mediante tool calling nativo del proveedor, eliminando parses manuales sobre texto libre.
 *   **Soporte Multi-Proveedor**: Implementa adaptadores para OpenAI, Anthropic, Google y MiniMax con normalización de respuestas.
 
@@ -99,10 +112,10 @@ Pipeline completo de Retrieval-Augmented Generation:
 *   **Sliding Window Chunking**: Divide el texto en ventanas superpuestas para preservar contexto entre chunks adyacentes (overlap configurable).
 *   **Semantic Chunking**: Divide el texto en oraciones individuales, calcula embeddings para cada una y agrupa oraciones contiguas en un solo chunk mientras su similitud coseno se mantenga por encima de un umbral dinámico (ej: 0.85).
 *   **Postgres DDL con PGVector**: Configura tablas con columnas de tipo `vector(n)`, índices HNSW para búsqueda aproximada, y filtros de metadatos.
-*   **SQL Querying con Operador `<=>`**: Ejecuta búsquedas por similitud coseno (L2 distance) con `ORDER BY embedding <=> query_vector`.
+*   **SQL Querying con Operador `<=>`**: Ejecuta búsquedas por distancia coseno con `ORDER BY embedding <=> query_vector` (en pgvector, `<=>` es distancia coseno; `<->` es distancia L2).
 *   **Evaluación de Calidad de Retrieval**:
     *   *Hit Rate*: Proporción de consultas donde al menos un documento relevante aparece en los top-k recuperados.
-    *   *Mean Reciprocal Rank (MRR)*: Posición promedio del primer documento relevante recuperado.
+    *   *Mean Reciprocal Rank (MRR)*: Promedio de 1/rank del primer documento relevante recuperado (0 si no aparece en el top-k).
 
 ### 2.3 Agent Runtime (`03_agent_runtime_scratch.py`)
 
@@ -180,7 +193,7 @@ Implementa la suite completa de LangChain:
 *   **LangGraph ReAct Loops**: Grafos de estado que permiten ciclos (bucles de reintentos), ramificaciones condicionales y coordinación de múltiples agentes.
 *   **LangSmith Traces**: Integración nativa con LangSmith para depuración, pruebas y trazabilidad de ejecuciones.
 *   **LangFuse Telemetry**: Telemetría de código abierto compatible con LangFuse para evaluaciones y gestión de prompts.
-*   **LangServe REST API**: Expone componentes de LangChain como APIs REST باستخدام FastAPI.
+*   **LangServe REST API**: Expone componentes de LangChain como APIs REST usando FastAPI.
 *   **LangMem Long-term Memory**: Servicio especializado de memoria persistente para estado de agentes a largo plazo.
 
 #### 3.1.3 CrewAI (`crewai_demo.py`)
@@ -251,7 +264,7 @@ Implementa técnicas de RAG empresarial:
 
 Pipeline de fine-tuning:
 *   **Modelos Base**: Adapta modelos abiertos (Llama, Mistral) a tareas estructuradas específicas.
-*   **Técnicas de Optimización**: Utiliza Unsloth para aceleración 2-5x del entrenamiento y reducción de memoria.
+*   **Técnicas de Optimización**: Utiliza Unsloth para acelerar el entrenamiento y reducir memoria ("2× faster with 70% less VRAM": cifra del proveedor, README de [unslothai/unsloth](https://github.com/unslothai/unsloth) consultado 2026-10-07).
 *   **Dataset Preparation**: Preparación y formateo de datasets para entrenamiento supervisado.
 *   **Exportación**: Exporta modelos entrenados a formatos GGUF, vLLM, etc.
 
@@ -406,7 +419,7 @@ El sistema sigue una separación estricta en capas concéntricas:
     *   *Outline Agent*: Diseña macro-estructura del libro.
     *   *Content Generator Agent*: Redacta lecciones con estructura pedagógica.
     *   *Evaluation Agent*: Califica alineación curricular y adecuación etaria (0.0 a 1.0).
-    *   *Modelo*: Gemini 1.5 Flash (por defecto) con Context Caching para reducir costos 80%.
+    *   *Modelo*: Gemini 1.5 Flash (por defecto) con Context Caching para reducir costos 80% (afirmación de la documentación del repo sin medición publicada).
 *   **`nem_agents.py`** (`NEMOutlineAgentService`): Agentes especializados en alineación NEM/SEP.
     *   *NEM Content Mapper Agent*: Mapea contenidos y PDA del Programa Sintético.
     *   *NEM Alignment Evaluator*: Evalúa alineación con campos formativos y ejes articuladores.
@@ -437,7 +450,7 @@ El sistema sigue una separación estricta en capas concéntricas:
 
 #### 4.4.3 API HTTP (`infrastructure/http/`)
 
-*   **`api.py`** (315 líneas): Router FastAPI con 12 endpoints REST:
+*   **`api.py`** (315 líneas): Router FastAPI con 14 endpoints REST:
     *   `POST /api/books`: Crea libro y lanza generación en background
     *   `GET /api/books`: Lista todos los libros
     *   `GET /api/books/{id}`: Obtiene libro por ID
@@ -483,11 +496,14 @@ ELSE:
     status = PENDING_REVIEW (cola HITL para revisión docente)
 ```
 
+> [!note] Sobre la auto-aprobación
+> Con este gating, una secuencia con ambos scores ≥0.85 se aprueba sin revisión humana: el umbral lo fija un agente juez, así que no garantiza ausencia de errores.
+
 #### 4.5.2 Estrategia de Caché Pragmática (Context Caching)
 
 En lugar de cachear lecciones creativas (lo que provocaría plagio inter-colegios y persistencia de alucinaciones), se implementa **Context Caching de Gemini**:
 *   El proveedor de IA mantiene en memoria los lineamientos curriculares inyectados al prompt raíz.
-*   Reduce las facturas de tokens en un **80%**.
+*   Reduce las facturas de tokens en un **80%** (afirmación de la documentación del repo sin medición publicada).
 *   Acelera el tiempo de respuesta a milisegundos en llamadas subsecuentes.
 
 #### 4.5.3 Estado de Máquina de Secuencias
@@ -636,6 +652,9 @@ El laboratorio implementa una pirámide de testing exhaustiva validando desde fu
     *   Context Caching → "Reduce costos de tokens 80% y tiempo de espera a milisegundos."
     *   HITL → "Ninguna lección con errores llegará al aula."
 
+    > [!warning] Afirmaciones sin medición
+    > El "100% precisión", el "80%" y el "ninguna lección con errores" son afirmación de la documentación del repo (README de `textbook_generator/` y wiki) sin medición publicada; con auto-aprobación ≥0.85 no hay garantía: las secuencias que superan ese umbral se aprueban sin revisión docente (ver 4.5.1).
+
 ---
 
 ## 7. Infraestructura Local y CI/CD
@@ -677,7 +696,7 @@ docker-compose up -d
 
 ## 8. Repositorios de Referencia (`external/`)
 
-**Total de repos clonados**: 12 (todos gitignored en `.gitignore`)  
+**Total de repos clonados**: 12 en el clon local (`ls external/`; todos gitignored en `.gitignore`)
 
 Propósito: Análisis local de código de terceros, estudio de patrones, benchmarking y referencia para decisiones arquitectónicas.
 
@@ -689,7 +708,9 @@ Propósito: Análisis local de código de terceros, estudio de patrones, benchma
 6.  **`deepagents/`** ([langchain-ai/deepagents](https://github.com/langchain-ai/deepagents)): Arnés de agentes autónomos "batteries-included" sobre LangGraph. Referencia para middleware y sub-agentes.
 7.  **`driftdb/`** ([DavidLiedle/DriftDB](https://github.com/DavidLiedle/DriftDB)): Motor de sincronización P2P en tiempo real. Referencia para colaboración distribuida.
 8.  **`duckdb/`** ([duckdb/duckdb](https://github.com/duckdb/duckdb)): Base de datos analítica SQL in-process. Referencia para OLAP y procesamiento de logs masivos.
-9.  **`ejemplo-harness-subagentes/`**: Ejemplo de arnés de sub-agentes (orquestación multi-agente).
+9.  **`ejemplo-harness-subagentes/`** ([betta-tech/ejemplo-harness-subagentes](https://github.com/betta-tech/ejemplo-harness-subagentes)): Ejemplo de arnés de sub-agentes (orquestación multi-agente).
+10. **`engram/`** ([Gentleman-Programming/engram](https://github.com/Gentleman-Programming/engram)): Memoria persistente para agentes de código.
+11. **`gentle-ai/`** ([Gentleman-Programming/gentle-ai](https://github.com/Gentleman-Programming/gentle-ai)): Configurador de ecosistema para agentes de código (memoria, SDD, skills, MCP).
 12. **`lancedb/`** ([lancedb/lancedb](https://github.com/lancedb/lancedb)): Base de datos vectorial serverless e in-process. Referencia para RAG sin infraestructura externa.
 
 ---
@@ -897,7 +918,7 @@ El **AI Engineering Lab** representa la infraestructura tecnológica de referenc
 1.  **Fase 2 - Constraints**: Se implementa a través de la primitiva de gobernanza y seguridad (`05_governance_and_security.py`) inyectando límites de presupuesto, ToolGaters RBAC, PII redaction y kill switches.
 2.  **Fase 4 - Execution**: Utiliza el orquestador híbrido de PydanticAI y workflows deterministas detallados en la aplicación del Textbook Generator (caso de uso `GenerateBookWorkflowUseCase`).
 3.  **Fase 5 - Validation**: Se realiza mediante los evaluadores automatizados (F1 Token, G-Eval, Hit Rate, MRR) y las colas de revisión de calidad HITL con umbral 0.85.
-4.  **Fase 6 - Learning**: Se concreta en los motores de memoria persistente episódica y semántica del Agent Runtime (`03_agent_runtime_scratch.py`).
+4.  **Fase 6 - Learning**: El repo no implementa Learning en sentido ODLC; la memoria episódica y semántica del Agent Runtime (`03_agent_runtime_scratch.py`) es un insumo posible.
 
 ---
 
@@ -945,7 +966,7 @@ El **AI Engineering Lab** es un repositorio de referencia completo que cubre el 
 
 | Dimensión | Cobertura |
 |---|---|
-| **Primitivas desde Cero** | 5 scripts (~200 líneas c/u) sin dependencias: Inferencia, RAG, Agent Runtime, Observabilidad, Gobernanza |
+| **Primitivas desde Cero** | 5 scripts (210–286 líneas c/u) sin dependencias: Inferencia, RAG, Agent Runtime, Observabilidad, Gobernanza |
 | **Frameworks Evaluados** | 15 demos Python + 3 TypeScript + 1 Go = 19 evaluaciones comparativas |
 | **Aplicación de Producción** | Textbook Generator con Clean Architecture, 10 casos de uso, 136 líneas de modelos de dominio, integración NEM/SEP completa |
 | **Testing** | Pirámide completa: unit, integration, e2e API, e2e browser (Playwright), ATDD |
@@ -958,4 +979,4 @@ El **AI Engineering Lab** es un repositorio de referencia completo que cubre el 
 
 **Stack**: Python 3.11+, TypeScript ESNext, Go 1.25.1, PostgreSQL+pgvector, SQLite, PydanticAI, FastAPI, Playwright.
 
-**Licencia**: MIT
+**Licencia**: declarada MIT en el badge del README, sin archivo LICENSE en el repo (`git ls-files | grep -i licen` vacío en el clon local).

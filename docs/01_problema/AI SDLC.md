@@ -29,7 +29,7 @@ Herramientas representativas: Cursor, GitHub Copilot, OpenAI Codex, Claude Code,
 
 ## AI-Native SDLC: el paso siguiente
 
-Las empresas más avanzadas ya no hablan de "AI Coding" sino de **AI-Native SDLC**:
+Una parte de la industria ya no habla de "AI Coding" sino de **AI-Native SDLC**:
 
 ```
 Idea
@@ -43,7 +43,7 @@ Idea
  ↓ Observabilidad y remediación automática
 ```
 
-Y la visión más avanzada es **multi-agente**: Product Manager Agent → Architect Agent → Developer Agent → Tester Agent → Security Agent → DevOps Agent, todos coordinados sobre un mismo repositorio y compartiendo contexto. Conceptos asociados: AI Engineering, Agentic SDLC, AI-Native Development, Autonomous Software Engineering, Multi-Agent Software Development. AWS, Microsoft, Google Cloud y GitHub empujan fuerte esta idea.
+Y la visión más avanzada es **multi-agente**: Product Manager Agent → Architect Agent → Developer Agent → Tester Agent → Security Agent → DevOps Agent, todos coordinados sobre un mismo repositorio y compartiendo contexto. Conceptos asociados: AI Engineering, Agentic SDLC, AI-Native Development, Autonomous Software Engineering, Multi-Agent Software Development.
 
 ## Por qué esto no alcanza (y de ahí nace este vault)
 

@@ -17,16 +17,30 @@ Este documento registra los **repositorios y recursos de referencia externos** q
 
 | Repositorio | Autor / Origen | Propósito / Relación con HACS | Enlace GitHub |
 |---|---|---|---|
-| **ejemplo-harness-subagentes** | betta-tech | Ejemplo práctico de arneses de pruebas para subagentes y flujos de trabajo autónomos. | [betta-tech/ejemplo-harness-subagentes](https://github.com/betta-tech/ejemplo-harness-subagentes) |
-| **harness-sdd** | betta-tech | Framework y plantillas para diseño de software guiado por arneses de pruebas ejecutados por agentes. | [betta-tech/harness-sdd](https://github.com/betta-tech/harness-sdd) |
+| **ejemplo-harness-subagentes** | betta-tech | Variante del ejemplo harness (CLI de notas en Python) con subagentes leader/implementer/reviewer definidos en `.claude/agents/`. | [betta-tech/ejemplo-harness-subagentes](https://github.com/betta-tech/ejemplo-harness-subagentes) |
+| **harness-sdd** | betta-tech | Repo de ejemplo (CLI de notas en Python) con specs EARS y una puerta de aprobación humana. | [betta-tech/harness-sdd](https://github.com/betta-tech/harness-sdd) |
+| **engram** | Gentleman-Programming | Memoria persistente para agentes de código, agnóstica del agente y distribuida como binario único. | [Gentleman-Programming/engram](https://github.com/Gentleman-Programming/engram) |
+| **gentle-ai** | Gentleman-Programming | Configurador de ecosistema para agentes de código: memoria persistente, flujos Spec-Driven Development, skills, servidores MCP y modelo asignable por fase. | [Gentleman-Programming/gentle-ai](https://github.com/Gentleman-Programming/gentle-ai) |
+| **gentle-pi** | Gentleman-Programming | Paquete para el agente Pi con flujo Spec-Driven Development, subagentes, evidencia TDD y guardas de seguridad; incluye la skill `judgment-day`. | [Gentleman-Programming/gentle-pi](https://github.com/Gentleman-Programming/gentle-pi) |
+| **gentleman-guardian-angel** | Gentleman-Programming | Revisor de código con IA, agnóstico de proveedor y escrito en Bash, que corre como hook de pre-commit. | [Gentleman-Programming/gentleman-guardian-angel](https://github.com/Gentleman-Programming/gentleman-guardian-angel) |
+| **Gentleman-MCP** | Gentleman-Programming | Gateway de chat en Go sobre gRPC/TLS hacia modelos locales vía Ollama; pese al nombre, no implementa el protocolo MCP. | [Gentleman-Programming/Gentleman-MCP](https://github.com/Gentleman-Programming/Gentleman-MCP) |
 | **BMAD-METHOD** | bmad-code-org | Framework de desarrollo ágil AI-Native y spec-driven mediante equipo de agentes (PM, Architect, QA, Scrum Master). | [bmad-code-org/BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) |
 | **agent-os** | buildermethods | Sistema ligero para descubrir, desplegar e indexar estándares y convenciones de código para agentes locales. | [buildermethods/agent-os](https://github.com/buildermethods/agent-os) |
 | **spec-kit** | github | Toolkit oficial de GitHub para Spec-Driven Development, estructurando flujos de specify/plan/tasks/implement. | [github/spec-kit](https://github.com/github/spec-kit) |
 | **gsd-core** | open-gsd | Framework de meta-prompting y de ingeniería de contexto ágil para evitar la deriva de contexto en sesiones de agentes. | [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) |
 | **OpenSpec** | Fission-AI | Especificación abierta y unificada para guiar la comunicación de requerimientos (SDD) consumible por múltiples agentes. | [Fission-AI/OpenSpec](https://github.com/Fission-AI/OpenSpec) |
 | **Kiro** | kirodotdev | IDE y CLI nativo de agentes para desarrollo spec-driven, control de tareas y DevOps automatizado. | [kirodotdev/Kiro](https://github.com/kirodotdev/Kiro) |
-| **luum-cognitive-os** | Luum-Home | Malla de gobernanza de 14 capas desarrollada en colaboración entre Luum y OliveX como arquitectura de referencia. | [Luum-Home/luum-cognitive-os](https://github.com/Luum-Home/luum-cognitive-os) |
 | **byo-coding-agent** | betta-tech | Arnés de agente didáctico y extensible en Go con soporte para TUI, subagentes dinámicos, memoria local y MCP. | [betta-tech/byo-coding-agent](https://github.com/betta-tech/byo-coding-agent) |
+
+Son los 14 repositorios que clona `sync_external.sh` (verificable con `grep -c '^  "https://github.com/' sync_external.sh` desde la raíz).
+
+## Referenciados, no sincronizados
+
+Repositorios citados por el vault que `sync_external.sh` no clona.
+
+| Repositorio | Autor / Origen | Propósito / Relación con HACS | Enlace GitHub |
+|---|---|---|---|
+| **luum-cognitive-os** | Luum-Home | Malla de gobernanza de 14 capas desarrollada en colaboración entre Luum y OliveX como arquitectura de referencia. | [Luum-Home/luum-cognitive-os](https://github.com/Luum-Home/luum-cognitive-os) |
 | **ai-engineering-lab** | MatiasNAmendola | Laboratorio educativo de Ingeniería de IA implementando primitivas desde cero en Python y arquitectura limpia. | [MatiasNAmendola/ai-engineering-lab](https://github.com/MatiasNAmendola/ai-engineering-lab) |
 
 ---
@@ -38,7 +52,7 @@ Este documento registra los **repositorios y recursos de referencia externos** q
 | **Sooner Safer Happier: Antipatterns and Patterns for Business Agility** (IT Revolution, 2020) | Jon Smart (con Zsolt Berend, Myles Ogilvie y Simon Rohrer) | Agilidad de negocio con meta *Better Value Sooner Safer Happier* (BVSSH) y foco en resultados; ver la fila en [[Comparativa con metodologías existentes]]. | [soonersaferhappier.com](https://www.soonersaferhappier.com/) |
 | **Manifiesto Ágil** (2001) | Beck, Cockburn, Fowler, Schwaber, Sutherland y otros | Valores y principios releídos uno por uno en [[Relectura del Manifiesto Ágil]]. | [agilemanifesto.org](https://agilemanifesto.org/) |
 
-*Verificación (2026-10-07): el sitio de Sooner Safer Happier declara BVSSH como meta, "Focus on Outcomes" como patrón y el uso de OKRs; el libro no se leyó para esta nota. Los coautores están verificados en `https://itrevolution.com/product/sooner-safer-happier/`. Comando del sitio: `curl -sL https://www.soonersaferhappier.com/ | sed 's/<[^>]*>/ /g' | tr -s ' \n' | LC_ALL=C /usr/bin/grep -oiE "[^.]{0,100}(better value|outcome|antipattern)[^.]{0,100}"`*
+*Verificación (2026-10-07): el sitio de Sooner Safer Happier declara BVSSH como meta y "Focus on Outcomes" como patrón; los OKRs aparecen en la oferta comercial del sitio, no verificado en el libro. El libro no se leyó para esta nota. Los coautores están verificados en `https://itrevolution.com/product/sooner-safer-happier/`. Comando del sitio: `curl -sL https://www.soonersaferhappier.com/ | sed 's/<[^>]*>/ /g' | tr -s ' \n' | LC_ALL=C /usr/bin/grep -oiE "[^.]{0,100}(better value|outcome|antipattern)[^.]{0,100}"`*
 
 ---
 

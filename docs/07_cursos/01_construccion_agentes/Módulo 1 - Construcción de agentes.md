@@ -12,7 +12,7 @@ Este módulo introduce el concepto de **agentes de inteligencia artificial** a c
 
 ## 1. ¿Qué es un Agente y en qué se diferencia de un Chatbot?
 
-Un **chatbot** tradicional (como ChatGPT o Gemini Web) es reactivo: espera que le hagas una pregunta y te da una respuesta puntual de una sola vez.
+Un chat simple (como el uso básico de ChatGPT o Gemini) es reactivo: espera que le hagas una pregunta y te da una respuesta puntual de una sola vez.
 
 Un **agente de IA**, en cambio, es proactivo e interactivo. Cuenta con:
 1.  **Ciclo de Ejecución (Loop)**: Piensa, planifica, ejecuta acciones y observa los resultados de forma iterativa hasta cumplir una meta.
@@ -66,11 +66,22 @@ Define cómo se expresa el agente ante el usuario o el equipo.
 En lugar de darle al agente una lista de tareas paso a paso (ej. "1. Abre el excel, 2. Copia la fila A, 3. Pégala en el mail"), bajo la filosofía de [[Manifiesto HACS-ODLC|Intent over Tasks]] debes definir el **Objetivo** y las **Restricciones**:
 
 - **Mal input (Centrado en Tareas)**: *"Agente, por favor entra a la base de datos de vendedores, busca quién no subió su DNI y mándales un mail diciendo que lo hagan"*.
-- **Buen input (Centrado en Intención - ODLC)**:
-  - **Objetivo**: Conseguir que el 100% de los vendedores del día de hoy suban su identificación tributaria válida.
-  - **Restricciones**: El contacto solo puede ser por correo electrónico interno, y debes enviar el enlace a la guía de ayuda si el vendedor falló en el primer intento.
+- **Buen input (Centrado en Intención - ODLC)**: el objetivo sigue la plantilla de [[Fase 1 - Objective]] y las restricciones van en un bloque aparte. Los valores son de ejemplo:
 
-Al darle la intención y el objetivo, el agente buscará la forma más eficiente de ejecutar las consultas y automatizar la redacción de forma autónoma.
+```yaml
+objective:
+  resultado_esperado: "Todos los vendedores dados de alta hoy tienen su identificación tributaria válida cargada"
+  metrica_de_exito: "Vendedores del día con identificación válida: baseline 60%, target 100%"
+  fecha_objetivo: "Hoy, antes del cierre de la jornada"
+  impacto_de_negocio: "Sin identificación válida el vendedor no puede facturar ni cobrar"
+  responsable_humano: "Responsable de onboarding de vendedores"
+
+constraints:
+  - El contacto solo puede ser por correo electrónico interno.
+  - Si el vendedor falló en el primer intento, se le envía el enlace a la guía de ayuda.
+```
+
+Con intención y restricciones, el agente propone una estrategia; un humano la aprueba ([[Fase 3 - Strategy]]) y aprueba el envío de mensajes externos antes de ejecutarlo.
 
 ---
 Siguiente módulo: [[Módulo 2 - Ingeniería de arneses]]

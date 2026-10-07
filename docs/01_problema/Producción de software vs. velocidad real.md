@@ -89,6 +89,8 @@ En HACS, el humano es quien elige la estrategia de producción (CI/CD, observabi
 
 ## Métricas de producción relevantes
 
+Las cuatro primeras son las métricas DORA (Forsgren, Humble y Kim, *Accelerate*, 2018; dora.dev). *Test Effectiveness* no es una métrica DORA.
+
 | Métrica | Qué mide | Por qué importa |
 |---|---|---|
 | Deployment Frequency | Frecuencia de deploys a producción | Velocidad real de entrega |
@@ -97,7 +99,7 @@ En HACS, el humano es quien elige la estrategia de producción (CI/CD, observabi
 | Lead Time for Changes | Tiempo de commit a producción | Velocidad real, no imaginada |
 | Test Effectiveness | Ratio de bugs detectados en test vs producción | Calidad de la pirámide de testing |
 
-Todas derivan de [[Métricas operativas]] (Time To Outcome, OSR) y [[Métricas de agentes]] (Agent Accuracy, Agent Cost).
+Complementan a [[Métricas operativas]] (Time To Outcome, OSR) y [[Métricas de agentes]] (Agent Accuracy, Agent Cost): las DORA son anteriores y externas al marco, no derivan de él.
 
 ## Diferencia entre "acelerar" y "optimizar"
 

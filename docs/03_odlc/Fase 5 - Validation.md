@@ -10,13 +10,13 @@ Quinta fase de [[ODLC]]. **Se valida el resultado contra el objetivo original, n
 
 ## ¿Qué significa éxito?
 
-Éxito = la métrica del objetivo alcanzó el target declarado, con evidencia verificable. Todo lo demás (entregado a tiempo, dentro de presupuesto, sin incidentes) son condiciones de contorno, no éxito en sí.
+Éxito = la métrica alcanzó el target sin violar ninguna constraint de [[Fase 2 - Constraints]], con evidencia verificable. Entregar a tiempo o sin incidentes no es éxito en sí; respetar las constraints (presupuesto incluido) es condición necesaria, no suficiente.
 
 ## Plantilla
 
 ```yaml
 validation:
-  resultado_esperado: ""   # copiado del objetivo — el target original, sin reinterpretar
+  target: ""               # copiado de objective.metrica_de_exito (baseline y target), sin reinterpretar
   resultado_real: ""       # qué midió la realidad
   desviacion: ""           # gap entre ambos, y lectura honesta del gap
   evidencia: []            # datos, dashboards, queries — lo que un tercero podría auditar
@@ -27,7 +27,7 @@ validation:
 
 1. **El target no se reinterpreta a posteriori.** Si el objetivo era "de 5 días a 1 día" y se llegó a 2, es *parcial* — valioso, pero parcial. Mover el arco después de patear es el anti-patrón que ODLC existe para impedir.
 2. **Evidence over Opinions:** la validación cita datos auditables, no impresiones ("se siente más rápido").
-3. **Quien valida no es quien ejecutó.** El veredicto lo da el dueño humano del objetivo ([[Roles humanos]]: Product/Sponsor), con análisis preparado por agentes.
+3. **Quien valida no es quien ejecutó.** El veredicto lo da el Sponsor ([[Roles humanos]]), con análisis preparado por agentes.
 4. **Fallar es un resultado válido** — si produce aprendizaje ([[Fase 6 - Learning]]). Lo inválido es no poder determinar si se falló.
 5. **Validar proceso además de resultado:** en loops agénticos, especialmente TDD, la validación debe auditar la evidencia del ciclo, no solo que el estado final pase tests. Ver [[Agent Loop Engineering#Patrón aplicado: TDD para agentes]].
 6. **Revisión con contexto fresco:** para cambios relevantes, la validación debe separar el contexto que produjo la implementación del contexto que la revisa. Ver [[Patrones de loops agénticos para repositorios#7. Fresh-context validation]].

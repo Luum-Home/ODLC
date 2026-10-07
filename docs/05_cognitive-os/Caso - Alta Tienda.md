@@ -6,10 +6,10 @@ created: 2026-06-10
 
 # Caso — Alta Tienda
 
-Este caso de estudio documenta la primera aplicación real del marco **HACS** y la metodología **ODLC** en **Alta Tienda**, una plataforma de comercio electrónico de rápido crecimiento en América Latina. El objetivo fue rediseñar y automatizar el proceso de alta y verificación de comercios (KYC y pasarelas de pago).
+Este caso **ilustrativo** muestra cómo se aplicarían el marco **HACS** y la metodología **ODLC** en **Alta Tienda**, una plataforma de comercio electrónico de rápido crecimiento en América Latina. El objetivo fue rediseñar y automatizar el proceso de alta y verificación de comercios (KYC y pasarelas de pago).
 
 > [!warning] Estado de la evidencia
-> Las métricas de este caso (2.3 horas, 96.4% de acierto OCR, OSR 100%, TTO 16 días, ACR 82%) **no tienen fuente de medición registrada en el vault** (logs, dashboards, queries). Hasta que se documente cómo y cuándo se midieron, deben tratarse como **ilustrativas**, no como evidencia validada — exactamente la distinción que exige [[Fase 5 - Validation]] (Evidence over Opinions).
+> Las métricas de este caso (2.3 horas, 96.4% de acierto OCR, 16 días hasta el 10% en producción, CRT 5 minutos, ACR 82%) **no tienen fuente de medición registrada en el vault** (logs, dashboards, queries). Hasta que se documente cómo y cuándo se midieron, deben tratarse como **ilustrativas**, no como evidencia validada — exactamente la distinción que exige [[Fase 5 - Validation]] (Evidence over Opinions).
 
 ---
 
@@ -21,7 +21,7 @@ El onboarding de nuevos vendedores en Alta Tienda requería 5 días promedio. El
 ## 2. Aplicación del Ciclo ODLC
 
 ### [[Fase 1 - Objective|Fase 1: Objective]]
-- **Declaración**: Automatizar la validación de documentación legal y la configuración de pasarelas de pago para nuevos comercios en Alta Tienda.
+- **Declaración**: Reducir el tiempo de onboarding de comercios de 5 días a <24 h para el 90% de los comercios.
 - **Métrica de Éxito**: Reducir el tiempo promedio de onboarding de 5 días a menos de 24 horas (para el 90% de los comercios).
 - **Horizonte**: 3 semanas para desarrollo y validación en producción.
 
@@ -31,7 +31,7 @@ El onboarding de nuevos vendedores en Alta Tienda requería 5 días promedio. El
 - **Gobernanza**: Todo comercio rechazado por fraude debe pasar a revisión por un operador humano para evitar falsos positivos automatizados.
 
 ### [[Fase 3 - Strategy|Fase 3: Strategy]]
-Se evaluaron tres alternativas en el orquestador:
+Se evaluaron dos alternativas en el orquestador:
 - *Alternativa A*: Refactorizar el flujo usando validadores externos SaaS (Costo alto, integración rígida).
 - *Alternativa B*: Crear un microservicio con agentes especializados ([[Roles de agentes]]) integrados a la arquitectura de referencia de [[Cognitive OS - Arquitectura de referencia]] para analizar documentos legales mediante OCR inteligente y configurar APIs de pasarelas.
 - *Decisión*: Se seleccionó la **Alternativa B** debido a su bajo costo operativo proyectado y flexibilidad para adaptarse a cambios regulatorios futuros de forma autónoma.
@@ -44,9 +44,9 @@ Se evaluaron tres alternativas en el orquestador:
 
 ### [[Fase 5 - Validation|Fase 5: Validation]]
 Se procesaron 250 comercios de prueba en staging y luego se liberó al 10% del tráfico en producción.
-- **Resultado Real**: El tiempo promedio de verificación y alta bajó a **2.3 horas** (superando la meta de <24h).
+- **Resultado**: promedio 2.3 h; p90 no registrado (meta no verificada).
 - **Evidencia**: Tasa de acierto del 96.4% en OCR de documentos. Solo un 3.6% de los comercios requirió fallback manual humano por documentos borrosos.
-- **Objective Success Rate (OSR)**: 100% (el objetivo de negocio se cumplió y validó con datos).
+- **Objective Success Rate (OSR)**: no determinable con la evidencia registrada (el target era un p90).
 
 ### [[Fase 6 - Learning|Fase 6: Learning]]
 Se registraron tres aprendizajes en la [[Memoria organizacional]]:
@@ -57,8 +57,8 @@ Se registraron tres aprendizajes en la [[Memoria organizacional]]:
 ---
 
 ## 3. Impacto en Métricas Organizacionales
-- **Context Retrieval Time (CRT)**: Cayó a 5 minutos para el agente Builder, ya que el contexto histórico de la API de Alta Tienda estaba indexado en la memoria semántica.
-- **Time To Outcome (TTO)**: Completado en 16 días totales desde la formulación de la hipótesis hasta el 10% en producción.
+- **Context Retrieval Time (CRT)**: 5 min (ilustrativo; sin línea base previa registrada).
+- **Time To Outcome (TTO)**: 16 días desde la definición del objetivo hasta el despliegue al 10% del tráfico; el TTO no es calculable porque falta la validación del outcome.
 - **Agent Contribution Ratio (ACR)**: 82% del código y scripts de testeo fueron redactados y validados autónomamente por agentes.
 
 ---

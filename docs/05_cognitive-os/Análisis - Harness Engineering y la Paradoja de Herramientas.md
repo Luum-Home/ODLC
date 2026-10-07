@@ -15,7 +15,7 @@ fuente:
 > [!warning] Trazabilidad
 > Los umbrales de degradación de contexto (20%/40%) provienen del video y **no fueron verificados de forma independiente**. Las cifras del caso Vercel D0 sí fueron contrastadas contra el blog de Vercel y llevan su fuente citada en la sección 2.
 
-Este documento presenta un análisis y resumen estructurado del video referencial **"Harness Engineering: Cómo controlar a la IA que hace código"** (disponible en [YouTube](https://www.youtube.com/watch?v=q9Vaoz0hd0U)). El video aborda la disciplina de **Harness Engineering** (Ingeniería de Arneses), analizando la paradoja del exceso de herramientas, la degradación de la ventana de contexto y los tres pilares de un ecosistema de desarrollo de IA robusto.
+Este documento presenta un análisis y resumen estructurado del video referencial **"¿Qué es esto del Harness Engineering?"** (disponible en [YouTube](https://www.youtube.com/watch?v=q9Vaoz0hd0U)). El video aborda la disciplina de **Harness Engineering** (Ingeniería de Arneses), analizando la paradoja del exceso de herramientas, la degradación de la ventana de contexto y los tres pilares de un ecosistema de desarrollo de IA robusto.
 
 ---
 
@@ -38,11 +38,12 @@ Equipar a los agentes de IA con herramientas altamente complejas e hiper-especia
 
 ### El Caso de Estudio: Vercel D0
 Vercel desarrolló un agente interno llamado **D0** para realizar consultas analíticas complejas de big data.
-- **Enfoque inicial (Complejo)**: Le proporcionaron wrappers específicos para escribir queries SQL y herramientas personalizadas de conexión a bases de datos.
-- **Enfoque final (Simple)**: Los ingenieros removieron las herramientas complejas y le dieron al modelo acceso directo únicamente a comandos simples del ecosistema Unix (`grep` para buscar, `cat` para leer, `ls` para listar directorios).
-- **Resultado**: La versión con herramientas Unix más simples resultó **3,5 veces más rápida** (274,8 s → 77,4 s por consulta), redujo un **37% el consumo de tokens** (~102.000 → ~61.000) y un **42% los pasos** necesarios. La **tasa de éxito** pasó del **80%** de la versión compleja al **100%** de la versión simple ([Vercel, "We removed 80% of our agent's tools"](https://vercel.com/blog/we-removed-80-percent-of-our-agents-tools)).
+- **Enfoque inicial (Complejo)**: Le proporcionaron más de una docena de herramientas especializadas (búsqueda de catálogo y esquema, planificación de la query, validación de sintaxis, ejecución, formateo y visualización de resultados).
+- **Enfoque final (Simple)**: Los ingenieros removieron casi todas esas herramientas y le dejaron dos: una para ejecutar comandos en un sandbox (con comandos Unix como `grep`, `cat`, `find` y `ls` para recorrer la capa semántica, un directorio de archivos YAML, Markdown y JSON) y `ExecuteSQL` para correr la query.
+- **Resultado**: La versión con herramientas Unix más simples resultó **3,5 veces más rápida** (274,8 s → 77,4 s por consulta), redujo un **37% el consumo de tokens** (~102.000 → ~61.000) y un **42% los pasos** necesarios. La **tasa de éxito** pasó de **4/5 (80%)** a **5/5 (100%)**: la comparación se hizo sobre 5 consultas representativas, así que es una muestra chica ([Vercel, "We removed 80% of our agent's tools"](https://vercel.com/blog/we-removed-80-percent-of-our-agents-tools)).
+- **Advertencia del propio blog**: el resultado dependió de que la capa semántica ya estuviera bien documentada (YAML bien estructurado, nombres consistentes, definiciones claras). Con una capa de datos desordenada, darle al modelo acceso crudo a los archivos no la arregla: solo produce queries malas más rápido.
 
-> **Lección de Diseño:** Cuanto más abstracto y simple sea el set de herramientas provisto al agente, mejor es su capacidad de resolver problemas de forma autónoma.
+> **Lección de Diseño:** En el caso de Vercel, reemplazar herramientas especializadas por acceso a archivos con comandos genéricos mejoró al agente porque los datos que tenía que leer ya estaban bien documentados. Cada herramienta es una decisión que se toma por el modelo; quitar las que lo restringen ayuda cuando el contexto que va a explorar es de buena calidad, no en general.
 
 ---
 

@@ -14,10 +14,10 @@ Este documento recopila los principales repositorios, sitios web y estándares c
 
 ## 1. El Estándar Abierto "Agent Skills"
 
-El estándar **Agent Skills** (creado por Anthropic y publicado como estándar abierto en diciembre de 2025 — ✅ verificado 2026-06-10 contra el [anuncio de ingeniería de Anthropic](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills); adoptado por 32 plataformas a marzo 2026, incluyendo Google, Microsoft, OpenAI, JetBrains y Cursor) define una estructura universal para empaquetar conocimiento procedimental en archivos Markdown y scripts ejecutables.
+El estándar **Agent Skills** (creado por Anthropic y publicado como estándar abierto en diciembre de 2025 — ✅ verificado 2026-06-10 contra el [anuncio de ingeniería de Anthropic](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills); adoptado por un número creciente de productos (lista en agentskills.io, consultada 2026-10-07)) define una estructura universal para empaquetar conocimiento procedimental en archivos Markdown y scripts ejecutables.
 
 ### Componentes Clave:
-*   **[agentskills.io](https://agentskills.io)**: La web oficial del estándar abierto, donde Anthropic publicó la especificación y el SDK (✅ verificado 2026-06-10). Contiene la especificación técnica completa y las directrices de diseño para que desarrolladores creen sus propias habilidades portables.
+*   **[agentskills.io](https://agentskills.io)**: La web oficial del estándar abierto, donde Anthropic publicó la especificación (✅ verificado 2026-06-10). Contiene la especificación técnica completa y las directrices de diseño para que desarrolladores creen sus propias habilidades portables.
 *   **[skills.sh](https://skills.sh)**: El registry público y directorio de la comunidad (el equivalente a "npm" para habilidades de agentes). Permite buscar habilidades por popularidad, categoría (DevOps, testing, frontend) e integrarlas directamente en entornos compatibles.
 *   **[vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)**: Repositorio oficial mantenido por Vercel. Contiene un conjunto de habilidades preconstruidas y optimizadas para desarrollo web moderno, incluyendo flujos específicos para React, Next.js y configuraciones de infraestructura.
 
@@ -36,15 +36,15 @@ graph TD
 
 ---
 
-## 2. Awesome Antigravity Skills
+## 2. Agentic Awesome Skills (antes Antigravity Awesome Skills)
 
-**Antigravity Awesome Skills** es la biblioteca curada más grande del ecosistema comunitario de código abierto orientada a dotar a agentes de desarrollo de roles y conocimientos especializados.
+**Agentic Awesome Skills** (renombrado desde *Antigravity Awesome Skills*; verificado 2026-10-07 con `curl -sL https://api.github.com/repos/sickn33/antigravity-awesome-skills`, que devuelve `sickn33/agentic-awesome-skills`) es la biblioteca curada más grande del ecosistema comunitario de código abierto orientada a dotar a agentes de desarrollo de roles y conocimientos especializados.
 
-*   **Repositorio GitHub**: [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills)
-*   **Portal de Documentación**: [antigravity-awesome-skills Pages](https://sickn33.github.io/antigravity-awesome-skills/)
+*   **Repositorio GitHub**: [sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills)
+*   **Portal de Documentación**: [aaskills.tech](https://aaskills.tech/) (la página anterior `sickn33.github.io/antigravity-awesome-skills/` redirige ahí)
 
 ### Características:
-- **Catálogo de más de 1,993 Skills** (cifra según el README del repo, consultado 2026-07-28; eran "más de 1,500" al 2026-06-10): Cubre una enorme gama de especializaciones como diseño de software ágil, auditorías de seguridad, administración de bases de datos, despliegue en nube (AWS/GCP), debugging de fugas de memoria y optimización de rendimiento web.
+- **Catálogo de más de 2,662 Skills** (cifra según el README del repo, consultado 2026-10-07; eran "más de 1,993" al 2026-07-28 y "más de 1,500" al 2026-06-10): Cubre una enorme gama de especializaciones como diseño de software ágil, auditorías de seguridad, administración de bases de datos, despliegue en nube (AWS/GCP), debugging de fugas de memoria y optimización de rendimiento web.
 - **Estructuración en Roles**: Las habilidades se encuentran agrupadas para que un agente pueda "ponerse el sombrero" de un rol específico (ej. Ingeniero de Accesibilidad Web, Administrador de Syslogs, Auditor de Contratos Inteligentes).
 - **Scripts Incorporados**: La mayoría de las habilidades adjuntan utilidades en Python, Node.js o Bash que el agente puede invocar de forma local para realizar diagnósticos o refactorizaciones automáticas.
 

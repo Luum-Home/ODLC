@@ -166,6 +166,8 @@ Patrón:
 RED → GREEN → TRIANGULATE → REFACTOR → evidence table → verify
 ```
 
+TRIANGULATE es un paso agregado por este patrón; en Beck (*Test-Driven Development: By Example*, 2002) triangular es una estrategia opcional para llegar a GREEN.
+
 Evidencia mínima por tarea:
 
 | Paso | Evidencia | Riesgo mitigado |
@@ -259,7 +261,7 @@ Un dispatcher mínimo necesita:
 
 ```yaml
 loop_state:
-  phase: apply | verify | fix | close
+  phase: spec | tasks | apply | verify | fix | close
   goal: ""
   artifacts:
     specs: present | missing

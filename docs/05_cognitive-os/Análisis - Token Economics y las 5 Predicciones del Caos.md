@@ -16,7 +16,7 @@ fuente:
 > [!warning] Trazabilidad
 > La cita de George Hotz proviene del video y **no fue verificada de forma independiente**. Leerla como "según el video". La declaración de Sam Altman (sección 1) y el caso ClickUp (sección 6) fueron contrastados con la prensa y llevan su fuente citada; en ambos se marca explícitamente qué parte es hecho documentado y qué parte es predicción del video.
 
-Este documento presenta un análisis y resumen estructurado del video **"5 Predictions About Token Economics CHAOS in Companies"** (disponible en [YouTube](https://www.youtube.com/watch?v=m-bT5v5Tm7w)), donde George Hotz advierte sobre los riesgos de integrar agentes de IA en el desarrollo de software y se presentan cinco predicciones inminentes sobre la economía de tokens corporativa: donaciones, stipends, token poker, budgets por equipo y recompensas por uso.
+Este documento presenta un análisis y resumen estructurado del video **"Unfortunately, I Was Right"** (citado originalmente como "5 Predictions About Token Economics CHAOS in Companies"; disponible en [YouTube](https://www.youtube.com/watch?v=m-bT5v5Tm7w)), donde George Hotz advierte sobre los riesgos de integrar agentes de IA en el desarrollo de software y se presentan cinco predicciones inminentes sobre la economía de tokens corporativa: donaciones, stipends, token poker, budgets por equipo y recompensas por uso.
 
 ---
 
@@ -144,12 +144,12 @@ Las cinco predicciones y la advertencia de Hotz tienen implicaciones directas pa
 
 | Predicción / Riesgo | Respuesta HACS-ODLC |
 |---|---|
-| Costos de tokens como crisis | **Agent Cost**: monitorear costo por agente/tarea, no costo total acumulado. Alertas de umbral por equipo. |
+| Costos de tokens como crisis | **Agent Cost** = costo por objetivo ([[Métricas de agentes]]). Alertas de umbral por equipo. |
 | Donaciones de tokens | **Gobernanza de recursos**: definir políticas claras sobre transferencia y uso de tokens fuera del scope operacional. |
 | Token Stipend en compensación | **Objective Success Rate**: medir resultado, no consumo. El stipend debe incluir métricas de conversión, no solo presupuesto. |
 | Token Poker / Token Agile | **Fase 3 (Strategy)**: estimar costos de agentes como parte del planning de cada ciclo ODLC, no como afterthought. |
-| Budgets por equipo / Pair Prompting | **Context Retrieval Time + Knowledge Reuse**: optimizar contexto compartido en lugar de duplicar sesiones. Pair prompting como práctica documentada. |
-| Premiar mayores consumidores | **Agent Contribution**: medir contribución por valor entregado, no por volumen de código o tokens consumidos. |
+| Budgets por equipo / Pair Prompting | **Context Retrieval Time** + **Knowledge Reuse Rate** ([[Métricas organizacionales]]): optimizar contexto compartido en lugar de duplicar sesiones. Pair prompting como práctica documentada. |
+| Premiar mayores consumidores | **Agent Contribution Ratio** ([[Métricas de agentes]]): no premiar volumen de tokens consumidos. |
 | Advertencia de Hotz / Deuda técnica | **Fase 5 (Validation) + Fase 6 (Learning)**: revisión técnica obligatoria de código generado por agentes antes de merge. Learning loops para detectar patrones de deuda tempranamente. |
 
 Para el ODLC, esto implica:

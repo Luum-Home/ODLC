@@ -28,11 +28,7 @@ Un sistema sin gobernanza (donde un agente puede desplegar a producción sin rev
 
 ### B. Compuertas de Aprobación Humana (Human-in-the-Loop - HITL)
 - **Definición**: Puntos del ciclo de desarrollo donde el agente debe pausar su ejecución y esperar que un humano valide y firme la acción antes de continuar.
-- **Acciones obligatorias HITL**:
-  - Aprobación de la estrategia seleccionada ([[Fase 3 - Strategy]]).
-  - Despliegues de código a entornos de producción.
-  - Modificación de esquemas de bases de datos.
-  - Acceso a secretos del sistema o claves criptográficas de API de producción.
+- **Acciones obligatorias HITL**: este módulo no mantiene una lista propia. La fuente única de qué acciones requieren aprobación humana es la matriz de [[Gobernanza#Límites de autonomía (matriz borrador)|Gobernanza § Límites de autonomía]].
 
 ### C. Registro de Auditoría (Audit Trails)
 - **Definición**: Trazabilidad completa de las acciones del agente.
@@ -55,13 +51,16 @@ La gobernanza técnica en la arquitectura de [[Cognitive OS - Arquitectura de re
 | **5** | `scope-proportionality.sh`| Determinista | Post-Tool | Evita que un arreglo menor se convierta en una reescritura masiva. | **BLOCK** si es desproporcional |
 | **6** | `claim-validator.sh` | Determinista | Post-Tool | Valida en el sistema de archivos las afirmaciones de tests y creación de archivos. | **BLOCK** en producción si hay fallas |
 | **7** | `assumption-tracker.sh` | Semántico | Post-Tool | Detecta y registra suposiciones lingüísticas hechas por el agente. | **WARN** si hay 3+ suposiciones |
-| **8** | `trust-score-validator.sh`| Determinista | Post-Tool | Asegura la presencia y correcto formato de reportes de confianza. | **LOG** (métricas) |
+| **8** | `trust-score-validator.sh`| Determinista | Post-Tool | Asegura la presencia y correcto formato de reportes de confianza. | **WARN** si falta el Trust Report; **BLOCK** (exit 2) si está malformado |
 | **9** | `confidence-gate.sh` | Determinista | Post-Tool | Bloquea la propagación de resultados si el score de confianza es bajo. | **BLOCK** en producción si score < 50 |
 | **10**| `clarification-interceptor.sh`| Semántico | Post-Tool | Intercepta marcas de ambigüedad a mitad del objetivo para guiar al usuario. | **LOG** + Señal al orquestador |
 | **11**| `auto-rollback-trigger.sh`| Determinista | Post-Tool | Revierte automáticamente los cambios a un estado limpio tras fallar retries. | **BLOCK** + Git Revert |
-| **12**| `lib/cross_verifier.py` | Semántico | On-Demand | Un segundo modelo de lenguaje audita y verifica el resultado del primero. | Llamada de biblioteca |
+| **12**| `cos_lib/cross_verifier.py` | Semántico | On-Demand | Un segundo modelo de lenguaje audita y verifica el resultado del primero. | Llamada de biblioteca |
 | **13**| `reinvention-check.sh` | Semántico | Post-Tool | Evita duplicar código al advertir si ya existe una solución en el sistema. | **WARN** + Sugerencia de reúso |
-| **14**| `lib/memory_scanner.py` | Semántico | Session-Start| Escanea memorias semánticas del agente en busca de contradicciones. | Llamada de biblioteca |
+| **14**| `cos_lib/memory_scanner.py` | Determinista | Antes de persistir en memoria | Escanea el contenido que se va a guardar en memoria (prompt injection, secuestro de rol, exfiltración de credenciales, Unicode invisible) y lo marca como bloqueado si encuentra amenazas. | Llamada de biblioteca |
+
+> [!note] Capa 14: código vs. documentación del repo
+> La descripción de la Capa 14 sigue el código de `cos_lib/memory_scanner.py` (escaneo de seguridad antes de persistir). La tabla de `docs/04-Concepts/root/safety-mesh.md` del propio repo le atribuye otra función: detectar memorias viejas o contradictorias al inicio de sesión.
 
 ---
 
@@ -69,11 +68,12 @@ La gobernanza técnica en la arquitectura de [[Cognitive OS - Arquitectura de re
 
 1. **Independencia de Capas**: Cada capa atiende a un riesgo diferente. Deshabilitar una capa genera una vulnerabilidad ciega que el resto de los filtros no pueden subsanar (ej. la verificación de tests no soluciona el riesgo de sobrecosto del `rate-limiter`).
 2. **Degradación Gradual (Spectrum of Control)**: No todos los filtros detienen al agente. Se clasifican según su impacto:
-   - **BLOCK**: Detención inmediata de la ejecución (Capas 1, 3, 4, 5, 9, 11).
+   - **BLOCK**: Detención inmediata de la ejecución (Capas 1, 3, 4, 5, 11).
    - **WARN**: Advertencia al operador humano, permitiendo continuar (Capas 2, 7, 13).
-   - **LOG**: Registro silencioso en `.cognitive-os/metrics/` para auditoría y aprendizaje del sistema (Capas 8, 10).
-   - **Dependiente de fase**: la Capa 6 (`claim-validator.sh`) alerta/loguea en fases permisivas y **bloquea** en Producción/Mantenimiento (ver Phase Awareness, punto 3).
-   - **Sin clasificar**: las Capas 12 (`lib/cross_verifier.py`) y 14 (`lib/memory_scanner.py`) se invocan como llamadas de biblioteca (On-Demand y Session-Start respectivamente) y todavía no están categorizadas dentro del espectro. *Pendiente de definición del autor antes del dictado.*
+   - **LOG**: Registro silencioso en `.cognitive-os/metrics/` para auditoría y aprendizaje del sistema (Capa 10).
+   - **WARN o BLOCK según el reporte**: la Capa 8 (`trust-score-validator.sh`) advierte si falta el Trust Report y bloquea (exit 2) si está malformado.
+   - **Dependiente de fase**: las Capas 6 (`claim-validator.sh`) y 9 (`confidence-gate.sh`) alertan/loguean en fases permisivas y **bloquean** en Producción/Mantenimiento (ver Phase Awareness, punto 3).
+   - **Sin clasificar**: las Capas 12 (`cos_lib/cross_verifier.py`) y 14 (`cos_lib/memory_scanner.py`) se invocan como llamadas de biblioteca (On-Demand y antes de persistir en memoria, respectivamente) y todavía no están categorizadas dentro del espectro. *Pendiente de definición del autor antes del dictado.*
 3. **Sensibilidad de Fase (Phase Awareness)**: El comportamiento de la malla se adapta al estado del ciclo de vida del proyecto definido en `cognitive-os.yaml`:
    - En fases de **Reconstrucción** o **Estabilización**, los ganchos de control son más permisivos (alertas prioritarias sobre bloqueos) para acelerar el desarrollo.
    - En fases de **Producción** o **Mantenimiento**, los ganchos de control se tornan estrictamente prohibitivos para proteger la estabilidad operativa.
@@ -87,7 +87,7 @@ Tradicionalmente, los ganchos de gobernanza se programaban de forma imperativa (
 ### ¿Por qué migrar a Prompts en Gobernanza?
 - **Juicio Semántico**: Expresiones como "I think" o "Probably" a veces denotan razonamiento válido basados en pruebas de compilador, y no necesariamente suposiciones ciegas. Un script determinista de regex bloquea indiscriminadamente. Un prompt evaluado por un modelo rápido como *Claude Haiku* diferencia el contexto lingüístico real.
 - **Mantenibilidad en Prosa**: Cambiar las reglas de aceptación o los umbrales de ambigüedad implica editar instrucciones en Markdown en lugar de refactorizar scripts Bash y depurar caracteres de escape.
-- **Arquitectura Híbrida**: Los controles aritméticos rápidos (como el presupuesto de API o conteo de archivos modificados) se mantienen en Bash determinista por eficiencia (latencia <100ms, costo \$0). Las evaluaciones cognitivas subjetivas (como calidad de intenciones o detección de supuestos) se delegan secuencialmente a prompts semánticos (latencia de 1 a 2s, costo aproximado de \$0.0005 por llamada).
+- **Arquitectura Híbrida**: Los controles aritméticos rápidos (como el presupuesto de API o conteo de archivos modificados) se mantienen en Bash determinista por eficiencia (órdenes de magnitud sin medición publicada: latencia <100ms, costo \$0). Las evaluaciones cognitivas subjetivas (como calidad de intenciones o detección de supuestos) se delegan secuencialmente a prompts semánticos (órdenes de magnitud sin medición publicada: latencia de 1 a 2s, costo aproximado de \$0.0005 por llamada).
 
 ---
 

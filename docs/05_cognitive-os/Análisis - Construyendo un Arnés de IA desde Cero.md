@@ -23,7 +23,7 @@ Para el concepto paraguas que generaliza este diseño —trigger, goal, state, a
 
 ## 1. La Arquitectura del Bucle Dual (Agent Loop)
 
-En el desarrollo de agentes cognitivos, la interacción se modela a través de un **bucle de ejecución dual** inspirado en el *game loop* de los videojuegos (Read-Eval-Print-Loop o REPL). Este sistema separa la interacción con el usuario (hilo de interfaz) de la ejecución autónoma y recursiva de herramientas.
+En el desarrollo de agentes cognitivos, la interacción se modela a través de un **bucle de ejecución dual**: un REPL externo (patrón de intérpretes interactivos, de origen Lisp) y un bucle interno de tool-use. Este sistema separa la interacción con el usuario (hilo de interfaz) de la ejecución autónoma y recursiva de herramientas.
 
 ```mermaid
 graph TD
@@ -191,7 +191,7 @@ El comando `/debug on` habilita un panel lateral interactivo en la terminal:
 
 Este arnés de referencia demuestra de manera práctica los conceptos clave de la arquitectura organizativa y metodológica de Luum:
 
-1. **Bucle de Evaluación Restringido**: El bucle interno del agente representa la capa de ejecución y evidencia en [[Cognitive OS - Arquitectura de referencia]], recopilando pruebas deterministas antes de reportar la finalización.
+1. **Bucle de Evaluación Restringido**: El bucle interno del agente representa la capa de ejecución en [[Cognitive OS - Arquitectura de referencia]]. El bucle interno ejecuta herramientas y reinyecta sus resultados; no exige evidencia antes de terminar.
 2. **Gobernanza Práctica**: La intercepción manual de herramientas mediante confirmaciones visuales es la realización básica del límite de autonomía humano/agente descrito en [[Gobernanza]].
 3. **Resiliencia de Contexto**: La separación de tareas a subagentes restringidos (`delegate_research`) demuestra cómo estructurar los roles de agentes definidos en [[Roles de agentes]] para evitar la contaminación de memoria semántica.
 4. **Agent Loop Engineering**: El repositorio materializa un loop concreto con tool-use recursivo, stop conditions, compactación, memoria, HITL y debug/tracing, que son componentes canónicos de [[Agent Loop Engineering]].
