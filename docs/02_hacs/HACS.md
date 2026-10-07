@@ -19,7 +19,7 @@ La unidad básica de trabajo deja de ser exclusivamente humana. Los equipos pasa
 | Componente | Aporta |
 |---|---|
 | **Humanos** | Visión, objetivos, restricciones, ética, priorización → [[Roles humanos]] |
-| **Agentes** | Análisis, ejecución, validación, documentación, monitoreo → [[Roles de agentes]] |
+| **Agentes** | Análisis, ejecución, verificación de implementación, documentación, monitoreo → [[Roles de agentes]] |
 | **Memoria** | Decisiones, evidencia, aprendizaje, contexto histórico → [[Memoria organizacional]] |
 | **Gobernanza** | Seguridad, compliance, auditoría, costos → [[Gobernanza]] |
 

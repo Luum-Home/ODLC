@@ -26,19 +26,19 @@ Este módulo avanzado está diseñado para ingenieros sénior, especialistas de 
 
 ## 2. Estrategias de Mitigación y Hardening
 
-Para proteger un sistema cognitivo contra vectores semánticos y de infraestructura, [[Cognitive OS - Arquitectura de referencia]] despliega un conjunto de filtros activos en los momentos `PreToolUse` y `PostToolUse` de su [[Módulo 3 - Gobernanza|Safety Mesh]].
+Para proteger un sistema cognitivo contra vectores semánticos y de infraestructura, [[Cognitive OS - Arquitectura de referencia]] define un conjunto de hooks en los momentos `PreToolUse` y `PostToolUse` de su [[Módulo 3 - Gobernanza|Safety Mesh]]; algunos vienen apagados por defecto.
 
-### A. Escaneo Semántico y Determinista de Inyecciones (Pre-Launch)
+### A. Escaneo de Inyecciones en Prompts a Subagentes (Pre-Tool, opcional)
 
-Antes de que un agente comience a procesar el objetivo, su prompt de entrada es auditado por dos ganchos de seguridad redundantes:
-1. **`parry-scan.sh` (Escaneo de Aprendizaje Profundo)**: Utiliza un clasificador de lenguaje natural ligero (basado en *DeBERTa*) para identificar intenciones maliciosas de prompt injection (como intentos de evasión de sistema, modo "admin", o instrucciones codificadas en Base64).
-2. **`aguara-scan.sh` (Filtro Determinista)**: Ejecuta una matriz de **189 reglas deterministas** buscando patrones de inyección comunes, caracteres invisibles de Unicode, y palabras clave prohibidas.
+No se escanea el prompt del usuario: los dos hooks son `PreToolUse` y se disparan cuando se lanza un subagente (herramienta `Agent`), sobre el prompt que recibe ese subagente. Ambos son opcionales: se saltean si la herramienta externa no está instalada o si están deshabilitados en la configuración.
+1. **`parry-scan.sh` (escaneo con modelo)**: Delega en `parry-guard`, un escáner externo de prompt injection basado en ML; si lo detecta, bloquea con exit 2.
+2. **`aguara-scan.sh` (Filtro Determinista)**: Delega en `aguara`, que según el encabezado del hook aplica **189 reglas** en 14 categorías de amenaza (prompt injection, exfiltración de datos, supply chain) sin usar un LLM. Apagado por defecto.
 
-### B. Sanitización de Datos y Fuga de Secretos (Post-Tool)
+### B. Sanitización de Datos y Fuga de Secretos (Pre-Tool y Post-Tool)
 
 Para evitar la fuga de información sensible (como claves de APIs o datos personales de clientes/PII) hacia modelos externos, el sistema cuenta con interceptores de contenido:
 - **`secret-detector.sh`**: Evalúa todas las escrituras y modificaciones de archivos (`Edit`/`Write`) antes de que impacten el repositorio, buscando patrones de claves privadas, tokens JWT o strings de configuración de bases de datos.
-- **`lib/memory_scanner.py`**: Gana prioridad al inicio de la sesión y durante el guardado de memoria. Audita todas las observaciones destinadas a la [[Memoria organizacional]], eliminando rastros de inyecciones semánticas latentes antes de persistir los datos.
+- **`cos_lib/memory_scanner.py`**: Escanea el contenido destinado a la [[Memoria organizacional]] antes de persistirlo (prompt injection, secuestro de rol, exfiltración de credenciales, Unicode invisible) y marca el guardado como bloqueado si encuentra alguna amenaza; no limpia el contenido.
 
 ### C. Resumen de Controles de Ciberseguridad
 
@@ -69,7 +69,7 @@ La verificación activa de los filtros de ciberseguridad se realiza mediante el 
 > Esta práctica requiere el repositorio de referencia clonado en `external/` (carpeta fuera del control de versiones). Instrucciones de clonado en [[Recursos externos]].
 
 En la carpeta `external/` cuentas con el repositorio de referencia (ver [[Recursos externos]]):
-- `external/Gentleman-MCP/`: Un *gateway* escrito en Go que conecta aplicaciones con agentes y modelos —locales vía Ollama o remotos— a través de gRPC sobre TLS. No incluye sandbox ni allowlist: sirve para estudiar cómo se expone una superficie de herramientas a un agente. Conviene tener presente que MCP es un protocolo de exposición de herramientas, no un mecanismo de aislamiento: define **qué** capacidades ve el agente, no **con qué privilegios** se ejecutan. El enjaulamiento real lo dan los controles del entorno —sandbox de ejecución, mínimo privilegio del proceso, allowlist de herramientas y dominios, y aprobación humana para acciones irreversibles—, y por eso la superficie expuesta debe mantenerse mínima.
+- `external/Gentleman-MCP/`: Un *gateway* de chat escrito en Go que conecta aplicaciones con modelos locales vía Ollama a través de gRPC sobre TLS (servicios `HandshakeService` y `AgentService` en `proto/mcp/v1/mcp.proto`). Pese al nombre, no implementa el protocolo MCP ni expone tools, así que no sirve para estudiar una superficie de herramientas; tampoco incluye sandbox ni allowlist. Conviene tener presente que MCP es un protocolo de exposición de herramientas, no un mecanismo de aislamiento: define **qué** capacidades ve el agente, no **con qué privilegios** se ejecutan. El enjaulamiento real lo dan los controles del entorno —sandbox de ejecución, mínimo privilegio del proceso, allowlist de herramientas y dominios, y aprobación humana para acciones irreversibles—, y por eso la superficie expuesta debe mantenerse mínima.
 
 ---
 Módulos del curso: [[Módulo 1 - Construcción de agentes]] · [[Módulo 2 - Ingeniería de arneses]] · [[Módulo 3 - Gobernanza]]

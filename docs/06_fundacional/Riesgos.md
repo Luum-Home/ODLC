@@ -14,7 +14,7 @@ La implementación de **HACS** y la adopción de **ODLC** representan una transf
 
 ### A. Dependencia Cognitiva
 - **Descripción**: Los humanos asumen que las propuestas y códigos generados por los agentes son 100% correctos y omiten revisiones críticas exhaustivas (ceguera de automatización).
-- **Mitigación**: Exigir firmas digitales humanas explícitas en cada cambio y auditorías aleatorias sobre los PRs aprobados por agentes.
+- **Mitigación**: Exigir firma humana en las acciones que la matriz de [[Gobernanza]] marca como aprobación humana, y auditoría aleatoria de los merges autónomos.
 
 ### B. Atrofia de Conocimiento (Pérdida de Expertise)
 - **Descripción**: Al delegar la codificación completa a agentes Builder, los ingenieros humanos pierden la capacidad de entender en profundidad el funcionamiento del sistema, quedando inhabilitados para resolver incidentes graves complejos.

@@ -18,7 +18,7 @@ Este documento define la taxonomía y el vocabulario formal (Ubiquitous Language
 - **Ver en el vault**: [[Fase 1 - Objective]].
 
 ### 2. Constraint (Restricción)
-- **Definición**: Los límites infranqueables dentro de los cuales debe alcanzarse el objetivo. Pueden ser financieros, técnicos, regulatorios, temporales o humanos.
+- **Definición**: Los límites infranqueables dentro de los cuales debe alcanzarse el objetivo. Pueden ser financieros, técnicos, regulatorios, de seguridad o humanos (el horizonte temporal pertenece al Objective).
 - **Propósito**: Acota el espacio de soluciones posibles para los agentes y define los límites de seguridad del sistema.
 - **Ver en el vault**: [[Fase 2 - Constraints]].
 
@@ -28,7 +28,7 @@ Este documento define la taxonomía y el vocabulario formal (Ubiquitous Language
 - **Ver en el vault**: [[Fase 3 - Strategy]].
 
 ### 4. Evidence (Evidencia)
-- **Definición**: Datos empíricos, resultados de pruebas, logs de producción e informes de métricas que demuestran la consecución del objetivo.
+- **Definición**: Datos empíricos que muestran si la métrica del objetivo se movió (logs de producción, informes de métricas); los resultados de pruebas son evidencia de implementación, no de outcome.
 - **Propósito**: Elimina la especulación y las opiniones sobre si una funcionalidad en producción realmente cumple la meta del negocio.
 - **Ver en el vault**: [[Fase 5 - Validation]].
 
@@ -76,10 +76,10 @@ Patrones operativos usados en la implementación técnica ([[Luum Cognitive OS -
 - **Agent Loop (Bucle de Agente)**: Ciclo repetible en el que un agente observa, razona/planifica, actúa con herramientas, interpreta resultados, actualiza estado/memoria y decide si termina, reintenta o escala.
 - **Safety Mesh (Malla de Seguridad)**: Conjunto de interceptores independientes (hooks `PreToolUse`/`PostToolUse`) que aplican la [[Gobernanza]] en tiempo de ejecución, con comportamientos BLOCK/WARN/LOG sensibles a la fase del proyecto.
 - **HITL (Human-in-the-Loop)**: Compuerta donde el agente pausa su ejecución y espera aprobación humana explícita antes de continuar (deploys, esquemas de datos, secretos).
-- **Ground Truth Checker**: Validador determinista que contrasta los reclamos de éxito del agente ("tests pasan", "archivo creado") contra la realidad del sistema de archivos, generando un puntaje de alucinación.
-- **Judgment Day (Día de la Justicia)**: Patrón de arbitraje cognitivo donde el código generado por un agente es evaluado por jueces independientes antes de integrarse — el autor nunca juzga su propio trabajo.
+- **Ground Truth Checker**: Validador determinista que contrasta los reclamos de éxito del agente ("tests pasan", "archivo creado") contra la realidad del sistema de archivos, generando un puntaje de alucinación (fórmula del puntaje sin definir en el vault).
+- **Judgment Day (Día de la Justicia)**: Patrón de arbitraje cognitivo donde el código generado por un agente es evaluado por jueces independientes antes de integrarse — el autor nunca juzga su propio trabajo. Origen: skill `judgment-day` de gentle-pi (Gentleman Programming).
 - **Dual Blind Review**: Mecanismo del Judgment Day: dos agentes revisores aislados evalúan el mismo código sin ver el veredicto del otro.
-- **Agente Optimista / Agente Pesimista**: Perfiles de los jueces del Dual Blind Review. El optimista valida que el flujo de negocio funcione ("inocente hasta demostrar lo contrario"); el pesimista busca vulnerabilidades, race conditions y fallas de manejo de errores ("culpable hasta demostrar lo contrario").
+- **Agente Optimista / Agente Pesimista**: Perfiles de los jueces del Dual Blind Review: variante propuesta por el vault; en la skill original los dos jueces tienen el mismo objetivo y criterios. El optimista valida que el flujo de negocio funcione ("inocente hasta demostrar lo contrario"); el pesimista busca vulnerabilidades, race conditions y fallas de manejo de errores ("culpable hasta demostrar lo contrario").
 - **Compuertas de Arbitraje (Confirmed / Suspect / Contradictions)**: Reglas de consolidación de veredictos: defectos confirmados por ambos jueces van al Fix Agent; los señalados por uno solo se marcan; las contradicciones estructurales escalan a un humano como árbitro.
 - **Fix Agent**: Agente de corrección que refactoriza quirúrgicamente los defectos confirmados por el arbitraje.
 

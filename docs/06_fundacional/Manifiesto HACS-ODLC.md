@@ -11,7 +11,7 @@ created: 2026-06-10
 > Los equipos ya no están compuestos únicamente por personas.
 > El objetivo no es automatizar trabajo; el objetivo es amplificar la capacidad cognitiva colectiva de una organización."
 
-Como profesionales del desarrollo de software y la ingeniería de sistemas organizacionales, reconocemos que el advenimiento de agentes de software autónomos rompe varias suposiciones de los métodos y prácticas vigentes (Scrum, XP, Kanban, DevOps). No rompe los valores del Manifiesto Ágil: los relee para equipos humano-agente ([[Relectura del Manifiesto Ágil]]). Para prosperar en una era AI-Native, adoptamos una nueva unidad de trabajo y un nuevo modelo de colaboración humano-agente basado en los siguientes seis valores:
+Como profesionales del desarrollo de software y la ingeniería de sistemas organizacionales, reconocemos que el advenimiento de agentes de software autónomos rompe varias suposiciones de los métodos y prácticas vigentes (Scrum, XP, Kanban, DevOps). No deroga el Manifiesto Ágil: lo relee para equipos humano-agente — mantiene tres valores, divide el primero (para la ejecución de agentes se invierte) y reemplaza un principio ([[Relectura del Manifiesto Ágil]]). Para prosperar en una era AI-Native, adoptamos una nueva unidad de trabajo y un nuevo modelo de colaboración humano-agente basado en los siguientes seis valores:
 
 > Los cinco primeros valores provienen de los canvases fundacionales (PDFs en `00_crudo/`); el sexto (Purpose over Technology) fue incorporado durante la evolución del vault.
 
@@ -22,14 +22,14 @@ Como profesionales del desarrollo de software y la ingeniería de sistemas organ
 ### 1. Intent over Tasks (Intención sobre Tareas)
 *Valoramos la definición explícita de la intención por encima de la gestión detallada de tareas.*
 
-- **Por qué**: Escribir, refinar e iterar sobre tickets detallados (historias de usuario, subtareas de Jira) es un proceso pensado para humanos debido a limitaciones de comunicación y velocidad de contexto. Los agentes autónomos pueden descomponer planes complejos en segundos. Lo que requiere el sistema no son micro-instrucciones, sino directrices de alto nivel y metas claras.
+- **Por qué**: Escribir, refinar e iterar sobre tickets detallados (historias de usuario, subtareas) es un proceso pensado para humanos debido a limitaciones de comunicación y velocidad de contexto. Los agentes autónomos pueden descomponer planes complejos en segundos. Lo que requiere el sistema no son micro-instrucciones, sino directrices de alto nivel y metas claras.
 - **En la práctica**: Reemplazamos el backlog de historias por una plantilla de objetivos formalizada ([[Fase 1 - Objective]]).
 
 ### 2. Outcomes over Output (Resultados sobre Entregables)
 *Valoramos el logro de resultados medibles por encima de la cantidad de software producido.*
 
-- **Por qué**: Generar más líneas de código o desplegar más características no equivale a acelerar la organización (ver [[Más código no es más velocidad]]). El código es un costo; el resultado es el valor. La IA reduce el costo de generar código a cero, lo que puede provocar una explosión de deuda técnica si no se orienta el ciclo hacia el éxito de negocio verificado.
-- **En la práctica**: El éxito de un ciclo se mide en producción contra el objetivo de negocio original ([[Fase 5 - Validation]]), no contra si las historias se completaron.
+- **Por qué**: Generar más líneas de código o desplegar más características no equivale a acelerar la organización (ver [[Más código no es más velocidad]]). El código es un costo; el resultado es el valor. La IA abarata la generación de código pero no la vuelve gratis: el costo pasa de horas-persona a tokens y cómputo, y se gobierna como constraint ([[Fase 2 - Constraints]]). Abaratarla puede provocar una explosión de deuda técnica si no se orienta el ciclo hacia el éxito de negocio verificado.
+- **En la práctica**: El éxito de un ciclo se mide en producción contra el objetivo de negocio original ([[Fase 5 - Validation]]), no contra si los ítems del backlog se completaron.
 
 ### 3. Memory over Documentation (Memoria sobre Documentación)
 *Valoramos una memoria viva y participativa por encima de documentación estática.*
@@ -52,7 +52,7 @@ Como profesionales del desarrollo de software y la ingeniería de sistemas organ
 ### 6. Purpose over Technology (Propósito sobre Tecnología)
 *Valoramos el propósito y el resultado por encima de la tecnología, el framework o el lenguaje específico.*
 
-- **Por qué**: El código, el framework, la base de datos y el lenguaje son medios para alcanzar un objetivo, no fines en sí mismos. Atarse a una tecnología específica convierte al equipo en rehén de decisiones transitorias en un entorno donde los modelos, frameworks y proveedores cambian cada trimestre. La arquitectura correcta es la que permite reemplazar cualquier componente sin rescribir el sistema ([[Nuevos cuellos de botella]], [[Producción de software vs. velocidad real]]).
+- **Por qué**: El código, el framework, la base de datos y el lenguaje son medios para alcanzar un objetivo, no fines en sí mismos. Atarse a una tecnología específica convierte al equipo en rehén de decisiones transitorias en un entorno donde los modelos, frameworks y proveedores cambian seguido. La arquitectura correcta es la que permite reemplazar cualquier componente sin rescribir el sistema ([[Nuevos cuellos de botella]], [[Producción de software vs. velocidad real]]).
 - **En la práctica**: Diseñamos sistemas con arquitectura limpia (puertos y adaptadores), interfaces estables y protocolos abiertos (MCP, OpenAPI). Los agentes son agnósticos al modelo LLM subyacente. Las decisiones tecnológicas se documentan como ADRs descartables; las decisiones de propósito y restricciones de negocio permanecen en [[Memoria organizacional]].
 
 ---

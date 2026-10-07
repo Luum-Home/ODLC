@@ -14,7 +14,7 @@ created: 2026-06-10
 - [[Por qué fallan las metodologías actuales]] — Scrum optimiza coordinación humana; Kanban optimiza flujo; DevOps optimiza entrega; ninguna optimiza colaboración humano-agente
 - [[Nuevos cuellos de botella]] — del código al contexto, de la implementación a la decisión
 - [[Más código no es más velocidad]] — la crítica de AWS al "AI coding" como métrica
-- [[Comparativa con metodologías existentes]] — Manifiesto Ágil, Scrum, XP, Kanban, SAFe, DevOps, Team Topologies, Platform Engineering
+- [[Comparativa con metodologías existentes]] — Manifiesto Ágil, Scrum, XP, Kanban, gestión por objetivos, organizaciones Teal, SAFe, DevOps, Team Topologies, Platform Engineering
 - [[Relectura del Manifiesto Ágil]] — los 4 valores y 12 principios uno por uno: qué se mantiene, qué se reemplaza, qué se invierte con agentes, y el supuesto del humano proactivo
 - [[Producción de software vs. velocidad real]] — qué optimiza la IA y qué no: CI/CD, testing automation, observabilidad y gobernanza de despliegue como disciplina
 - [[Software bloated]] — el anti-patrón de código, dependencias y funcionalidad sobredimensionada, y por qué los agentes lo producen estructuralmente
@@ -39,7 +39,7 @@ created: 2026-06-10
 
 - [[Métricas operativas]] — Objective Success Rate, Time To Outcome, Learning Velocity
 - [[Métricas de agentes]] — Agent Contribution Ratio, Human Leverage Ratio, Agent Accuracy, Agent Cost
-- [[Métricas organizacionales]] — Knowledge Reuse, Context Retrieval Time, Decision Lead Time
+- [[Métricas organizacionales]] — Knowledge Reuse Rate, Context Retrieval Time, Decision Lead Time
 
 ## Parte V — Cognitive OS (la implementación)
 
@@ -61,10 +61,11 @@ created: 2026-06-10
 
 - [[Manifiesto HACS-ODLC]] — 6 valores, el manifiesto ODLC operativo, y adaptación sobre imposición (cherry-picking según madurez)
 - [[Modelo de madurez AI-Native]] — niveles 0 a 5
-- [[Glosario y taxonomía]] — Objective, Constraint, Strategy, Evidence, Memory, Agent, Governance
+- [[Glosario y taxonomía]] — Objective, Constraint, Strategy, Evidence, Memory, Agent, Governance, Outcome, Sandbox
 - [[Riesgos]] — humanos, técnicos, organizacionales
 - [[Roadmap]] — v0.1 → v2.0
 - [[Preguntas abiertas]] — lo que todavía no sabemos responder
+- [[Objeciones al marco]] — ¿tiene sentido ODLC? Las seis objeciones más fuertes (linaje de la gestión por objetivos y la crítica de Deming, feedback lento, sin casos medidos, identidad ODLC vs. HACS, personas motivadas, autogestión Teal) y qué haría falta para contestarlas
 - [[Nuevos roles profesionales en la era de IA]] — CAIO, AI Engineer, Context Engineer, Memory Engineer y su alineación con el modelo HACS
 
 ## Parte VII — Capacitación y Educación
@@ -76,7 +77,7 @@ created: 2026-06-10
 > Catálogos volátiles (status `borrador` permanente): describen herramientas y repos de terceros con fecha de consulta, no fundamentos del marco.
 
 - [[Recursos externos]] — repositorios de referencia, setup de `external/` e instrucciones de clonado
-- [[Especificación de agentes cross-CLI]] — estándar de archivos de configuración de identidad y comportamiento (CLAUDE.md, SOUL.md, VOICE.md)
+- [[Especificación de agentes cross-CLI]] — patrón propuesto por este vault de redirección de instrucciones entre CLIs: archivos de configuración de identidad y comportamiento (CLAUDE.md, SOUL.md, VOICE.md)
 - [[Repositorios y catálogos de skills]] — directorios, registries públicos (skills.sh) y especificación técnica de habilidades para agentes
 - [[Catálogo de herramientas y productividad]] — runtimes, orquestadores, APIs e infraestructura para productividad de desarrollo de IA
 - [[AI Engineering Lab - Repositorio de referencia]] — análisis de primitivas técnicas desde cero, arquitectura limpia en producción y testing E2E con Playwright

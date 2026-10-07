@@ -20,7 +20,7 @@ Consolidación de las implicaciones para HACS-ODLC de los tres análisis sobre e
 2. **El presupuesto de tokens es una constraint de primera clase.** Se declara por objetivo en [[Fase 2 - Constraints]] y se estima en [[Fase 3 - Strategy]] (práctica "token poker"), no se descubre en Execution.
 3. **Evitar los dos errores simétricos.** Ni error tacaño (recortar el acceso y matar la experimentación) ni error performativo (gamificar el consumo): uso libre con foco en resultado, gobernado por [[Gobernanza]] con límites de gasto y alertas — no con rankings.
 4. **Diseñar para la escasez.** Arnés agnóstico al proveedor, contextos destilados (no heredar chats completos), memoria externa ([[Memoria organizacional]]) como amortiguador de re-procesamiento, y conciencia del peaje lingüístico para equipos hispanohablantes.
-5. **La deuda técnica generada por agentes es el riesgo agregado.** Volumen barato + incentivos de consumo + sin estimación de costo = crisis de deuda a escala inédita (advertencia de Hotz). Mitigación: revisión obligatoria en [[Fase 5 - Validation]] y detección temprana de patrones en [[Fase 6 - Learning]] → [[Software bloated]].
+5. **La deuda técnica generada por agentes es el riesgo agregado.** Volumen barato + incentivos de consumo + sin estimación de costo = crisis de deuda a escala inédita (advertencia de Hotz, según el video, no verificada). Mitigación: revisión obligatoria en [[Fase 5 - Validation]] y detección temprana de patrones en [[Fase 6 - Learning]] → [[Software bloated]].
 
 ## Relacionado
 
