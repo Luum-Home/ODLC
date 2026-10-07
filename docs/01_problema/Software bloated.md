@@ -18,14 +18,14 @@ Software bloated es el anti-patrón de código, dependencias o funcionalidad sob
 
 ## Por qué importa en la era AI-Native
 
-Los agentes de IA tienden a producir bloat de forma estructural:
+Hipótesis: los agentes de IA tienden a producir bloat por cómo trabajan:
 
 1. **Velocidad sin discriminación**: generan rápido pero no evalúan qué es esencial versus qué es ruido.
 2. **Patrones de entrenamiento**: replican soluciones que vieron en datasets sin saber si son apropiadas para el proyecto.
 3. **Ausencia de costo percibido**: no sienten el peso de mantener código extra; humanos sí.
 4. **Falta de gobernanza de simplicidad**: sin reglas explícitas como "hacer lo mínimo necesario", el agente opta por lo más completo.
 
-La consecuencia: un equipo con agentes puede producir 10x código pero también 10x deuda técnica invisible → [[Más código no es más velocidad]].
+La consecuencia: un equipo con agentes puede producir mucho más código y, con él, más deuda técnica invisible (hipótesis sin medir) → [[Más código no es más velocidad]].
 
 ## Síntomas detectables
 

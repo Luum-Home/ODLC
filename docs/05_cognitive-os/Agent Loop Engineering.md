@@ -60,7 +60,7 @@ En [[HACS]], esto es la mecánica interna por la cual los [[Roles de agentes]] o
 
 ### ReAct — Reason + Act
 
-**ReAct** define el loop mínimo: intercalar razonamiento y acciones con herramientas.
+**ReAct** (Yao et al., 2022, [arXiv:2210.03629](https://arxiv.org/abs/2210.03629)) define el loop mínimo: intercalar razonamiento y acciones con herramientas.
 
 ```text
 Thought → Action → Observation → Thought → Action → ...
@@ -72,7 +72,7 @@ Límite: ReAct por sí solo no define memoria persistente, políticas de segurid
 
 ### Reflexion — feedback convertido en memoria
 
-**Reflexion** agrega una fase posterior al intento fallido:
+**Reflexion** (Shinn et al., 2023, [arXiv:2303.11366](https://arxiv.org/abs/2303.11366)) agrega una fase posterior al intento fallido:
 
 ```text
 Attempt → Feedback → Reflection → Memory Update → Retry
@@ -84,7 +84,7 @@ Riesgo: si el feedback es incorrecto o la reflexión es falsa, se produce [[Ries
 
 ### Tree of Thoughts — búsqueda deliberada
 
-**Tree of Thoughts** expande el loop lineal a una búsqueda sobre múltiples caminos de razonamiento:
+**Tree of Thoughts** (Yao et al., 2023, [arXiv:2305.10601](https://arxiv.org/abs/2305.10601)) expande el loop lineal a una búsqueda sobre múltiples caminos de razonamiento:
 
 ```text
 Generate alternatives → Evaluate → Select/Backtrack → Continue
@@ -101,7 +101,7 @@ Costo: más tokens, más latencia y más necesidad de arbitraje.
 
 ### Voyager — loop + biblioteca de skills
 
-**Voyager** agrega una idea clave: el aprendizaje no es solo memoria textual, sino acumulación de habilidades ejecutables.
+**Voyager** (Wang et al., 2023, [arXiv:2305.16291](https://arxiv.org/abs/2305.16291)) agrega una idea clave: el aprendizaje no es solo memoria textual, sino acumulación de habilidades ejecutables.
 
 Patrón:
 
@@ -319,6 +319,8 @@ Evidencia mínima:
 | **TRIANGULATE** | segundo caso evita green falso | tests tautológicos o hardcodeados |
 | **REFACTOR** | mejora interna con tests pasando | deuda técnica y regresiones silenciosas |
 
+TRIANGULATE es un paso agregado por este patrón; en Beck (*Test-Driven Development: By Example*, 2002) triangular es una estrategia opcional para llegar a GREEN.
+
 Si el agente no registra esta evidencia, la tarea no debería considerarse completa.
 
 ### 4. Verify que audita proceso
@@ -516,8 +518,8 @@ El [[Cognitive OS - Arquitectura de referencia]] puede leerse como una arquitect
 - **Bus de Memoria**: provee estado histórico y guarda Memory Updates.
 - **Motor de Orquestación**: ejecuta Reason/Plan, Action Policy y coordinación multi-agente.
 - **Sandbox de Ejecución**: contiene las acciones con herramientas.
-- **Validation Engine**: interpreta observaciones, evalúa evidencia y decide si terminar, reintentar o escalar.
-- **Learning**: transforma resultados en memoria, políticas o skills.
+- **Validation Engine**: recolecta evidencia y audita la ejecución. La decisión de terminar, reintentar o escalar la toma el propio agent loop (su condición de termination), que corre dentro del Motor de Orquestación.
+- **Aprendizaje (Fase 6)**: no es uno de los cinco componentes de la arquitectura; en su diagrama es la etapa que transforma la evidencia en memoria, políticas o skills y escribe en el Bus de Memoria.
 
 Agent Loop Engineering es, por lo tanto, la disciplina microscópica; Cognitive OS es la arquitectura macroscópica que la vuelve operable en una organización.
 

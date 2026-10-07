@@ -10,14 +10,16 @@ Los agentes en [[HACS]] aportan: **análisis, ejecución, validación, documenta
 
 | Agente | Función (borrador) |
 |---|---|
-| **Planner** | Descompone objetivos en planes ejecutables; propone secuencia y dependencias |
+| **Planner** | Descompone objetivos en planes y coordina la ejecución de los demás agentes |
 | **Architect** | Propone arquitecturas, ADRs y modelos de datos; analiza tradeoffs para [[Fase 3 - Strategy]] |
 | **Builder** | Genera código, infraestructura, migraciones y documentación técnica |
 | **Reviewer** | Revisa código y artefactos contra estándares, specs y decisiones previas en memoria |
 | **Security** | Detecta vulnerabilidades, propone fixes, audita dependencias y configuraciones |
 | **Memory** | Captura decisiones, evidencia y aprendizajes; mantiene la memoria recuperable y curada |
 
-Equivale al pipeline multi-agente del [[AI SDLC]] avanzado (PM Agent → Architect Agent → Developer Agent → Tester Agent → Security Agent → DevOps Agent), pero con dos diferencias: comparten [[Memoria organizacional]] como sustrato común, y operan bajo límites de autonomía explícitos.
+Se parece al pipeline multi-agente del [[AI SDLC]] avanzado (PM Agent → Architect Agent → Developer Agent → Tester Agent → Security Agent → DevOps Agent); difiere en que la memoria es persistente y curada ([[Memoria organizacional]], no solo contexto de sesión), en los límites de autonomía explícitos y en el conjunto de roles (Memory sí; Tester y DevOps sin definir).
+
+Otros agentes que aparecen en el vault son instancias de estos roles: el **Fix Agent** ([[Glosario y taxonomía]]) es una instancia de Builder; los **jueces** del Judgment Day son instancias de Reviewer; el **Lead Agent** de [[Agent Loop Engineering]] es el Planner en modo orquestador.
 
 ## Loops de revisión entre agentes
 
@@ -39,4 +41,4 @@ Ver: [[Patrones de loops agénticos para repositorios#5. Apply/Judge/Fix loop]] 
 
 - ¿Falta un agente *Tester* explícito o es parte de Reviewer? ¿Y un agente *Ops/Observability*?
 - ¿Cómo se mide la contribución y precisión de cada agente? → [[Métricas de agentes]]
-- ¿Qué pasa cuando dos agentes proponen estrategias contradictorias? ¿Quién arbitra — Planner o un humano ([[Roles humanos]])?
+- Decisión: las contradicciones estructurales escalan a un humano ([[Fase 3 - Strategy]], [[Glosario y taxonomía]]); abierto: ¿puede el Planner pre-filtrar?

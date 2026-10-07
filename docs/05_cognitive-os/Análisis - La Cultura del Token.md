@@ -62,7 +62,7 @@ El sistema incluía títulos gamificados:
 
 Amazon implementó un leaderboard interno llamado **"KiroRank"**, que rankeaba a su gente según la actividad sobre **Kiro**, la plataforma de desarrollo con IA de la empresa. Rápidamente, empleados comenzaron a **inflar sus scores** poniendo agentes autónomos a ejecutar acciones innecesarias, no porque el trabajo lo requiriera sino para subir en el ranking —práctica que en el ambiente se bautizó **"tokenmaxxing"**—, con el costo de cómputo asociado.
 
-Amazon **cerró el leaderboard** en mayo de 2026 y migró a una métrica que llama *normalised deployments*. Dave Treadwell, SVP de Amazon, dijo al equipo que la herramienta había nacido con buenas intenciones y pidió: *"Please don't use AI just for the sake of using AI."* Es uno de los casos más claros de Goodhart's Law aplicada a la adopción de IA: la métrica se contaminó con el incentivo perverso del ranking. Primicia del Financial Times; fuente consultada: [InfoWorld, 05/2026](https://www.infoworld.com/article/4178824/amazon-deletes-devs-tokenmaxxing-leaderboard-to-minimize-costs.html).
+Amazon **dio de baja el leaderboard** en mayo de 2026. Según el FT, un SVP de Amazon dijo que la herramienta se había construido *"with good intentions"*, pero que los costos de cómputo que generaba eran demasiado altos. El nombre del SVP (Dave Treadwell), la migración a una métrica llamada *normalised deployments* y la frase *"Please don't use AI just for the sake of using AI"* son según el video; no están en la fuente citada. Es uno de los casos más claros de Goodhart's Law aplicada a la adopción de IA: la métrica se contaminó con el incentivo perverso del ranking. Primicia del Financial Times; fuente consultada: [InfoWorld, 05/2026](https://www.infoworld.com/article/4178824/amazon-deletes-devs-tokenmaxxing-leaderboard-to-minimize-costs.html).
 
 > **Lección:** Un leaderboard de tokens sin contexto de resultado incentiva el consumo vacío. La presión social por "aparecer arriba" distorsiona la señal real de adopción.
 
@@ -100,7 +100,7 @@ El video identifica dos errores organizacionales igualmente dañinos frente al c
 
 Los tokens no son un recurso infinito. Tienen límites físicos y contractuales que los convierten en **infraestructura estratégica**:
 
-- **Acceso anticipado reservado a 3 años**: Samantha (mencionada en el video) reservó acceso prioritario con 3 años de anticipación, mostrando cómo la escasez impulsa estrategias de largo plazo.
+- **Acceso anticipado reservado a 3 años**: según el video, Samantha reservó acceso prioritario con 3 años de anticipación, mostrando cómo la escasez impulsa estrategias de largo plazo.
 - **Límites en planes de suscripción**: Gemini, GPT y otros modelos imponen cuotas que restringen el uso real a gran escala.
 - **Cadena de suministro física**: los tokens dependen de chips, datacenters y energía eléctrica. Su disponibilidad es un tema geopolítico y logístico real.
 
@@ -147,14 +147,13 @@ Los conceptos de Token ROI y buena gobernanza de tokens se alinean directamente 
 
 | Concepto del Video | Métrica HACS equivalente |
 |---|---|
-| Token ROI (valor por token) | **Objective Success Rate**: tasa de éxito de objetivos resueltos por agentes |
-| No medir consumo bruto | **Agent Cost**: costo por agente/tarea, no costo total acumulado |
-| Tokens convertidos en conocimiento reutilizable | **Knowledge Reuse**: qué porcentaje de soluciones se almacenan y reutilizan |
+| Token ROI (valor por token; métrica candidata, no definida en el vault) | **Objective Success Rate** ([[Métricas operativas]]) |
+| No medir consumo bruto | **Agent Cost** = costo por objetivo ([[Métricas de agentes]]) |
+| Tokens convertidos en conocimiento reutilizable | **Knowledge Reuse Rate** ([[Métricas organizacionales]]) |
 | Cultura de resultado, no de teatro | **[[Métricas operativas\|Time To Outcome (TTO)]]**: tiempo real en obtener el resultado de negocio, no tiempo en consumir tokens |
 
 Para el [[ODLC]] (Objective Driven Lifecycle), esto implica:
 - **No incluir consumo bruto de tokens como KPI** en dashboards de gobernanza sin contexto de resultado.
-- **Definir umbrales mínimos de uso** (como sugiere Jensen Huang) como indicador de sub-adopción, no máximo de uso como restricción.
 - **Priorizar acceso a tokens** según el nivel de impacto del equipo o rol, no de forma uniforme.
 - **Medir Token ROI** a nivel de feature/proyecto, no solo a nivel de persona.
 

@@ -23,7 +23,7 @@ En el desarrollo con agentes de IA, el comportamiento no es 100% determinista. U
 
 ## 2. Desarrollo Guiado por Arneses (Harness-SDD)
 
-El **Harness-Software Design Development (Harness-SDD)** — patrón propuesto por el repositorio de referencia [betta-tech/harness-sdd](https://github.com/betta-tech/harness-sdd) (ver [[Recursos externos]]) — propone que todo desarrollo realizado por agentes autónomos deba iniciarse y gobernarse por un arnés.
+El **Harness-SDD** (arnés + *Spec Driven Development*) — patrón propuesto por el repositorio de referencia [betta-tech/harness-sdd](https://github.com/betta-tech/harness-sdd) (ver [[Recursos externos]]) — propone que todo desarrollo realizado por agentes autónomos deba iniciarse y gobernarse por un arnés.
 
 ### Flujo Operativo:
 ```
@@ -65,7 +65,7 @@ def run_agent_validation(sandbox_path):
 
 Uno de los principales problemas al delegar tareas críticas a los agentes autónomos de desarrollo es el **auto-reporte ficticio** o alucinaciones de éxito. Un agente puede escribir en su reporte: *"He creado la API de usuarios y todos los 15 tests unitarios pasan exitosamente"*, cuando en realidad no ha creado el archivo correcto o las pruebas fallaron.
 
-Para mitigar esto, dentro de la Safety Mesh (ver [[Módulo 3 - Gobernanza#3. La Malla de Seguridad de 14 Capas (14-Layer Safety Mesh)|Módulo 3 § Safety Mesh]]) de la arquitectura [[Cognitive OS - Arquitectura de referencia]] se integra la herramienta **Ground Truth Checker** (`lib/ground_truth.py` y el hook `claim-validator.sh`).
+Para mitigar esto, dentro de la Safety Mesh (ver [[Módulo 3 - Gobernanza#3. La Malla de Seguridad de 14 Capas (14-Layer Safety Mesh)|Módulo 3 § Safety Mesh]]) de la arquitectura [[Cognitive OS - Arquitectura de referencia]] se integra la herramienta **Ground Truth Checker** (`cos_lib/ground_truth.py` y el hook `claim-validator.sh`).
 
 ### ¿Cómo opera el Ground Truth Checker?
 
@@ -89,17 +89,17 @@ Además de las verificaciones deterministas del compilador y el linter, los arne
 
 ### Evaluación Ciega y Paralela (Dual Blind Review)
 El principio de este patrón establece que **el agente que escribe el código nunca debe juzgar su propio trabajo**. En su lugar, el arnés de gobernanza orquesta un flujo de revisión ciega:
-1. **Lanzamiento de Jueces en Paralelo**: Se instancian dos agentes de revisión independientes y aislados (Juez A y Juez B) que reciben la misma porción de código y criterios de aceptación, sin ver los reportes del otro.
-2. **Clasificación de Perfiles (Optimista vs. Pesimista)**:
-   - **El Agente Optimista**: Evalúa bajo la premisa de "inocente hasta que se demuestre lo contrario". Valida que el flujo principal de negocio funcione, que la arquitectura propuesta cumpla el objetivo y que la velocidad de entrega sea óptima.
+1. **Lanzamiento de Jueces en Paralelo**: Se instancian dos jueces ciegos e independientes (Juez A y Juez B) con **el mismo objetivo de revisión y los mismos criterios** (*identical target and criteria*, según `skills/judgment-day/SKILL.md`), sin ver los reportes del otro. El orquestador no revisa el código por su cuenta.
+2. **Compuertas de Arbitraje**: Al finalizar, el orquestador consolida los veredictos mediante reglas de decisión:
+   - **Confirmados (Confirmed)**: Defectos encontrados por ambos jueces de forma independiente. En la primera ronda se pide aprobación antes de corregirlos; los aprobados van a un agente de corrección separado (*Fix Agent*), y después de cada corrección se vuelve a lanzar a los dos jueces en paralelo. Tras dos iteraciones de corrección con problemas pendientes, se pregunta si seguir.
+   - **Sospechosos (Suspect)**: Problemas señalados por un solo juez. Se reportan y se triagean, pero no se auto-corrigen.
+   - **Contradictorios (Contradictions)**: Si los jueces se contradicen, se escala para una decisión manual de un humano.
+3. **Variante propuesta por el vault: perfiles Optimista vs. Pesimista**. La skill de origen no define perfiles distintos para los jueces; esta variante, propia del vault, les asigna sesgos complementarios:
+   - **El Agente Optimista**: Evalúa bajo la premisa de "inocente hasta que se demuestre lo contrario". Valida que el flujo principal de negocio funcione y que la arquitectura propuesta cumpla el objetivo.
    - **El Agente Pesimista**: Trabaja bajo el modelado de amenazas y asume "culpable hasta que se demuestre lo contrario". Busca vulnerabilidades de seguridad, condiciones de carrera (race conditions), fugas de memoria, inputs maliciosos y falta de manejo de excepciones.
-3. **Compuertas de Arbitraje**: Al finalizar, un componente orquestador consolida los veredictos mediante reglas de decisión:
-   - **Confirmados (Confirmed)**: Defectos encontrados por ambos jueces de forma independiente. Pasan automáticamente al Agente de Corrección (*Fix Agent*) para su refactorización quirúrgica.
-   - **Sospechosos (Suspect)**: Problemas señalados por un solo juez. Se marcan para revisión pero no se auto-corrigen de inmediato para evitar falsos positivos.
-   - **Contradictorios (Contradictions)**: Si un juez aprueba el cambio y el otro encuentra una discrepancia estructural crítica, el arnés congela la entrega y escala una alerta interactiva para que un humano actúe como árbitro supremo.
 
 ### Una Analogía Útil: el Patrón Actor-Critic
-El arbitraje ciego se puede pensar como una versión explícita del patrón **Actor-Critic** del aprendizaje por refuerzo, donde un componente propone una acción y otro la evalúa, y el resultado surge del arbitraje entre ambos: el juez optimista ocupa el rol de *actor* y el pesimista el de *critic*. La diferencia es que acá cada rol es un agente separado, con su propio contexto y su propio reporte auditable, en lugar de un componente interno del modelo.
+El arbitraje ciego se puede pensar como una versión explícita del patrón **Actor-Critic** del aprendizaje por refuerzo, donde un componente propone una acción y otro la evalúa, y el resultado surge del arbitraje entre ambos: el agente Builder que escribe el código ocupa el rol de *actor* y los jueces, el de *critic*. La diferencia es que acá cada rol es un agente separado, con su propio contexto y su propio reporte auditable, en lugar de un componente interno del modelo.
 
 > [!note] Sobre el razonamiento interno de los modelos
 > Los modelos de frontera actuales razonan antes de responder —es una capacidad documentada por los proveedores—, pero **no hay documentación pública que describa esa deliberación como una arquitectura Actor-Critic con sub-procesos optimista y pesimista**. Conviene presentarlo como analogía didáctica y no como afirmación sobre el funcionamiento interno de un producto concreto.
@@ -112,8 +112,8 @@ El arbitraje ciego se puede pensar como una versión explícita del patrón **Ac
 > Estas prácticas requieren los repositorios de referencia clonados en `external/` (carpeta fuera del control de versiones). Instrucciones de clonado en [[Recursos externos]].
 
 En la carpeta `external/` de este proyecto se clonan repositorios clave de referencia sobre esta materia (ver [[Recursos externos]]):
-- `external/harness-sdd/`: Contiene el framework conceptual y ejemplos prácticos de cómo estructurar desarrollos guiados por arneses.
-- `external/ejemplo-harness-subagentes/`: Un ejemplo en Python de cómo un agente coordinador orquesta y valida subagentes.
+- `external/harness-sdd/`: Repo de ejemplo (CLI de notas en Python) con specs EARS y una puerta de aprobación humana.
+- `external/ejemplo-harness-subagentes/`: Variante del ejemplo harness (CLI de notas) con subagentes leader/implementer/reviewer definidos en `.claude/agents/`.
 - `external/gentle-pi/`: Contiene la especificación de diseño real y el flujo de ejecución del skill de arbitraje ciego en `skills/judgment-day/SKILL.md`.
 
 Te recomendamos explorar dichos directorios para asimilar cómo la verificación determinista de código se complementa con el arbitraje cognitivo.

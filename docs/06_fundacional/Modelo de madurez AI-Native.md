@@ -14,22 +14,25 @@ El **Modelo de madurez AI-Native** ayuda a las organizaciones a evaluar cómo in
 
 | Nivel | Nombre | Descripción | Características Clave |
 |---|---|---|---|
-| **0** | **Tradicional** | Procesos y herramientas diseñados y ejecutados exclusivamente por humanos. | Scrum tradicional, Jira, revisiones manuales, documentación en wikis estáticos. |
+| **0** | **Tradicional** | Procesos y herramientas diseñados y ejecutados exclusivamente por humanos. | Métodos ágiles ejecutados solo por humanos, trackers manuales, revisiones manuales, documentación en wikis estáticos. |
 | **1** | **IA Asistiva** | Los humanos usan herramientas de IA de forma individual para acelerar su trabajo diario. | Copilot en el IDE, chat con LLMs para resolver dudas de código. La IA no tiene contexto compartido ni autonomía. |
 | **2** | **Agentes Especializados** | Se introducen agentes autónomos aislados para ejecutar tareas concretas y repetitivas. | Agente de revisión de PRs automático, generador de tests unitarios al compilar. Sin memoria común. |
 | **3** | **Memoria Organizacional** | Agentes y humanos colaboran utilizando un sustrato de conocimiento compartido y estructurado. | Los agentes leen y escriben en la [[Memoria organizacional]] (ADRs, lecciones aprendidas). Se reduce el Context Retrieval Time. |
 | **4** | **ODLC Pleno** | La organización adopta la metodología orientada a objetivos y restricciones. La ejecución es mayormente autónoma. | Adopción total de [[ODLC]]. El agente Planner orquesta sub-agentes bajo límites estrictos de [[Gobernanza]] humana. |
 | **5** | **Organización Autónoma** | Unidades HACS adaptativas autogestionadas. Múltiples agentes coordinan y refinan sub-objetivos de negocio. | El humano interviene únicamente para gobernar objetivos estratégicos y presupuestos globales. Auto-remediación en producción. |
 
+> [!note] El Nivel 5 usa vocabulario Teal
+> "Autogestionadas" viene de las organizaciones Teal (Frederic Laloux, *Reinventing Organizations*, 2014), donde la autogestión reemplaza la aprobación jerárquica por el *advice process* y desconfía de metas y pronósticos. El nivel todavía no define cómo convive eso con la matriz de aprobaciones humanas de [[Gobernanza]] ni con un marco centrado en métricas. Detalle: [[Objeciones al marco#Objeción 6: el Nivel 5 habla de autogestión sin definirla]] y [[Comparativa con metodologías existentes]].
+
 ---
 
 ## Criterios de Evaluación y Transición
 
-Para transicionar de un nivel a otro, la organización debe medir y cumplir ciertos umbrales operativos:
+Para transicionar de un nivel a otro, la organización debe medir y cumplir condiciones de entrada (los umbrales numéricos todavía no están calibrados):
 
 - **De Nivel 1 a Nivel 2**: Integrar pipelines de CI/CD con llamadas automatizadas a agentes (ej. CodeRabbit, Snyk). Medir el *Agent Contribution Ratio* inicial.
-- **De Nivel 2 a Nivel 3**: Implementar bases de datos vectoriales de contexto de arquitectura y decisiones históricas (ADRs) conectadas a los agentes. Medir la tasa de reutilización (*Knowledge Reuse Rate*).
-- **De Nivel 3 a Nivel 4**: Reemplazar la unidad de trabajo del método vigente (historias y sprints en Scrum, tarjetas en un tablero Kanban, tickets de Jira) por plantillas de objetivos e implementar entornos seguros de Sandbox para la validación autónoma de agentes.
+- **De Nivel 2 a Nivel 3**: Conectar a los agentes un almacén recuperable de decisiones históricas (ADRs, postmortems), con la tecnología que sea. Medir la tasa de reutilización (*Knowledge Reuse Rate*).
+- **De Nivel 3 a Nivel 4**: Reemplazar la unidad de trabajo del método vigente (Product Backlog Items y Sprints en Scrum, work items en Kanban, tickets en un tracker) por plantillas de objetivos e implementar entornos seguros de Sandbox para la validación autónoma de agentes.
 
 > [!warning] Transiciones sin definir
 > Los criterios de **0 → 1** y **4 → 5** todavía no están escritos. El modelo describe los seis niveles en la tabla de arriba, pero solo especifica cómo se cruzan tres de los cinco umbrales. No se completan acá de forma especulativa: definirlos exige decidir qué evidencia habilita el salto, y esa es una definición del autor, no una omisión de redacción. Ver [[Modelo de madurez AI-Native#Preguntas abiertas|Preguntas abiertas]].

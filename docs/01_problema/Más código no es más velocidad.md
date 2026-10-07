@@ -6,7 +6,9 @@ created: 2026-06-10
 
 # Más código no es más velocidad
 
-> "More AI-generated code doesn't make your team faster." — AWS
+> "More AI-generated code doesn't make your team faster." — AWS (@awscloud en X, 2026-06-09: https://x.com/awscloud/status/2064449711155589396; hilo que presenta un episodio con Charity Majors, de Honeycomb)
+>
+> Verificación (2026-10-07): `curl -sL https://api.fxtwitter.com/awscloud/status/2064449711155589396 | python3 -c "import json,sys; t=json.load(sys.stdin)['tweet']; print(t['created_at'], t['text'])"`
 
 Generar más código con IA no necesariamente mejora el SDLC completo. Si después hay **más bugs, más revisiones, más deuda técnica y más mantenimiento**, el resultado final puede ser incluso **más lento**.
 
@@ -19,11 +21,11 @@ Es la refutación directa de la métrica naïve del "AI coding" (líneas generad
 El foco se mueve de **output** (código generado) a **outcome** (valor en producción):
 
 - Métrica vieja: líneas de código, story points, velocity.
-- Métrica nueva: **tiempo desde la idea hasta el valor en producción** → [[Métricas operativas]] (Time To Outcome).
+- Métrica nueva: **tiempo desde la definición del objetivo hasta la validación del outcome** → [[Métricas operativas]] (Time To Outcome).
 
 Este es el fundamento del principio **Outcomes over Output** del [[Manifiesto HACS-ODLC]], y la razón por la que [[ODLC]] valida contra el objetivo y no contra la implementación ([[Fase 5 - Validation]]).
 
 ## Preguntas abiertas
 
-- Buscar la fuente exacta y el contexto de la frase de AWS para citarla con rigor.
+- Leer el hilo completo y el episodio que promociona para citar el argumento, no solo la frase.
 - ¿Hay datos públicos (DORA, GitClear, estudios de Copilot) que cuantifiquen el efecto "más código → más mantenimiento"?

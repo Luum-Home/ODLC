@@ -30,7 +30,7 @@ Plataformas para gestionar múltiples agentes, coordinar flujos de trabajo paral
 
 *   **[Superconductor](https://www.superconductor.com/)**: Un espacio de trabajo colaborativo para orquestar y ejecutar múltiples agentes de desarrollo (como Claude Code) en paralelo sobre tickets de software. Permite a los humanos revisar los cambios de forma visual y móvil.
 *   **[Paperclip](https://github.com/paperclipai/paperclip)**: Plataforma de control y alineación organizativa para "compañías formadas por agentes de IA". Proporciona herramientas de gestión de presupuestos, asignación de tareas, organigramas y monitoreo de objetivos estratégicos.
-*   **[Odysseus](https://github.com/pewdiepie-archdaemon/odysseus)**: Workspace de IA autohospedado que se define como una experiencia tipo ChatGPT/Claude ejecutada con hardware y datos propios, local-first y privacy-first. Útil para conversar en el curso sobre límites de herramientas SaaS y soberanía de datos; tratarlo como proyecto emergente/joven, no como estándar empresarial maduro. Consultado 2026-06-11.
+*   **[Odysseus](https://github.com/odysseus-dev/odysseus)** (licencia AGPL-3.0; repo movido desde `pewdiepie-archdaemon/odysseus`, verificado 2026-10-07): Workspace de IA autohospedado que se define como una experiencia tipo ChatGPT/Claude ejecutada con hardware y datos propios, local-first y privacy-first. Útil para conversar en el curso sobre límites de herramientas SaaS y soberanía de datos; tratarlo como proyecto emergente/joven, no como estándar empresarial maduro. Consultado 2026-06-11.
 
 ---
 
@@ -40,7 +40,7 @@ Servicios y tecnologías de backend que facilitan el acceso, ruteo y entrenamien
 
 *   **[OpenRouter](https://openrouter.ai/)**: Un gateway y enrutador unificado de APIs que permite acceder a cientos de modelos de LLM (tanto propietarios como de código abierto) con optimización de costos y balances automáticos.
 *   **[Hugging Face](https://huggingface.co/)**: El hub de colaboración más grande del mundo para compartir y descubrir modelos de machine learning, conjuntos de datos (datasets) y aplicaciones interactivas (Spaces).
-*   **[Unsloth](https://unsloth.ai/)**: Un framework de optimización de código abierto que acelera el ajuste fino (fine-tuning) de LLMs locales (como Llama 3 o Mistral). Según cifras publicadas por el propio proveedor, reduce el consumo de RAM hasta en un 80% y multiplica la velocidad de entrenamiento hasta por 30x; son valores de marketing en configuraciones no especificadas y sin baseline público, no mediciones independientes.
+*   **[Unsloth](https://unsloth.ai/)**: Un framework de optimización de código abierto que acelera el ajuste fino (fine-tuning) de LLMs locales (como Llama 3 o Mistral). El README del proveedor declara entrenamiento "2× faster with 70% less VRAM" (cifra del proveedor, [unslothai/unsloth](https://github.com/unslothai/unsloth) consultado 2026-10-07), sin baseline público ni mediciones independientes.
 
 ---
 

@@ -6,7 +6,7 @@ created: 2026-10-07
 
 # Relectura del Manifiesto Ágil
 
-HACS-ODLC no deroga el Manifiesto Ágil (2001): lo relee para equipos humano-agente. Lo que se rompe son **prácticas de métodos concretos** (sprints, story points y velocity de Scrum y XP), no los valores del paraguas ágil. Esta nota recorre los 4 valores y los 12 principios uno por uno y declara qué se mantiene, qué se intensifica, qué se reemplaza y qué se invierte.
+HACS-ODLC no deroga el Manifiesto Ágil (2001): lo relee para equipos humano-agente. Lo que se rompe son **prácticas de métodos concretos** (los sprints de Scrum; story points y velocity, prácticas nacidas en XP y muy usadas por equipos Scrum, ausentes de The Scrum Guide 2020), no los valores del paraguas ágil. Esta nota recorre los 4 valores y los 12 principios uno por uno y declara qué se mantiene, qué se intensifica, qué se reemplaza y qué se invierte.
 
 > [!note] Agile no es Scrum
 > Agile es la declaración de valores y principios. **Scrum**, **XP** y **Kanban** son métodos que cuelgan de ella y no comparten supuestos: Scrum trabaja en iteraciones de tiempo fijo; Kanban no tiene iteraciones (flujo continuo, límites de WIP, sistema pull); XP aporta prácticas técnicas (TDD, integración continua, pair programming, releases chicas). Criticar "Agile" por los sprints es criticar a Scrum. Detalle por método: [[Comparativa con metodologías existentes]].
@@ -45,14 +45,14 @@ Hipótesis de esta nota: **no se invierte del todo; se divide según qué se est
 |---|---|---|---|
 | 1 | Satisfacer al cliente con entregas tempranas y continuas de software valioso | Se mantiene | "Valioso" pasa a significar outcome validado ([[Fase 5 - Validation]]). |
 | 2 | Aceptar requisitos cambiantes, aun tarde | Se mantiene | El cambio cuesta menos; el límite es la capacidad humana de validar. |
-| 3 | Entregar seguido, de semanas a meses, mejor cuanto más corto | Se mantiene; la escala quedó vieja | La cadencia real es de horas o días. |
+| 3 | Entregar seguido, de semanas a meses, mejor cuanto más corto | Se mantiene; la escala quedó vieja | Hipótesis: con agentes la cadencia de entrega pasa a horas o días; se mide con el throughput de validaciones ([[Métricas operativas]]). |
 | 4 | Negocio y desarrollo trabajan juntos a diario | Se intensifica | La decisión de negocio es el nuevo cuello de botella. |
 | 5 | Proyectos alrededor de personas motivadas, con entorno y confianza | **Supuesto expuesto** | Ver [[#El humano que no es proactivo]]. Al agente no se le da confianza: se le da autonomía acotada ([[Gobernanza]]). |
 | 6 | La conversación cara a cara es la forma más eficiente de transmitir información | **Se invierte para agentes** | Para un agente lo más eficiente es contexto escrito y persistente ([[Memoria organizacional]]). Entre humanos sigue valiendo. |
 | 7 | El software funcionando es la medida principal del progreso | **Se reemplaza** | La medida es el outcome validado: *Objective Success Rate*, *Time To Outcome* ([[Métricas operativas]]). |
 | 8 | Ritmo sostenible para sponsors, desarrolladores y usuarios | Se mantiene, más en riesgo | Los agentes trabajan sin pausa y la carga de revisión cae sobre el humano: fatiga de gobernanza ([[Preguntas abiertas]]). |
 | 9 | Atención continua a la excelencia técnica y al buen diseño | Se intensifica | Contra el código inflado que los agentes producen estructuralmente ([[Software bloated]]). |
-| 10 | Simplicidad: maximizar el trabajo no hecho | **Pasa a ser central** | Con costo marginal cero, no hacer es la disciplina difícil ([[Más código no es más velocidad]]). |
+| 10 | Simplicidad: maximizar el trabajo no hecho | **Pasa a ser central** | Con costo marginal bajo y decreciente, no hacer es la disciplina difícil ([[Más código no es más velocidad]]). |
 | 11 | Las mejores arquitecturas emergen de equipos autoorganizados | Se mantiene para humanos; condicional para agentes | La autoorganización de agentes está acotada por la matriz de gobernanza; el Nivel 5 del [[Modelo de madurez AI-Native]] es su extremo. |
 | 12 | El equipo reflexiona a intervalos regulares y ajusta | Se mantiene | Es la [[Fase 6 - Learning]]; la diferencia es que aprende el sistema, no solo las personas. |
 
@@ -71,12 +71,12 @@ El principio 5 asume personas motivadas. HACS hereda ese supuesto sin declararlo
   - la [[Fase 6 - Learning]] se saltea, como hoy se saltean las retros.
 - **Scrum ya compensaba esto sin decirlo.** El sprint, el compromiso de sprint y la daily externalizan la disciplina: la estructura empuja cuando la persona no lo hace. Kanban depende de que alguien tire del trabajo (pull). ODLC saca los sprints y hasta ahora no ponía nada en su lugar.
 
-**Principio de diseño que se deriva:** ODLC se diseña para el humano de mínimo esfuerzo; el camino barato tiene que ser el correcto. Ejemplos:
+**Principio de diseño que se deriva (propuesta):** ODLC se diseña para el humano de mínimo esfuerzo; el camino barato tiene que ser el correcto. Las compuertas siguientes son **propuestas de esta nota**: hoy no figuran como reglas en [[Fase 1 - Objective]] ni en [[Fase 6 - Learning]].
 
-- La plantilla de objetivo no permite arrancar sin métrica de éxito y dueño ([[Fase 1 - Objective]]).
-- La validación no se aprueba sin evidencia adjunta ([[Fase 5 - Validation]]).
-- El agente propone, pero el humano escribe la métrica: aceptar con un "ok" no cuenta como decisión.
-- El cierre de ciclo no se registra sin la entrada de aprendizaje ([[Fase 6 - Learning]]).
+- Propuesta: la plantilla de objetivo no permite arrancar sin métrica de éxito y dueño. Hoy [[Fase 1 - Objective]] pide ambos en sus reglas, pero nada bloquea el arranque si faltan.
+- Propuesta: la validación no se aprueba sin evidencia adjunta. [[Fase 5 - Validation]] ya exige citar datos auditables (*Evidence over Opinions*).
+- Propuesta: el agente propone, pero el humano escribe la métrica; aceptar con un "ok" no cuenta como decisión.
+- Propuesta: el cierre de ciclo no se registra sin la entrada de aprendizaje. Hoy [[Fase 6 - Learning]] no tiene esa compuerta.
 
 Esto es hipótesis, no práctica validada. Cómo medir si funciona queda en [[Preguntas abiertas]].
 

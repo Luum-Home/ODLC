@@ -22,13 +22,13 @@ Cuando los agentes abaratan la ejecución, el cuello de botella se desplaza. El 
 1. **Comprensión del problema** — entender qué hay que resolver antes de resolver nada.
 2. **Toma de decisiones** — elegir entre alternativas con tradeoffs, con evidencia incompleta.
 3. **Alineación organizacional** — que todos (humanos y agentes) empujen hacia el mismo objetivo.
-4. **Fragmentación del contexto** — el conocimiento vive disperso en cabezas, chats, tickets y docs desactualizados.
+4. **Fragmentación del contexto y pérdida de memoria** — el conocimiento vive disperso en cabezas, chats, tickets y docs desactualizados.
 5. **Validación** — confirmar que el resultado logró el objetivo, no solo que el código compila.
 
 ## Observaciones
 
 - Cada uno de estos cuellos mapea a un componente de [[HACS]]: comprensión del problema → [[Fase 1 - Objective]] + [[Roles humanos]] (rol Product); contexto/memoria → [[Memoria organizacional]]; decisión → [[Roles humanos]] + [[Gobernanza]]; validación → [[Fase 5 - Validation]]; alineación → [[Fase 1 - Objective]].
-- El foco pasa de "líneas de código generadas" a "tiempo desde la idea hasta el valor en producción" → [[Más código no es más velocidad]].
+- El foco pasa de "líneas de código generadas" a "tiempo desde la definición del objetivo hasta la validación del outcome" (Time To Outcome, [[Métricas operativas]]) → [[Más código no es más velocidad]].
 
 ## Preguntas abiertas
 

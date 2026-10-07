@@ -63,7 +63,7 @@ El autor describe tres caminos arquitectónicos para construir la interfaz del A
 
 ### Opción A: Claude Live Artifacts (Artefactos en Vivo)
 * **Ventajas**: Rápido de configurar, no requiere conocimientos técnicos de código, y se ejecuta directamente en la interfaz web de Claude.
-* **Desventajas**: Carece de una capa de acción real (no puede gatillar tareas locales o interactuar dinámicamente con software), no es compartible en equipo y tiene limitaciones de personalización de UI.
+* **Desventajas**: Según el video, carece de una capa de acción real (no puede gatillar tareas locales o interactuar dinámicamente con software), no es compartible en equipo y tiene limitaciones de personalización de UI.
 * **Recomendación**: Ideal para usuarios individuales que inician y solo buscan una visualización interactiva de datos estructurados.
 
 ### Opción B: Dashboard en Obsidian (Recomendado para uso personal/local)
@@ -81,7 +81,7 @@ El autor describe tres caminos arquitectónicos para construir la interfaz del A
 ## 5. El Enfoque HACS-ODLC (MVP de Interfaz)
 
 El video propone una metodología alineada al quinto valor del [[Manifiesto HACS-ODLC|Gobernanza Humana]] y con [[Fase 6 - Learning|la Fase 6 del ciclo ODLC (Learning)]], donde el aprendizaje e iteración continua son características propias de esa fase, no valores del manifiesto:
-- **Primero la Visualización (80% del valor)**: No intentes construir el sistema de automatización total el primer día. Empieza diseñando la capa de interfaz para leer y digerir información relevante de tu día.
+- **Primero la Visualización (según el video, 80% del valor)**: No intentes construir el sistema de automatización total el primer día. Empieza diseñando la capa de interfaz para leer y digerir información relevante de tu día.
 - **Incorporación de Acciones según Fricción**: Solo agrega botones de ejecución agéntica una vez que identifiques tareas repetitivas y molestas en tu día a día.
 
 ---

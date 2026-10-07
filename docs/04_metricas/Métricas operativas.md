@@ -6,7 +6,7 @@ created: 2026-06-10
 
 # Métricas operativas
 
-Las **métricas operativas** en [[ODLC]] evalúan la efectividad general del ciclo de vida de desarrollo de software desde una perspectiva de negocio y eficiencia de entrega. A diferencia de las métricas de esfuerzo de Scrum y XP (como la velocidad del Sprint en Story Points o las horas trabajadas), y más cerca de las métricas de flujo de Kanban (lead time, cycle time, throughput), las métricas operativas de ODLC se centran en el valor entregado y en la capacidad de aprendizaje continuo del sistema [[HACS]].
+Las **métricas operativas** en [[ODLC]] evalúan la efectividad general del ciclo de vida de desarrollo de software desde una perspectiva de negocio y eficiencia de entrega. A diferencia de las métricas de esfuerzo habituales en equipos Scrum y XP (velocity y story points, nacidas en XP y no prescriptas por The Scrum Guide 2020), y más cerca de las métricas de flujo de Kanban (WIP, throughput, Work Item Age y cycle time, según The Kanban Guide), las métricas operativas de ODLC se centran en el valor entregado y en la capacidad de aprendizaje continuo del sistema [[HACS]].
 
 ## 1. Objective Success Rate (OSR)
 
@@ -28,8 +28,9 @@ El **Tiempo hasta el Resultado** mide el tiempo total transcurrido desde la form
 $$TTO = T_{\text{validación del outcome}} - T_{\text{definición del objetivo}}$$
 
 ### Diferencia con Lead Time / Cycle Time
-- El *Cycle Time* tradicional mide desde que se empieza a codificar una tarea hasta que se despliega.
-- El *TTO* incluye la investigación estratégica inicial ([[Fase 3 - Strategy]]), la ejecución de desarrollo e infraestructura ([[Fase 4 - Execution]]) y, fundamentalmente, el tiempo en producción necesario para recolectar la evidencia de validación de negocio.
+- *Cycle Time* (The Kanban Guide, 2025): tiempo entre que un work item empieza y termina, con los puntos fijados en la Definition of Workflow.
+- *Lead Time* no figura en The Kanban Guide; en el Kanban Method de Anderson va de compromiso a entrega, y en DORA (Lead Time for Changes) de commit a producción.
+- El *TTO* se diferencia de los tres en que termina en la validación del outcome, no en la entrega: incluye la investigación estratégica inicial ([[Fase 3 - Strategy]]), la ejecución de desarrollo e infraestructura ([[Fase 4 - Execution]]) y, fundamentalmente, el tiempo en producción necesario para recolectar la evidencia de validación de negocio.
 
 ---
 

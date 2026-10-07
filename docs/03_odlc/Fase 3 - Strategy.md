@@ -25,6 +25,9 @@ strategy:
       # ...
   elegida: ""
   justificacion: ""      # por qué esta y por qué no las otras — esto va a Memoria
+  referencias_memoria: [] # ≥1 ADR/postmortem aplicable; vacío solo con motivo
+  aprobada_por: ""       # Architect humano
+  fecha_aprobacion: ""
 ```
 
 ## Reglas
@@ -37,4 +40,4 @@ strategy:
 ## Preguntas abiertas
 
 - ¿Cuándo amerita un *spike* de ejecución exploratoria antes de elegir? ¿Cómo se acota?
-- Decision Lead Time se mide de fin de Constraints a estrategia elegida: ver [[Métricas organizacionales#3. Decision Lead Time (DLT)]].
+- Decision Lead Time se mide desde la aprobación de las constraints hasta la aprobación formal de la estrategia: ver [[Métricas organizacionales#3. Decision Lead Time (DLT)]].
