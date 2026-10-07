@@ -39,13 +39,13 @@ Es equivalente a pasar de encender una bombilla a poner en marcha una fábrica e
 
 ## 3. El Peaje Lingüístico del Español
 
-Las IA no usan los mismos tokens en español que en inglés para expresar la misma idea. La consultora **Sngular** ha medido que un mismo párrafo técnico consume **62 tokens en español** frente a **39 tokens en inglés**, un **58,9% más de consumo** ([Sngular, "Why Speak to LLMs in English?"](https://www.sngular.com/insights/415/why-speak-to-llms-in-english-the-technical-reality-behind-ais-most-repeated-advice)). Esto significa que:
+Las IA no usan los mismos tokens en español que en inglés para expresar la misma idea. En el ejemplo de la consultora **Sngular**, un párrafo técnico tokenizado con GPT-4o pasó de **39 tokens en inglés** a **62 tokens en español** (**+58,9%**; n=1) ([Sngular, "Why Speak to LLMs in English?"](https://www.sngular.com/insights/415/why-speak-to-llms-in-english-the-technical-reality-behind-ais-most-repeated-advice)). Esto significa que:
 
 - Los usuarios hispanohablantes con planes gratuitos alcanzan sus límites antes.
 - En planes con tope de tokens, el límite llega antes hablando en español.
 - Cuando hay escasez de capacidad, los hispanohablantes lo notan primero y con más intensidad.
 
-> **Implicación:** El español paga un peaje estructural en la economía de tokens, creando una desventaja sistémica para 500 millones de hispanohablantes.
+> **Implicación:** El español paga un peaje en la economía de tokens, lo que pone en desventaja a los usuarios hispanohablantes.
 
 ---
 
@@ -54,7 +54,7 @@ Las IA no usan los mismos tokens en español que en inglés para expresar la mis
 La API de Claude ha registrado un **98,95% de uptime** durante algunas fases del año, acumulando casi **24 horas de cortes**. Marzo de 2026 fue el peor mes con **13 horas de caída** en un solo mes (el estándar del sector exige 99,99%, los "cuatro nueves"). *Estas tres cifras salen del video y no se localizó fuente pública que las respalde: la [página de estado de Anthropic](https://status.claude.com/) publica uptime a 90 días móviles, no un histórico mensual. Tratarlas como no verificadas.* Medidas concretas de Anthropic:
 
 - **Racionamiento en horas pico**: límites de tokens impuestos entre las 5 y 11 AM Pacific (1 a 7 PM en España).
-- **Mayor consumo por modelo**: Claude 4.7 consume un **46% más de tokens** que su predecesor por el mismo texto, reflejando el costo del razonamiento extendido.
+- **Mayor consumo por modelo**: Claude Opus 4.7 usa un tokenizer nuevo que mapea el mismo texto a ~1.0–1.35× tokens según el contenido, y además piensa más en niveles de esfuerzo altos, lo que produce más tokens de salida ([Anthropic](https://www.anthropic.com/news/claude-opus-4-7)); el 46% del video no coincide con la fuente.
 - **Expansión de infraestructura**: Dario Amodei negoció con Elon Musk para albergar a Anthropic en Colossus, el centro de datos de xAI en Memphis.
 
 ---
@@ -104,7 +104,7 @@ La tendencia apunta hacia **suscripciones más elevadas** para usuarios intensiv
 La crisis de capacidad está creando una **IA de dos velocidades**: quienes más paguen tendrán acceso a más inteligencia, mejor rendimiento y mayor disponibilidad. Esto genera un bucle de desigualdad:
 
 - El bien escaso ya no es la tierra ni el capital, es la **inteligencia**.
-- Los hispanohablantes parten con un **hándicap estructural** (peaje lingüístico del 58,9%).
+- Los hispanohablantes parten con un **hándicap** (peaje lingüístico: un párrafo técnico tokenizado con GPT-4o pasó de 39 a 62 tokens, +58,9%; n=1, Sngular).
 - Las organizaciones con presupuesto limitado quedan relegadas a modelos degradados o racionados.
 
 ---
@@ -125,11 +125,11 @@ Sin embargo, la tendencia dominante del mercado va en sentido contrario: concent
 
 Esta crisis de capacidad tiene implicaciones directas para el diseño de sistemas cognitivos humano-agente:
 
-- **Diversificación de proveedores**: un Cognitive OS debe ser agnóstico al modelo y capaz de alternar entre proveedores según disponibilidad y costo ([[Análisis - Harness Engineering y la Paradoja de Herramientas]] demuestra que es posible con arneses bien diseñados).
-- **Gestión eficiente de tokens**: la orquestación multi-agente con contextos destilados (no heredar el chat completo) y el límite del 40% de ventana de contexto son mecanismos de defensa directos contra la escasez.
+- **Diversificación de proveedores**: un Cognitive OS debe ser agnóstico al modelo y capaz de alternar entre proveedores según disponibilidad y costo ([[Análisis - Harness Engineering y la Paradoja de Herramientas]]: Harness Engineering lo plantea como objetivo de diseño).
+- **Gestión eficiente de tokens**: la orquestación multi-agente con contextos destilados (no heredar el chat completo) y el límite del 40% de ventana de contexto (el umbral del 40% es del video y está sin verificar) son mecanismos de defensa directos contra la escasez.
 - **Presupuesto de tokens como métrica de gobernanza**: los roles de gobernanza HACS deben contemplar el costo de tokens como restricción operativa, no solo la calidad de output.
 - **Memoria externa como amortiguador**: persistir conocimiento en la [[Memoria organizacional]] reduce la dependencia de re-procesar contexto costoso en cada sesión.
-- **Evaluación del peaje lingüístico**: para equipos hispanohablantes, las métricas de Agent Cost deben considerar el sobrecosto estructural del idioma.
+- **Evaluación del peaje lingüístico**: para equipos hispanohablantes, las métricas de Agent Cost deben considerar el sobrecosto del idioma.
 
 ---
 Relacionado: [[Cognitive OS - Arquitectura de referencia]] · [[Gobernanza]] · [[Recursos externos]] · [[Análisis - Harness Engineering y la Paradoja de Herramientas]] · [[Métricas de agentes]] · [[Memoria organizacional]] · [[Síntesis - Economía de tokens]] · [[Análisis - La Cultura del Token]] · [[Análisis - Token Economics y las 5 Predicciones del Caos]]

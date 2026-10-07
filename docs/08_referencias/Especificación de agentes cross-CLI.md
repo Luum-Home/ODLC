@@ -6,7 +6,7 @@ created: 2026-06-10
 
 # Especificación de agentes cross-CLI
 
-La **Especificación de agentes cross-CLI** es una especificación técnica de arquitectura lógica para el diseño, comportamiento, personalidad e interoperabilidad de agentes autónomos de software. Este estándar resuelve la fragmentación de herramientas del ecosistema mediante una estructura de archivos desacoplada y un patrón de carga de contexto universal.
+La **Especificación de agentes cross-CLI** es un patrón propuesto por este vault (no un estándar de la industria) para el diseño, comportamiento, personalidad e interoperabilidad de agentes autónomos de software. Busca reducir la fragmentación de herramientas del ecosistema mediante una estructura de archivos desacoplada y un patrón de carga de contexto común.
 
 > [!warning] Estado de verificación
 > Verificado al 2026-06-11: esta especificación es un **patrón HACS-ODLC vendor-neutral**, no una funcionalidad oficial de Claude Cowork. Claude Code documenta subagentes en `.claude/agents/`; OpenClaw documenta el uso de `AGENTS.md`, `SOUL.md`, `USER.md` y memoria. La carpeta `.agent/` de este documento es una capa de normalización propuesta por el vault para evitar duplicación entre herramientas.
@@ -32,7 +32,7 @@ Actualmente, las herramientas de desarrollo potenciadas por IA y los CLI de agen
 
 *⚠️ Rutas no verificadas (2026-07-28): no se encontró documentación oficial ni código que confirme que Odysseus lea `.odysseus/instructions.md` ni que Pi.dev lea `.pi/instructions.md`. Se dejan en la tabla como conjetura a confirmar, no como comportamiento documentado — el soporte de `AGENTS.md` en ambas herramientas es lo único que corresponde dar por válido hasta contrastarlas contra su documentación.*
 
-*Nota histórica (✅ verificado 2026-06-10 contra el [anuncio oficial de Cognition](https://devin.ai/blog/windsurf-is-now-devin-desktop/)): el 2 de junio de 2026, tras la adquisición de Windsurf por parte de Cognition (creadores de Devin), la aplicación Windsurf fue renombrada a **Devin Desktop** vía actualización over-the-air. El antiguo asistente "Cascade" fue reemplazado por **Devin Local**, un motor reescrito en Rust hasta un 30% más eficiente en tokens, con soporte de subagentes y del protocolo abierto ACP.*
+*Nota histórica (✅ verificado 2026-06-10 contra el [anuncio oficial de Cognition](https://devin.ai/blog/windsurf-is-now-devin-desktop/)): el 2 de junio de 2026, tras la adquisición de Windsurf por parte de Cognition (creadores de Devin), la aplicación Windsurf fue renombrada a **Devin Desktop** vía actualización over-the-air. El antiguo asistente "Cascade" fue reemplazado por **Devin Local**, un motor reescrito en Rust hasta un 30% más eficiente en tokens (cifra declarada por el proveedor, sin baseline público), con soporte de subagentes y del protocolo abierto ACP.*
 
 Intentar mantener y sincronizar manualmente instrucciones de desarrollo, personalidad y gobernanza en múltiples archivos distintos viola el principio de diseño de software **DRY** (Don't Repeat Yourself), provocando "prompt rot" (instrucciones contradictorias e inconsistentes).
 
@@ -184,11 +184,11 @@ Al modularizar y redactar las instrucciones dentro de `.agent/`, aplicamos los s
 ### A. DRY Prompting (Evitar la Repetición de Instrucciones)
 - **Principio**: *Don't Repeat Yourself* (No te repitas) en prompts.
 - **Fundamento**: Duplicar reglas de comportamiento genera contradicciones y desactualización.
-- **Aplicación**: Cada directiva debe tener una única ubicación. Para enlazar conceptos de comportamiento, usar wikilinks (como a [[Gobernanza]] o [[Roles de agentes]]) o citar la ruta unificada (ej. `.agent/voice.md`) en lugar de copiar y pegar directivas.
+- **Aplicación**: Cada directiva debe tener una única ubicación. Para enlazar conceptos de comportamiento, usar wikilinks (como a [[Gobernanza]] o [[Roles de agentes]]) o citar la ruta unificada (ej. `.agent/VOICE.md`) en lugar de copiar y pegar directivas.
 
 ### B. Evitar los Viajes al Codebase (Avoiding Codebase Trips)
 - **Principio**: Minimizar el escaneo de directorios por parte del agente para entender convenciones básicas.
-- **Fundamento**: Si el agente debe realizar múltiples llamadas a herramientas de búsqueda (`grep`, `list_dir`, `find`) solo para saber cómo correr los tests del proyecto o dónde ubicar un archivo de configuración, se consume un volumen excesivo de tokens y aumenta la latencia operativa del sistema de manera exponencial.
+- **Fundamento**: Si el agente debe realizar múltiples llamadas a herramientas de búsqueda (`grep`, `list_dir`, `find`) solo para saber cómo correr los tests del proyecto o dónde ubicar un archivo de configuración, se consume un volumen excesivo de tokens y aumenta la latencia operativa del sistema en proporción al número de llamadas.
 - **Aplicación**: `INSTRUCTIONS.md` debe "gritar" de forma clara la estructura del proyecto y los comandos mágicos de desarrollo, actuando como un índice cognitivo estático.
 
 ### C. KISS y "Screaming Prompts" (Screaming Architecture en Prompts)
@@ -215,15 +215,15 @@ Al modularizar y redactar las instrucciones dentro de `.agent/`, aplicamos los s
 4.  **Devin Desktop Rebranding Announcement (Cognition AI)**: Lanzamiento de Devin Desktop integrando la tecnología de Windsurf y el nuevo motor Devin Local en Rust.
     -   *Enlace*: [Windsurf is now Devin Desktop (Cognition)](https://devin.ai/blog/windsurf-is-now-devin-desktop/) (verificado 2026-06-10)
 5.  **Odysseus Project**: Workspace de IA local y local-first que permite el despliegue autónomo de agentes con acceso a herramientas locales de sistema de archivos y terminal.
-    -   *Enlace*: [Odysseus Repository on GitHub](https://github.com/pewdiepie-archdaemon/odysseus) (verificado 2026-06-11)
+    -   *Enlace*: [Odysseus Repository on GitHub](https://github.com/odysseus-dev/odysseus) (licencia AGPL-3.0; el repo se movió desde `pewdiepie-archdaemon/odysseus`, verificado 2026-10-07 con `curl -s https://api.github.com/repos/odysseus-dev/odysseus`)
 6.  **Clean Architecture (Robert C. Martin)**: Principio de diseño de software sobre el reflejo del propósito de la aplicación en la estructura de archivos.
     -   *Enlace/Referencia*: Robert C. Martin, *Clean Architecture: A Craftsman's Guide to Software Structure and Design* (Prentice Hall, 2017).
 7.  **"Lost in the Middle: How Language Models Use Long Contexts" (Liu et al., 2023)**: Paper académico que demuestra empíricamente cómo los LLMs pierden precisión de recuperación cuando los prompts son extensos o la información clave se ubica en el centro de ventanas de contexto saturadas.
     -   *Enlace*: [arXiv:2307.03172](https://arxiv.org/abs/2307.03172)
 8.  **DRY Prompts & Prompt Composition**: Análisis y mejores prácticas de ingeniería de software aplicadas a prompts mediante plantillas modulares.
-    -   *Enlace*: [DRY Prompts and Modular Agentic Design](https://neon.com/blog/dry-prompts-modular-agentic-design)
+    -   *Enlace*: [DRY Prompts and Modular Agentic Design](https://neon.com/blog/dry-prompts-modular-agentic-design) (enlace caído, 404 al 2026-10-07)
 9.  **AGENTS.md Community Standard**: Iniciativa de código abierto para estandarizar archivos de instrucciones unificados para agentes de IA en repositorios de código.
-    -   *Enlace*: [AGENTS.md Specification and Usage](https://github.com/openai/agents.md) (repositorio canónico verificado 2026-07-28; la URL previa `github.com/agents-md/agents.md` devuelve 404)
+    -   *Enlace*: [AGENTS.md Specification and Usage](https://github.com/agentsmd/agents.md) (repositorio canónico verificado 2026-10-07: `github.com/openai/agents.md` redirige ahí; la URL previa `github.com/agents-md/agents.md` devuelve 404)
 
 ---
 Relacionado: [[Recursos externos]] · [[Roles de agentes]] · [[Gobernanza]] · [[Cognitive OS - Arquitectura de referencia]]

@@ -22,7 +22,7 @@ Componente de [[HACS]] que define **seguridad, compliance, auditoría, costos y 
 
 La matriz **no es fija**: se relaja a medida que sube el nivel de [[Modelo de madurez AI-Native]] y la confianza acumulada (evidencia en [[Memoria organizacional]] de tasas de acierto del agente — [[Métricas de agentes]]).
 
-**Regla de suspensión:** si el *Rework Rate* de un agente supera el 40% durante tres objetivos consecutivos, el agente debe ser suspendido y su sistema de prompts o recuperación de memoria auditado (Decisión D1 en [[Métricas de agentes]]).
+**Regla de suspensión:** si el *Rework Rate* de un agente supera el 40% durante tres objetivos consecutivos, el agente debe ser suspendido y su sistema de prompts o recuperación de memoria auditado (Decisión D1 en [[Métricas de agentes]]). Regla provisoria: inaplicable hasta instrumentar el Rework Rate ([[Métricas de agentes#Instrumentación pendiente]]); umbral heurístico sin calibrar.
 
 ## Implementación de referencia
 
@@ -46,4 +46,4 @@ Ver: [[Patrones de loops agénticos para repositorios#2. Process-as-code para ag
 ## Preguntas abiertas
 
 - ¿Cómo se audita una *cadena* de decisiones entre agentes (Planner → Builder → Reviewer) cuando el error emerge de la composición?
-- ¿Qué marcos regulatorios aplican (EU AI Act, SOC 2) y cómo mapean a esta matriz? → alimenta [[Riesgos]]
+- ¿Qué regulaciones (EU AI Act) y marcos de atestación (SOC 2, ISO/IEC 42001) aplican y cómo mapean a esta matriz? → alimenta [[Riesgos]]

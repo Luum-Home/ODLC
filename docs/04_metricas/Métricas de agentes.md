@@ -18,7 +18,7 @@ Miden la proporción de tareas del ciclo de vida completadas por agentes frente 
 
 - **HLR (Tasa de Apalancamiento Humano)**: Mide el volumen de resultados de negocio validados que un humano es capaz de coordinar y gobernar por unidad de tiempo.
   
-  $$HLR = \frac{\text{Objetivos cumplidos (OSR)}}{\text{Horas de intervención humana}}$$
+  $$HLR = \frac{\text{Nº de objetivos validados con éxito (numerador de la OSR)}}{\text{Horas de intervención humana, en la misma ventana}}$$
 
 Un HLR alto indica que los humanos se dedican a definir objetivos, evaluar estrategias y gobernar, delegando la ejecución repetitiva en los agentes.
 
@@ -33,7 +33,7 @@ $$\text{Rework Rate} = \frac{\text{Artefactos de agentes rechazados o modificado
 ### Rangos de Referencia:
 
 > [!warning] Umbrales sin base empírica
-> Los tres valores de abajo (10%, 30%, 40%) son una **heurística inicial**, no un resultado medido: no provienen de un estudio, un benchmark ni de datos históricos del equipo. Se documentan como punto de partida para poder discutirlos, y quedan **pendientes de calibrar** contra retrabajo real una vez que la métrica se instrumente. El caso más delicado es el 40%: dispara una regla ejecutable (suspender un agente, D1) y se replica en [[Gobernanza]] y en [[Requisitos funcionales y no funcionales]], de modo que recalibrarlo obliga a actualizar los tres lugares.
+> Los tres valores de abajo (10%, 30%, 40%) son una **heurística inicial**, no un resultado medido: no provienen de un estudio, un benchmark ni de datos históricos del equipo. Se documentan como punto de partida para poder discutirlos, y quedan **pendientes de calibrar** contra retrabajo real una vez que la métrica se instrumente. El caso más delicado es el 40%: dispara una regla ejecutable (suspender un agente, D1) y se replica en [[Gobernanza]], de modo que recalibrarlo obliga a actualizar los dos lugares.
 
 - **Precisión Óptima (Rework < 10%)**: El agente opera de forma fluida. Sus decisiones están bien alineadas con las [[Fase 2 - Constraints]] y la [[Memoria organizacional]].
 - **Señal de degradación (Rework > 30%)**: Los humanos actúan constantemente como correctores detallados de código o diseño. Indica desalineación de contexto o limitaciones del modelo LLM. Acción: revisar el arnés y el contexto del agente.
@@ -45,7 +45,7 @@ En trabajos de frontend, el *Rework Rate* debe incluir defectos perceptuales aun
 
 ## 3. Agent Cost (Costo y Eficiencia de Agentes)
 
-Evalúa la eficiencia financiera del uso de agentes en comparación con el costo de horas de ingeniería humana equivalentes.
+Evalúa la eficiencia financiera del uso de agentes.
 
 $$\text{Costo por Objetivo} = \text{Costo de APIs de LLMs} + \text{Cómputo en Sandbox} + \text{Almacenamiento de Memoria}$$
 

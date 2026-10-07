@@ -6,7 +6,7 @@ created: 2026-06-10
 
 # Nuevos Roles Profesionales en la Era de IA
 
-La transición de las organizaciones tradicionales hacia modelos operativos nativos en IA (AI-Native) ha catalizado la aparición de **nuevos puestos de trabajo y roles profesionales**. Estos roles no solo reemplazan funciones del pasado, sino que definen nuevas especializaciones necesarias para coordinar la estrategia, el desarrollo y la gobernanza de sistemas humano-agente.
+La transición de las organizaciones tradicionales hacia modelos operativos nativos en IA (AI-Native) viene acompañada de la aparición de **nuevos puestos de trabajo y roles profesionales**. Estos roles no solo reemplazan funciones del pasado, sino que definen nuevas especializaciones necesarias para coordinar la estrategia, el desarrollo y la gobernanza de sistemas humano-agente.
 
 Este documento cataloga y analiza estas nuevas posiciones de la industria y describe su alineación con el modelo organizacional de referencia [[HACS]].
 
@@ -15,7 +15,7 @@ Este documento cataloga y analiza estas nuevas posiciones de la industria y desc
 ## 1. Liderazgo Ejecutivo y Estrategia
 
 ### Chief AI Officer (CAIO)
-El **Director de Inteligencia Artificial (CAIO)** es un rol de nivel C-suite de rápido crecimiento. A diferencia del CIO o CTO tradicionales, cuya atención se distribuye en infraestructura tecnológica general, el CAIO se enfoca exclusivamente en la integración estratégica de la IA en toda la empresa.
+El **Director de Inteligencia Artificial (CAIO)** es un rol emergente de nivel C-suite. A diferencia del CIO o CTO tradicionales, cuya atención se distribuye en infraestructura tecnológica general, el CAIO se enfoca exclusivamente en la integración estratégica de la IA en toda la empresa.
 
 *   **Responsabilidades Clave:**
     - **Visión y Estrategia**: Definir los objetivos de negocio impulsados por la IA, seleccionando casos de uso con alto retorno de inversión (ROI) y escalándolos de manera corporativa.
@@ -88,7 +88,7 @@ El modelo organizacional **HACS** (Human-Agent Collaborative Systems) clasifica 
 |---|---|---|
 | **Sponsor (Humano)** | Chief AI Officer (CAIO) | Define la visión estratégica, aprueba el presupuesto de cómputo y establece los límites de autonomía de la malla de gobernanza corporativa. |
 | **Product (Humano)** | AI Product Manager | Diseña los objetivos de negocio y traduce las restricciones del cliente a directrices que consumen los agentes y herramientas. |
-| **Architect (Humano)** | AI Engineer / Context Engineer / Memory Engineer | Diseña e implementa el hardware cognitivo, los arneses de software local, los pipelines de RAG y las bases de datos de memoria persistente. |
+| **Architect (Humano)** | AI Engineer / Context Engineer / Memory Engineer | Define y aprueba el diseño del hardware cognitivo, los arneses de software local, los pipelines de RAG y las bases de datos de memoria persistente. |
 | **Operator (Humano)** | AI Integration Specialist / Prompt Engineer | Interactúa con los agentes en el día a día, aprueba sus propuestas a través de gateways de diff, ajusta prompts finos y monitorea ejecuciones. |
 
 > [!IMPORTANT]

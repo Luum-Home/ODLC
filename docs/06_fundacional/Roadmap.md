@@ -17,7 +17,7 @@ Este **Roadmap** define los hitos de maduración y despliegue del ecosistema **H
 - **Entregables**: Captura inicial de ideas (notas de la conversación fundacional sobre AI SDLC).
 
 ### v0.2 — Canvas y Estructuración (Completado)
-- **Hito**: Estructuración del Master Canvas de 20 páginas y formalización del ciclo de 6 fases de [[ODLC]] y los 4 componentes de [[HACS]].
+- **Hito**: Estructuración de los canvases fundacionales (`HACS_Canvas.pdf` y `ODLC_Canvas.pdf`, dos páginas cada uno) y formalización del ciclo de 6 fases de [[ODLC]] y los 4 componentes de [[HACS]].
 - **Entregables**: `HACS_Canvas.pdf` y `ODLC_Canvas.pdf`, de referencia histórica en `00_crudo/`.
 
 ### v0.3 — Whitepaper y Vault Vivo (En Progreso - Actual)

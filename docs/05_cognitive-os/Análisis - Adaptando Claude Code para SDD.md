@@ -69,14 +69,14 @@ Uno de los mayores aprendizajes del video es la **higiene de contexto**:
 En lugar de utilizar historias de usuario genéricas (que tienden a ser ambiguas), el video recomienda redactar los requisitos técnicos bajo la **Notación EARS**.
 EARS propone plantillas estrictas y condicionales para declarar requisitos:
 
-> **Fórmula EARS:**
-> *`[Gatillo/Condición] [Precondición] el sistema debe [Comportamiento esperado]`*
+> **Fórmula EARS** (orden canónico, Mavin et al., RE'09):
+> *`While <precondición>, when <gatillo>, the <sistema> shall <respuesta>`*
 >
 > **Ejemplo:**
 > *"Cuando el usuario ejecuta el comando `recent` sin pasar el parámetro `--limit`, el sistema debe imprimir un máximo de 5 notas en orden descendente."*
 
 ### Beneficio para la Validación
-La estructura de EARS es tan precisa que **cada requisito funcional se mapea de forma directa 1:1 a un test unitario**, eliminando ambigüedades en la fase de validación del *Reviewer*.
+Según el video, la estructura de EARS es tan precisa que **cada requisito funcional se mapea de forma directa 1:1 a un test unitario**, eliminando ambigüedades en la fase de validación del *Reviewer*.
 
 ---
 

@@ -12,16 +12,16 @@ En la ingeniería de software tradicional, todo proyecto se divide en:
 - **Requisitos funcionales (RF)**: qué debe hacer el sistema (features, casos de uso)
 - **Requisitos no funcionales (RNF)**: cómo debe hacerlo (performance, seguridad, escalabilidad, mantenibilidad, disponibilidad)
 
-En la ingeniería AI-Native (HACS + ODLC) esa distinción no desaparece, pero se reformula. Los agentes pueden ejecutar funcionalidades rápido, pero cumplir RNF requiere gobernanza: [[Fase 2 - Constraints]] es donde los RNF viven de forma natural, pero no hay un documento que lo formalice.
+En la ingeniería AI-Native (HACS + ODLC) esa distinción no desaparece, pero se reformula. Los agentes pueden ejecutar funcionalidades rápido, pero cumplir RNF requiere gobernanza: [[Fase 2 - Constraints]] es donde los RNF viven de forma natural.
 
 ## Traducción al modelo ODLC
 
 | Ingeniería tradicional | Modelo ODLC | Dónde vive |
 |---|---|---|
-| Requisitos funcionales | Objetivo + estrategia + evidencias | [[Fase 1 - Objective]], [[Fase 3 - Strategy]], [[Fase 5 - Validation]] |
+| Requisitos funcionales | Derivados de la estrategia elegida, trazables a la métrica del objetivo | [[Fase 3 - Strategy]], [[Fase 5 - Validation]] |
 | Requisitos no funcionales | Constraints + gobernanza + métricas | [[Fase 2 - Constraints]], [[Gobernanza]], [[Métricas operativas]] |
-| Historias de usuario | Especificaciones EARS + tests | [[Análisis - Adaptando Claude Code para SDD]] |
-| NFR de performance | Constraints `tecnologicos` | [[Fase 2 - Constraints]] |
+| Historias de usuario | Objetivo como unidad de trabajo ([[Glosario y taxonomía]]); especificaciones EARS como detalle de ejecución | [[Fase 1 - Objective]], [[Análisis - Adaptando Claude Code para SDD]] |
+| NFR de performance | Constraints `calidad` | [[Fase 2 - Constraints]] |
 | NFR de seguridad | Constraints `seguridad` + Safety Mesh | [[Fase 2 - Constraints]], [[Gobernanza]] |
 | NFR de disponibilidad | SLOs/SLIs (aún no formalizado) | TBD |
 | NFR de costo | Constraints `presupuesto` + Agent Cost | [[Fase 2 - Constraints]], [[Métricas de agentes]] |
@@ -38,7 +38,7 @@ requisitos_funcionales:
     trazabilidad: "[[Fase 1 - Objective]] - objetivo del ciclo"
 ```
 
-Los requisitos funcionales en ODLC son *objetivos medibles* validables en [[Fase 5 - Validation]]. Un RF sin métrica de validación es una aspiración, no un requisito.
+Los requisitos funcionales en ODLC deben ser trazables a la métrica del objetivo y validables en [[Fase 5 - Validation]]. Un RF sin métrica de validación es una aspiración, no un requisito.
 
 ## Plantilla — Requisitos no funcionales
 
@@ -48,7 +48,7 @@ requisitos_no_funcionales:
     categoria: performance
     descripcion: "El sistema debe responder en < 2 segundos al 95% de las consultas"
     medicion: "Latencia P95 en producción, medida con observabilidad"
-    constraint_vinculada: "[[Fase 2 - Constraints]] - tecnologicos"
+    constraint_vinculada: "[[Fase 2 - Constraints]] - calidad"
     tolerancia: "Hasta 5 segundos en escenarios de carga alta"
 
   - id: RNF-02
@@ -56,17 +56,17 @@ requisitos_no_funcionales:
     descripcion: "Toda llamada externa a proveedores LLM debe sanitizar PII"
     medicion: "Auditoría de logs y pruebas de filtración"
     constraint_vinculada: "[[Fase 2 - Constraints]] - seguridad + [[Gobernanza]]"
-    herramienta: "[[Gobernanza]] - PII Redaction en Safety Mesh"
+    herramienta: "PII Redaction, interceptor de [[Módulo 4 - Ciberseguridad aplicada]]; no es una de las 14 capas de la Safety Mesh"
 
   - id: RNF-03
     categoria: escalabilidad
     descripcion: "El sistema debe soportar 1000 usuarios concurrentes sin degradación"
     medicion: "Test de carga en staging"
-    constraint_vinculada: "[[Fase 2 - Constraints]] - tecnologicos"
+    constraint_vinculada: "[[Fase 2 - Constraints]] - calidad"
 
   - id: RNF-04
     categoria: disponibilidad
-    descripcion: "SLO del 99.9% de uptime (8.7 horas caídas/año)"
+    descripcion: "SLO del 99.9% de uptime (≈8,76 horas caídas/año)"
     medicion: "Observabilidad en producción"
     constraint_vinculada: A definir - TBD en [[Fase 2 - Constraints]]
     tolerancia: "99.5% mínimo"
@@ -75,7 +75,7 @@ requisitos_no_funcionales:
     categoria: mantenibilidad
     descripcion: "Cobertura de tests >= 80%, con tests de integración y E2E"
     medicion: "Pipeline CI/CD - métricas de cobertura"
-    constraint_vinculada: "[[Fase 2 - Constraints]] - tecnologicos"
+    constraint_vinculada: "[[Fase 2 - Constraints]] - calidad"
 
   - id: RNF-06
     categoria: costo
@@ -105,30 +105,30 @@ Adicional a los RNF clásicos, los sistemas cognitivos humano-agente requieren:
 - Kill switches para ejecución destructiva
 
 ### 4. Calidad de contexto
-- Ventana de contexto por debajo del 40% ([[Análisis - Harness Engineering y la Paradoja de Herramientas]])
+- Umbral de contexto a calibrar (el 40% proviene de un video y no está verificado, ver [[Análisis - Harness Engineering y la Paradoja de Herramientas]])
 - Métricas de ruido de contexto
 - Gobernanza de qué contexto se inyecta a qué agente
 
 ### 5. Reversibilidad
-- Toda acción del agente debe poder revertirse
+- Toda acción del agente es reversible o pasa antes por aprobación humana ([[Gobernanza]])
 - Snapshots automáticos antes de cambios destructivos
 - Feature flags para cambios de larga duración
 
 ### 6. Rework Rate
 - Medir retrabajo humano como % del trabajo del agente ([[Métricas de agentes]])
-- Umbral de tolerancia: < 10% es óptimo, > 30% es problema
+- Umbrales heurísticos sin calibrar: ver [[Métricas de agentes]]
 
 ## Reglas
 
 1. **Todo RNF necesita métrica medible.** Si un RNF no se puede medir, no es un requisito, es un deseo.
 2. **RNF vinculados a constraints.** Cada RNF debe referenciar una constraint de [[Fase 2 - Constraints]] o proponer una nueva.
 3. **RNF respetados por agentes.** Los agentes no pueden "negociar" RNF; si violan uno, escalan a humano.
-4. **Evolución documentada.** Los RNF se versionan con el objetivo. Relajar uno requiere decisión humana explícita.
+4. **Evolución documentada.** Los RNF son constraints y siguen la regla de versionado de [[Fase 2 - Constraints]].
 
 ## Integración con el ciclo ODLC
 
 ```
-[[Fase 1 - Objective]]: define QUÉ (requisitos funcionales + métrica de éxito)
+[[Fase 1 - Objective]]: define el outcome y su métrica; los requisitos funcionales se derivan en [[Fase 3 - Strategy]]
      ↓
 [[Fase 2 - Constraints]]: define CÓMO no se puede romper (RNF como constraints)
      ↓

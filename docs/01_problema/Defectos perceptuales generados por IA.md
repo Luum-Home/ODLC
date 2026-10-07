@@ -177,7 +177,7 @@ En trabajo generado por agentes, una UI no está validada hasta que exista evide
 5. interacción básica;
 6. responsive/mobile;
 7. foco/teclado/accesibilidad básica;
-8. ausencia de flickering o layout shift perceptible.
+8. ausencia de flickering perceptible y layout shift con CLS ≤ 0,1 (umbral "good" de Core Web Vitals, web.dev/cls).
 
 ## Preguntas abiertas
 

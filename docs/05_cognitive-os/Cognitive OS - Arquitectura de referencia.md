@@ -84,7 +84,7 @@ Ver: [[Patrones de loops agénticos para repositorios]].
 El motor [luum-cognitive-os](https://github.com/Luum-Home/luum-cognitive-os) es la implementación concreta de esta arquitectura de referencia, desarrollada en colaboración entre **Luum** y **OliveX**. 
 
 ### Correspondencia de Componentes:
-- **Kernel y Programador de Procesos**: Orquestado por el CLI nativo en Rust (`cos` CLI) que gobierna el ciclo de ejecución humano-agente.
+- **Kernel y Programador de Procesos**: según el README del repo, el kernel es `cognitive-os.yaml` + `hooks/_lib/` y el programador de procesos es la cadena de hooks. El CLI `cos` está escrito en Go (`cmd/cos`) y es una de las superficies de operación.
 - **Interfaz de Límites y Sandbox**: Implementado mediante ganchos (`PreToolUse` / `PostToolUse`) y scripts de control (`blast-radius.sh` para acotar escrituras y `claim-validator.sh` para forzar ejecución de tests).
 - **Bus de Memoria (Memory Bus)**: Integración con un sistema de memoria persistente para el guardado de grafos semánticos, decisiones (ADRs) e historial de incidentes.
 - **Base de Políticas (Rules & Governance)**: Ficheros de políticas declarados en la carpeta `policies/` y reglas del repositorio local distribuidas en `rules/`.

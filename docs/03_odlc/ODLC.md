@@ -27,15 +27,15 @@ Objective → Constraints → Strategy → Execution → Validation → Learning
 
 ## Diferencias con SDLC y Scrum
 
-La comparación es contra SDLC y Scrum porque son el punto de partida más común. Kanban ya no tiene sprints y mide flujo, así que está más cerca de ODLC en cadencia; la diferencia que se mantiene es la unidad de trabajo (tarjeta vs. objetivo) y el criterio de cierre. Los valores del Manifiesto Ágil no se reemplazan: ver [[Relectura del Manifiesto Ágil]].
+La comparación es contra SDLC y Scrum porque son el punto de partida más común. Kanban no usa iteraciones de tiempo fijo y gestiona el flujo de work items, así que está más cerca de ODLC en cadencia; la diferencia que se mantiene es la unidad de trabajo (work item vs. objetivo) y el criterio de cierre (Done del workflow vs. outcome validado). Los valores del Manifiesto Ágil no se reemplazan: ver [[Relectura del Manifiesto Ágil]].
 
-| | SDLC / Scrum | ODLC |
-|---|---|---|
-| Unidad de trabajo | Requerimiento, historia, ticket | **Objetivo medible** |
-| Ejecutor | Humanos | Humanos + agentes ([[Unidad organizacional]]) |
-| Éxito | Entregado / sprint completado | **Outcome validado con evidencia** |
-| Conocimiento | Documentación estática | **Memoria viva** ([[Memoria organizacional]]) |
-| Cierre del ciclo | Release / retro | **Learning que alimenta el próximo objetivo** |
+| | SDLC | Scrum (The Scrum Guide 2020) | ODLC |
+|---|---|---|---|
+| Unidad de trabajo | Requerimiento, ticket | Product Backlog Item, orientado a un Sprint Goal / Product Goal | **Objetivo medible** |
+| Ejecutor | Humanos | Humanos (Scrum Team) | Humanos + agentes ([[Unidad organizacional]]) |
+| Éxito | Entregado | Increment que cumple la Definition of Done y avanza el Sprint Goal | **Outcome validado con evidencia** |
+| Conocimiento | Documentación estática | No lo define la guía | **Memoria viva** ([[Memoria organizacional]]) |
+| Cierre del ciclo | Release | Sprint Review y Sprint Retrospective | **Learning que alimenta el próximo objetivo** |
 
 ODLC no gira alrededor de backlog, historias o sprints. Gira alrededor de objetivos, evidencia, validación y aprendizaje. Detalle por marco: [[Comparativa con metodologías existentes]].
 

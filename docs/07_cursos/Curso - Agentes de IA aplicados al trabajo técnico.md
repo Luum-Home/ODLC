@@ -87,7 +87,7 @@ Al finalizar el curso, los participantes podrán:
 
 ## Metodología
 
-El curso combina **30% de conceptos y fundamentos** con **70% de práctica aplicada**. Cada encuentro dura 2 horas, con aproximadamente 30 minutos de concepto y 90 minutos de taller. El cuarto encuentro funciona como jornada de práctica integradora.
+El curso combina **25% de conceptos y fundamentos** con **75% de práctica aplicada** (30 + 90 minutos por encuentro). Cada encuentro dura 2 horas, con aproximadamente 30 minutos de concepto y 90 minutos de taller. El cuarto encuentro funciona como jornada de práctica integradora.
 
 **Método de trabajo:** Construir → Probar → Asegurar → Mejorar
 
