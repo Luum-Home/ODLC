@@ -9,7 +9,10 @@ created: 2026-06-10
 Las metodologías y marcos de trabajo dominantes en la industria del software fueron diseñados para resolver problemas de eras pasadas. Al analizar su propósito de diseño original, se hace evidente por qué resultan inadecuadas frente al paradigma de desarrollo asistido por agentes:
 
 *   **Waterfall (Cascada)**: Fue diseñada para proyectos con requerimientos altamente previsibles y estables, donde el costo de cambiar el diseño físico o lógico a mitad de camino era prohibitivo.
-*   **Scrum / Agile**: Fueron creadas para gestionar la **incertidumbre funcional** mediante ciclos cortos de retroalimentación, asumiendo que la coordinación entre humanos con ancho de banda y velocidad limitados es el principal reto.
+*   **Agile (el Manifiesto de 2001)**: No es un método sino una declaración de valores y principios para gestionar la **incertidumbre funcional** con retroalimentación frecuente. Sus valores siguen en pie; lo que cambia es cómo se leen con agentes ([[Relectura del Manifiesto Ágil]]).
+*   **Scrum**: Organiza el trabajo en iteraciones de tiempo fijo (sprints) con roles y ceremonias, asumiendo que la coordinación entre humanos con ancho de banda y velocidad limitados es el principal reto.
+*   **XP (Extreme Programming)**: Aporta prácticas técnicas (TDD, integración continua, pair programming, releases chicas) pensadas para que un humano escriba código con feedback rápido.
+*   **Kanban**: No tiene iteraciones: gestiona un flujo continuo con límites de WIP y sistema pull, y mide lead time, cycle time y throughput. Supone que alguien tira del trabajo.
 *   **DevOps**: Fue diseñada para acelerar y automatizar la **entrega y operación** del software (acortando el camino entre el commit humano y producción).
 *   **Platform Engineering (Ingeniería de Plataformas)**: Fue estructurada para **escalar equipos humanos** reduciendo su carga cognitiva a través de portales de autoservicio (IDPs) y caminos dorados (*golden paths*).
 *   **AI Engineering (Ingeniería de IA)**: Se enfoca en la arquitectura técnica para **construir productos que integran IA** (evaluaciones, bases de datos vectoriales y APIs de LLM).
@@ -29,11 +32,12 @@ Ninguno de los marcos anteriores fue diseñado para operar en un contexto caract
 
 ## Lo que está Muriendo: La Obsolescencia de las Métricas Tradicionales
 
-En esta nueva realidad, las métricas tradicionales de productividad y gestión de proyectos pierden su significado y se vuelven inútiles (o fácilmente manipulables por los agentes):
+En esta nueva realidad, varias métricas de Scrum y XP pierden su significado y se vuelven inútiles (o fácilmente manipulables por los agentes):
 
 *   **Story Points (Puntos de Historia)**: Diseñados para medir la complejidad percibida y el esfuerzo humano. Pierden sentido cuando un agente puede escribir una API completa en segundos o minutos (cifra ilustrativa, no medida: el punto es que el esfuerzo humano dejó de ser proporcional al volumen producido).
 *   **Velocity (Velocidad de Sprint)**: El concepto de medir cuántas tareas o puntos puede completar un equipo en dos semanas carece de relevancia cuando la producción es instantánea y el cuello de botella se traslada a la toma de decisiones y validaciones.
 *   **Burndown Charts (Gráficos de Trabajo Pendiente)**: Monitorear el progreso diario de tareas humanas en un sprint de tiempo fijo es obsoleto ante bucles de agentes que resuelven backlogs enteros de forma asíncrona.
+*   **Lo que no muere: las métricas de flujo de Kanban.** Lead time, cycle time y throughput miden cuánto tarda el trabajo en atravesar el sistema, no el esfuerzo humano. Siguen valiendo con agentes y son primas del *Time To Outcome* ([[Métricas operativas]]); la diferencia es que ODLC mide hasta el outcome validado, no hasta el pase a producción.
 *   **Número de PRs y Líneas de Código**: Convertir el volumen de entregas en una métrica de rendimiento incentiva a los agentes a inundar el repositorio con código innecesario, aumentando la deuda técnica y los costos de contexto.
 
 ---

@@ -11,7 +11,7 @@ created: 2026-06-10
 > Los equipos ya no están compuestos únicamente por personas.
 > El objetivo no es automatizar trabajo; el objetivo es amplificar la capacidad cognitiva colectiva de una organización."
 
-Como profesionales del desarrollo de software y la ingeniería de sistemas organizacionales, reconocemos que el advenimiento de agentes de software autónomos rompe las suposiciones básicas de las metodologías tradicionales (Scrum, DevOps, Agile). Para prosperar en una era AI-Native, adoptamos una nueva unidad de trabajo y un nuevo modelo de colaboración humano-agente basado en los siguientes seis valores:
+Como profesionales del desarrollo de software y la ingeniería de sistemas organizacionales, reconocemos que el advenimiento de agentes de software autónomos rompe varias suposiciones de los métodos y prácticas vigentes (Scrum, XP, Kanban, DevOps). No rompe los valores del Manifiesto Ágil: los relee para equipos humano-agente ([[Relectura del Manifiesto Ágil]]). Para prosperar en una era AI-Native, adoptamos una nueva unidad de trabajo y un nuevo modelo de colaboración humano-agente basado en los siguientes seis valores:
 
 > Los cinco primeros valores provienen de los canvases fundacionales (PDFs en `00_crudo/`); el sexto (Purpose over Technology) fue incorporado durante la evolución del vault.
 

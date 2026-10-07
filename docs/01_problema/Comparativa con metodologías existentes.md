@@ -8,10 +8,29 @@ created: 2026-06-10
 
 Crítica formal de [[ODLC]]/[[HACS]] contra los marcos dominantes. Cada fila es una hipótesis a desarrollar con honestidad: qué hace bien cada marco, qué no cubre, y qué reutilizamos.
 
+> [!important] Regla de comparación: la fuente canónica, no la herramienta
+> Cada método se compara contra su definición canónica, nunca contra cómo lo implementa una herramienta. Un tablero de columnas en Jira o Trello no es Kanban si no limita el WIP, no tira del trabajo y no mide el flujo; un equipo con "sprints" en Jira no hace Scrum si no tiene sus responsabilidades, eventos y artefactos. Fuentes canónicas usadas en esta nota:
+> - **Manifiesto Ágil**: agilemanifesto.org (2001).
+> - **Scrum**: *The Scrum Guide*, Ken Schwaber y Jeff Sutherland, versión de noviembre de 2020 (scrumguides.org).
+> - **Kanban**: *The Kanban Guide*, Daniel Vacanti, versión de mayo de 2025 (kanbanguides.org); la otra escuela es el *Kanban Method* de David J. Anderson (*Kanban: Successful Evolutionary Change for Your Technology Business*, 2010).
+> - **XP**: Kent Beck, *Extreme Programming Explained* (1999; 2.ª edición con Cynthia Andres, 2004).
+> - **Sooner Safer Happier**: Jon Smart con Zsolt Berend, Myles Ogilvie y Simon Rohrer (IT Revolution, 2020).
+>
+> Verificación de las guías y del libro (2026-10-07):
+> ```bash
+> curl -sL https://scrumguides.org/scrum-guide.html | sed 's/<[^>]*>/ /g' | LC_ALL=C /usr/bin/grep -oE "November 2020|Ken Schwaber|Jeff Sutherland" | sort -u
+> curl -sL https://kanbanguides.org/english/ | LC_ALL=C /usr/bin/grep -oE "Kanban Guide \(May 2025\)|Daniel Vacanti" | sort -u
+> curl -sL https://itrevolution.com/product/sooner-safer-happier/ | LC_ALL=C /usr/bin/grep -oE "Zsolt Berend|Myles Ogilvie|Simon Rohrer" | sort -u
+> ```
+
 | Marco | Qué optimiza | Qué no cubre | Qué reutilizamos |
 |---|---|---|---|
 | **SDLC** | Secuencia: requerimientos → desarrollo → mantenimiento | Asume ejecución cara y humana; sin aprendizaje estructural | La noción de ciclo de vida |
+| **Manifiesto Ágil** | Valores y principios para responder a la incertidumbre con feedback frecuente (no es un método) | No contempla agentes como participantes: asume conversación cara a cara y personas motivadas | Los valores, releídos uno por uno → [[Relectura del Manifiesto Ágil]] |
 | **Scrum** | Coordinación humana (backlog, historias, sprints) | Agentes como ejecutores; validación contra objetivos | Iteración corta, retro → [[Fase 6 - Learning]] |
+| **XP (Extreme Programming)** | Calidad técnica con feedback rápido (TDD, CI, pair programming, releases chicas) | Asume que el código lo escribe un humano; no cubre validación contra objetivos de negocio | TDD como guardarraíl de agentes → [[Fase 5 - Validation]]; pair programming como antecedente del trabajo humano-agente |
+| **Kanban** | Flujo continuo (límites de WIP, sistema pull, lead time, cycle time, throughput) | Supone que alguien tira del trabajo; la tarjeta sigue siendo la unidad y el cierre es "terminado", no outcome validado | Métricas de flujo → [[Métricas operativas]]; límites de WIP como límite de capacidad de revisión humana ([[Gobernanza]]) |
+| **Sooner Safer Happier (Jon Smart, BVSSH)** | Agilidad de negocio orientada a resultados: *Better Value Sooner Safer Happier* como meta, sin importar el método; patrones y antipatrones de práctica; OKRs | Organizaciones de personas; no contempla agentes ni gobernanza de autonomía | *Focus on Outcomes* refuerza *Outcomes over Output*; Safer → [[Gobernanza]]; Happier → ritmo sostenible y el humano no proactivo ([[Relectura del Manifiesto Ágil]]); el formato patrón/antipatrón como modelo para catalogar los de HACS |
 | **SAFe** | Coordinación a escala entre múltiples equipos humanos | Escala vía *más proceso*, no vía *más agentes* | Alineación estratégica → [[Fase 1 - Objective]] |
 | **DevOps** | Entrega continua, feedback técnico | Decisión y contexto; optimiza el pipeline, no la intención | Automatización, observabilidad → [[Fase 4 - Execution]] |
 | **Team Topologies** | Estructura de equipos y carga cognitiva | Los "equipos" siguen siendo 100% humanos | Carga cognitiva como límite → base de [[Unidad organizacional]] |
@@ -25,6 +44,8 @@ SDLC: requerimientos, historias de usuario, desarrollo, testing, mantenimiento.
 ODLC: **objetivos, outcomes, ejecución, validación, aprendizaje, memoria viva**.
 
 ODLC no gira alrededor de backlog, historias o sprints. Gira alrededor de objetivos, evidencia, validación y aprendizaje.
+
+No hay que confundir los niveles: Agile es la declaración de valores; Scrum, XP y Kanban son métodos que la implementan con supuestos distintos (Kanban, por ejemplo, ya no tiene sprints). ODLC se aparta de prácticas de esos métodos, no de los valores ágiles.
 
 ## Alternativas en el Espacio de Desarrollo AI-Native
 
@@ -43,5 +64,5 @@ Además del modelo [[HACS]] y [[ODLC]], existen otros marcos que intentan estruc
 
 ## Preguntas abiertas
 
-- ¿Cómo se *integra* ODLC con Scrum en una adopción gradual? (crítico para [[Modelo de madurez AI-Native]] niveles 1–3; ver [[Preguntas abiertas]])
+- ¿Cómo se *integra* ODLC con Scrum o Kanban en una adopción gradual? Un equipo Kanban parece estar más cerca (sin sprints, con métricas de flujo): ¿la transición es más corta? (crítico para [[Modelo de madurez AI-Native]] niveles 1–3; ver [[Preguntas abiertas]])
 - Team Topologies habla de "carga cognitiva del equipo" — ¿cómo se redefine cuando parte de la cognición es de agentes?

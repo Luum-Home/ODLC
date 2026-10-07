@@ -29,7 +29,7 @@ Para transicionar de un nivel a otro, la organización debe medir y cumplir cier
 
 - **De Nivel 1 a Nivel 2**: Integrar pipelines de CI/CD con llamadas automatizadas a agentes (ej. CodeRabbit, Snyk). Medir el *Agent Contribution Ratio* inicial.
 - **De Nivel 2 a Nivel 3**: Implementar bases de datos vectoriales de contexto de arquitectura y decisiones históricas (ADRs) conectadas a los agentes. Medir la tasa de reutilización (*Knowledge Reuse Rate*).
-- **De Nivel 3 a Nivel 4**: Reemplazar sprints de Scrum y tickets de Jira por plantillas de objetivos e implementar entornos seguros de Sandbox para la validación autónoma de agentes.
+- **De Nivel 3 a Nivel 4**: Reemplazar la unidad de trabajo del método vigente (historias y sprints en Scrum, tarjetas en un tablero Kanban, tickets de Jira) por plantillas de objetivos e implementar entornos seguros de Sandbox para la validación autónoma de agentes.
 
 > [!warning] Transiciones sin definir
 > Los criterios de **0 → 1** y **4 → 5** todavía no están escritos. El modelo describe los seis niveles en la tabla de arriba, pero solo especifica cómo se cruzan tres de los cinco umbrales. No se completan acá de forma especulativa: definirlos exige decidir qué evidencia habilita el salto, y esa es una definición del autor, no una omisión de redacción. Ver [[Modelo de madurez AI-Native#Preguntas abiertas|Preguntas abiertas]].
