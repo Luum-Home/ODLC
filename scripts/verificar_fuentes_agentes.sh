@@ -74,7 +74,7 @@ https://raw.githubusercontent.com/odysseus-dev/odysseus/main/SECURITY.md|shell, 
 # --- Claude ---
 https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork|Claude Cowork is available on paid plans
 https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan|paused the previously-announced changes to Claude Agent SDK usage
-https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan|Claude Max and Team plans now include monthly API credits
+https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan|Claude Max and Team plans now include
 https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans|Free, Pro, and Enterprise plans aren't eligible
 https://support.claude.com/en/articles/13837440|Plugins are available to all paid plans
 https://support.claude.com/en/articles/12512180|Skills are available for users on Free, Pro, Max, Team, and Enterprise plans
