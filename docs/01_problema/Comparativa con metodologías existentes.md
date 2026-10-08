@@ -12,7 +12,7 @@ Crítica formal de [[ODLC]]/[[HACS]] contra los marcos dominantes. Cada fila es 
 > Cada método se compara contra su definición canónica, nunca contra cómo lo implementa una herramienta. Un tablero de columnas en Jira o Trello no es Kanban si no limita el WIP, no tira del trabajo y no mide el flujo; un equipo con "sprints" en Jira no hace Scrum si no tiene sus responsabilidades, eventos y artefactos. Fuentes canónicas usadas en esta nota:
 > - **Manifiesto Ágil**: agilemanifesto.org (2001).
 > - **Scrum**: *The Scrum Guide*, Ken Schwaber y Jeff Sutherland, versión de noviembre de 2020 (scrumguides.org).
-> - **Kanban**: *The Kanban Guide*, Daniel Vacanti, versión de mayo de 2025 (kanbanguides.org); la otra escuela es el *Kanban Method* de David J. Anderson (*Kanban: Successful Evolutionary Change for Your Technology Business*, 2010).
+> - **Kanban**: *The Kanban Guide*, Daniel Vacanti, versión de mayo de 2025 (kanbanguides.org); la otra escuela es el *Kanban Method* de David J. Anderson (*Kanban: Successful Evolutionary Change for Your Technology Business*, 2010). Como introducción práctica muy difundida: Marcus Hammarberg y Joakim Sundén, *Kanban in Action* (Manning, 2014).
 > - **XP**: Kent Beck, *Extreme Programming Explained* (1999; 2.ª edición con Cynthia Andres, 2004).
 > - **Sooner Safer Happier**: Jon Smart con Zsolt Berend, Myles Ogilvie y Simon Rohrer (IT Revolution, 2020).
 > - **Gestión por objetivos**: Peter Drucker, *The Practice of Management* (1954); Joshua Seiden, *Outcomes Over Output* (2019); crítica en el punto 11 de los 14 puntos de W. Edwards Deming (deming.org).
@@ -27,6 +27,7 @@ Crítica formal de [[ODLC]]/[[HACS]] contra los marcos dominantes. Cada fila es 
 > curl -sL "https://openlibrary.org/search.json?q=reinventing+organizations+laloux&fields=title,author_name,first_publish_year&limit=1"
 > curl -sL "https://openlibrary.org/search.json?q=outcomes+over+output+seiden&fields=title,author_name,first_publish_year&limit=1"
 > curl -sL "https://openlibrary.org/search.json?q=the+practice+of+management+drucker&fields=title,author_name,first_publish_year&limit=1"
+> curl -sL "https://openlibrary.org/search.json?q=kanban+in+action+hammarberg&fields=title,author_name,first_publish_year,publisher&limit=1"
 > ```
 
 | Marco | Qué optimiza | Qué no cubre | Qué reutilizamos |
