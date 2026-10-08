@@ -82,5 +82,4 @@ created: 2026-06-10
 - [[Especificación de agentes cross-CLI]] — patrón propuesto por este vault de redirección de instrucciones entre CLIs: archivos de configuración de identidad y comportamiento (CLAUDE.md, SOUL.md, VOICE.md)
 - [[Repositorios y catálogos de skills]] — directorios, registries públicos (skills.sh) y especificación técnica de habilidades para agentes
 - [[Catálogo de herramientas y productividad]] — runtimes, orquestadores, APIs e infraestructura para productividad de desarrollo de IA
-- [[Agentes abiertos y planes SaaS - Verificación]] — qué permite construir cada plan de ChatGPT, Claude y Gemini, y riesgos verificados de OpenClaw, Agent Zero, Hermes y Odysseus
 - [[AI Engineering Lab - Repositorio de referencia]] — análisis de primitivas técnicas desde cero, arquitectura limpia en producción y testing E2E con Playwright
