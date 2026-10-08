@@ -1,5 +1,5 @@
 ---
-tags: [referencias, agentes, seguridad, openclaw, agent-zero, hermes, odysseus, planes]
+tags: [referencias, agentes, seguridad, openclaw, agent-zero, hermes, odysseus, dots, grok-bot, planes]
 status: borrador
 created: 2026-10-07
 consultado: 2026-10-07
@@ -7,7 +7,7 @@ consultado: 2026-10-07
 
 # Agentes abiertos y planes SaaS: verificación
 
-Qué puede construir hoy un alumno con cada plan de ChatGPT, Claude y Gemini, y qué riesgos tienen los cuatro agentes abiertos que el curso menciona como alternativa: OpenClaw, Agent Zero, Hermes Agent y Odysseus. Sirve de respaldo para el callout de requisitos de [[Curso - Agentes de IA aplicados al trabajo técnico]] y para el ecosistema avanzado de [[Encuentro 3 - Herramientas, MCP, automatización y operación]].
+Qué puede construir hoy un alumno con cada plan de ChatGPT, Claude y Gemini, qué riesgos tienen los cuatro agentes abiertos que el curso menciona como alternativa (OpenClaw, Agent Zero, Hermes Agent y Odysseus) y qué ofrecen los vendors en la misma categoría (dots, Grok Bot, Cowork, Muse). Sirve de respaldo para el callout de requisitos de [[Curso - Agentes de IA aplicados al trabajo técnico]] y para el ecosistema avanzado de [[Encuentro 3 - Herramientas, MCP, automatización y operación]].
 
 > [!warning] Esto vence rápido
 > Todo lo de esta nota se consultó el 2026-10-07. Entre junio y octubre cambiaron tres de las cinco afirmaciones sobre planes que tenía el curso. Antes de cada dictado corré:
@@ -24,7 +24,7 @@ Qué puede construir hoy un alumno con cada plan de ChatGPT, Claude y Gemini, y 
 |---|---|---|
 | **ChatGPT** | Plus y Pro **ya no pueden crear GPTs nuevos**. Los existentes se usan y se editan hasta que se retiren, el 2026-12-11. Pueden crear skills y plugins propios (sin compartirlos con un equipo). No tienen Workspace Agents. | Business, Enterprise y Edu: Workspace Agents, cobrados por tokens desde el 2026-07-06. En Enterprise vienen apagados y los habilita el admin. Plugins compartibles en el workspace. |
 | **Claude** | Pro: Cowork, skills y plugins propios (sin compartir), subagentes en Claude Code. El Agent SDK y `claude -p` consumen los límites del plan. Pro **no** recibe créditos de API. | Max y Team reciben créditos de API mensuales desde el 2026-10-07. Team además comparte plugins entre colegas. Enterprise no recibe créditos. |
-| **Gemini** | Google AI Pro o Ultra: Gemini Spark como agente personal (no anda en el Espacio Económico Europeo, el Reino Unido, Suiza ni Nigeria). Los Gems se reemplazan por skills en cuentas personales desde noviembre de 2026. | Gemini Enterprise (Business, Standard, Plus): agentes no-code con Workflow Builder, en preview. Workspace Studio para flujos. Los Gems siguen en cuentas de trabajo hasta 2027. |
+| **Gemini** | Gemini Spark como agente personal: en Ultra, en todos los países salvo el Espacio Económico Europeo, el Reino Unido, Suiza y Nigeria. En Pro, por ahora solo en EE.UU. y en inglés. Los Gems se reemplazan por skills en cuentas personales desde noviembre de 2026. | Gemini Enterprise (Business, Standard, Plus): agentes no-code con Workflow Builder, en preview. Workspace Studio para flujos. Los Gems siguen en cuentas de trabajo hasta 2027. |
 
 **Fuentes y frases que las respaldan:**
 - GPTs: [help.openai.com 8554407](https://help.openai.com/en/articles/8554407-gpts-in-chatgpt) dice *"New GPT creation and publishing are not available on personal ChatGPT accounts"*. El retiro del 2026-12-11 está en [help.openai.com 20001519](https://help.openai.com/en/articles/20001519). La migración oficial lleva los GPTs a **plugins**, no a Workspace Agents ([learn.chatgpt.com](https://learn.chatgpt.com/docs/migrate-custom-gpts)). Ojo: learn.chatgpt.com habla del retiro en Enterprise y help.openai.com dice que afecta a todos los planes. Se toma la segunda, que es la más restrictiva.
@@ -97,6 +97,25 @@ Workspace de IA autohospedado que lanzó PewDiePie el 2026-05-31. El repo hoy es
 
 > [!warning] Advertencia para el curso
 > Se usa para discutir soberanía de datos y qué cambia la licencia AGPL, no para instalar. Sin releases, no hay forma de saber qué parches tiene una instalación.
+
+---
+
+## 3. Los agentes personales de los vendors
+
+Entre agosto y septiembre de 2026 los vendors grandes sacaron su propia versión de lo que hace OpenClaw: un agente siempre encendido, con computadora propia en la nube, memoria, tareas programadas y mensajería. Ya no hace falta autohospedar nada para mostrarlo en clase, pero ninguno entra en un plan individual barato.
+
+| Producto | Qué es | Planes | Ojo |
+|---|---|---|---|
+| **[dots](https://learn.chatgpt.com/docs/dots)** (OpenAI, fines de septiembre de 2026) | Agente siempre encendido con computadora y navegador en la nube. Se le habla por ChatGPT, Slack o Teams (Teams en alpha). Puede usar la computadora local y los plugins de ChatGPT. | Pro 100, 200 y 500 (US\$100 a 500 por mes), Business Premium y Enterprise. En Enterprise viene apagado. | No está para particulares en el EEE, el Reino Unido ni Suiza. Los controles de modelo de Enterprise no aplican a dots. Desconectar una app no borra lo que ya guardó en memoria. |
+| **[Grok Bot](https://docs.x.ai/grok-bot/overview.md)** (xAI, beta desde agosto de 2026) | Varios "Bots" con nombre y rol que trabajan en una computadora en la nube, con rutinas y skills. Se manejan por app propia, por Slack o mencionando @bot en X. Corre sobre la infraestructura de Cursor. | Todos los planes individuales pagos de Cursor (desde US\$20), Cursor Teams, o vinculando SuperGrok (no Lite) o X Premium+. | Todos los Bots de un usuario comparten la misma computadora y las mismas credenciales: separarlos no aísla nada. Corre solo en EE.UU. Los logs de auditoría son solo de Enterprise. |
+| **[Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)** con Dispatch (Anthropic) | No hay un producto aparte: el equivalente es Cowork, que tiene tareas programadas, ejecución en la nube (desde el 2026-10-06 en Pro y Max) y Dispatch para pedirle tareas desde el celular. | Todos los planes pagos. Dispatch está en beta cerrada para Pro y Max. | Pide aprobación por defecto. En enero de 2026 PromptArmor mostró robo de archivos con un .docx con instrucciones ocultas ([The Register](https://www.theregister.com/2026/01/15/anthropics_claude_bug_cowork/)). No encontramos confirmación de que esté corregido. |
+| **[Claude Tag](https://www.anthropic.com/news/introducing-claude-tag)** (Anthropic, junio de 2026) | Compañero de equipo en Slack, con memoria por canal y un modo que avisa por su cuenta. | Solo Team y Enterprise, en beta. Consume créditos de la organización. | No está en planes individuales. |
+| **[Gemini Spark](https://support.google.com/gemini/answer/17094507)** (Google, mayo de 2026) | Agente personal con agendas, skills, apps conectadas y MCP. | Ultra fuera del EEE, el Reino Unido, Suiza y Nigeria. Pro, solo EE.UU. | Pide aprobación antes de enviar, modificar, comprar o completar formularios. |
+| **[Meta Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)** (Meta, septiembre de 2026) | Agente personal en una VM propia, con un segundo agente que aprueba todo lo que sale a internet. Se le habla en su app o por WhatsApp. | Gratis lo básico, con suscripción para más uso. | Solo en EE.UU. |
+
+También hay agentes de este tipo de Manus (por Telegram) y de Perplexity (sobre una Mac mini propia), pero solo los encontramos en prensa, sin fuente oficial que se pudiera consultar. De Microsoft y Amazon no encontramos nada equivalente lanzado en 2026.
+
+**Para el curso:** sirven para mostrar la categoría sin instalar nada, y para discutir lo mismo que con OpenClaw (un agente con tus credenciales que actúa solo) con controles de fábrica. Pero ninguno está al alcance de un alumno con ChatGPT Plus o Claude Pro, salvo Cowork. Lo práctico: hacer la demo de tareas programadas con Cowork y mostrar dots o Grok Bot desde la cuenta del instructor.
 
 ---
 

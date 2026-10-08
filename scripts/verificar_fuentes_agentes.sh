@@ -86,6 +86,22 @@ https://learn.chatgpt.com/docs/migrate-custom-gpts|transitioning custom GPTs to 
 https://support.google.com/gemini/answer/15146780|Gems will go away on personal Google accounts
 https://support.google.com/gemini/answer/17094507|Have a Google AI Pro or Ultra subscription
 https://docs.cloud.google.com/gemini/enterprise/docs/editions|Build and publish custom no-code agents
+# --- Agentes personales de los vendors ---
+https://learn.chatgpt.com/docs/dots|Your dot is an always-on agent
+https://learn.chatgpt.com/docs/dots|outside the European Economic Area, United Kingdom, and Switzerland
+https://learn.chatgpt.com/docs/dots/controls|Ask for approval before taking the specified action
+https://learn.chatgpt.com/docs/enterprise/dots-admin-guide|Enterprise model controls and defaults do not apply to dots
+https://learn.chatgpt.com/docs/pricing|Plans at $100, $200, or $500 USD per month
+https://docs.x.ai/grok-bot/overview.md|included with every paid individual Cursor plan
+https://docs.x.ai/grok-bot/approvals-security-and-privacy.md|Do not use separate Bots as a security boundary.
+https://docs.x.ai/grok-bot/security.md|Grok Bot computers run in the United States today.
+https://docs.x.ai/grok-bot/security.md|Audit logs. Enterprise only.
+https://cursor.com/help/grok-bot/plans|Grok Bot is not included
+https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile|new Cowork tasks on Pro and Max plans run in the cloud
+https://support.claude.com/en/articles/13947068-assign-tasks-to-claude-from-anywhere-in-cowork|limited beta for Pro and Max plans
+https://claude.com/docs/claude-tag/admins/setup-overview.md|available on individual plans
+https://support.google.com/gemini/answer/17171264?hl=en|Google AI Pro subscribers in the US
+https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/|Muse is rolling out in the US on iOS, Android
 FUENTES
 
 # Conteo de CVEs de OpenClaw en NVD por CPE.
