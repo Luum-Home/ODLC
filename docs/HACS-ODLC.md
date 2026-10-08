@@ -65,6 +65,7 @@ created: 2026-06-10
 - [[Riesgos]] — humanos, técnicos, organizacionales
 - [[Roadmap]] — v0.1 → v2.0
 - [[Preguntas abiertas]] — lo que todavía no sabemos responder
+- [[Registro de decisiones]] — decisiones de autor con fecha y motivo (D-01 a D-14) y decisiones del piloto (P-01 a P-09)
 - [[Objeciones al marco]] — ¿tiene sentido ODLC? Las seis objeciones más fuertes (linaje de la gestión por objetivos y la crítica de Deming, feedback lento, sin casos medidos, identidad ODLC vs. HACS, personas motivadas, autogestión Teal) y qué haría falta para contestarlas
 - [[Piloto - Combinación A]] — diseño pre-registrado del piloto de caso único que prueba la combinación A en un MVP propio: Fase 0 de entrevistas, línea de base múltiple con inicio sorteado, medidas desde artefactos del repo, criterios de abandono y script de cálculo
 - [[Núcleo ODLC para tiny teams]] — la versión aplicable desde el lunes para una a tres personas con agentes: roles, ficha de objetivo, reglas y tablero medibles desde el repo, cada uno con su respaldo
