@@ -44,7 +44,7 @@ Este documento define la taxonomía y el vocabulario formal (Ubiquitous Language
 
 ### 7. Governance (Gobernanza)
 - **Definición**: El conjunto de reglas, permisos y autorizaciones reguladas por humanos que acotan el nivel de autonomía de los agentes.
-- **Propósito**: Garantiza que las acciones críticas (como el despliegue a producción o gastos de presupuesto) requieran validación humana.
+- **Propósito**: Garantiza que las acciones críticas requieran validación humana. Cuáles son lo dice una sola matriz, por tipo de acción, en [[Gobernanza]]; lo irreversible (pagos, datos de clientes, borrado, migraciones destructivas) no se relaja con la madurez ([[Registro de decisiones]], D-01).
 - **Ver en el vault**: [[Gobernanza]].
 
 ### 8. Outcome (Resultado)
@@ -64,7 +64,7 @@ Este documento define la taxonomía y el vocabulario formal (Ubiquitous Language
 - **HACS (Human-Agent Collaborative Systems)**: El modelo organizacional que define a los equipos de software como unidades cognitivas distribuidas de humanos y agentes sobre una memoria compartida. Ver [[HACS]].
 - **ODLC (Objective Driven Lifecycle)**: La metodología de trabajo iterativa de HACS, heredera de los valores del Manifiesto Ágil ([[Relectura del Manifiesto Ágil]]), que desplaza el foco del código hacia la consecución de objetivos y el aprendizaje continuo. Ver [[ODLC]].
 - **Cognitive OS**: La capa de arquitectura de software y tooling de soporte que materializa el funcionamiento lógico de HACS y ODLC. Ver [[Cognitive OS - Arquitectura de referencia]].
-- **Agent Loop Engineering**: Disciplina de diseño del loop de control de un agente: trigger, goal, state, action policy, observation parser, termination, memory update, guardrails, tracing y evals. Ver [[Agent Loop Engineering]].
+- **Agent Loop Engineering**: Disciplina de diseño del loop de control de un agente: trigger, goal, state, action policy, observation parser, termination, memory update, guardrails, tracing y evals. Clasifica los loops en **niveles de complejidad del loop** (L0 a L6), que no son los niveles del [[Modelo de madurez AI-Native]] ([[Registro de decisiones]], D-13). Ver [[Agent Loop Engineering]].
 
 ---
 
@@ -74,8 +74,8 @@ Patrones operativos usados en la implementación técnica ([[Luum Cognitive OS -
 
 - **Arnés (Harness)**: Entorno lógico que envuelve al LLM unificando contexto, herramientas, memoria externa y validaciones automáticas. Hace al sistema agnóstico al modelo.
 - **Agent Loop (Bucle de Agente)**: Ciclo repetible en el que un agente observa, razona/planifica, actúa con herramientas, interpreta resultados, actualiza estado/memoria y decide si termina, reintenta o escala.
-- **Safety Mesh (Malla de Seguridad)**: Conjunto de interceptores independientes (hooks `PreToolUse`/`PostToolUse`) que aplican la [[Gobernanza]] en tiempo de ejecución, con comportamientos BLOCK/WARN/LOG sensibles a la fase del proyecto.
-- **HITL (Human-in-the-Loop)**: Compuerta donde el agente pausa su ejecución y espera aprobación humana explícita antes de continuar (deploys, esquemas de datos, secretos).
+- **Safety Mesh (Malla de Seguridad)**: Conjunto de interceptores independientes (hooks `PreToolUse`/`PostToolUse`) que aplican la [[Gobernanza]] en tiempo de ejecución, con comportamientos BLOCK/WARN/LOG sensibles al estado del proyecto (no a las fases de ODLC; [[Registro de decisiones]], D-13).
+- **HITL (Human-in-the-Loop)**: Compuerta donde el agente pausa su ejecución y espera aprobación humana explícita antes de continuar. Qué acciones la exigen lo dice la matriz única de [[Gobernanza]] (D-01).
 - **Ground Truth Checker**: Validador determinista que contrasta los reclamos de éxito del agente ("tests pasan", "archivo creado") contra la realidad del sistema de archivos, generando un puntaje de alucinación (fórmula del puntaje sin definir en el vault).
 - **Judgment Day (Día de la Justicia)**: Patrón de arbitraje cognitivo donde el código generado por un agente es evaluado por jueces independientes antes de integrarse — el autor nunca juzga su propio trabajo. Origen: skill `judgment-day` de gentle-pi (Gentleman Programming).
 - **Dual Blind Review**: Mecanismo del Judgment Day: dos agentes revisores aislados evalúan el mismo código sin ver el veredicto del otro.

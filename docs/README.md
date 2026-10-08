@@ -77,10 +77,12 @@ created: YYYY-MM-DD
 ---
 ```
 
-- `crudo`: material sin destilar, tal como entró al inbox. Exclusivo de `00_crudo/`: no es una nota atómica todavía y no debería enlazarse como fuente canónica.
+- `crudo`: material sin destilar, tal como entró al inbox. Exclusivo de `00_crudo/`: no es una nota atómica todavía y no debería enlazarse como fuente canónica. Una nota que parte de material crudo lo cita en el frontmatter con `origen:`, no con `fuente:` ([[Registro de decisiones]], D-12).
 - `semilla`: idea capturada, mayormente preguntas abiertas.
 - `borrador`: estructura completa, contenido en evolución.
 - `evergreen`: estable, se actualiza solo con nueva evidencia.
+
+Las notas meta, como este README y el [[Inbox]], llevan el tag `meta` y `status: evergreen` aunque vivan en `00_crudo/` (D-12).
 
 El orden refleja el flujo de *append-and-review*: lo que entra como `crudo` se promueve a nota atómica (`semilla` → `borrador` → `evergreen`) o se descarta.
 

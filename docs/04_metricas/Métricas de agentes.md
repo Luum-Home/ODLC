@@ -73,7 +73,7 @@ Instrumentar esto es requisito para calibrar los umbrales de la sección anterio
 
 ## Decisiones
 
-- **D1**: Se establece como regla de [[Gobernanza]] que si el *Rework Rate* de un agente supera el 40% durante tres objetivos consecutivos, el agente debe ser suspendido y su sistema de prompts o recuperación de memoria debe ser auditado.
+- **D1**: Se establece como regla de [[Gobernanza]] que si el *Rework Rate* de un agente supera el 40% durante tres objetivos consecutivos, el dueño ordena suspender el agente y auditar su sistema de prompts o de recuperación de memoria ([[Registro de decisiones]], D-06).
 
 ## Preguntas abiertas
 

@@ -18,6 +18,7 @@ $$OSR = \frac{\text{Objetivos validados con éxito}}{\text{Total de objetivos in
 - Se calcula de forma binaria al final de la [[Fase 5 - Validation]] utilizando la [[Glosario y taxonomía#4. Evidence (Evidencia)|Evidencia]] recolectada.
 - Un objetivo es exitoso solo si la métrica de éxito definida en la [[Fase 1 - Objective]] alcanza el umbral acordado bajo las [[Fase 2 - Constraints]] establecidas.
 - Si el objetivo se entrega pero no se cumplen las métricas de negocio esperadas, se considera una desviación y cuenta como un fallo en la OSR (aunque el código esté en producción).
+- El veredicto de la [[Fase 5 - Validation]] tiene tres valores (logrado, parcial, fallido). Un veredicto *parcial* cuenta como no logrado en la OSR, y la tasa de parciales se reporta aparte ([[Registro de decisiones]], D-05).
 
 ---
 
@@ -59,6 +60,8 @@ Ajustes para un sistema humano-agente:
 
 Requisito previo: el historial existe solo si OSR y TTO están instrumentados (sección siguiente). Sin eso no hay qué remuestrear.
 
+En tiny teams no se pronostica ni se estima: cada objetivo lleva topes de tiempo y costo ([[Fase 2 - Constraints]]). Un equipo chico no cierra los objetivos que Monte Carlo necesita, así que el pronóstico se retoma cuando haya datos del [[Piloto - Combinación A]] (D-08).
+
 ---
 
 ## Instrumentación pendiente
@@ -73,7 +76,7 @@ Las tres métricas tienen fórmula pero **no tienen definición operativa**: fal
 
 ## Hipótesis
 
-- **H1**: Centrar las métricas en OSR en lugar de "cantidad de código" o "tickets cerrados" reduce el desperdicio y la deuda técnica (en línea con la crítica de AWS: [[Más código no es más velocidad]]).
+- **H1**: Centrar las métricas en OSR en lugar de "cantidad de código" o "tickets cerrados" reduce el desperdicio y la deuda técnica (en línea con la crítica de AWS: [[Más código no es más velocidad]]). Se refuta, en la parte de desperdicio, si en el [[Piloto - Combinación A]] la tasa de unidades descartadas después de entregar (P2) con método es mayor que sin método (D-07). La deuda técnica no la mide el piloto.
 - **H2**: Un TTO corto correlaciona directamente con una alta madurez del sistema adaptativo de agentes.
 
 ## Decisiones
@@ -84,7 +87,7 @@ Las tres métricas tienen fórmula pero **no tienen definición operativa**: fal
 
 - ¿Cómo medir objetivos que requieren largos períodos de observación (ej. métricas de retención de usuarios a 3 meses) sin congelar el ciclo ODLC?
 - ¿Cómo ponderar el impacto de factores externos incontrolables (ej. caídas de mercado) en la OSR de un equipo HACS?
-- ¿Cuántos objetivos cerrados hacen falta para que un pronóstico Monte Carlo sobre el TTO sea más útil que el juicio del dueño del objetivo?
+- ¿Cuántos objetivos cerrados hacen falta para que un pronóstico Monte Carlo sobre el TTO sea más útil que el juicio del dueño del objetivo? Pospuesta: se contesta con los datos del piloto; mientras tanto, topes en lugar de estimaciones (D-08).
 
 ---
 Relacionado: [[Métricas de agentes]] · [[Métricas organizacionales]] · [[Fase 5 - Validation]]

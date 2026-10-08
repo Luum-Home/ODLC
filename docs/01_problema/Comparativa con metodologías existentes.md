@@ -52,7 +52,7 @@ Crítica formal de [[ODLC]]/[[HACS]] contra los marcos dominantes. Cada fila es 
 SDLC: requerimientos, historias de usuario, desarrollo, testing, mantenimiento.
 ODLC: **Objective → Constraints → Strategy → Execution → Validation → Learning**, sobre memoria viva.
 
-ODLC no gira alrededor de backlog, historias o sprints. Gira alrededor de objetivos, evidencia, validación y aprendizaje.
+ODLC no gira alrededor de backlog, historias o sprints. Gira alrededor de objetivos, evidencia, validación y aprendizaje. Durante la transición convive con Scrum y Kanban: reemplaza la unidad de trabajo solo en los equipos que arrancan desde cero, y en los equipos existentes se adopta de a poco ([[Registro de decisiones]], D-03).
 
 No hay que confundir los niveles: Agile es la declaración de valores; Scrum, XP y Kanban son métodos que la implementan con supuestos distintos (Kanban, por ejemplo, nunca tuvo iteraciones de tiempo fijo). ODLC se aparta de prácticas de esos métodos, no de los valores ágiles.
 
@@ -74,5 +74,5 @@ Además del modelo [[HACS]] y [[ODLC]], existen otros marcos que intentan estruc
 
 ## Preguntas abiertas
 
-- ¿Cómo se *integra* ODLC con Scrum o Kanban en una adopción gradual? Un equipo Kanban parece estar más cerca (sin sprints, con métricas de flujo): ¿la transición es más corta? (crítico para [[Modelo de madurez AI-Native]] niveles 1–3; ver [[Preguntas abiertas]])
+- Que ODLC convive con Scrum o Kanban en la adopción gradual ya está decidido (D-03); queda abierto *cómo* se integra. Un equipo Kanban parece estar más cerca (sin sprints, con métricas de flujo): ¿la transición es más corta? (crítico para [[Modelo de madurez AI-Native]] niveles 1–3; ver [[Preguntas abiertas]])
 - Team Topologies habla de "carga cognitiva del equipo" — ¿cómo se redefine cuando parte de la cognición es de agentes?

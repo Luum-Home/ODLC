@@ -24,7 +24,7 @@ constraints:
 
 1. **Las constraints las fijan humanos** ([[Roles humanos]] — Sponsor: presupuesto; Product: producto y regulatorias; Architect: técnicas y seguridad); los agentes las *verifican* durante [[Fase 4 - Execution]].
 2. **El presupuesto de agentes es una constraint de primera clase.** Los agentes tienen costo medible ([[Métricas de agentes]]); ignorarlo repite el error de tratar la ejecución como gratis.
-3. **El presupuesto se expresa como distribución cuando hay historial.** Con costos de objetivos anteriores, una simulación Monte Carlo da percentiles ("85% de probabilidad de gastar menos de X") en lugar de una cifra puntual; la constraint se fija sobre un percentil explícito ([[Métricas operativas#Pronóstico probabilístico (simulación Monte Carlo)]]).
+3. **El presupuesto se expresa como distribución cuando hay historial.** Con costos de objetivos anteriores, una simulación Monte Carlo da percentiles ("85% de probabilidad de gastar menos de X") en lugar de una cifra puntual; la constraint se fija sobre un percentil explícito ([[Métricas operativas#Pronóstico probabilístico (simulación Monte Carlo)]]). En tiny teams el presupuesto es un tope de tiempo y costo por objetivo, sin estimación ni percentil: un equipo chico no cierra los objetivos que la simulación necesita, y Monte Carlo se retoma con los datos del piloto ([[Registro de decisiones]], D-08).
 4. **Constraint violada = tarea detenida y escalada.** Si una estrategia en curso choca contra una restricción, la tarea afectada se detiene y se escala al dueño de la constraint; el resto de la ejecución sigue. No se "negocia" silenciosamente.
 5. **Las constraints se versionan con el objetivo; relajarlas requiere decisión humana explícita del rol que las fijó.**
 

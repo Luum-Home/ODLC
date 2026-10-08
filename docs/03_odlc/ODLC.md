@@ -39,6 +39,8 @@ La comparación es contra SDLC y Scrum porque son el punto de partida más comú
 
 ODLC no gira alrededor de backlog, historias o sprints. Gira alrededor de objetivos, evidencia, validación y aprendizaje. Detalle por marco: [[Comparativa con metodologías existentes]].
 
+Durante la transición ODLC convive con Scrum y Kanban: reemplaza la unidad de trabajo solo en equipos que arrancan desde cero, y en equipos existentes se adopta de a poco ([[Registro de decisiones]], D-03).
+
 ## Qué busca resolver
 
 **Reducir la distancia entre intención y resultado** mediante objetivos medibles, memoria organizacional y agentes especializados. Directamente apuntado a los [[Nuevos cuellos de botella]]: comprensión, decisión, alineación, contexto y validación.

@@ -21,16 +21,17 @@ semilla_atd:                  # en el protocolo sellado va su sha256; el valor s
 fase0_perfiles: [fundador_solo, tiny_team, bootstrapper]
 fase0_temas: [revision_desbordada, decidir_vs_construir, validar_pocos_clientes, sumar_gente]
 fase0_temas_centrales: [revision_desbordada, decidir_vs_construir]
-umbrales:                     # todos los que no tienen fuente son propuestas: decisión pendiente del dueño
+umbrales:                     # decididos en P-05 y P-09 del Registro de decisiones; sin fuente salvo kappa_min
   fase0:
-    min_entrevistas: 10
+    min_entrevistas: 12       # fijas (P-05)
     extension: 5
     kappa_min: 0.6
-    confirma_dolor: 0.5
-    confirma_compromiso: 0.3
-    descarta_dolor: 0.2
+    confirma_dolor_casos: 6   # en casos, no en porcentajes (P-05)
+    confirma_compromiso_casos: 3
+    descarta_dolor_casos: 2   # 2 o menos descarta
   nivel_outcome_min: 2
   ventana_outcome_dias: 28
+  k4_semana: 8                # corte parcial de K4 (P-09)
   alfa: 0.05
   adherencia_min: 0.7
   caida_entrega_max: 0.5

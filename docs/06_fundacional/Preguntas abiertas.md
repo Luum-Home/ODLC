@@ -15,8 +15,8 @@ Este documento consolida las principales **preguntas abiertas** e interrogantes 
 ### 1. Adopción e Integración Organizacional
 - **¿Cómo se certifica o audita un sistema HACS?**
   - Si una empresa desea transicionar a ODLC, ¿existe un framework objetivo de certificación o auditoría independiente? ¿Cómo se evalúa la veracidad de su nivel de madurez?
-- **¿Cómo coexiste HACS con equipos Scrum, XP o Kanban?**
-  - En organizaciones grandes, la migración completa es inviable en el corto plazo. ¿Cómo interactúa una unidad cognitiva HACS orientada a objetivos con un equipo Scrum que trabaja por Product Backlog Items y Sprints, o con un equipo Kanban que trabaja por flujo continuo? ¿Cómo mapear dependencias entre ambos mundos?
+- **¿Cómo se coordina HACS con equipos Scrum, XP o Kanban mientras conviven?**
+  - Que conviven durante la transición está decidido: ODLC reemplaza la unidad de trabajo solo en equipos que arrancan desde cero, y en los existentes se adopta de a poco ([[Registro de decisiones]], D-03). Queda abierto el cómo: ¿cómo interactúa una unidad cognitiva HACS orientada a objetivos con un equipo Scrum que trabaja por Product Backlog Items y Sprints, o con un equipo Kanban que trabaja por flujo continuo? ¿Cómo mapear dependencias entre ambos mundos?
 - **¿Qué pasa con un humano que no es proactivo?**
   - HACS supone que el humano define objetivos, decide y valida por iniciativa propia. Scrum compensaba la falta de iniciativa con sprints y compromisos; ODLC no tiene un equivalente. ¿Cómo se mide si las salvaguardas de diseño (plantilla que no arranca sin métrica, validación que no se aprueba sin evidencia) alcanzan? → [[Relectura del Manifiesto Ágil#El humano que no es proactivo]] · principios propuestos y su respaldo: [[Objeciones al marco#Principios para tolerar al humano de mínimo esfuerzo]]
   - ¿Cómo se logra que el debrief de Learning ocurra si nadie lo convoca? La evidencia sobre debriefs supone que alguien los conduce.
@@ -31,7 +31,7 @@ Este documento consolida las principales **preguntas abiertas** e interrogantes 
 - **¿Cómo resolver la escala y degradación del contexto?**
   - A medida que un repositorio acumula cientos de objetivos y miles de entradas en memoria, la ventana de contexto de los agentes se degrada. ¿Cómo curamos y sintetizamos la memoria de manera eficiente sin perder los matices históricos importantes? → [[Memoria organizacional]]
 - **¿Cómo mitigar la sobrecarga de revisión humana (Fatiga de Gobernanza)?**
-  - Aunque el merge a main es configurable por madurez ([[Gobernanza]]), las aprobaciones que la matriz marca como humanas (decisión de arquitectura, deploy a producción, cambios de seguridad, gasto fuera de presupuesto) pueden saturar al humano: puede convertirse rápidamente en el nuevo cuello de botella operativo, aprobando cosas de forma automática por fatiga. ¿Cómo automatizar la gobernanza sin perder el control moral y de riesgo?
+  - Aunque el merge a main es configurable por madurez ([[Gobernanza]]), las aprobaciones que la matriz única marca como humanas ([[Registro de decisiones]], D-01) pueden saturar al humano: puede convertirse rápidamente en el nuevo cuello de botella operativo, aprobando cosas de forma automática por fatiga. ¿Cómo automatizar la gobernanza sin perder el control moral y de riesgo?
 - **¿Qué compensa la revisión cuando pasa a manos de agentes?**
   - Si la revisión humana exhaustiva se vuelve cuello de botella o sello de goma y pasa a agentes, ¿con qué métricas responde quien diseña el sistema de revisión (tests que el escritor no edita, radio de daño, muestreo humano, defectos sembrados), y qué reemplaza la comprensión compartida que producía la revisión humana? → [[Objeciones al marco#Objeción 8: la revisión en manos de agentes]]
 

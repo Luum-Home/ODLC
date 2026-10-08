@@ -23,7 +23,7 @@ Como profesionales del desarrollo de software y la ingeniería de sistemas organ
 *Valoramos la definición explícita de la intención por encima de la gestión detallada de tareas.*
 
 - **Por qué**: Escribir, refinar e iterar sobre tickets detallados (historias de usuario, subtareas) es un proceso pensado para humanos debido a limitaciones de comunicación y velocidad de contexto. Los agentes autónomos pueden descomponer planes complejos en segundos. Lo que requiere el sistema no son micro-instrucciones, sino directrices de alto nivel y metas claras.
-- **En la práctica**: Reemplazamos el backlog de historias por una plantilla de objetivos formalizada ([[Fase 1 - Objective]]).
+- **En la práctica**: Una plantilla de objetivos formalizada ([[Fase 1 - Objective]]) reemplaza el backlog de historias en los equipos que arrancan desde cero; en los equipos existentes convive con Scrum o Kanban y se adopta de a poco ([[Registro de decisiones]], D-03).
 
 ### 2. Outcomes over Output (Resultados sobre Entregables)
 *Valoramos el logro de resultados medibles por encima de la cantidad de software producido.*
@@ -47,7 +47,7 @@ Como profesionales del desarrollo de software y la ingeniería de sistemas organ
 *Valoramos el control estratégico humano por encima de la autonomía descontrolada de los agentes.*
 
 - **Por qué**: Delegar la responsabilidad del negocio y la ética a agentes autónomos es irresponsable. Los agentes ejecutan, sugieren y validan, pero los humanos lideran la visión y deciden los límites de riesgo aceptables.
-- **En la práctica**: Establecemos políticas de [[Gobernanza]] claras donde el despliegue a producción, cambios críticos de arquitectura y aprobación de presupuestos requieren supervisión humana.
+- **En la práctica**: Las acciones que requieren aprobación humana están en una sola matriz, por tipo de acción, en [[Gobernanza]]. Lo irreversible (pagos, datos de clientes, borrado, migraciones destructivas) frena siempre y no se relaja con la madurez ([[Registro de decisiones]], D-01).
 
 ### 6. Purpose over Technology (Propósito sobre Tecnología)
 *Valoramos el propósito y el resultado por encima de la tecnología, el framework o el lenguaje específico.*
@@ -77,7 +77,7 @@ Al priorizar los elementos de la izquierda sobre los de la derecha, cambiamos la
 Como el Manifiesto Ágil, esto es una **declaración de valores, no un proceso a imponer**. HACS y ODLC deben adaptarse al contexto y las circunstancias de cada organización; imponerlos como dinámica rígida repite el error que convirtió a Agile en ceremonia vacía.
 
 - **Esto se construye antes de tiempo, a propósito.** El marco se diseña para el camino hacia sistemas cada vez más capaces (AGI / superinteligencia), donde la unidad humano-agente será la norma. Que el destino sea ese no significa que hoy se adopte completo.
-- **Cherry-picking deliberado.** Ante las falencias actuales de los modelos (alucinaciones, deriva de contexto, costo, validación inmadura — ver [[Riesgos]]), se aconseja **seleccionar los pasos, fases y herramientas que aporten valor hoy** y dejar el resto documentado para cuando la capacidad de los modelos lo habilite. Adoptar la [[Fase 1 - Objective]] y la [[Fase 6 - Learning]] sin agentes ya es ODLC; usar la matriz de [[Gobernanza]] con un solo agente ya es HACS.
+- **Cherry-picking deliberado.** Ante las falencias actuales de los modelos (alucinaciones, deriva de contexto, costo, validación inmadura — ver [[Riesgos]]), se aconseja **seleccionar los pasos, fases y herramientas que aporten valor hoy** y dejar el resto documentado para cuando la capacidad de los modelos lo habilite. Adopta ODLC quien usa la ficha de objetivo con criterio de abandono y registra el resultado validado, con o sin agentes ([[Núcleo ODLC para tiny teams]]; [[Registro de decisiones]], D-02).
 - **El nivel de adopción lo marca la madurez, no la ambición.** El [[Modelo de madurez AI-Native]] existe exactamente para esto: cada nivel habilita prácticas nuevas; saltar niveles impone un marco que el sistema (humanos + modelos) todavía no puede sostener.
 - **La evidencia decide qué se adopta.** Cada práctica incorporada se valida contra resultados ([[Fase 5 - Validation]]); lo que no aporta en tu contexto, se descarta sin culpa — y eso también es aprendizaje.
 

@@ -3,7 +3,7 @@ tags: [cursos, educacion, capacitacion, seguridad, agentes, no-code, serie-aplic
 status: borrador
 created: 2026-06-11
 autor: Damián, OliveX Security
-fuente: "[[Draft Damián - Agentes de IA aplicados al trabajo técnico]]"
+origen: "[[Draft Damián - Agentes de IA aplicados al trabajo técnico]]"
 ---
 
 # Encuentro 2 — Prompting seguro y agentes con conocimiento propio

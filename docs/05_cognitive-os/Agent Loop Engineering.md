@@ -113,7 +113,9 @@ Esto conecta con [[Repositorios y catálogos de skills]] y con la visión de [[C
 
 ---
 
-## Niveles de madurez del loop
+## Niveles de complejidad del loop
+
+Se llaman niveles de complejidad para no confundirlos con los niveles del [[Modelo de madurez AI-Native]] ([[Registro de decisiones]], D-13).
 
 | Nivel | Loop | Sirve para | Riesgo principal |
 |---|---|---|---|
@@ -488,7 +490,7 @@ Mitigación: claim validator, trust score, ground-truth checks, verificación in
 
 Se usa un loop agéntico complejo para una tarea lineal simple.
 
-Mitigación: elegir el menor nivel de madurez suficiente; preferir scripts determinísticos cuando el camino es conocido.
+Mitigación: elegir el menor nivel de complejidad suficiente; preferir scripts determinísticos cuando el camino es conocido.
 
 ### No budget awareness
 

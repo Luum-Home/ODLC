@@ -33,6 +33,8 @@ Nótese lo que **no** dice: no menciona features, pantallas ni tecnología. Eso 
 2. **Outcome, no output.** "Lanzar el módulo X" es output; "reducir el churn 2 puntos" es outcome → [[Más código no es más velocidad]].
 3. **Un dueño humano.** La formulación del objetivo es responsabilidad de [[Roles humanos]]: formula Product; aprueba Sponsor. Los agentes pueden proponer y refinar, no decidir.
 
+La compuerta que impide arrancar sin métrica de éxito ni dueño se adopta como práctica del [[Núcleo ODLC para tiny teams]], no como regla de esta fase ([[Registro de decisiones]], D-11).
+
 ## Métricas asociadas
 
 Objective Success Rate, Time To Outcome → [[Métricas operativas]].

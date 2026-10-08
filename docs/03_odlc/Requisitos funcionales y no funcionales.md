@@ -110,7 +110,7 @@ Adicional a los RNF clásicos, los sistemas cognitivos humano-agente requieren:
 - Gobernanza de qué contexto se inyecta a qué agente
 
 ### 5. Reversibilidad
-- Toda acción del agente es reversible o pasa antes por aprobación humana ([[Gobernanza]])
+- Toda acción del agente es reversible o pasa antes por aprobación humana ([[Gobernanza]]). Ser reversible es necesario pero no suficiente: la acción además tiene que figurar como del agente en la matriz ([[Registro de decisiones]], D-06)
 - Snapshots automáticos antes de cambios destructivos
 - Feature flags para cambios de larga duración
 

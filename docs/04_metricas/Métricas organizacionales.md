@@ -8,6 +8,9 @@ created: 2026-06-10
 
 Las **métricas organizacionales** evalúan la salud del flujo de información, la reusabilidad del conocimiento y la velocidad de toma de decisiones estratégicas dentro de la estructura completa de [[HACS]]. Estas métricas no miden al agente individual ni el resultado de un solo objetivo, sino la eficiencia colectiva y la capacidad de la organización para operar como un sistema cognitivo distribuido.
 
+> [!note] KRR y CRT fuera del núcleo
+> El Knowledge Reuse Rate y el Context Retrieval Time quedan fuera del [[Núcleo ODLC para tiny teams]] y se mantienen como referencia para empresas. Su rediseño se pospone: el mandato de la decisión D1 invita a inflar el KRR (Goodhart) y el CRT se superpone con el Decision Lead Time ([[Registro de decisiones]], D-10).
+
 ## 1. Knowledge Reuse Rate (KRR)
 
 Mide el grado en que los nuevos objetivos capitalizan la [[Memoria organizacional]] existente (ADRs, postmortems, lecciones aprendidas) en lugar de resolver problemas desde cero.
