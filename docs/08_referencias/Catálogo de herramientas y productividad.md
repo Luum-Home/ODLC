@@ -24,6 +24,20 @@ Estas herramientas actúan como el entorno de ejecución (núcleo) donde operan 
 
 ---
 
+## 1.1 Agentes personales de los vendors (siempre encendidos)
+
+La versión SaaS de lo que hace OpenClaw: un agente con computadora propia en la nube, memoria, tareas programadas y mensajería, sin instalar nada. Salieron entre mayo y septiembre de 2026. Planes, regiones y riesgos verificados en [[Agentes abiertos y planes SaaS - Verificación]]. Consultado 2026-10-08.
+
+*   **[dots](https://learn.chatgpt.com/docs/dots)** (OpenAI): agente en la nube al que se le habla por ChatGPT, Slack o Teams, con acceso opcional a la computadora local. Pro de US\$100 a 500 por mes, Business Premium y Enterprise. No está para particulares en el EEE, el Reino Unido ni Suiza.
+*   **[Grok Bot](https://docs.x.ai/grok-bot/overview.md)** (xAI): varios bots con nombre y rol sobre una computadora en la nube de Cursor, manejados por app, Slack o @bot en X. Incluido en los planes pagos de Cursor y en SuperGrok. Todos los bots de un usuario comparten computadora y credenciales: separarlos no aísla nada.
+*   **[Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)** con **Dispatch** (Anthropic): es el equivalente de Claude, no hay un producto aparte. Tareas programadas, ejecución en la nube en Pro y Max, y Dispatch para pedirle tareas desde el celular (beta cerrada). Todos los planes pagos.
+*   **[Claude Tag](https://www.anthropic.com/news/introducing-claude-tag)** (Anthropic): compañero de equipo en Slack con memoria por canal. Solo Team y Enterprise.
+*   **[Gemini Spark](https://support.google.com/gemini/answer/17094507)** (Google): agente personal con agendas, skills y MCP. Google AI Ultra fuera del EEE, el Reino Unido, Suiza y Nigeria. En Pro, solo EE.UU. y en inglés.
+*   **[Meta Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)** (Meta): agente en una VM propia, con un segundo agente que aprueba lo que sale a internet. Se le habla por su app o por WhatsApp. Solo EE.UU.
+*   Manus (por Telegram) y Perplexity Personal Computer (sobre una Mac mini propia) son de la misma categoría, pero solo los encontramos en prensa, sin fuente oficial consultable.
+
+---
+
 ## 2. Orquestadores y Espacios de Trabajo Colaborativos
 
 Plataformas para gestionar múltiples agentes, coordinar flujos de trabajo paralelos y proporcionar interfaces de control de proyectos para humanos y equipos de IA.
@@ -78,6 +92,7 @@ Constructores visuales de flujos y agentes orientados a perfiles técnicos sin e
 > 3.  Si querés mostrar **aprendizaje continuo y skills auto-evolutivas**: incorpora **Hermes Agent**, cuidando que el auto-mejoramiento tenga revisión humana antes de promover skills.
 > 4.  Si querés discutir **soberanía de datos y workspace local tipo ChatGPT/Claude**: menciona **Odysseus**, con la advertencia de madurez temprana.
 > 5.  Si tienes un **equipo de desarrollo humano-agente trabajando sobre Jira/GitHub**: integra **Superconductor** para revisión multiplayer paralela.
+> 6.  Si querés mostrar **un agente siempre encendido sin autohospedar nada**: usá **Claude Cowork** (tareas programadas, Dispatch), que es el único al alcance de un plan individual barato. **dots**, **Grok Bot**, **Gemini Spark** y **Meta Muse** se muestran desde la cuenta del instructor: piden planes de US\$100 o más, o no están disponibles en todas las regiones.
 
 > [!warning] Nota docente — curso aplicado vs. arneses avanzados
 > Para perfiles no programadores, estas herramientas no reemplazan la ruta principal del curso (ChatGPT/Claude + no-code + MCP). Sirven como bloque de discusión para explicar las limitaciones actuales de los SaaS: permisos por plan, datos fuera del workspace, falta de memoria gobernada y necesidad de sandbox/HITL. Si se incluyen en vivo, hacerlo como demo controlada o lectura comparativa, no como requisito del curso.
