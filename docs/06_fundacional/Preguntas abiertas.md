@@ -18,7 +18,8 @@ Este documento consolida las principales **preguntas abiertas** e interrogantes 
 - **¿Cómo coexiste HACS con equipos Scrum, XP o Kanban?**
   - En organizaciones grandes, la migración completa es inviable en el corto plazo. ¿Cómo interactúa una unidad cognitiva HACS orientada a objetivos con un equipo Scrum que trabaja por Product Backlog Items y Sprints, o con un equipo Kanban que trabaja por flujo continuo? ¿Cómo mapear dependencias entre ambos mundos?
 - **¿Qué pasa con un humano que no es proactivo?**
-  - HACS supone que el humano define objetivos, decide y valida por iniciativa propia. Scrum compensaba la falta de iniciativa con sprints y compromisos; ODLC no tiene un equivalente. ¿Cómo se mide si las salvaguardas de diseño (plantilla que no arranca sin métrica, validación que no se aprueba sin evidencia) alcanzan? → [[Relectura del Manifiesto Ágil#El humano que no es proactivo]]
+  - HACS supone que el humano define objetivos, decide y valida por iniciativa propia. Scrum compensaba la falta de iniciativa con sprints y compromisos; ODLC no tiene un equivalente. ¿Cómo se mide si las salvaguardas de diseño (plantilla que no arranca sin métrica, validación que no se aprueba sin evidencia) alcanzan? → [[Relectura del Manifiesto Ágil#El humano que no es proactivo]] · principios propuestos y su respaldo: [[Objeciones al marco#Principios para tolerar al humano de mínimo esfuerzo]]
+  - ¿Cómo se logra que el debrief de Learning ocurra si nadie lo convoca? La evidencia sobre debriefs supone que alguien los conduce.
 
 ### 2. Economía y Retorno de Inversión (ROI)
 - **¿Cómo se calcula el ROI real de implementar Cognitive OS?**

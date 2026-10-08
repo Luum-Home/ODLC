@@ -71,6 +71,8 @@ El principio 5 asume personas motivadas. HACS hereda ese supuesto sin declararlo
   - la [[Fase 6 - Learning]] se saltea, como hoy se saltean las retros.
 - **Scrum ya compensaba esto sin decirlo.** El sprint, el compromiso de sprint y la daily externalizan la disciplina: la estructura empuja cuando la persona no lo hace. Kanban depende de que alguien tire del trabajo (pull). ODLC saca los sprints y hasta ahora no ponía nada en su lugar.
 
+Los seis principios de diseño para tolerar a este humano, con su respaldo en la literatura, están en [[Objeciones al marco#Principios para tolerar al humano de mínimo esfuerzo]].
+
 **Principio de diseño que se deriva (propuesta):** ODLC se diseña para el humano de mínimo esfuerzo; el camino barato tiene que ser el correcto. Las compuertas siguientes son **propuestas de esta nota**: hoy no figuran como reglas en [[Fase 1 - Objective]] ni en [[Fase 6 - Learning]].
 
 - Propuesta: la plantilla de objetivo no permite arrancar sin métrica de éxito y dueño. Hoy [[Fase 1 - Objective]] pide ambos en sus reglas, pero nada bloquea el arranque si faltan.
