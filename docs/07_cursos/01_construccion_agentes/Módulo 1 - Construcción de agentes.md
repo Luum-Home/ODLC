@@ -81,7 +81,7 @@ constraints:
   - Si el vendedor falló en el primer intento, se le envía el enlace a la guía de ayuda.
 ```
 
-Con intención y restricciones, el agente propone una estrategia; un humano la aprueba ([[Fase 3 - Strategy]]) y aprueba el envío de mensajes externos antes de ejecutarlo.
+Con intención y restricciones, el agente propone una estrategia; un humano la aprueba ([[Fase 3 - Strategy]]), y cada mensaje a un tercero espera aprobación humana antes de enviarse, como indica la fila "acción externa" de la matriz de [[Gobernanza#Límites de autonomía (matriz borrador)|Gobernanza]] ([[Registro de decisiones]], D-18).
 
 ---
 Siguiente módulo: [[Módulo 2 - Ingeniería de arneses]]

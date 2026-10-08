@@ -22,7 +22,7 @@ En la ingeniería AI-Native (HACS + ODLC) esa distinción no desaparece, pero se
 | Requisitos no funcionales | Constraints + gobernanza + métricas | [[Fase 2 - Constraints]], [[Gobernanza]], [[Métricas operativas]] |
 | Historias de usuario | Objetivo como unidad de trabajo ([[Glosario y taxonomía]]); especificaciones EARS como detalle de ejecución | [[Fase 1 - Objective]], [[Análisis - Adaptando Claude Code para SDD]] |
 | NFR de performance | Constraints `calidad` | [[Fase 2 - Constraints]] |
-| NFR de seguridad | Constraints `seguridad` + Safety Mesh | [[Fase 2 - Constraints]], [[Gobernanza]] |
+| NFR de seguridad | Constraints `seguridad` + controles técnicos de la gobernanza | [[Fase 2 - Constraints]], [[Gobernanza#Controles técnicos]] |
 | NFR de disponibilidad | SLOs/SLIs (aún no formalizado) | TBD |
 | NFR de costo | Constraints `presupuesto` + Agent Cost | [[Fase 2 - Constraints]], [[Métricas de agentes]] |
 
@@ -56,7 +56,7 @@ requisitos_no_funcionales:
     descripcion: "Toda llamada externa a proveedores LLM debe sanitizar PII"
     medicion: "Auditoría de logs y pruebas de filtración"
     constraint_vinculada: "[[Fase 2 - Constraints]] - seguridad + [[Gobernanza]]"
-    herramienta: "PII Redaction, interceptor de [[Módulo 4 - Ciberseguridad aplicada]]; no es una de las 14 capas de la Safety Mesh"
+    herramienta: "PII Redaction, interceptor de [[Módulo 4 - Ciberseguridad aplicada]]"
 
   - id: RNF-03
     categoria: escalabilidad

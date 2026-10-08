@@ -1,5 +1,5 @@
 ---
-tags: [recursos, cognitive-os, material-audiovisual, arneses, contexto, herramientas]
+tags: [recursos, ingenieria-de-agentes, material-audiovisual, arneses, contexto, herramientas]
 status: borrador
 created: 2026-06-10
 fuente:
@@ -63,4 +63,4 @@ A pesar de las ventanas de contexto gigantescas en modelos modernos, el rendimie
 3. **Verificación y Automejora**: Exigir al agente que *demuestre* que el desarrollo funciona mediante la ejecución de arneses de pruebas unitarias (`pytest`, Puppeteer, Playwright) antes de declarar un objetivo como completado. Adicionalmente, el agente tiene la capacidad de modificar sus propios prompts de definición (`.md`) dentro del repo para automejorar el arnés ante fallas repetitivas.
 
 ---
-Relacionado: [[Cognitive OS - Arquitectura de referencia]] · [[Módulo 2 - Ingeniería de arneses]] · [[Recursos externos]] · [[Memoria organizacional]] · [[Métricas de agentes]]
+Relacionado: [[Agent Loop Engineering]] · [[Módulo 2 - Ingeniería de arneses]] · [[Recursos externos]] · [[Memoria organizacional]] · [[Métricas de agentes]]

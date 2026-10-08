@@ -6,7 +6,7 @@ created: 2026-10-08
 
 # Núcleo ODLC para tiny teams
 
-Para una a tres personas que construyen con agentes: tres roles y siete reglas. La unidad es humano más agentes [hipótesis]; el tiempo humano va a decidir y validar, que se aceleran mucho menos que construir [hipótesis]. Nombres provisionales; todo es hipótesis hasta que el [[Piloto - Combinación A|piloto]] lo pruebe. Las etiquetas remiten a [[#Respaldo]].
+Para una a tres personas que construyen con agentes: tres roles y siete reglas. La unidad es humano más agentes [hipótesis]; el tiempo humano va a decidir y validar, que se aceleran mucho menos que construir [hipótesis]. Todo es hipótesis hasta que el [[Piloto - Combinación A|piloto]] lo pruebe. Las etiquetas remiten a [[#Respaldo]].
 
 ## Los diez elementos
 
@@ -14,18 +14,18 @@ Para una a tres personas que construyen con agentes: tres roles y siete reglas. 
 |---|---|---|---|
 | **Dueño del objetivo** (humano) | Fija target y abandono, elige, valida, audita | [hipótesis] | Sin antecedente directo: funde los cuatro [[Roles humanos]] |
 | **Escritor** (agente) | Escribe ficha y código; no edita los tests, que escribe otro agente | [medido, benchmark] | Separar quien escribe de quien prueba |
-| **Revisor** (agente) | Otra familia de modelo, sin saber quién escribió | [medido, benchmark] | Inspección de código (Fagan, 1976) |
-| **Ficha de objetivo** | Antes de construir: resultado para el cliente, métrica con baseline y target, criterio de abandono con fecha, lo que no se toca | Ficha [hipótesis]; abandono [hipótesis] con respaldo [medido, otro tratamiento] | Shape Up (pitch, apetito, no-gos, circuit breaker); OKR y contabilidad de la innovación de Lean Startup |
+| **Revisor** (agente) | Dos pasadas por PR, contexto limpio y otra familia, sin revelar la autoría (P-07) | [medido, benchmark] | Inspección de código (Fagan, 1976) |
+| **Ficha de objetivo** | Antes de construir: resultado para el cliente, métrica con baseline y target, criterio de abandono con fecha, topes de tiempo y costo (D-08), lo que no se toca | Ficha [hipótesis]; abandono [hipótesis] con respaldo [medido, otro tratamiento] | Shape Up (pitch, apetito, no-gos, circuit breaker); OKR y Lean Startup |
 | **Se verifica corriendo** | Cada PR cierra por CI obligatorio, también para el administrador | [medido, benchmark] | Integración continua de XP |
 | **Hallazgo con test** | Ningún hallazgo se aplica sin un test que falle antes y pase después. `registro-pr/` | [medido, benchmark]; la regla del rojo previo [hipótesis] | Test de regresión de TDD y XP |
-| **Lo irreversible frena** | Pagos, datos de clientes, borrado y migraciones destructivas esperan a un validador externo (asesor, par o cliente) o a una excepción escrita | [guía] | Puertas de una y dos vías (Amazon) |
+| **Lo irreversible frena** | Pagos, datos de clientes, borrado y migraciones destructivas esperan siempre a un validador externo (asesor, par o cliente). Con una persona, además, excepción escrita compensada con constancia de outcome (D-16, D-17) | [guía] | Puertas de una y dos vías (Amazon) |
 | **Auditoría elegida** | Semanal: un modelo distinto del escritor elige la unidad más sospechosa, más una fracción al azar; el humano la revisa. Registra criterio o semilla y unidad | [medido, benchmark de juguete] + [guía] | Muestreo de auditoría (COSO) |
 | **Constancia de outcome** | Al cierre, un compromiso o pago de cliente que un tercero pueda abrir | Escalera [hipótesis]; pago como señal [medido, observacional, otra plataforma] | Sin antecedente: escalera propia |
-| **Tablero** | `scripts/nucleo_tablero.py`: abandono vencido sin veredicto, fichas sin métrica o dueño, PR con rojo previo. Registro declarado y auditable | Umbrales [hipótesis] | Circuit breaker de Shape Up |
+| **Tablero** | `scripts/nucleo_tablero.py`: abandono vencido sin veredicto, fichas sin métrica, dueño o topes, PR con rojo previo. Registro declarado y auditable | Umbrales [hipótesis] | Circuit breaker de Shape Up |
 
 ## Qué NO es
 
-- **No es Scrum con agentes:** sin sprint ni daily. Hay una cola de fichas que el dueño ordena, pero el trabajo cierra con el outcome validado, no con el Done.
+- **No es Scrum con agentes:** sin sprint ni daily; el dueño ordena una cola de fichas y el trabajo cierra con el outcome validado, no con el Done.
 - **No reemplaza hablar con clientes.**
 - **No evalúa personas:** nadie cobra ni se califica por las métricas.
 
@@ -33,23 +33,23 @@ Para una a tres personas que construyen con agentes: tres roles y siete reglas. 
 
 Sin sellar el protocolo del piloto.
 
-1. Copiar `scripts/nucleo_tablero.py`, `scripts/piloto_metricas.py` (el tablero reusa su lector de frontmatter) y `scripts/fixtures/nucleo/plantillas/`.
+1. Copiar `scripts/nucleo_tablero.py`, `scripts/piloto_metricas.py` (lo usa el tablero) y `scripts/fixtures/nucleo/plantillas/`.
 2. Escribir la primera ficha en `fichas/` con criterio de abandono y fecha.
-3. Configurar escritor, agente de tests y revisor de otra familia; CI obligatorio con "Do not allow bypassing the above settings".
+3. Configurar escritor, agente de tests y revisor de dos pasadas; CI obligatorio con "Do not allow bypassing the above settings".
 4. Agendar la auditoría semanal y correr `python3 scripts/nucleo_tablero.py . --fecha AAAA-MM-DD` cada media semana.
 5. Antes de construir, nombrar los clientes que pueden dejar la constancia.
 
 ## Costo mínimo [hipótesis]
 
 - **Protección de ramas en repo privado:** GitHub Pro o Team.
-- **Revisor de otra familia:** otra suscripción, del orden de USD 20 por mes.
+- **Segunda pasada del revisor (otra familia):** otra suscripción, del orden de USD 20 por mes.
 - **Fuera del repo:** selector de auditoría, CI y agente de tests.
 - **Horas:** unas dos por semana.
-- **Límite:** un administrador único puede apagar su propio CI. El núcleo no lo impide.
+- **Límite:** el núcleo no impide que un administrador único apague su propio CI.
 
 ## Cuándo se agranda
 
-Cambiar el modelo de empleo inicial se asoció con el triple de fallas [medido, observacional, fuente secundaria]. Por eso el núcleo trae las costuras: dueño nombrado por ficha (`responsable_humano`, de [[Fase 1 - Objective]]), auditoría por alguien distinto del dueño, segunda persona como validador y un consejo de pares [medido]. Adoptar el núcleo en un equipo existente también es cambiar de modelo: ahí se adopta de a poco ([[Registro de decisiones]], D-03). No hay umbral medido para contratar.
+Cambiar el modelo de empleo inicial se asoció con el triple de fallas [medido, observacional, fuente secundaria]. El núcleo trae las costuras: dueño nombrado por ficha (`responsable_humano`, de [[Fase 1 - Objective]]), auditoría por alguien distinto del dueño, segunda persona como validador y un consejo de pares [medido]. En un equipo existente se adopta de a poco ([[Registro de decisiones]], D-03). No hay umbral medido para contratar.
 
 ---
 
@@ -67,7 +67,7 @@ Convención de [[Investigación - Tiny teams y bootstrapping]]: [medido] aclara 
 
 - **Dueño del objetivo** [hipótesis]: ninguna fuente resuelve la separación de funciones con una sola persona (COSO 2006) [guía].
 - **Escritor y Revisor** [medido, benchmark]: tests de un agente separado, 87,8 % de precisión contra 61,0 % con un solo agente (AgentCoder, GPT-3.5 en HumanEval). Una pasada con contexto limpio más una de otra familia encontró 56,7 % de errores sembrados contra 42,7 % (Song 2026, preprint de un autor); el contexto limpio solo no fue significativamente mejor que una autorrevisión (p = 0,26). Ocultar la autoría redujo la autopreferencia (Chae y otros 2026). La revisión entre familias depende de la dirección y puede empeorar (Xiang y otros 2026), y los errores siguen correlacionados entre proveedores (Kim y otros 2025). Nada de esto se midió en producción ([[Propuestas existentes - Autorrevisión en equipos de uno]]).
-- **Ficha de objetivo**: el criterio de abandono es [hipótesis] con respaldo [medido, otro tratamiento]. Camuffo y otros (2020, 116 startups) dieron la misma tasa de abandono temprano; la réplica (2024, 759 firmas) dio más abandono, no antes. Lo que se trató fue el método científico en startups, no una ficha con fecha.
+- **Ficha de objetivo**: el criterio de abandono es [hipótesis] con respaldo [medido, otro tratamiento]. Camuffo y otros (2020, 116 startups) dieron la misma tasa de abandono temprano; la réplica (2024, 759 firmas) dio más abandono, no antes. Lo que se trató fue el método científico en startups, no una ficha con fecha. Los topes de tiempo y costo reemplazan la estimación [hipótesis]: el pronóstico por Monte Carlo necesita más objetivos cerrados de los que produce un equipo chico ([[Registro de decisiones]], D-08).
 - **Se verifica corriendo** [medido, benchmark]: los tests de solo lectura bloquean la trampa de modificarlos (ImpossibleBench). Tomar "los tests pasan" como garantía es una validación poco confiable (Dhanorkar y otros 2026) [medido, cualitativo, 17 entrevistas]. GitHub deja a los administradores saltarse la protección salvo con "Do not allow bypassing the above settings" [guía].
 - **Hallazgo con test** [medido, benchmark]: regresiones al aplicar hallazgos, 13 contra 3 (Xiang y otros 2026), y sobrecorrección del revisor (Jin y Chen 2026). Exigir que el test falle antes es [hipótesis] tomada de TDD; el orden test antes o después no tuvo efecto importante en Fucci y otros (2016).
 - **Lo irreversible frena** [guía]: aprobación concentrada en lo irreversible (IMDA) y controles compensatorios (COSO 2006). El deploy no está en la lista: lo aprueba el dueño, como en [[Gobernanza]] y en la Fase 2 del piloto. Los consejos de pares influyen [medido], pero nadie midió al par como control.
@@ -83,15 +83,13 @@ Quedan fuera del núcleo; las define [[Piloto - Combinación A]] y las mide `scr
 - **Elegir, no aprobar**: dos opciones o más y el número que se espera mover. [medido, otro dominio]: elección activa (Carroll y otros 2009) y forzado cognitivo (Buçinca y otros 2021).
 - **Aprendizaje** al cerrar la unidad [hipótesis]. Antecedente: retrospectiva y after-action review; los debriefs mejoran el desempeño (Tannenbaum y Cerasoli 2013) [medido], pero suponen alguien que los convoca.
 - **Tablero del piloto**: P1, P2, abandono temprano, espera separada del trabajo (flow efficiency de Lean y Kanban), adherencia, pasividad y K0 a K5.
-- **Revisor de dos pasadas** (contexto limpio más otra familia), de la combinación mínima de autorrevisión.
 - **Semilla de defectos**: solo existe con la condición HA y su criterio K3; el repo no trae sembrador. Antecedente y alcance en la sección 6.4 del piloto.
 
 ## Tensiones declaradas
 
-- **Quien valida no es quien ejecutó** ([[Fase 5 - Validation]], regla 3). Con una persona no se cumple y se acepta por escrito, compensado con las revisiones automáticas y el validador externo para lo irreversible; desde dos personas, quien ejecuta no valida ([[Registro de decisiones]], D-04).
-- **Autonomía ganada, no otorgada** ([[Gobernanza]]). El revisor agente decide lo reversible desde el primer día, sin historial que lo justifique, aunque ser reversible no alcanza por sí solo ([[Registro de decisiones]], D-06).
-- **Merge a main con aprobación humana** ([[Gobernanza]]). El núcleo deja avanzar lo reversible con revisor y tests.
-- **Presupuesto de tokens y suspensión por Rework.** [[Fase 2 - Constraints]] pide presupuesto de tokens por unidad y [[Gobernanza]] prevé que el dueño suspenda al agente con Rework sobre 40 % (D-06); el núcleo no trae ninguno de los dos.
+- **Quien valida no es quien ejecutó** ([[Fase 5 - Validation]], regla 3). Con una persona no se cumple: se acepta por escrito, compensado con la constancia de outcome que un tercero puede abrir y, para lo irreversible, con el validador externo siempre; desde dos personas, quien ejecuta no valida ([[Registro de decisiones]], D-04, D-16 y D-17).
+- **Excepción explícita al principio 3 de [[Gobernanza]].** Con una persona sola, el revisor agente decide lo reversible, merge incluido, desde el primer día y sin historial, aunque ser reversible no alcanza ([[Registro de decisiones]], D-06). Lo irreversible, la acción externa y lo marcado "siempre" quedan fuera.
+- **Suspensión por Rework.** [[Gobernanza]] prevé que el dueño suspenda al agente con Rework sobre 40 % (D-06); el núcleo no la trae.
 - **No iterar contra la señal que juzga** (C7 en [[Objeciones al marco]]). Iterar al escritor hasta que pase CI es exactamente eso; el agente de tests separado lo atenúa, no lo elimina.
 - **Comprensión compartida.** Ninguna compensación reemplaza lo que la revisión humana producía ([[Objeciones al marco]]).
 - **Primero la práctica, después el nombre** ([[Cómo nacieron los marcos que se adoptaron]]). El núcleo nombra antes de practicar; los nombres son provisionales hasta el piloto.
@@ -140,9 +138,10 @@ Corte: 2026-11-30 · 2 ficha(s)
   F-001: dueño fundadora, abandono 2026-11-23, veredicto sigue
   F-003: dueño s/d, abandono 2026-11-16, veredicto pendiente
 PR con test que falla antes y pasa después: sin registro-pr/
-Alertas (3):
+Alertas (4):
   - F-003: sin dueño
   - F-003: métrica incompleta (falta baseline)
+  - F-003: sin tope (tope_tiempo, tope_costo)
   - F-003: criterio de abandono vencido el 2026-11-16 sin veredicto
 exit=1
 ```

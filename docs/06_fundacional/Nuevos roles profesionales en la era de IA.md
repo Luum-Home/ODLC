@@ -73,7 +73,7 @@ El **Oficial de Seguridad de IA** es el garante ético de los sistemas autónomo
 
 *   **Responsabilidades Clave:**
     - **Alineación de Modelos**: Evaluar que los agentes no tomen decisiones perjudiciales, discriminatorias o con sesgos inaceptables.
-    - **Auditoría de Vulnerabilidades**: Realizar ataques simulados (como inyecciones de prompts mediante suites de `/pentest-self`) para certificar la resiliencia del sistema.
+    - **Auditoría de Vulnerabilidades**: Realizar ataques simulados (como inyecciones de prompts mediante una suite propia de autoataque) para certificar la resiliencia del sistema.
 
 ### AI Integration Specialist
 Especialista encargado de insertar los flujos y resultados generados por los agentes dentro de las operaciones de negocio existentes (Jira, GitHub, bases de datos internas, ERP).

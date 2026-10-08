@@ -61,25 +61,25 @@ def run_agent_validation(sandbox_path):
     return True, "Validación exitosa"
 ```
 
-## 3. Validación de Reclamos de Éxito (Ground Truth Checker)
+## 3. Validación de reclamos de éxito
 
-Uno de los principales problemas al delegar tareas críticas a los agentes autónomos de desarrollo es el **auto-reporte ficticio** o alucinaciones de éxito. Un agente puede escribir en su reporte: *"He creado la API de usuarios y todos los 15 tests unitarios pasan exitosamente"*, cuando en realidad no ha creado el archivo correcto o las pruebas fallaron.
+Uno de los principales problemas al delegar tareas críticas a los agentes autónomos de desarrollo es el **auto-reporte ficticio** o alucinaciones de éxito. Un agente puede escribir en su reporte: *"He creado la API de usuarios y todos los 15 tests unitarios pasan exitosamente"*, cuando en realidad no creó el archivo correcto o las pruebas fallaron.
 
-Para mitigar esto, dentro de la Safety Mesh (ver [[Módulo 3 - Gobernanza#3. La Malla de Seguridad de 14 Capas (14-Layer Safety Mesh)|Módulo 3 § Safety Mesh]]) de la arquitectura [[Cognitive OS - Arquitectura de referencia]] se integra la herramienta **Ground Truth Checker** (`cos_lib/ground_truth.py` y el hook `claim-validator.sh`).
+La mitigación es un control del arnés que no acepta resultados declarados: lo que el agente afirma se contrasta contra la realidad antes de cerrar la tarea ([[Gobernanza#Controles técnicos]]; en el glosario, *verificación de reclamos*).
 
-### ¿Cómo opera el Ground Truth Checker?
+### Cómo se arma
 
-1. **Extracción Semántica de Reclamos**: Tras cada finalización de tarea por parte del agente, el sistema lee la salida textual y extrae declaraciones de éxito mediante patrones estructurados:
+1. **Extraer los reclamos**: al terminar cada tarea, el arnés lee la salida del agente y extrae las declaraciones de éxito con patrones estructurados:
    - *"Created file `path/to/file`"*
    - *"N tests passing"*
    - *"Build succeeded"*
-2. **Auditoría Determinista contra la Realidad**:
-   - **Verificación de archivos**: Verifica la existencia física del archivo modificado o creado usando funciones del sistema (`os.path.exists`).
-   - **Verificación de funciones/tests**: Realiza búsquedas de texto directo y análisis estático (grep) sobre la suite para validar que las firmas de las funciones y los recuentos declarados coincidan con el archivo final.
-3. **Puntaje de Alucinación (Hallucination Score)**: El componente genera una métrica entre `0.0` (todos los reclamos validados coinciden con la realidad en disco) y `1.0` (ninguno de los reclamos declarados es real).
-4. **Comportamiento en Ganchos (claim-validator.sh)**:
-   - En fases de **Reconstrucción/Estabilización**: Se reporta una alerta descriptiva (**WARN** con exit 0), permitiendo al desarrollador corregir el flujo.
-   - En fases de **Producción/Mantenimiento**: Si se detecta cualquier discrepancia o alucinación de archivo, el gancho detiene la entrega (**BLOCK** con exit 2) y rechaza la propuesta del agente.
+2. **Contrastarlos de forma determinista**:
+   - **Archivos**: verificar que el archivo creado o modificado exista y tenga el contenido declarado.
+   - **Tests y build**: aceptar "los tests pasan" solo si la corrida existe en el registro del CI o del sandbox, con su salida; contar los tests de esa corrida, no los que el agente dice.
+3. **Responder según el riesgo**: en exploración, una discrepancia puede quedar como advertencia para que la persona corrija el flujo; cuando el cambio va a producción, cualquier reclamo sin respaldo rechaza la entrega. Esa graduación sigue el estado del proyecto, no las fases de ODLC ([[Registro de decisiones]], D-13).
+
+> [!note] Límite
+> Contrastar reclamos detecta el reporte falso, no el test mal escrito: un test que pasa sin probar lo que dice sigue pasando. Por eso se combina con tests que el escritor no puede editar y con el arbitraje de la sección siguiente ([[Objeciones al marco#Objeción 8: la revisión en manos de agentes]], compensación C4).
 
 ---
 
@@ -120,5 +120,5 @@ Te recomendamos explorar dichos directorios para asimilar cómo la verificación
 
 ---
 Siguiente módulo: [[Módulo 3 - Gobernanza]]
-Relacionado: [[Cognitive OS - Arquitectura de referencia]] · [[Recursos externos]] · [[Manifiesto HACS-ODLC]] · [[Riesgos]] · [[Gobernanza]]
+Relacionado: [[Agent Loop Engineering]] · [[Recursos externos]] · [[Manifiesto HACS-ODLC]] · [[Riesgos]] · [[Gobernanza]]
 

@@ -11,6 +11,8 @@ ventana_hasta:            # AAAA-MM-DD en que se mide el target
 abandono_criterio:        # qué resultado haría abandonar el objetivo
 abandono_fecha:           # AAAA-MM-DD en que se mira ese criterio
 no_tocar: []              # superficies fuera de alcance (no-gos)
+tope_tiempo:              # días de trabajo activo como máximo; al llegar, se decide (D-08)
+tope_costo:               # USD como máximo (tokens y servicios); al llegar, se decide (D-08)
 veredicto:                # vacío hasta decidir: sigue | abandona | cumplido
 veredicto_fecha:
 ---

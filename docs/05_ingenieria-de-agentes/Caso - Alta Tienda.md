@@ -33,7 +33,7 @@ El onboarding de nuevos vendedores en Alta Tienda requería 5 días promedio. El
 ### [[Fase 3 - Strategy|Fase 3: Strategy]]
 Se evaluaron dos alternativas en el orquestador:
 - *Alternativa A*: Refactorizar el flujo usando validadores externos SaaS (Costo alto, integración rígida).
-- *Alternativa B*: Crear un microservicio con agentes especializados ([[Roles de agentes]]) integrados a la arquitectura de referencia de [[Cognitive OS - Arquitectura de referencia]] para analizar documentos legales mediante OCR inteligente y configurar APIs de pasarelas.
+- *Alternativa B*: Crear un microservicio con agentes especializados ([[Roles de agentes]]) integrados al arnés de agentes del equipo para analizar documentos legales mediante OCR inteligente y configurar APIs de pasarelas.
 - *Decisión*: Se seleccionó la **Alternativa B** debido a su bajo costo operativo proyectado y flexibilidad para adaptarse a cambios regulatorios futuros de forma autónoma.
 
 ### [[Fase 4 - Execution|Fase 4: Execution]]
@@ -52,7 +52,7 @@ Se procesaron 250 comercios de prueba en staging y luego se liberó al 10% del t
 Se registraron tres aprendizajes en la [[Memoria organizacional]]:
 1. **Validado**: Los modelos LLM multimodales son altamente precisos analizando PDFs notariales, pero fallan si el contraste de la foto de la identificación es bajo.
 2. **Decisión Descartada**: Se descartó la re-verificación automática de documentos fallidos. Es más barato y rápido enviarlos directamente al operador humano que reintentar con otro prompt.
-3. **Reutilizable**: Estructura de validación segura para prompts de extracción de datos que se subió al catálogo de código del Cognitive OS.
+3. **Reutilizable**: Estructura de validación segura para prompts de extracción de datos que se subió al catálogo de skills del equipo.
 
 ---
 
@@ -62,4 +62,4 @@ Se registraron tres aprendizajes en la [[Memoria organizacional]]:
 - **Agent Contribution Ratio (ACR)**: 82% del código y scripts de testeo fueron redactados y validados autónomamente por agentes.
 
 ---
-Relacionado: [[HACS]] · [[ODLC]] · [[Métricas operativas]] · [[Cognitive OS - Arquitectura de referencia]]
+Relacionado: [[HACS]] · [[ODLC]] · [[Métricas operativas]] · [[Gobernanza]]

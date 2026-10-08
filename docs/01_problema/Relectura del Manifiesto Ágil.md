@@ -33,7 +33,7 @@ curl -sL https://agilemanifesto.org/principles.html | sed 's/<[^>]*>//g' | grep 
 Hipótesis de esta nota: **no se invierte del todo; se divide según qué se esté haciendo.**
 
 - **Para decidir, el valor se mantiene y se refuerza.** *Human Governance* dice lo mismo que el valor ágil: ni el proceso ni la herramienta deciden por el humano ([[Gobernanza]]).
-- **Para ejecutar, se invierte.** Un agente no sostiene acuerdos tácitos ni recuerda la conversación de ayer. Lo que entre humanos se resolvía hablando, con un agente tiene que estar escrito: arnés, matriz de gobernanza, gates, memoria. En la ejecución, el proceso explícito y la herramienta valen más que la interacción informal ([[Cognitive OS - Arquitectura de referencia]]).
+- **Para ejecutar, se invierte.** Un agente no sostiene acuerdos tácitos ni recuerda la conversación de ayer. Lo que entre humanos se resolvía hablando, con un agente tiene que estar escrito: arnés, matriz de gobernanza, gates, memoria. En la ejecución, el proceso explícito y la herramienta valen más que la interacción informal ([[Gobernanza]], [[Agent Loop Engineering]]).
 - **El agente no es una "herramienta" en el sentido de 2001.** En 2001 herramienta era el tracker o el IDE; el agente participa e interactúa. La dicotomía individuo/herramienta deja de ser limpia, y por eso el valor no se puede aplicar literal.
 - **Riesgo:** que el proceso diseñado para agentes se derrame sobre los humanos y vuelva la ceremonia vacía que el [[Manifiesto HACS-ODLC]] dice evitar. El proceso explícito es para el agente; para el humano se mantiene el valor original.
 

@@ -6,7 +6,7 @@ created: 2026-06-10
 
 # Recursos externos
 
-Este documento registra los **repositorios y recursos de referencia externos** que sirven de inspiración, base tecnológica o ejemplos prácticos para el diseño y construcción de los agentes en [[HACS]] y las implementaciones de [[Cognitive OS - Arquitectura de referencia]].
+Este documento registra los **repositorios y recursos de referencia externos** que sirven de inspiración, base tecnológica o ejemplos prácticos para el diseño y construcción de los agentes en [[HACS]] y de los arneses que los operan ([[Agent Loop Engineering]]).
 
 > [!warning] Setup requerido (el vault es portable; tu clon no)
 > Las notas del vault que referencian rutas `external/...` (los módulos del curso y [[Análisis - Construyendo un Arnés de IA desde Cero]]) asumen que estos repositorios fueron clonados localmente en el directorio `external/`, que está **excluido del control de versiones** vía `.gitignore`. Si clonaste solo este repo, esas rutas no existen todavía: ejecutá primero la sincronización descripta al final de esta nota.
@@ -40,7 +40,6 @@ Repositorios citados por el vault que `sync_external.sh` no clona.
 
 | Repositorio | Autor / Origen | Propósito / Relación con HACS | Enlace GitHub |
 |---|---|---|---|
-| **luum-cognitive-os** | Luum-Home | Malla de gobernanza de 14 capas desarrollada en colaboración entre Luum y OliveX como arquitectura de referencia. | [Luum-Home/luum-cognitive-os](https://github.com/Luum-Home/luum-cognitive-os) |
 | **ai-engineering-lab** | MatiasNAmendola | Laboratorio educativo de Ingeniería de IA implementando primitivas desde cero en Python y arquitectura limpia. | [MatiasNAmendola/ai-engineering-lab](https://github.com/MatiasNAmendola/ai-engineering-lab) |
 
 ---
@@ -58,7 +57,7 @@ Repositorios citados por el vault que `sync_external.sh` no clona.
 
 ## Recursos Audiovisuales y Multimedia
 
-Para complementar la investigación técnica de HACS y Cognitive OS, analizamos y recomendamos los siguientes materiales multimedia:
+Para complementar la investigación técnica de HACS y de la ingeniería de agentes, analizamos y recomendamos los siguientes materiales multimedia:
 - [[Análisis - Stop Using Claude Without an Agentic OS]]: Resumen y desglose de las 5 capas arquitectónicas de un sistema operativo de inteligencia artificial, sus beneficios en la automatización empresarial y comparativas de interfaces de usuario.
 - [[Análisis - Adaptando Claude Code para SDD]]: Lecciones y arquitectura sobre la adaptación del orquestador líder, higiene de contexto en archivos físicos y estructuración de especificaciones en notación EARS.
 - [[Análisis - Harness Engineering y la Paradoja de Herramientas]]: Estudio sobre el control de agentes a través de arneses simplificados (lección de Vercel D0), mitigación de la degradación de contexto en el 40% y los tres pilares del desarrollo de IA.
@@ -84,4 +83,4 @@ Ejecuta el script desde la raíz del proyecto para clonar/actualizar todos los r
 El script verificará si el repositorio ya existe en `external/` y ejecutará un `git pull` para actualizarlo, o lo clonará desde cero si no estuviese presente.
 
 ---
-Relacionado: [[Gobernanza]] · [[Roles de agentes]] · [[Cognitive OS - Arquitectura de referencia]] · [[Repositorios y catálogos de skills]] · [[Catálogo de herramientas y productividad]] · [[Nuevos roles profesionales en la era de IA]] · [[AI Engineering Lab - Repositorio de referencia]]
+Relacionado: [[Gobernanza]] · [[Roles de agentes]] · [[Agent Loop Engineering]] · [[Repositorios y catálogos de skills]] · [[Catálogo de herramientas y productividad]] · [[Nuevos roles profesionales en la era de IA]] · [[AI Engineering Lab - Repositorio de referencia]]

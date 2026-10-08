@@ -8,6 +8,7 @@ y reporta:
   - fichas con criterio de abandono vencido y sin veredicto  (alerta)
   - fichas sin métrica completa (métrica, baseline, target)   (alerta)
   - fichas sin dueño                                          (alerta)
+  - fichas sin tope de tiempo o de costo (D-08)               (alerta)
   - proporción de PR con test que falla antes y pasa después  (informativo)
 
 No necesita el protocolo sellado del piloto. Read-only, determinista y solo
@@ -65,6 +66,9 @@ def tablero(base, corte):
         faltan = [c for c in ("metrica", "baseline", "target") if vacio(f.get(c))]
         if faltan:
             alertas.append(f"{ident}: métrica incompleta (falta {', '.join(faltan)})")
+        sin_tope = [c for c in ("tope_tiempo", "tope_costo") if vacio(f.get(c))]
+        if sin_tope:
+            alertas.append(f"{ident}: sin tope ({', '.join(sin_tope)})")
         ver = f.get("veredicto")
         if not vacio(ver) and ver not in VEREDICTOS:
             raise DatosInvalidos(f"{a}: veredicto {ver!r} no es uno de {', '.join(VEREDICTOS)}")

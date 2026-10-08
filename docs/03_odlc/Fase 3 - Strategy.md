@@ -18,7 +18,7 @@ strategy:
       pros: []
       contras: []
       riesgos: []
-      costo_estimado: ""
+      costo_estimado: ""        # o tope de tiempo y costo en tiny teams (D-08)
     - nombre: "B"
       # ...
     - nombre: "C"

@@ -69,7 +69,7 @@ Lo que el vault decía y no se sostiene: que "privilegia control humano".
 - El `docker run -p 80:80` que citaba el Catálogo publica el puerto en todas las interfaces de red.
 - El plugin `_orchestrator` lanza sub-agentes con los permisos salteados (`bypassPermissions`, `always_approve`).
 
-CVEs: CVE-2026-30624 (ejecución remota por la configuración de servidores MCP, 8.6), CVE-2026-4307 y CVE-2026-4308 (path traversal y SSRF, parcheadas en [v1.9](https://github.com/agent0ai/agent-zero/releases/tag/v1.9)), y CVE-2026-51852/51853 (traversal en el explorador de archivos, versiones 1.7 a 1.10, publicadas el 2026-09-30). Ojo: CVE-2026-30624 la reportó OX Security, que no es OliveX Security.
+CVEs: CVE-2026-30624 (ejecución remota por la configuración de servidores MCP, 8.6), CVE-2026-4307 y CVE-2026-4308 (path traversal y SSRF, parcheadas en [v1.9](https://github.com/agent0ai/agent-zero/releases/tag/v1.9)), y CVE-2026-51852/51853 (traversal en el explorador de archivos, versiones 1.7 a 1.10, publicadas el 2026-09-30).
 
 > [!danger] Advertencia para el curso
 > Corre aislado en Docker, pero no pide aprobación antes de ejecutar y la interfaz arranca sin contraseña. Antes de usarlo: configurá usuario y contraseña, publicá el puerto solo en localhost (`-p 127.0.0.1:5080:80`), no montes tu home ni el socket de Docker (montarlo [equivale a darle root al host](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html)) y usá la última versión.

@@ -40,11 +40,11 @@ Objective → Constraints → Strategy → Execution → Validation → Learning
 
 Entrada recomendada: [`docs/03_odlc/ODLC.md`](docs/03_odlc/ODLC.md)
 
-### Cognitive OS
+### Ingeniería de agentes
 
-**Cognitive OS** es la arquitectura de referencia para materializar HACS/ODLC en herramientas, memoria, agentes, sandboxes, validación y observabilidad.
+Cómo se diseñan y gobiernan los loops de agentes y los arneses que los corren: estado, herramientas, condiciones de corte, evidencia y presupuesto de tokens. Incluye análisis de material audiovisual y el caso Alta Tienda.
 
-Entrada recomendada: [`docs/05_cognitive-os/Cognitive OS - Arquitectura de referencia.md`](docs/05_cognitive-os/Cognitive%20OS%20-%20Arquitectura%20de%20referencia.md)
+Entrada recomendada: [`docs/05_ingenieria-de-agentes/Agent Loop Engineering.md`](docs/05_ingenieria-de-agentes/Agent%20Loop%20Engineering.md)
 
 ## Cómo leer este repo
 
@@ -54,7 +54,7 @@ Si querés entender el marco completo:
 2. [`docs/01_problema/Por qué fallan las metodologías actuales.md`](docs/01_problema/Por%20qué%20fallan%20las%20metodologías%20actuales.md) — problema.
 3. [`docs/02_hacs/HACS.md`](docs/02_hacs/HACS.md) — modelo organizacional.
 4. [`docs/03_odlc/ODLC.md`](docs/03_odlc/ODLC.md) — metodología.
-5. [`docs/05_cognitive-os/Cognitive OS - Arquitectura de referencia.md`](docs/05_cognitive-os/Cognitive%20OS%20-%20Arquitectura%20de%20referencia.md) — implementación conceptual.
+5. [`docs/05_ingenieria-de-agentes/Agent Loop Engineering.md`](docs/05_ingenieria-de-agentes/Agent%20Loop%20Engineering.md) — ingeniería de agentes.
 6. [`docs/06_fundacional/Manifiesto HACS-ODLC.md`](docs/06_fundacional/Manifiesto%20HACS-ODLC.md) — principios.
 
 Si querés usarlo para capacitación:
@@ -71,16 +71,16 @@ Si querés ver herramientas y referencias externas:
 
 ```text
 docs/
-  00_crudo/          Material recibido o sin procesar
-  01_problema/       Diagnóstico: por qué SDLC/Scrum/DevOps no alcanzan solos
-  02_hacs/           Modelo organizacional Human-Agent Collaborative Systems
-  03_odlc/           Metodología Objective Driven Lifecycle y sus fases
-  04_metricas/       Métricas operativas, de agentes y organizacionales
-  05_cognitive-os/   Arquitectura de referencia y análisis de agentic OS
-  06_fundacional/    Manifiesto, glosario, madurez, riesgos y roadmap
-  07_cursos/         Material de capacitación y propuestas comerciales
-  08_referencias/    Catálogos de herramientas, repos y fuentes externas
-external/            Repositorios de terceros usados como referencia
+  00_crudo/                 Material recibido o sin procesar
+  01_problema/              Diagnóstico: por qué SDLC/Scrum/DevOps no alcanzan solos
+  02_hacs/                  Modelo organizacional Human-Agent Collaborative Systems
+  03_odlc/                  Metodología Objective Driven Lifecycle y sus fases
+  04_metricas/              Métricas operativas, de agentes y organizacionales
+  05_ingenieria-de-agentes/ Loops y arneses de agentes, análisis y casos
+  06_fundacional/           Manifiesto, glosario, madurez, riesgos y roadmap
+  07_cursos/                Material de capacitación y propuestas comerciales
+  08_referencias/           Catálogos de herramientas, repos y fuentes externas
+external/                   Repositorios de terceros usados como referencia
 ```
 
 ## Estado del material

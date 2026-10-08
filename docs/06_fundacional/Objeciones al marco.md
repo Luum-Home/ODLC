@@ -39,7 +39,7 @@ El [[Caso - Alta Tienda]] es ilustrativo; las métricas de [[Métricas operativa
 
 ## Objeción 4: ¿ODLC es una metodología de IA?
 
-El [[Manifiesto HACS-ODLC]] dice que adoptar la [[Fase 1 - Objective]] y la [[Fase 6 - Learning]] sin agentes ya es ODLC. Si funciona sin agentes, ODLC es gestión por resultados, una idea vieja y ya probada en otros contextos. Lo nuevo queda en [[HACS]]: la organización humano-agente, la [[Gobernanza]] de la autonomía y la memoria. Y eso es justamente lo que no tiene evidencia.
+El [[Manifiesto HACS-ODLC]] dice que adopta ODLC quien usa la ficha de objetivo con criterio de abandono y registra el resultado validado, con o sin agentes ([[Registro de decisiones]], D-02). Si funciona sin agentes, ODLC es gestión por resultados, una idea vieja y ya probada en otros contextos. Lo nuevo queda en [[HACS]]: la organización humano-agente, la [[Gobernanza]] de la autonomía y la memoria. Y eso es justamente lo que no tiene evidencia.
 
 **Para contestarla:** separar explícitamente lo heredado (ODLC como gestión por resultados, con la objeción 1 contestada) de lo nuevo (HACS como hipótesis), y no presentar la novedad de uno como respaldo del otro.
 
@@ -64,13 +64,13 @@ La idea viene de los sistemas tolerantes a fallos: no se asume que el componente
 
 **Lo que el relevamiento no resolvió:** cómo lograr que el debrief de la [[Fase 6 - Learning]] ocurra si nadie lo convoca. Los debriefs bien conducidos mejoran el desempeño alrededor de 25 % (metaanálisis de Tannenbaum y Cerasoli, 2013, d = 0,67), pero todos los estudios suponen que alguien los conduce.
 
-**Por qué esto diferencia a ODLC de Scrum y Kanban (hipótesis):** no supone gente motivada; mide si cada acto humano produjo efecto. Se refuta si, en un piloto, las métricas de pasividad y la tasa de fallas sembradas detectadas no se correlacionan con los errores que llegan a producción.
+**Por qué esto diferencia a ODLC de Scrum y Kanban (hipótesis declarada):** no supone gente motivada; mide si cada acto humano produjo efecto. Queda como hipótesis declarada, sin criterio de refutación: el [[Piloto - Combinación A]] la registra como H4 exploratoria y descriptiva, sin potencia para una correlación, y su script no calcula los errores que llegan a producción ([[Registro de decisiones]], D-07).
 
 ## Objeción 6: el Nivel 5 habla de autogestión sin definirla
 
 "Unidades HACS adaptativas autogestionadas" ([[Modelo de madurez AI-Native]]) es vocabulario de las organizaciones Teal (Frederic Laloux, *Reinventing Organizations*, 2014). El marco lo usa sin resolver dos tensiones con esa tradición:
 
-- **Gobernanza.** Teal reemplaza la aprobación jerárquica por el *advice process*: decide cualquiera, después de consultar a los afectados y a quienes saben. ODLC tiene una matriz única de aprobaciones humanas por tipo de acción y un Sponsor que acepta o rechaza ([[Gobernanza]], [[Roles humanos]]), más cerca de una organización jerárquica orientada a resultados que de la autogestión. La frontera con el Nivel 5 quedó fijada: el humano deja la ejecución táctica y conserva lo irreversible ([[Registro de decisiones]], D-01); la tensión con el *advice process* sigue para el resto.
+- **Gobernanza.** Teal reemplaza la aprobación jerárquica por el *advice process*: decide cualquiera, después de consultar a los afectados y a quienes saben. ODLC tiene una matriz única de aprobaciones humanas por tipo de acción y un Sponsor que acepta o rechaza ([[Gobernanza]], [[Roles humanos]]), más cerca de una organización jerárquica orientada a resultados que de la autogestión. D-01 solo fija la frontera entre humano y agente en el Nivel 5 (el humano deja la ejecución táctica y conserva lo irreversible); la tensión con el *advice process* sigue abierta, también para lo irreversible ([[Registro de decisiones]], D-20).
 - **Medición.** Teal desconfía de metas, presupuestos y pronósticos y prefiere "sentir y responder" a "predecir y controlar". ODLC gira alrededor de métricas. La salida posible es medir para aprender, no para controlar, pero hoy no está escrita.
 
 La evidencia de Laloux también es débil como prueba: estudios de caso de organizaciones elegidas por el autor, con sesgo de supervivencia. Sirve como marco, no como demostración.

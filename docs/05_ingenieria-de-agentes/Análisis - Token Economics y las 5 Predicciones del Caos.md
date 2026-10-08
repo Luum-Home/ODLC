@@ -1,5 +1,5 @@
 ---
-tags: [recursos, cognitive-os, material-audiovisual, tokens, economía, predicciones, deuda-técnica, gobernanza]
+tags: [recursos, ingenieria-de-agentes, material-audiovisual, tokens, economía, predicciones, deuda-técnica, gobernanza]
 status: borrador
 created: 2026-06-10
 fuente:

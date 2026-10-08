@@ -41,12 +41,10 @@ created: 2026-06-10
 - [[Métricas de agentes]] — Agent Contribution Ratio, Human Leverage Ratio, Agent Accuracy, Agent Cost
 - [[Métricas organizacionales]] — Knowledge Reuse Rate, Context Retrieval Time, Decision Lead Time
 
-## Parte V — Cognitive OS (la implementación)
+## Parte V — Ingeniería de agentes y casos
 
-- [[Cognitive OS - Arquitectura de referencia]] — Interfaz de Definición → Bus de Memoria → Motor de Orquestación de Agentes → Sandbox de Ejecución → Motor de Validación y Observabilidad
 - [[Agent Loop Engineering]] — diseño del ciclo trigger → goal → state → action → observation → validation → memory/termination que gobierna agentes, herramientas, retries y evals
 - [[Patrones de loops agénticos para repositorios]] — repo como sistema operativo para agentes: process-as-code, memoria con ciclo de vida, Apply/Judge/Fix loop, TDD con evidencia y fresh-context validation
-- [[Luum Cognitive OS - Implementación de referencia]] — la Safety Mesh de 14 capas que materializa la Gobernanza
 - [[Caso - Alta Tienda]] — primer caso de aplicación real (métricas pendientes de evidencia)
 - [[Síntesis - Economía de tokens]] — implicaciones consolidadas de los tres análisis de tokens
 - [[Análisis - Stop Using Claude Without an Agentic OS]] — resumen y lecciones del Agentic OS (capas, beneficios y opciones)
@@ -65,7 +63,7 @@ created: 2026-06-10
 - [[Riesgos]] — humanos, técnicos, organizacionales
 - [[Roadmap]] — v0.1 → v2.0
 - [[Preguntas abiertas]] — lo que todavía no sabemos responder
-- [[Registro de decisiones]] — decisiones de autor con fecha y motivo (D-01 a D-14) y decisiones del piloto (P-01 a P-09)
+- [[Registro de decisiones]] — decisiones de autor con fecha y motivo (D-01 a D-21) y decisiones del piloto (P-01 a P-10)
 - [[Objeciones al marco]] — ¿tiene sentido ODLC? Las seis objeciones más fuertes (linaje de la gestión por objetivos y la crítica de Deming, feedback lento, sin casos medidos, identidad ODLC vs. HACS, personas motivadas, autogestión Teal) y qué haría falta para contestarlas
 - [[Piloto - Combinación A]] — diseño pre-registrado del piloto de caso único que prueba la combinación A en un MVP propio: Fase 0 de entrevistas, línea de base múltiple con inicio sorteado, medidas desde artefactos del repo, criterios de abandono y script de cálculo
 - [[Núcleo ODLC para tiny teams]] — la versión aplicable desde el lunes para una a tres personas con agentes: roles, ficha de objetivo, reglas y tablero medibles desde el repo, cada uno con su respaldo

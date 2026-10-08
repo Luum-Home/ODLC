@@ -1,5 +1,5 @@
 ---
-tags: [recursos, cognitive-os, material-audiovisual, tokens, capacidad, costos, gobernanza]
+tags: [recursos, ingenieria-de-agentes, material-audiovisual, tokens, capacidad, costos, gobernanza]
 status: borrador
 created: 2026-06-10
 fuente:
@@ -125,11 +125,11 @@ Sin embargo, la tendencia dominante del mercado va en sentido contrario: concent
 
 Esta crisis de capacidad tiene implicaciones directas para el diseño de sistemas cognitivos humano-agente:
 
-- **Diversificación de proveedores**: un Cognitive OS debe ser agnóstico al modelo y capaz de alternar entre proveedores según disponibilidad y costo ([[Análisis - Harness Engineering y la Paradoja de Herramientas]]: Harness Engineering lo plantea como objetivo de diseño).
+- **Diversificación de proveedores**: un arnés debe ser agnóstico al modelo y capaz de alternar entre proveedores según disponibilidad y costo ([[Análisis - Harness Engineering y la Paradoja de Herramientas]]: Harness Engineering lo plantea como objetivo de diseño).
 - **Gestión eficiente de tokens**: la orquestación multi-agente con contextos destilados (no heredar el chat completo) y el límite del 40% de ventana de contexto (el umbral del 40% es del video y está sin verificar) son mecanismos de defensa directos contra la escasez.
 - **Presupuesto de tokens como métrica de gobernanza**: los roles de gobernanza HACS deben contemplar el costo de tokens como restricción operativa, no solo la calidad de output.
 - **Memoria externa como amortiguador**: persistir conocimiento en la [[Memoria organizacional]] reduce la dependencia de re-procesar contexto costoso en cada sesión.
 - **Evaluación del peaje lingüístico**: para equipos hispanohablantes, las métricas de Agent Cost deben considerar el sobrecosto del idioma.
 
 ---
-Relacionado: [[Cognitive OS - Arquitectura de referencia]] · [[Gobernanza]] · [[Recursos externos]] · [[Análisis - Harness Engineering y la Paradoja de Herramientas]] · [[Métricas de agentes]] · [[Memoria organizacional]] · [[Síntesis - Economía de tokens]] · [[Análisis - La Cultura del Token]] · [[Análisis - Token Economics y las 5 Predicciones del Caos]]
+Relacionado: [[Agent Loop Engineering]] · [[Gobernanza]] · [[Recursos externos]] · [[Análisis - Harness Engineering y la Paradoja de Herramientas]] · [[Métricas de agentes]] · [[Memoria organizacional]] · [[Síntesis - Economía de tokens]] · [[Análisis - La Cultura del Token]] · [[Análisis - Token Economics y las 5 Predicciones del Caos]]
