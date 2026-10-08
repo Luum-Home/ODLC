@@ -80,7 +80,7 @@ La evidencia de Laloux también es débil como prueba: estudios de caso de organ
 ## Qué haría falta para que tenga sentido
 
 1. **Una tesis central refutable.** Por ejemplo: *con agentes, a igualdad de horas humanas, definir el trabajo como objetivo con métrica y validar contra el outcome produce más objetivos validados y menos trabajo descartado que trabajar por flujo de ítems.* Los términos tienen que quedar atados a métricas instrumentadas ([[Métricas operativas]]).
-2. **Un piloto que la mida, con criterio de abandono fijado antes de empezar.** Si la tesis no se cumple, se descarta la tesis, no la medición.
+2. **Un piloto que la mida, con criterio de abandono fijado antes de empezar.** Si la tesis no se cumple, se descarta la tesis, no la medición. Diseño en borrador: [[Piloto - Combinación A]].
 3. **Contestar la objeción de Deming** antes de promover la métrica como centro del ciclo.
 
 ---
