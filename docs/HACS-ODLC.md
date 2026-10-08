@@ -66,6 +66,7 @@ created: 2026-06-10
 - [[Roadmap]] — v0.1 → v2.0
 - [[Preguntas abiertas]] — lo que todavía no sabemos responder
 - [[Objeciones al marco]] — ¿tiene sentido ODLC? Las seis objeciones más fuertes (linaje de la gestión por objetivos y la crítica de Deming, feedback lento, sin casos medidos, identidad ODLC vs. HACS, personas motivadas, autogestión Teal) y qué haría falta para contestarlas
+- [[Piloto - Combinación A]] — diseño pre-registrado del piloto de caso único que prueba la combinación A en un MVP propio: Fase 0 de entrevistas, línea de base múltiple con inicio sorteado, medidas desde artefactos del repo, criterios de abandono y script de cálculo
 - [[Nuevos roles profesionales en la era de IA]] — CAIO, AI Engineer, Context Engineer, Memory Engineer y su alineación con el modelo HACS
 
 ## Parte VII — Capacitación y Educación
