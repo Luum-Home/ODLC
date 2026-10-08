@@ -12,17 +12,17 @@ Convención de evidencia (unifica las tres de los relevamientos): **[medido]** =
 
 ## Resumen
 
-1. La hipótesis se sostiene a medias. Las piezas existen y varias atacan más de una objeción, pero el encaje exige elegir en tres conflictos, y quedan al menos seis huecos que ningún relevamiento resolvió.
+1. La hipótesis no tiene un veredicto único; depende de la objeción. Para O1, O5 y O6, las piezas existen, pero con evidencia de otro dominio o testimonial. Para O2, existen solo si hay tráfico suficiente. Para O3 y O4, la hipótesis no aplica: son objeciones sobre la evidencia del propio marco, y lo único que existe son métodos para producirla. Además, el encaje exige elegir en siete conflictos (sección 2) y quedan doce huecos que ningún relevamiento resolvió (sección 5).
 2. "Nadie las juntó" es falso en parte. Hay integraciones parciales: BOSSA nova (Beyond Budgeting + Sociocracia + Open Space + Agile, 2020), EBM + OKR (Scrum.org), IMDA v1.5 (autonomía graduada + auditoría de la supervisión), una guía de 2026 contra la sobreconfianza que combina tasa de anulación, controles con errores conocidos y fricción, y un marco teórico de organizaciones de software humano-agente (Wang y Liu, 2026). Ninguna cubre las seis objeciones.
-3. Las propuestas que atacan más objeciones a la vez son Beyond Budgeting (1, 5 y 6), IMDA (3, 4, 5 y 6), la responsabilidad sobre el proceso de Mosier y Skitka (1, 5 y 6) y la formalización de roles de Lee y Edmondson (5 y 6).
-4. Hay una convergencia que ningún relevamiento vio por separado: Deming ("¿con qué método?"), Mosier (responsabilidad por la verificación, no por el resultado) y Equinor (el "qué" y el "cómo" pesan mitad y mitad) piden lo mismo: juzgar el método y no el número.
-5. El conflicto más serio es interno a ODLC: los principios 3 y 4 de la Objeción 5 miden a cada humano, y la respuesta a Deming (Objeción 1) y la teoría de la autodeterminación piden no evaluar personas contra números. Hay que elegir medir la etapa de revisión o medir a la persona.
+3. Las propuestas que atacan más objeciones a la vez son Beyond Budgeting (1, 5 y 6), IMDA (4, 5 y 6; para la 3 solo es instrumentable: es guía sin evaluación de resultados), la responsabilidad sobre el proceso de Mosier y Skitka (1, 5 y 6) y la formalización de roles de Lee (tesis dirigida por Edmondson; 5 y 6).
+4. Hay un punto en común que ningún relevamiento vio por separado, pero es parcial: Deming ("¿con qué método?"), Mosier (responsabilidad por la verificación, no por el resultado) y Equinor (el "qué" y el "cómo" pesan mitad y mitad) desplazan el foco del número al proceso. No piden lo mismo: Deming pide abolir la calificación por mérito, mientras que Equinor evalúa a la persona (en el qué y en el cómo) y el advice process de AES sanciona individualmente.
+5. El conflicto más serio es interno a ODLC: los principios 3 y 4 de la Objeción 5 miden a cada humano, y la respuesta a Deming (Objeción 1) y la teoría de la autodeterminación piden no evaluar personas contra números. Las fuentes traen tres salidas, no dos: medir la etapa de revisión, medir a la persona para calificarla, o medir a la persona solo para devolverle información, con la ponderación de su aprobación como regla del sistema.
 6. El segundo conflicto es niveles de autonomía (Knight, IMDA, CSA y el propio Modelo de madurez) contra la crítica del Defense Science Board y Bradshaw. No hay comparación empírica entre ambos enfoques.
-7. El tercero es autogestión contra aprobación. Solo se resuelve redefiniendo "autogestión" como dominios con restricciones escritas (Sociocracy 3.0, Holacracy), no como advice process.
+7. El tercero es autogestión contra aprobación. Solo se resuelve redefiniendo "autogestión" como dominios con restricciones escritas (Sociocracy 3.0, Holacracy), no como advice process. Los otros cuatro conflictos (sección 2) son menores o de interacción.
 8. Se arman tres combinaciones mínimas coherentes: A, "medir para aprender"; B, "jerarquía con autonomía graduada"; y C, "interdependencia sin metas". Las tres comparten el mismo núcleo para la Objeción 3: registered report, kill criteria, TAR/FEDS y comparar contra el mejor componente solo.
-9. La combinación A es la más compatible con el diagnóstico del marco. Su pieza más débil es inyectar fallas en la revisión de código, que extrapola desde rayos X de aeropuerto y un laboratorio de N = 24 donde no bajaron los errores de comisión.
+9. La combinación A es la única que, sin contradecirse, conserva el objetivo con métrica y no disuelve la autogestión (B la abandona, C abandona la métrica). Deja abierta la Objeción 3 y responde la Objeción 5 a nivel de etapa, no de persona. Su pieza más débil es inyectar fallas en la revisión de código, que extrapola desde rayos X de aeropuerto y un laboratorio de N = 24 donde no bajaron los errores de comisión.
 10. Casi todas las piezas que sostienen las combinaciones son guía o testimonio; lo medido viene de aviación, medicina, ahorro previsional o tareas de un día. Juntar piezas no valida el conjunto: la Objeción 3 sigue abierta con cualquier combinación.
-11. Huecos sin propuesta: feedback con poco tráfico, debrief sin convocante, evidencia organizacional humano-agente de software, intervenciones que funcionen para quien no disfruta pensar, gaming de métricas por agentes y separar la espera de evidencia del tiempo de trabajo.
+11. Doce huecos sin propuesta (sección 5). Los principales: feedback con poco tráfico, debrief sin convocante, evidencia organizacional humano-agente de software, intervenciones que funcionen para quien no disfruta pensar, gaming de métricas por agentes y separar la espera de evidencia del tiempo de trabajo.
 12. Lo más cercano a evidencia organizacional en software es He y otros (2026, una empresa, 802 desarrolladores, 28 meses), que no separa modelo organizacional de proceso, y dos estudios cualitativos de 2026 (Dhanorkar y otros; Qadri y otros).
 
 ---
@@ -37,17 +37,17 @@ Celdas: **P** = la objeción para la que la propuesta se relevó; **C** = ataque
 |---|---|---|---|---|---|---|---|
 | 1.1 OKR separados de la compensación | P | | | | | T | [testimonio]; correlacional en Butler y otros 2024 |
 | 1.2 Indicadores pareados (Grove) | P | C | | | C | | [guía] |
-| 1.3 Balanced Scorecard | P | | | | | | [medido, limitado] simulación de Strohhecker |
+| 1.3 Balanced Scorecard | P | | | | | | [medido, limitado] simulación de Strohhecker, con resultado en contra: el efecto del BSC podría estar sobreestimado |
 | 1.4 / 6.6 Beyond Budgeting (Equinor) | P | | | | C | P | [testimonio]; adopción baja medida (Hudson 2012) |
 | 1.5 Incentivos de baja potencia (Holmström y Milgrom) | P | | | | C | | [teoría] |
 | 1.6 Deming y Joiner: mejorar el sistema | P | | | | T | C | [testimonio] Alcoa |
-| 1.7 Ordóñez y otros: dosis de metas | P | | | | C | C | [opinión con casos] |
+| 1.7 Ordóñez y otros: dosis de metas | P | | | | C | C | [guía] con casos |
 | 1.8 / 3.9 EBM de Scrum.org | C | P | | T | | | [testimonio] del proveedor |
 | 3.9 EBM de CEBMa (Barends y Rousseau) | | | P | | | | [guía] |
 | 2.1 4DX: medidas adelantadas | T | P | | | | | [testimonio] del vendedor |
-| 2.2 Resultados de producto (Torres) | C | P | | | | | [opinión] |
-| 2.3 North Star | T | P | | | | | [opinión] |
-| 2.4 Contabilidad de la innovación | | P | C | | | | [opinión] |
+| 2.2 Resultados de producto (Torres) | C | P | | | | | [guía] |
+| 2.3 North Star | T | P | | | | | [guía] |
+| 2.4 Contabilidad de la innovación | | P | C | | | | [guía] |
 | 2.5 Experimentos con OEC | C | P | C | | | | [medido] Google, Bing |
 | 2.6 Historia de los surrogates médicos | C | P | | | | | [medido, otro dominio] |
 | 2.7 Surrogate index | | P | | | | | [medido, otro dominio] |
@@ -67,7 +67,7 @@ Celdas: **P** = la objeción para la que la propuesta se relevó; **C** = ataque
 | 4.5 DSB 2012 y Bradshaw 2013 contra los niveles | | | | P | T | C | [guía] opinión experta |
 | 4.6 Coactive design | | | | P | C | C | [testimonio] DARPA VRC |
 | 4.7 / 6.7 Autonomía graduada (Knight, IMDA, CSA) | | | C | P | C | P | [guía]; CSA con análisis retrospectivo propio |
-| 4.8 / 5.9 IMDA: auditar la supervisión | | | C | P | P | C | [guía] |
+| 4.8 / 5.9 IMDA: auditar la supervisión | | | C (instrumentable) | P | P | C | [guía] |
 | 4.9 OWASP Agentic Top 10 (ASI09) | | | | P | C | | [guía] |
 | 4.10 Frontera irregular (BCG) | | | | P | C | | [medido] tareas de un día |
 | 4.11 Cybernetic Teammate (P&G) | | | C | P | | | [medido] pre-registrado, un día |
@@ -78,7 +78,7 @@ Celdas: **P** = la objeción para la que la propuesta se relevó; **C** = ataque
 | 5.2 Defaults | | | | | P | | [medido]; efecto chico a escala |
 | 5.3 Elección activa obligatoria | C | | | | P | | [medido, otro dominio] ahorro |
 | 5.4 Poka-yoke y pit of success | | | | | P | | [testimonio] |
-| 5.5 Modelo de Fogg | | | | | P | | [opinión] |
+| 5.5 Modelo de Fogg | | | | | P | | [teoría] |
 | 5.6 Forzado cognitivo (Buçinca) | | | | | P | | [medido] N = 199 |
 | 5.7 Responsabilidad percibida (Mosier, Skitka) | C | | | | P | C | [medido, otro dominio] aviación |
 | 5.8 Exposición a fallas (Bahner) | | | C | C | P | | [medido, otro dominio] N = 24 |
@@ -90,9 +90,9 @@ Celdas: **P** = la objeción para la que la propuesta se relevó; **C** = ataque
 | 6.3 Advice process | | | | | T | P | [testimonio] |
 | 6.4 Freeman: tiranía de la falta de estructura | | | | | | P | [testimonio] |
 | 6.5 Roles formalizados (Lee y Edmondson) | | | | | C | P | [medido] experimento de campo |
-| 6.8 Foss y Klein: jerarquía que funcione | | | | | | P | [opinión] |
+| 6.8 Foss y Klein: jerarquía que funcione | | | | | | P | [teoría] |
 | 6.9 Zappos, Medium, Buurtzorg | C | | C | | | P | [testimonio]; costo medido de segunda mano |
-| He y otros 2026, mandato "2x" (contexto) | | | C | C | C | | [medido] longitudinal, una empresa |
+| He y otros 2026, mandato "2x" (contexto) | C | | C | C | C | | [medido] longitudinal, una empresa |
 | Jueces cruzados y techo humano (contexto: Shopify, Gorbett y Jana) | | | C | C | C | | [medido] |
 | Pronóstico por flujo (Vacanti, Magennis; contexto) | | C | | | | | [guía]; sin caso con agentes |
 | Hut y Masoero: A/B simulado (contexto) | | C | | | | | [medido] 67 A/B históricos |
@@ -107,23 +107,23 @@ Celdas: **P** = la objeción para la que la propuesta se relevó; **C** = ataque
 - **3.7 y 3.8 en O1.** Pre-registrar la métrica y el criterio de abandono impide que quien diseña el marco mueva el arco después de ver el resultado. Es Goodhart aplicado al propio autor.
 - **3.10 en O5.** Los desarrolladores de METR creyeron haber ganado 20 % cuando perdieron 19 %. El humano no es un juez fiable de su propio desempeño con IA, lo que refuerza medir actos y no percepciones.
 - **4.6 en O5.** Las tres propiedades de coactive design (observabilidad, predictibilidad y dirigibilidad) son la versión de diseño del principio 6 ("hacer visible").
-- **5.7 en O1 y O6.** La responsabilidad sobre el proceso de verificación es la pregunta de Deming ("¿con qué método?") en otro dominio, y la sanción por no consultar del advice process (6.3) es responsabilidad ante otros.
-- **5.8 en O3 y O4.** Las fallas sembradas producen un dato con respuesta conocida, uno de los pocos instrumentables desde el primer día de un piloto humano-agente. [extrapolación: viene de rayos X de aeropuerto y control de procesos]
+- **5.7 en O1 y O6.** La responsabilidad sobre el proceso de verificación comparte con Deming ("¿con qué método?") el foco en el proceso y no en el número, pero no la renuncia a evaluar personas: en Mosier, la responsabilidad es individual. La sanción por no consultar del advice process (6.3) es responsabilidad ante otros, también individual.
+- **5.8 en O3 y O4.** Hay dos usos distintos de sembrar fallas. Como entrenamiento (Bahner y otros 2008, 5.8): ver fallar al sistema reduce la complacencia, en laboratorio. Como medida (Threat Image Projection, doi:10.2495/safe050411, citado en "Objeciones al marco", no en los relevamientos): las amenazas ficticias dan un dato con respuesta conocida, uno de los pocos instrumentables desde el primer día de un piloto humano-agente. [extrapolación: viene de rayos X de aeropuerto y control de procesos] El uso como medida tiene su propio riesgo de Goodhart: si los revisores saben que los prueban, su conducta puede no reflejar la operación normal (ThinkTech 2026). [guía]
 - **5.10 en O1 y O3.** La checklist tildada sin cambiar la práctica es Goodhart sobre una compuerta. Además, el salto del piloto de la OMS (mortalidad del 1,5 % al 0,8 %) al mandato de Ontario (0,71 % contra 0,65 %, p = 0,13) advierte que un piloto exitoso de ODLC no garantiza el resultado bajo adopción obligatoria.
 - **5.11 en O2.** El debrief produce aprendizaje sobre el proceso sin esperar el outcome de mercado. [extrapolación: el metaanálisis mide desempeño en la tarea, no aprendizaje sobre objetivos de negocio]
 - **6.2 en O2 y O3.** "Suficientemente seguro para probar" con fecha de revisión es estructuralmente un kill criterion (estado + fecha) aplicado a acuerdos organizacionales.
-- **He y otros (2026).** Muestra, en una organización real de software, que la cola de revisión humana se alivió porque los PR empezaron a saltear la revisión humana, con merge y revert estables. Es dato para O4 (cómo se reorganiza el trabajo) y para O5 (el humano esquiva la compuerta en lugar de tildarla).
+- **He y otros (2026).** Muestra, en una organización real de software y bajo un mandato numérico ("2x"), que la revisión automática superó a la humana y que las tasas de merge y revert se mantuvieron. La revisión automática reemplazó a la humana; no se sabe si fue sustitución legítima o control salteado. Es dato para O1 (un mandato numérico sobre throughput), para O4 (cómo se reorganiza el trabajo) y, como pregunta abierta, para O5.
 
 ### Propuestas que atacan varias objeciones a la vez
 
 | Propuesta | Objeciones | Qué la vuelve transversal | Evidencia |
 |---|---|---|---|
-| IMDA v1.5 (4.8 / 5.9 / 6.7) | O3, O4, O5, O6 | Aprobación por tipo de acción, medición de la supervisión y denegación por defecto; sus indicadores se pueden pre-registrar | [guía] |
+| IMDA v1.5 (4.8 / 5.9 / 6.7) | O4, O5, O6; O3 solo instrumentable | Aprobación por tipo de acción, medición de la supervisión y denegación por defecto; sus indicadores se pueden pre-registrar | [guía] |
 | Beyond Budgeting (1.4 / 6.6) | O1, O5, O6 | Separa meta, pronóstico y asignación; evaluación integral; desacopla medición y recompensa | [testimonio] |
 | Responsabilidad sobre el proceso (5.7) | O1, O5, O6 | Juzgar el método de verificación y no el resultado | [medido, otro dominio] |
-| Roles formalizados (6.5) | O5, O6 | Mide que la autogestión solo beneficia a quien ya es proactivo | [medido] un experimento de campo |
+| Roles formalizados (6.5) | O5, O6 | Mide que la descentralización radical no mejora la experiencia del empleado promedio; sí la de tres subgrupos: alto desempeño, interés inicial y clima de seguridad psicológica | [medido] un experimento de campo |
 | Kill criteria y registered reports (3.7, 3.8) | O1, O2, O3 | Fijan antes la métrica, la fecha y la decisión | [testimonio] y [medido, otro dominio] |
-| Fallas sembradas (5.8) | O3, O4, O5 | Dan una verdad conocida contra la cual medir la supervisión | [medido, otro dominio] |
+| Fallas sembradas (5.8 como entrenamiento; Threat Image Projection como medida) | O3, O4, O5 | Como medida, dan una verdad conocida contra la cual medir la supervisión; como entrenamiento, reducen la complacencia | [medido, otro dominio] |
 | Coactive design (4.6) | O4, O5, O6 | Observabilidad y dirigibilidad en lugar de niveles | [testimonio] |
 | Checklists, piloto contra mandato (5.10) | O1, O3, O5 | Compuerta de forma = Goodhart; el piloto no predice la escala | [medido, otro dominio] |
 
@@ -142,17 +142,18 @@ Cada relevamiento listó contradicciones dentro de sus dos objeciones. Estos son
 
 ### 2.2 Medir a cada humano contra no evaluar personas con números
 
-- **Lados.** Los principios 3 y 4 de la Objeción 5 (IMDA 5.9: supervisores atípicos, tiempo de respuesta; Threat Image Projection: desempeño individual del operador; Bahner 5.8) contra Deming 12b (abolir la calificación por mérito, relevado para O1), la teoría de la autodeterminación (5.1: la vigilancia es motivación controlada) y Beyond Budgeting (evaluación no basada solo en medición).
-- **Por qué es el conflicto más serio.** Es interno a ODLC: la respuesta candidata a la Objeción 1 dice "la métrica no se usa para evaluar personas", y el principio 4 dice "si no atrapa ninguna falla, su aprobación vale cero", que es una evaluación individual con un número.
-- **Opción "medir la etapa".** La tasa de detección se agrega por etapa de revisión o por tipo de cambio y se usa para calibrar cuánto vale una aprobación, no para calificar a nadie. Es compatible con Deming (mejorar el sistema), con Holmström y Milgrom y con Mosier (responsabilidad por el proceso). Pierde la capacidad de detectar al supervisor individual que aprueba todo, que es justamente el humano de mínimo esfuerzo.
-- **Opción "medir a la persona".** Detecta al aprobador automático, como pretenden IMDA y Threat Image Projection. Choca con Deming y con la teoría de la autodeterminación, y en una organización que se declara autogestionada se lee como vigilancia. Si se elige, la respuesta a la Objeción 1 tiene que acotarse a "la métrica del objetivo no evalúa personas" y declarar que la métrica de supervisión sí lo hace.
+- **Lados.** Los principios 3 y 4 de la Objeción 5 (IMDA 5.9: supervisores atípicos, tiempo de respuesta; Threat Image Projection: desempeño individual del operador) contra Deming 12b (abolir la calificación por mérito, relevado para O1) y la teoría de la autodeterminación (5.1: la vigilancia es motivación controlada). Beyond Budgeting no está de este lado: Equinor evalúa a la persona, solo que no la evalúa únicamente por el número (el "qué" y el "cómo" pesan mitad y mitad).
+- **Por qué es el conflicto más serio.** Es interno a ODLC: uno de los candidatos de respuesta a la Objeción 1 en "Objeciones al marco" dice "la métrica no se usa para evaluar personas", y el principio 4 dice "si no atrapa ninguna falla, su aprobación vale cero", que es una evaluación individual con un número. Dos precisiones: ese candidato no está escrito como regla (el propio documento lo dice), y se refiere a la métrica del objetivo, no a la de supervisión.
+- **Opción "medir la etapa".** La tasa de detección se agrega por etapa de revisión o por tipo de cambio y se usa para calibrar cuánto vale una aprobación, no para calificar a nadie. Es compatible con Deming (mejorar el sistema) y con Holmström y Milgrom. Pierde la capacidad de detectar al supervisor individual que aprueba todo, que es justamente el humano de mínimo esfuerzo.
+- **Opción "medir a la persona para calificarla".** Detecta al aprobador automático, como pretenden IMDA y Threat Image Projection. Choca con Deming y con la teoría de la autodeterminación, y en una organización que se declara autogestionada se lee como vigilancia. Si se elige, la respuesta a la Objeción 1 tiene que acotarse a "la métrica del objetivo no evalúa personas" y declarar que la métrica de supervisión sí lo hace.
+- **Opción "medir a la persona solo para devolverle información".** La traen las fuentes, aunque ninguna la arma entera. La tasa individual se le devuelve a quien revisa como feedback de calibración, sin calificación ni recompensa, y la ponderación de su aprobación es una regla del sistema, no un juicio sobre la persona (por ejemplo, pedir un segundo revisor cuando la tasa de detección de esa etapa o de ese revisor es baja). Apoyos: Mosier y Skitka (5.7: la responsabilidad que funciona es individual y sobre el proceso de verificación, no una nota numérica); Bahner y otros (5.8: el efecto requiere que la persona experimente la falla, así que el dato tiene que llegarle a ella); ThinkTech (feedback sobre los casos que el humano atrapó o dejó pasar) [guía]; y la teoría de la autodeterminación, donde la retroalimentación positiva aumentó la motivación intrínseca (d = 0,33, 5.1). Tensión que queda: aun sin nota, vigilar al supervisor puede vivirse como motivación controlada (5.9), y la frontera entre "informar" y "calificar" depende de quién más ve el dato.
 - **Lo que nadie midió.** Si medir la supervisión individual, sin ligarla a compensación, deteriora la motivación en un entorno de trabajo real. La predicción de la teoría de la autodeterminación viene de laboratorio con tareas interesantes.
 
 ### 2.3 Aprobar cada acción contra monitorear e intervenir
 
-- **Lados.** Elección activa (5.3), forzado cognitivo (5.6) y justificación escrita de IMDA, contra Anthropic (5.12), coactive design (4.6, relevado para O4) y el dato de He y otros (2026, investigación de estimación), donde los humanos saltean la revisión cuando la cola crece. La escasez medida de atención para revisar (Faros: +91 % de tiempo de revisión; LinearB: PR de agentes que esperan entre 4,6 y 5,3 veces más) empuja hacia el monitoreo.
+- **Lados.** Elección activa (5.3), forzado cognitivo (5.6) y justificación escrita de IMDA, contra Anthropic (5.12), coactive design (4.6, relevado para O4) y el dato de He y otros (2026, investigación de estimación), donde, bajo un mandato "2x", la revisión automática superó a la humana con merge y revert estables (no se sabe si fue sustitución legítima o control salteado). La escasez medida de atención para revisar (Faros: +91 % de tiempo de revisión; LinearB: PR de agentes que esperan entre 4,6 y 5,3 veces más) empuja hacia el monitoreo.
 - **Qué tendría que elegir el marco.** Dónde poner la fricción.
-- **Opción "fricción en todo acto de validación"** (principio 2 tal como está escrito). Es la que más reduce la sobreconfianza en laboratorio, pero es la peor valorada, la que menos sirve a quien no disfruta pensar (Buçinca y otros) y la que el humano esquiva cuando la carga sube (He y otros).
+- **Opción "fricción en todo acto de validación"** (principio 2 tal como está escrito). Es la que más reduce la sobreconfianza en laboratorio, pero es la peor valorada y la que menos sirve a quien no disfruta pensar (Buçinca y otros). Con la carga en aumento, la revisión humana fue reemplazada por la automática (He y otros), aunque ese estudio no permite decir si el humano esquivó la compuerta.
 - **Opción "fricción concentrada"** (IMDA: alto impacto, irreversible, conducta atípica; el resto, monitoreo con intervención simple). Es la reconciliación que ya propone IMDA. Deja sin forzado cognitivo la mayoría de las validaciones, que pasan a depender de las métricas de pasividad y de las fallas sembradas. La evidencia del monitoreo es del proveedor, sobre usuarios que eligen usar la herramienta, no sobre humanos pasivos.
 
 ### 2.4 Niveles de autonomía contra interdependencia
@@ -198,16 +199,16 @@ Este núcleo no produce evidencia: solo ordena cómo juntarla. Con cualquier com
 
 | Objeción | Piezas | Evidencia |
 |---|---|---|
-| O1 | Separar meta, pronóstico y asignación, con evaluación integral (Beyond Budgeting, 6.6); no pagar por la métrica (Holmström y Milgrom, 1.5); indicadores pareados (1.2) | [testimonio], [teoría], [guía] |
-| O2 | Resultados de producto como metas intermedias (Torres 2.2, EBM 1.8); con tráfico, CUPED y tests secuenciales (2.9, 2.10); sin tráfico, A/B simulado solo como filtro (Hut y Masoero) | [opinión]; [medido] con tráfico |
+| O1 | Separar meta, pronóstico y asignación (Beyond Budgeting, 6.6); no pagar por la métrica (Holmström y Milgrom, 1.5); indicadores pareados (1.2) | [testimonio], [teoría], [guía] |
+| O2 | Resultados de producto como metas intermedias (Torres 2.2, EBM 1.8); con tráfico, CUPED y tests secuenciales (2.9, 2.10); sin tráfico, A/B simulado solo como filtro (Hut y Masoero) | [guía]; [medido] con tráfico |
 | O3 | Núcleo común | ver arriba |
 | O4 | Separar estructura (Team Topologies, 4.13) de proceso; diseño factorial pre-registrado como plantilla (P&G, 4.11) | [testimonio]; [medido] un día |
-| O5 | Fricción concentrada en puntos significativos (IMDA); métricas de pasividad pareadas con fallas sembradas **agregadas por etapa** (5.8, 5.9); responsabilidad sobre el proceso (Mosier, 5.7); debrief estructurado (5.11) | [guía]; [medido, otro dominio]; [medido] |
+| O5 | Fricción concentrada en puntos significativos (IMDA); métricas de pasividad pareadas con fallas sembradas como medida **agregadas por etapa** (Threat Image Projection, 5.9); responsabilidad sobre el proceso, como justificación de la verificación y no como nota (Mosier, 5.7); debrief estructurado (5.11) | [guía]; [medido, otro dominio]; [medido] |
 | O6 | Dominios con restricciones y consentimiento (Sociocracy 3.0, 6.2); roles formalizados y revisables (Lee 6.5, Freeman 6.4); aprobación humana solo en lo irreversible (6.7) | [guía]; [medido] un experimento |
 
-- **Por qué no se contradice.** Resuelve el conflicto 2.1 por "aprendizaje", el 2.2 por "medir la etapa", el 2.3 por "fricción concentrada" y el 2.5 por "reglas escritas". La convergencia Deming-Mosier-Equinor (juzgar el método) atraviesa O1, O5 y O6.
-- **Qué deja abierto.** El conflicto 2.4 (usa aprobación por tipo de acción, sin responder a la crítica del DSB contra el Modelo de madurez); el aprobador individual que aprueba todo, que la medición por etapa no identifica; O2 sin tráfico; el debrief sin convocante.
-- **Pieza más débil.** Las fallas sembradas en la revisión de código. [extrapolación] La evidencia viene de rayos X de aeropuerto y de un laboratorio de control de procesos con N = 24 donde no bajaron los errores de comisión, que son los relevantes para aprobar un cambio de un agente. Es la pieza que sostiene la interpretación de todas las métricas de pasividad.
+- **Por qué no se contradice.** Resuelve el conflicto 2.1 por "aprendizaje", el 2.2 por "medir la etapa", el 2.3 por "fricción concentrada" y el 2.5 por "reglas escritas". La coherencia descansa en esas elecciones, no en un acuerdo entre Deming, Mosier y Equinor, que solo comparten el foco en el proceso. Para no contradecirse, A toma de Equinor la separación de meta, pronóstico y asignación, no su evaluación individual, y toma de Mosier la responsabilidad de justificar cómo se verificó, no una calificación. Si A adoptara la evaluación integral de Equinor o la sanción individual del advice process, el conflicto 2.2 volvería a abrirse.
+- **Qué deja abierto.** La Objeción 3, como cualquier combinación. El conflicto 2.4 (usa aprobación por tipo de acción, sin responder a la crítica del DSB contra el Modelo de madurez). La Objeción 5 a nivel de persona: el aprobador individual que aprueba todo, que la medición por etapa no identifica (la tercera opción de 2.2, feedback individual sin calificación, lo cubriría a costa de la tensión con la autodeterminación). O2 sin tráfico; el debrief sin convocante; el gaming de métricas por agentes.
+- **Pieza más débil.** Las fallas sembradas en la revisión de código. [extrapolación] Como medida, la evidencia viene de rayos X de aeropuerto (Threat Image Projection), y si los revisores saben que los prueban su conducta puede no reflejar la operación normal (ThinkTech). Como entrenamiento, viene de un laboratorio de control de procesos con N = 24 donde no bajaron los errores de comisión, que son los relevantes para aprobar un cambio de un agente. Es la pieza que sostiene la interpretación de todas las métricas de pasividad.
 
 ### Combinación B: "jerarquía con autonomía graduada"
 
@@ -217,8 +218,8 @@ Este núcleo no produce evidencia: solo ordena cómo juntarla. Con cualquier com
 | O2 | Medidas adelantadas (4DX 2.1 o North Star 2.3) validadas con surrogate index o proxies aprendidos (2.7, 2.8) | [testimonio]; [medido] con historial de experimentos |
 | O3 | Núcleo común | ver arriba |
 | O4 | Niveles por tipo de acción (Knight 4.7, IMDA 4.8) y riesgos de OWASP (4.9) | [guía] |
-| O5 | Elección activa obligatoria (5.3), auditoría individual de la supervisión (5.9) y fallas sembradas por persona (5.8) | [medido, otro dominio]; [guía] |
-| O6 | Jerarquía que decide qué delegar (Foss y Klein, 6.8) con promoción y degradación de autonomía (CSA, 6.7) | [opinión]; [guía] |
+| O5 | Elección activa obligatoria (5.3), auditoría individual de la supervisión (5.9) y fallas sembradas por persona como medida (Threat Image Projection) | [medido, otro dominio]; [guía] |
+| O6 | Jerarquía que decide qué delegar (Foss y Klein, 6.8) con promoción y degradación de autonomía (CSA, 6.7) | [teoría]; [guía] |
 
 - **Por qué no se contradice.** Sin promesa de autogestión, medir a cada supervisor no choca con nada declarado, y la delegación graduada la decide una autoridad, como piden Foss y Klein y CSA.
 - **Qué deja abierto.** Deming queda parcialmente sin contestar: los OKR mantienen metas numéricas y estiradas (Ordóñez y otros); la crítica del DSB a los niveles queda entera; la Objeción 6 se disuelve en lugar de contestarse (el Nivel 5 deja de ser autogestión); O2 exige un historial de experimentos largos que una organización chica no tiene.
@@ -229,7 +230,7 @@ Este núcleo no produce evidencia: solo ordena cómo juntarla. Con cualquier com
 | Objeción | Piezas | Evidencia |
 |---|---|---|
 | O1 | Eliminar la meta numérica y preguntar "¿con qué método?" (Deming y Joiner, 1.6) | [testimonio] |
-| O2 | Pruebas de supuestos antes de construir (Torres, 2.2) y debriefs (5.11) | [opinión]; [medido] |
+| O2 | Pruebas de supuestos antes de construir (Torres, 2.2) y debriefs (5.11) | [guía]; [medido] |
 | O3 | Núcleo común | ver arriba |
 | O4 | Coactive design (4.6) con modos de interacción de Team Topologies (4.13) | [testimonio] |
 | O5 | Monitorear e intervenir (5.12) con observabilidad y dirigibilidad; responsabilidad sobre el proceso (5.7) | [medido] del proveedor; [medido, otro dominio] |
@@ -241,7 +242,7 @@ Este núcleo no produce evidencia: solo ordena cómo juntarla. Con cualquier com
 
 ### Lectura de las tres
 
-La combinación A es la única que conserva el diagnóstico del marco (el objetivo con métrica como unidad) y además contesta las seis objeciones sin disolver ninguna. B es más simple de operar, pero deja a Deming y al DSB abiertos y renuncia a la autogestión. C es la más coherente con Deming y Teal, pero deja de ser ODLC. En las tres, la mayoría de las piezas son guía o testimonio, y las piezas medidas provienen de otro dominio.
+Las tres combinaciones son coherentes por construcción. A es la única que, sin contradecirse, conserva el objetivo con métrica y no disuelve la autogestión; deja abierta la Objeción 3 y responde la Objeción 5 a nivel de etapa, no de persona. B es más simple de operar, pero deja a Deming y al DSB abiertos y renuncia a la autogestión. C es la más coherente con Deming y Teal, pero deja de ser ODLC. En las tres, la mayoría de las piezas son guía o testimonio, y las piezas medidas provienen de otro dominio.
 
 ---
 
@@ -251,12 +252,12 @@ Búsquedas del 2026-10-08: "agentic organization" de McKinsey; Beyond Budgeting 
 
 | Integración | Qué combina | Objeciones que cubre | Qué no cubre | Evidencia |
 |---|---|---|---|---|
-| Jutta Eckstein y John Buck, *Company-wide Agility with Beyond Budgeting, Open Space & Sociocracy* (BOSSA nova), 2.ª ed. 2020 | Beyond Budgeting, Open Space, Sociocracia y Agile | O1 en parte (Beyond Budgeting), O6 | Agentes, supervisión, O2, O3, O5 | [testimonio] casos de practicantes, según la página del libro |
+| Jutta Eckstein y John Buck, *Company-wide Agility with Beyond Budgeting, Open Space & Sociocracy* (BOSSA nova), 2.ª ed. 2020 | Beyond Budgeting, Open Space, Sociocracia y Agile | O1 en parte (Beyond Budgeting), O6 | Agentes, supervisión, O2, O3, O5 | [guía] de practicantes; sin casos medidos visibles |
 | Scrum.org, EBM + OKR ("Using OKRs with Scrum and Evidence Based Management", 2021-08-31; webinar de Yuval Yeret, 2025-09-03) | Metas en tres niveles de EBM con OKR | O1 en parte, O2 | Deming, agentes, O5, O6 | Visto solo en resultados de búsqueda; las páginas no cargaron. No se usa como dato |
 | IMDA, *Model AI Governance Framework for Agentic AI* v1.5 (2026) | Autonomía graduada de Knight, puntos significativos de aprobación, auditoría de la supervisión, denegación por defecto | O4, O5, O6 en parte | Métricas de objetivo (O1, O2), evidencia propia (O3) | [guía] |
 | ThinkTech Research, "Overreliance on AI" (2026-04-13) | Seguimiento de la tasa de anulación, controles por muestreo con errores conocidos, ejercicios "IA apagada", evaluación humana previa a ver la recomendación | O5 (principios 2, 3 y 4 juntos) | O1, O2, O4, O6; no es un marco organizacional | [guía]; cita a NIST, Parasuraman y Manzey, FAA 2013, Goddard y otros 2012, art. 14 de la UE |
-| Zhongjie Wang y Mingyi Liu, "Software Engineering in the Agent Era: From Trustworthy Change to Human-Agent Software Organizations", arXiv 2609.04630 (2026-09-04) | Cambio confiable (de la intención a la operación), topología de responsabilidad, "celda humano-agente" sin autoridad de aceptación | O4, O6 en parte (quién acepta el riesgo) | O1, O2, O5; los autores declaran que sus constructos son hipótesis a probar | [teoría] |
-| McKinsey, "The agentic organization: Contours of the next paradigm for the AI era" (Sukharevsky, Krivkovich, Gast y otros, según fragmentos de búsqueda) | Cinco pilares: modelo de negocio, modelo operativo, gobernanza, personas y cultura, tecnología y datos; "equipos agénticos" chatos orientados a resultados; control embebido en tiempo real | O4 y O6 como declaración | Medición, gaming, sesgo de automatización, validación | La página no cargó (timeout). Contenido tomado de fragmentos de búsqueda y de un resumen secundario (headquarter.ai), que no encuentra datos que lo respalden. Fecha no verificada |
+| Zhongjie Wang y Mingyi Liu, "Software Engineering in the Agent Era From Trustworthy Change to Human Agent Software Organizations", arXiv 2609.04630 (2026-09-04) | Cambio confiable (de la intención a la operación), topología de responsabilidad, "celda humano-agente" sin autoridad de aceptación | O4, O6 en parte (quién acepta el riesgo) | O1, O2, O5; los autores declaran que sus constructos son hipótesis a probar | [teoría] |
+| McKinsey, "The agentic organization: Contours of the next paradigm for the AI era" (Sukharevsky, Krivkovich, Gast y otros, según fragmentos de búsqueda) | Cinco dimensiones, según el resumen secundario: modelo de negocio, modelo operativo, tecnología y datos, talento y organización ("Talent & Organization"), y gobernanza; control embebido en tiempo real (fragmentos de búsqueda) | O4 y O6 como declaración | Medición, gaming, sesgo de automatización, validación | La página no cargó (timeout). Contenido tomado de fragmentos de búsqueda y de un resumen secundario de headquarter.ai (2025-12-22), escrito por un vendedor de stack agéntico. Fecha del original no verificada |
 | AWS, "AI-Driven Development Life Cycle" (Raja SP, 2025-07-31) | Fases Inception, Construction y Operations; "bolts" en lugar de sprints; el agente planifica y pregunta, el humano valida antes de avanzar | O4 como proceso | O1, O2, O3, O5 (supone validación humana efectiva), O6 | [guía] del proveedor, sin mediciones |
 
 **Veredicto de la búsqueda.** Existen integraciones de dos o tres piezas, siempre dentro de una misma familia: gestión sin presupuesto con autogestión (BOSSA nova), gestión por evidencia con metas (EBM + OKR), gobernanza de agentes con supervisión (IMDA, ThinkTech), u organización humano-agente de software en teoría (Wang y Liu). No se encontró ninguna que cruce las familias de O1 y O2 (medición) con las de O5 (supervisión) y O6 (autogestión), y ninguna que traiga evidencia medida del conjunto. La parte "nadie las juntó" de la hipótesis vale para la integración completa, no para las parciales.
@@ -275,9 +276,9 @@ Búsquedas del 2026-10-08: "agentic organization" de McKinsey; Beyond Budgeting 
 | Feedback con poco tráfico o pocos experimentos históricos | O2 | A/B simulado (Hut y Masoero: acierta el signo en 70 %); Agent A/B; pronóstico por flujo (Vacanti, Magennis) | Los simuladores sirven para filtrar, no para validar; no hay caso de pronóstico por flujo con agentes; CUPED, surrogate index y proxies suponen volumen |
 | Separar la espera de evidencia del tiempo de trabajo | O2 | Holdbacks largos que corren en paralelo (Hohnhold y otros) | Ningún estudio descompone el tiempo hasta el resultado entre especificar, ejecutar, revisar, integrar y esperar |
 | Debrief que ocurra sin que nadie lo convoque | O5 | Debriefs (d = 0,67), "evaluar y evolucionar" de Sociocracy 3.0, revisión fechada | Todos suponen a alguien que lo conduce; ninguna fuente prueba un disparador automático |
-| Intervención que funcione para quien no disfruta pensar | O5 | Defaults (sin pensar) y forzado cognitivo (el que más rechaza ese perfil) | Buçinca y Lee coinciden: lo que funciona beneficia a quien ya piensa o ya es proactivo |
+| Intervención que funcione para quien no disfruta pensar | O5 | Defaults (sin pensar) y forzado cognitivo (el que más rechaza ese perfil); el clima de seguridad psicológica, uno de los tres subgrupos en los que Lee midió mejora (con alto desempeño e interés inicial), es lo más cercano a una condición que se puede intervenir | Buçinca y Lee coinciden: lo que funciona beneficia a quien ya piensa o ya es proactivo; nadie probó crear seguridad psicológica como intervención para este perfil |
 | Contramedidas al sesgo de automatización en revisión de código de agentes | O5, O4 | Mosier, Bahner, Threat Image Projection; Dhanorkar y otros 2026 (cualitativo) | Toda la evidencia medida es de aviación, control de procesos y aeropuertos [extrapolación] |
-| Umbrales de las métricas de pasividad | O5 | Tasa de rechazo y tiempo de respuesta (IMDA) | Sin umbrales validados ni base de comparación medida |
+| Umbrales de las métricas de pasividad | O5 | Tasa de rechazo y tiempo de respuesta (IMDA); umbral heurístico de ThinkTech: una tasa de anulación sostenida por debajo del 5 % donde se espera desacuerdo, comparada contra la línea base del inicio del despliegue [guía] | Sin umbrales validados ni base de comparación medida; el 5 % de ThinkTech es heurístico, no validado |
 | Organización humano-agente de software medida durante meses, separando estructura y proceso | O4 | He y otros 2026 (longitudinal, una empresa); P&G 2025 (un día); Qadri y otros 2026 (cualitativo) | Ninguno compara modelos organizacionales; He y otros mide throughput y revisión, no estructura |
 | Gaming de métricas por agentes | O1 | Taxonomía de Goodhart (Manheim y Garrabrant), OWASP ASI01 (secuestro de objetivo) | La literatura de *reward hacking* no se relevó; ninguna fuente lo trata dentro de un ciclo de trabajo |
 | Comparación empírica entre niveles de autonomía e interdependencia | O4, O6 | DSB y Bradshaw contra Knight, IMDA y CSA | Conviven sin comparación |
@@ -294,10 +295,10 @@ Abiertas y usadas:
 - Eckstein, J. y Buck, J., *Company-wide Agility with Beyond Budgeting, Open Space & Sociocracy*, Leanpub, 2.ª ed. 2020 (página del libro). https://leanpub.com/bossanova
 - Raja SP, "AI-Driven Development Life Cycle: Reimagining Software Engineering", AWS DevOps & Developer Productivity Blog, 2025-07-31. https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle
 - ThinkTech Research, "Overreliance on AI: Automation Bias, Skill Atrophy, and Organizational Controls", 2026-04-13. https://thinktech.ngo/risk-library/overreliance
-- Wang, Z. y Liu, M., "Software Engineering in the Agent Era: From Trustworthy Change to Human-Agent Software Organizations", arXiv 2609.04630, 2026-09-04. https://arxiv.org/abs/2609.04630
+- Wang, Z. y Liu, M., "Software Engineering in the Agent Era From Trustworthy Change to Human Agent Software Organizations", arXiv 2609.04630, 2026-09-04. https://arxiv.org/abs/2609.04630
 - Dhanorkar, S., Passi, S. y Vorvoreanu, M., "Human oversight of agentic systems in practice", arXiv 2606.05391, 2026-06-03. https://arxiv.org/abs/2606.05391
 - Qadri, R. y otros, "Working with Agentic 'Teammates': When a New Organizational Actor Collides with the Human Ecosystem of Work", arXiv 2609.29901, 2026-09-24. https://arxiv.org/abs/2609.29901
-- headquarter.ai, "McKinsey agentic organization" (resumen secundario, sin fecha visible). https://www.headquarter.ai/en/post/mckinsey-agentic-organization
+- headquarter.ai, "McKinsey agentic organization" (resumen secundario de un vendedor de stack agéntico, fechado Dec 22, 2025). https://www.headquarter.ai/en/post/mckinsey-agentic-organization
 
 Vistas solo en resultados de búsqueda, sin abrir (no se usan como dato):
 
@@ -305,7 +306,7 @@ Vistas solo en resultados de búsqueda, sin abrir (no se usan como dato):
 - Scrum.org, "Using OKRs with Scrum and Evidence Based Management" (2021-08-31, según el buscador) y "A Discussion about Evidence-Based Management, OKRs and Other Metrics" (las páginas devolvieron contenido vacío). https://www.scrum.org/node/51628 · https://www.scrum.org/node/77835
 - "LLM Constitutional Multi-Agent Governance", arXiv 2603.13189 (apareció al buscar coactive design aplicado a agentes; trata gobernanza entre agentes, no interdependencia humano-agente). https://arxiv.org/abs/2603.13189
 
-Las demás fuentes citadas están en los tres relevamientos de propuestas y en las dos investigaciones de contexto, con sus fechas de consulta.
+Las demás fuentes citadas están en los tres relevamientos de propuestas y en las dos investigaciones de contexto, con sus fechas de consulta, salvo Threat Image Projection ("Using threat image projection data for assessing individual screener performance", 2005, doi:10.2495/safe050411), que se cita desde "Objeciones al marco" (docs/06_fundacional).
 
 ## Comandos de verificación
 
@@ -316,6 +317,17 @@ cd docs/00_crudo
 grep -n "Threat Image Projection" "../06_fundacional/Objeciones al marco.md"
 grep -n "seguridad psicológica" "Propuestas existentes - Objeciones 5 y 6.md"
 grep -n "abandonar el esfuerzo de definir niveles" "Propuestas existentes - Objeciones 3 y 4.md"
-grep -n "saltear la revisión humana" "Investigación - Estimación y tiempo con agentes.md"
-curl -s "https://export.arxiv.org/api/query?id_list=2609.04630,2606.05391,2609.29901" | grep -o "<title>[^<]*</title>"
+grep -n "la revisión automática superó a la humana" "Investigación - Estimación y tiempo con agentes.md"
+grep -n 'mandato "2x"' "Investigación - Estimación y tiempo con agentes.md"
+grep -n "doi:10.2495/safe050411" "../06_fundacional/Objeciones al marco.md"
+grep -n "no se usa para evaluar personas" "../06_fundacional/Objeciones al marco.md"
+grep -n "d = 0,33\|motivación controlada" "Propuestas existentes - Objeciones 5 y 6.md"
+grep -c '^### 2\.' "Síntesis - Cómo encajan las propuestas existentes.md"   # 7 conflictos
+curl -s "https://export.arxiv.org/api/query?id_list=2609.04630,2606.05391,2609.29901,2607.01904" | grep -o "<title>[^<]*</title>"
+curl -sL https://thinktech.ngo/risk-library/overreliance | grep -o "either caught or missed\|If reviewers know they are being tested\|below 5%\|baseline established during initial deployment" | sort -u
+curl -sL -A Mozilla/5.0 https://www.headquarter.ai/en/post/mckinsey-agentic-organization | sed 's/<[^>]*>/ /g' | tr -s ' \n' ' ' | grep -o "Dec 22, 2025\|Talent &amp; Organization\|Agentic Stack" | sort -u
 ```
+
+---
+
+Revisado por juez adversarial el 2026-10-08; correcciones aplicadas.
