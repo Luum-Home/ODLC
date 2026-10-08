@@ -93,7 +93,7 @@ Estados usados en las notas:
 - `borrador`: estructura útil, contenido en evolución.
 - `evergreen`: nota estable, actualizable con nueva evidencia.
 
-Los PDFs históricos están en `docs/00_crudo/`. La fuente canónica actual es el Markdown dentro de `docs/`.
+Los PDFs históricos están en `docs/00_crudo/`. La fuente canónica actual es el Markdown dentro de `docs/`. Una nota que parte de material de `docs/00_crudo/` lo cita en el frontmatter con `origen:`, no con `fuente:` (decisión D-12 de `docs/06_fundacional/Registro de decisiones.md`).
 
 ## Cómo trabajar con el vault
 
