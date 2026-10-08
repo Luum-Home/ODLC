@@ -28,7 +28,7 @@ Un sistema sin gobernanza (donde un agente puede desplegar a producción sin rev
 
 ### B. Compuertas de Aprobación Humana (Human-in-the-Loop - HITL)
 - **Definición**: Puntos del ciclo de desarrollo donde el agente debe pausar su ejecución y esperar que un humano valide y firme la acción antes de continuar.
-- **Acciones obligatorias HITL**: este módulo no mantiene una lista propia. La fuente única de qué acciones requieren aprobación humana es la matriz de [[Gobernanza#Límites de autonomía (matriz borrador)|Gobernanza § Límites de autonomía]].
+- **Acciones obligatorias HITL**: este módulo no mantiene una lista propia. La fuente única de qué acciones requieren aprobación humana es la matriz de [[Gobernanza#Límites de autonomía (matriz borrador)|Gobernanza § Límites de autonomía]]. Lo irreversible (pagos, datos de clientes, borrado, migraciones destructivas) frena siempre, en cualquier nivel de madurez ([[Registro de decisiones]], D-01).
 
 ### C. Registro de Auditoría (Audit Trails)
 - **Definición**: Trazabilidad completa de las acciones del agente.
@@ -72,11 +72,11 @@ La gobernanza técnica en la arquitectura de [[Cognitive OS - Arquitectura de re
    - **WARN**: Advertencia al operador humano, permitiendo continuar (Capas 2, 7, 13).
    - **LOG**: Registro silencioso en `.cognitive-os/metrics/` para auditoría y aprendizaje del sistema (Capa 10).
    - **WARN o BLOCK según el reporte**: la Capa 8 (`trust-score-validator.sh`) advierte si falta el Trust Report y bloquea (exit 2) si está malformado.
-   - **Dependiente de fase**: las Capas 6 (`claim-validator.sh`) y 9 (`confidence-gate.sh`) alertan/loguean en fases permisivas y **bloquean** en Producción/Mantenimiento (ver Phase Awareness, punto 3).
+   - **Dependiente del estado del proyecto**: las Capas 6 (`claim-validator.sh`) y 9 (`confidence-gate.sh`) alertan/loguean en estados permisivos y **bloquean** en Producción/Mantenimiento (ver Phase Awareness, punto 3).
    - **Sin clasificar**: las Capas 12 (`cos_lib/cross_verifier.py`) y 14 (`cos_lib/memory_scanner.py`) se invocan como llamadas de biblioteca (On-Demand y antes de persistir en memoria, respectivamente) y todavía no están categorizadas dentro del espectro. *Pendiente de definición del autor antes del dictado.*
-3. **Sensibilidad de Fase (Phase Awareness)**: El comportamiento de la malla se adapta al estado del ciclo de vida del proyecto definido en `cognitive-os.yaml`:
-   - En fases de **Reconstrucción** o **Estabilización**, los ganchos de control son más permisivos (alertas prioritarias sobre bloqueos) para acelerar el desarrollo.
-   - En fases de **Producción** o **Mantenimiento**, los ganchos de control se tornan estrictamente prohibitivos para proteger la estabilidad operativa.
+3. **Sensibilidad al estado del proyecto (Phase Awareness)**: El comportamiento de la malla se adapta al estado del proyecto definido en `cognitive-os.yaml`. Se dice "estado" y no "fase" para no confundirlo con las fases de ODLC ([[Registro de decisiones]], D-13):
+   - En los estados de **Reconstrucción** o **Estabilización**, los ganchos de control son más permisivos (alertas prioritarias sobre bloqueos) para acelerar el desarrollo.
+   - En los estados de **Producción** o **Mantenimiento**, los ganchos de control se tornan estrictamente prohibitivos para proteger la estabilidad operativa.
 
 ---
 

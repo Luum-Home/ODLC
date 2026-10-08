@@ -10,19 +10,22 @@ Componente de [[HACS]] que define **seguridad, compliance, auditoría, costos y 
 
 ## Límites de autonomía (matriz borrador)
 
-| Acción | Humano | Agente |
-|---|---|---|
-| Definir objetivo | ✅ decide | propone, analiza |
-| Decisión de arquitectura | ✅ aprueba | propone con tradeoffs |
-| Escribir código / tests / docs | supervisa | ✅ ejecuta |
-| Merge a main | aprueba (configurable por madurez) | propone PR |
-| **Deploy a producción** | ✅ aprueba | prepara y ejecuta tras aprobación |
-| Cambios de seguridad / accesos | ✅ siempre decide | detecta y propone |
-| Gasto fuera de presupuesto | ✅ siempre decide | alerta |
+Esta matriz es la única lista de aprobaciones humanas del marco, ordenada por tipo de acción ([[Registro de decisiones]], D-01). Las demás notas la enlazan en lugar de repetirla.
 
-La matriz **no es fija**: se relaja a medida que sube el nivel de [[Modelo de madurez AI-Native]] y la confianza acumulada (evidencia en [[Memoria organizacional]] de tasas de acierto del agente — [[Métricas de agentes]]).
+| Acción | Humano | Agente | ¿Se relaja con la madurez? |
+|---|---|---|---|
+| Definir objetivo | ✅ decide | propone, analiza | No |
+| Decisión de arquitectura | ✅ aprueba | propone con tradeoffs | Sí |
+| Escribir código / tests / docs | supervisa | ✅ ejecuta | Sí |
+| Merge a main | aprueba | propone PR | Sí |
+| **Deploy a producción** | ✅ aprueba | prepara y ejecuta tras aprobación | Sí |
+| Cambios de seguridad / accesos | ✅ siempre decide | detecta y propone | No |
+| Gasto fuera de presupuesto | ✅ siempre decide | alerta | No |
+| **Lo irreversible:** pagos, datos de clientes, borrado, migraciones destructivas | ✅ siempre aprueba (validador externo o excepción escrita, ver [[Núcleo ODLC para tiny teams]]) | prepara y propone | No |
 
-**Regla de suspensión:** si el *Rework Rate* de un agente supera el 40% durante tres objetivos consecutivos, el agente debe ser suspendido y su sistema de prompts o recuperación de memoria auditado (Decisión D1 en [[Métricas de agentes]]). Regla provisoria: inaplicable hasta instrumentar el Rework Rate ([[Métricas de agentes#Instrumentación pendiente]]); umbral heurístico sin calibrar.
+Las filas marcadas "Sí" se relajan a medida que sube el nivel de [[Modelo de madurez AI-Native]] y la confianza acumulada (evidencia en [[Memoria organizacional]] de tasas de acierto del agente — [[Métricas de agentes]]). Lo irreversible no se relaja con ningún nivel: en el Nivel 5 el humano deja la ejecución táctica pero conserva lo irreversible y las decisiones marcadas "siempre" (D-01).
+
+**Regla de suspensión:** si el *Rework Rate* de un agente supera el 40% durante tres objetivos consecutivos, el dueño ordena suspender el agente y auditar su sistema de prompts o de recuperación de memoria (Decisión D1 en [[Métricas de agentes]]; responsable fijado en D-06). Regla provisoria: inaplicable hasta instrumentar el Rework Rate ([[Métricas de agentes#Instrumentación pendiente]]); umbral heurístico sin calibrar.
 
 ## Implementación de referencia
 
@@ -40,7 +43,7 @@ Ver: [[Patrones de loops agénticos para repositorios#2. Process-as-code para ag
 
 1. **Autonomía ganada, no otorgada:** un agente amplía sus permisos cuando su historial de precisión lo justifica, no por default.
 2. **Auditoría total:** toda acción de agente queda registrada con contexto, costo y evidencia.
-3. **Reversibilidad como criterio:** acciones reversibles → agente autónomo; irreversibles o externas → aprobación humana.
+3. **Reversibilidad como criterio necesario, no suficiente:** una acción irreversible o externa requiere aprobación humana; que sea reversible no alcanza para que el agente la haga solo, además tiene que figurar como del agente en la matriz (D-06).
 4. **Presupuesto explícito:** los agentes tienen costo medible; la gobernanza incluye límites de gasto por objetivo ([[Fase 2 - Constraints]]).
 
 ## Preguntas abiertas

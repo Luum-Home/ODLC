@@ -49,7 +49,7 @@ Sin sellar el protocolo del piloto.
 
 ## Cuándo se agranda
 
-Cambiar el modelo de empleo inicial se asoció con el triple de fallas [medido, observacional, fuente secundaria]. Por eso el núcleo trae las costuras: dueño nombrado por ficha (`responsable_humano`, de [[Fase 1 - Objective]]), auditoría por alguien distinto del dueño, segunda persona como validador y un consejo de pares [medido]. Adoptar el núcleo en un equipo existente también es cambiar de modelo. No hay umbral medido para contratar.
+Cambiar el modelo de empleo inicial se asoció con el triple de fallas [medido, observacional, fuente secundaria]. Por eso el núcleo trae las costuras: dueño nombrado por ficha (`responsable_humano`, de [[Fase 1 - Objective]]), auditoría por alguien distinto del dueño, segunda persona como validador y un consejo de pares [medido]. Adoptar el núcleo en un equipo existente también es cambiar de modelo: ahí se adopta de a poco ([[Registro de decisiones]], D-03). No hay umbral medido para contratar.
 
 ---
 
@@ -88,20 +88,20 @@ Quedan fuera del núcleo; las define [[Piloto - Combinación A]] y las mide `scr
 
 ## Tensiones declaradas
 
-- **Quien valida no es quien ejecutó** ([[Fase 5 - Validation]], regla 3). Con una persona no se cumple; el núcleo lo compensa sin separación real.
-- **Autonomía ganada, no otorgada** ([[Gobernanza]]). El revisor agente decide lo reversible desde el primer día, sin historial que lo justifique.
+- **Quien valida no es quien ejecutó** ([[Fase 5 - Validation]], regla 3). Con una persona no se cumple y se acepta por escrito, compensado con las revisiones automáticas y el validador externo para lo irreversible; desde dos personas, quien ejecuta no valida ([[Registro de decisiones]], D-04).
+- **Autonomía ganada, no otorgada** ([[Gobernanza]]). El revisor agente decide lo reversible desde el primer día, sin historial que lo justifique, aunque ser reversible no alcanza por sí solo ([[Registro de decisiones]], D-06).
 - **Merge a main con aprobación humana** ([[Gobernanza]]). El núcleo deja avanzar lo reversible con revisor y tests.
-- **Presupuesto de tokens y suspensión por Rework.** [[Fase 2 - Constraints]] pide presupuesto de tokens por unidad y [[Gobernanza]] suspende al agente con Rework sobre 40 %; el núcleo no trae ninguno de los dos.
+- **Presupuesto de tokens y suspensión por Rework.** [[Fase 2 - Constraints]] pide presupuesto de tokens por unidad y [[Gobernanza]] prevé que el dueño suspenda al agente con Rework sobre 40 % (D-06); el núcleo no trae ninguno de los dos.
 - **No iterar contra la señal que juzga** (C7 en [[Objeciones al marco]]). Iterar al escritor hasta que pase CI es exactamente eso; el agente de tests separado lo atenúa, no lo elimina.
 - **Comprensión compartida.** Ninguna compensación reemplaza lo que la revisión humana producía ([[Objeciones al marco]]).
 - **Primero la práctica, después el nombre** ([[Cómo nacieron los marcos que se adoptaron]]). El núcleo nombra antes de practicar; los nombres son provisionales hasta el piloto.
 - **Adopción por niveles** ([[Modelo de madurez AI-Native]]). La ficha como unidad desde el primer día es el criterio del Nivel 4.
-- **ODLC sin agentes** ([[Manifiesto HACS-ODLC]]). El núcleo supone agentes; no redefine qué cuenta como ODLC.
+- **ODLC sin agentes** ([[Manifiesto HACS-ODLC]]). El núcleo supone agentes, pero lo que cuenta como adopción de ODLC es la ficha con criterio de abandono y el resultado validado, con o sin agentes ([[Registro de decisiones]], D-02).
 - **La métrica no evalúa personas.** Es regla del núcleo; [[Objeciones al marco]] la lista como respuesta a Deming todavía no escrita.
 
 ## Relación con el resto del vault
 
-El núcleo es la versión aplicable de [[ODLC]]. Las seis fases, el [[Modelo de madurez AI-Native]], la [[Gobernanza]] completa y los cuatro [[Roles humanos]] quedan como referencia para organizaciones más grandes. Las decisiones pendientes del piloto están en su sección 13. Origen del encargo: [[Cómo nacieron los marcos que se adoptaron]].
+El núcleo es la versión aplicable de [[ODLC]]. Las seis fases, el [[Modelo de madurez AI-Native]], la [[Gobernanza]] completa y los cuatro [[Roles humanos]] quedan como referencia para organizaciones más grandes. Las decisiones del piloto están en su sección 13 y en [[Registro de decisiones]]. Las métricas de reutilización de conocimiento y de recuperación de contexto quedan fuera del núcleo, como referencia para empresas (D-10). Origen del encargo: [[Cómo nacieron los marcos que se adoptaron]].
 
 ## Comandos de verificación
 

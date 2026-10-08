@@ -325,18 +325,20 @@ def fase0(base, prot, salida, kills):
     salida.append(f"  según el codificador ciego: dolor central en {dolor_ciego}/{n} ({fmt(fd)}), "
                   f"señal de compromiso en {comp_ciego}/{n} ({fmt(fc)})")
 
-    if n < u.get("min_entrevistas", 10):
+    # Umbrales en casos, no en proporciones (P-05 del Registro de decisiones)
+    min_n = u.get("min_entrevistas", 12)
+    if n < min_n:
         res = "en_curso"
     elif k_d is None or k_d < u.get("kappa_min", 0.6):
         res = "ambiguo"
         salida.append(f"  acuerdo insuficiente (kappa < {u.get('kappa_min')}): revisar el libro de códigos y recodificar")
-    elif fd >= u.get("confirma_dolor", 0.5) and fc >= u.get("confirma_compromiso", 0.3):
+    elif dolor_ciego >= u.get("confirma_dolor_casos", 6) and comp_ciego >= u.get("confirma_compromiso_casos", 3):
         res = "confirmado"
-    elif fd < u.get("descarta_dolor", 0.2):
+    elif dolor_ciego <= u.get("descarta_dolor_casos", 2):
         res = "descartado"
     else:
         res = "ambiguo"
-    if res == "ambiguo" and n >= u.get("min_entrevistas", 10) + u.get("extension", 5):
+    if res == "ambiguo" and n >= min_n + u.get("extension", 5):
         res = "descartado"
         salida.append("  sigue ambiguo después de la extensión pre-registrada: cuenta como descartado")
     salida.append(f"  resultado Fase 0: {res.upper()}")
@@ -470,6 +472,25 @@ def piloto(base, prot, salida, kills, alertas):
                 for f in fs if f["aband"] and f["u"].get("descartada_en")]
         salida.append(f"    fase {c}: {sum(f['aband'] for f in fs)} abandonadas de {len(fs)}; "
                       f"mediana de días hasta abandonar {fmt(median(dias), 1)}")
+
+    # --- K4: piloto no informativo, con corte parcial en la semana 8 (P-09) --
+    sem_k4 = int(u.get("k4_semana", 8))
+    if semana_de(corte, inicio) <= sem_k4:
+        salida.append(f"  K4 (corte parcial en la semana {sem_k4}): pendiente, la fecha de corte no llega a esa semana")
+    else:
+        hasta_k4 = {"A": 0, "B": 0}
+        for f in filas:
+            if f["c"] not in hasta_k4:
+                continue
+            for v in por_unidad.get(f["u"]["id"], []):
+                ev = ts(v.get("evidencia_en"))
+                if ev and nivel(v) >= nivel_min and semana_de(ev, inicio) <= sem_k4:
+                    hasta_k4[f["c"]] += 1
+        salida.append(f"  K4 (corte parcial en la semana {sem_k4}): validaciones de nivel ≥ {nivel_min} "
+                      f"hasta esa semana: fase A {hasta_k4['A']}, fase B {hasta_k4['B']}")
+        if not any(hasta_k4.values()):
+            kills.append(f"K4 piloto no informativo: ninguna validación de nivel ≥ {nivel_min} en la fase A "
+                         f"ni en la B al llegar a la semana {sem_k4}")
 
     # --- series semanales por tier, NAP y prueba de aleatorización --------
     series_p1 = {t: [0] * N for t in tiers}
@@ -682,6 +703,7 @@ def piloto(base, prot, salida, kills, alertas):
         else:
             salida.append("  condiciones de revisión: coinciden con el sorteo sellado")
 
+    # H2 es exploratoria (P-08): se reporta, no entra en la regla de decisión
     vaccaro = "sin_datos"
     mins = u.get("min_semillas_contraste", 5)
     if all(det[c][1] >= mins for c in det):
@@ -689,7 +711,7 @@ def piloto(base, prot, salida, kills, alertas):
         mejor = max(p["H"], p["A"])
         lo, hi = wilson(*det["HA"])
         vaccaro = "sostiene" if lo > mejor else ("descarta" if hi < mejor else "ambiguo")
-    salida.append(f"  contraste HA contra max(H, A): {vaccaro.upper()} "
+    salida.append(f"  contraste HA contra max(H, A), exploratorio: {vaccaro.upper()} "
                   f"(requiere ≥ {mins} semillas por condición)")
 
     # --- TTO separado en trabajo y espera ---------------------------------
@@ -776,7 +798,7 @@ def piloto(base, prot, salida, kills, alertas):
                       f"tiers con P1 B > A: {buenos}/{len(tiers)}; P2 B ≤ A: {p2_ok}; "
                       f"paridad de horas: {paridad}; adherencia sin K1: {not k1}")
     salida.append(f"VEREDICTO {'FINAL' if cerrado else 'PROVISORIO'} sobre la tesis: {veredicto.upper()}; "
-                  f"componente de revisión (Vaccaro): {vaccaro.upper()}")
+                  f"componente de revisión (Vaccaro, H2 exploratoria): {vaccaro.upper()}")
     if veredicto == "descarta" and cerrado:
         kills.append("K5 tesis descartada por la regla de decisión pre-registrada")
 

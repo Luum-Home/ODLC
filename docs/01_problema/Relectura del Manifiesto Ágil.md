@@ -73,12 +73,12 @@ El principio 5 asume personas motivadas. HACS hereda ese supuesto sin declararlo
 
 Los seis principios de diseño para tolerar a este humano, con su respaldo en la literatura, están en [[Objeciones al marco#Principios para tolerar al humano de mínimo esfuerzo]].
 
-**Principio de diseño que se deriva (propuesta):** ODLC se diseña para el humano de mínimo esfuerzo; el camino barato tiene que ser el correcto. Las compuertas siguientes son **propuestas de esta nota**: hoy no figuran como reglas en [[Fase 1 - Objective]] ni en [[Fase 6 - Learning]].
+**Principio de diseño que se deriva (propuesta):** ODLC se diseña para el humano de mínimo esfuerzo; el camino barato tiene que ser el correcto. Las compuertas siguientes se adoptan como **prácticas del [[Núcleo ODLC para tiny teams]]**, no como reglas de [[Fase 1 - Objective]] ni de [[Fase 6 - Learning]] ([[Registro de decisiones]], D-11).
 
-- Propuesta: la plantilla de objetivo no permite arrancar sin métrica de éxito y dueño. Hoy [[Fase 1 - Objective]] pide ambos en sus reglas, pero nada bloquea el arranque si faltan.
-- Propuesta: la validación no se aprueba sin evidencia adjunta. [[Fase 5 - Validation]] ya exige citar datos auditables (*Evidence over Opinions*).
-- Propuesta: el agente propone, pero el humano escribe la métrica; aceptar con un "ok" no cuenta como decisión.
-- Propuesta: el cierre de ciclo no se registra sin la entrada de aprendizaje. Hoy [[Fase 6 - Learning]] no tiene esa compuerta.
+- La plantilla de objetivo no permite arrancar sin métrica de éxito y dueño. [[Fase 1 - Objective]] pide ambos en sus reglas; en el núcleo, el tablero marca las fichas sin métrica o sin dueño.
+- La validación no se aprueba sin evidencia adjunta. [[Fase 5 - Validation]] ya exige citar datos auditables (*Evidence over Opinions*); en el núcleo es la constancia de outcome.
+- El agente propone, pero el humano escribe la métrica; aceptar con un "ok" no cuenta como decisión. En el núcleo, el dueño del objetivo fija el target.
+- El cierre de ciclo no se registra sin la entrada de aprendizaje. [[Fase 6 - Learning]] no tiene esa compuerta; en el núcleo queda como extensión del piloto.
 
 Esto es hipótesis, no práctica validada. Cómo medir si funciona queda en [[Preguntas abiertas]].
 

@@ -12,6 +12,8 @@ created: 2026-06-10
 
 **Después** (sistema HACS): **Humans + Agents + Memory + Governance.**
 
+En equipos que arrancan desde cero, la unidad HACS es el punto de partida; en equipos existentes convive con Scrum y Kanban durante la transición y se adopta de a poco ([[Registro de decisiones]], D-03).
+
 ## ¿Qué cambia?
 
 1. **Los roles dejan de mapear 1:1 a personas.** "QA" deja de ser una persona y pasa a ser una *capacidad* del sistema, ejercida mayormente por agentes ([[Roles de agentes]]) bajo supervisión humana ([[Gobernanza]]).

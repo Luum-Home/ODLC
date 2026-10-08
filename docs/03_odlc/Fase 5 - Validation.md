@@ -27,7 +27,7 @@ validation:
 
 1. **El target no se reinterpreta a posteriori.** Si el objetivo era "de 5 días a 1 día" y se llegó a 2, es *parcial* — valioso, pero parcial. Mover el arco después de patear es el anti-patrón que ODLC existe para impedir.
 2. **Evidence over Opinions:** la validación cita datos auditables, no impresiones ("se siente más rápido").
-3. **Quien valida no es quien ejecutó.** El veredicto lo da el Sponsor ([[Roles humanos]]), con análisis preparado por agentes.
+3. **Quien valida no es quien ejecutó.** El veredicto lo da el Sponsor ([[Roles humanos]]), con análisis preparado por agentes. Con una sola persona la regla no se puede cumplir: se acepta por escrito que quien ejecuta valide, compensado con las revisiones automáticas y con un validador externo para lo irreversible. A partir de dos personas, quien ejecuta no valida ([[Registro de decisiones]], D-04).
 4. **Fallar es un resultado válido** — si produce aprendizaje ([[Fase 6 - Learning]]). Lo inválido es no poder determinar si se falló.
 5. **Validar proceso además de resultado:** en loops agénticos, especialmente TDD, la validación debe auditar la evidencia del ciclo, no solo que el estado final pase tests. Ver [[Agent Loop Engineering#Patrón aplicado: TDD para agentes]].
 6. **Revisión con contexto fresco:** para cambios relevantes, la validación debe separar el contexto que produjo la implementación del contexto que la revisa. Ver [[Patrones de loops agénticos para repositorios#7. Fresh-context validation]].
@@ -40,7 +40,7 @@ Ver: [[Defectos perceptuales generados por IA]].
 
 ## Métricas asociadas
 
-Objective Success Rate y Time To Outcome ([[Métricas operativas]]) se calculan en esta fase.
+Objective Success Rate y Time To Outcome ([[Métricas operativas]]) se calculan en esta fase. Un veredicto *parcial* cuenta como no logrado en el Objective Success Rate; la tasa de parciales se reporta aparte (D-05).
 
 ## Preguntas abiertas
 
