@@ -29,12 +29,25 @@ Decisiones de autor sobre el marco, con fecha, motivo y estado. Una decisión se
 | D-12 | El material crudo se cita con el campo `origen:`, no `fuente:`. Inbox pasa a nota meta. | El README dice que lo crudo no se usa como fuente canónica, y cinco notas de cursos lo hacían. | Notas de [[Cursos HACS-ODLC]], [[Inbox]], README |
 | D-13 | Los niveles L0 a L6 del loop pasan a llamarse "niveles de complejidad del loop", y las fases de la Safety Mesh, "estado del proyecto". | Chocaban con los niveles de madurez y con las fases de ODLC. | [[Agent Loop Engineering]], [[Módulo 3 - Gobernanza]], [[Glosario y taxonomía]] |
 
+## Decisiones del 2026-10-08 (segunda tanda)
+
+Surgen del juez adversarial que revisó la aplicación de D-01 a D-13 y de la deprecación de Cognitive OS por el dueño.
+
+| # | Decisión | Motivo | Supersede |
+|---|---|---|---|
+| D-15 | **Cognitive OS queda deprecado** (pedido del dueño). Se retiran del vault la implementación `luum-cognitive-os`, su Safety Mesh y la arquitectura de referencia "Cognitive OS". Las ideas genéricas que sirven (memoria compartida, sandbox, verificación, gobernanza por tipo de acción) quedan en HACS y en Gobernanza sin la marca. La carpeta `05_cognitive-os/` se renombra y conserva lo que no dependía de Cognitive OS. El Módulo 3 del curso se reescribe genérico. | El producto se deprecó. ODLC no dependía de él: ninguna fase, ni el núcleo ni el piloto lo usan. | D-14 (la atribución a OliveX era de ese producto y se va con él) |
+| D-16 | **Lo irreversible exige siempre el validador externo.** La excepción escrita de D-04 cubre solo que quien ejecuta valide; no reemplaza al validador externo. | Una lectura con "o" dejaba que la excepción escrita reemplazara al validador justo en lo que no se relaja. D-04 ya decía "compensado con". | Aclara D-04 |
+| D-17 | La compensación de D-04 es la **constancia de outcome que un tercero puede abrir y verificar**, además de las revisiones automáticas (que revisan código, no outcome). | Las revisiones automáticas no compensan la autovalidación del outcome. | Completa D-04 |
+| D-18 | La columna "¿Se relaja con la madurez?" de la matriz de [[Gobernanza]] se adopta como está: **no** se relajan definir objetivos, seguridad y accesos, gasto fuera de presupuesto ni lo irreversible; **sí** arquitectura, código, merge y deploy. Las acciones externas (mensajes a terceros) y la remediación en producción se agregan como filas propias. | La columna la completó la aplicación de D-01 y conviene registrarla como decisión, no como efecto lateral. | Completa D-01 |
+| D-19 | **HACS queda sin umbral mínimo** hasta tener datos del piloto. "Agente que escribe en sistemas compartidos" (D-02) se define como agente con permisos de escritura sobre un sistema que usan otras personas o clientes; un agente que escribe solo en el repo propio del MVP no cae ahí. | D-02 sacó "ya es HACS" sin reemplazo y el término no estaba definido. | Completa D-02 |
+| D-20 | La autogestión de estilo Teal sigue con **dos tensiones abiertas** (aprobación jerárquica de lo irreversible frente al advice process, y métricas frente a "sentir y responder"). D-01 solo fija la frontera humano/agente. | La aplicación de D-01 había dado por resuelta una de las dos. | Corrige la lectura de D-01 |
+| D-21 | El motivo de D-03 se corrige: la evidencia de más fallas viene de cambios del modelo de empleo de fundadores (fuente secundaria), **extrapolada** a la adopción gradual de un método, sin medición de gradualidad. | El motivo decía más que la fuente. | Corrige el motivo de D-03 |
+
 ## Pendientes del dueño
 
 | # | Decisión | Por qué no la toma la arquitectura |
 |---|---|---|
 | D-09 | Promesas comerciales del curso (entregables, cupos, precios, criterios de aprobación) | Decisión de negocio. |
-| D-14 | Atribución "en colaboración con OliveX" | Sin fuente pública; solo el dueño sabe de dónde sale. |
 
 ---
 
@@ -52,6 +65,7 @@ Tomadas por arquitectura a pedido del dueño el 2026-10-08. Se confirman al sell
 | P-06 | **Codificación ciega:** un agente de otra familia sin acceso al protocolo, más 3 entrevistas recodificadas por una persona externa para verificar al agente. Acuerdo mínimo kappa 0,60. | El kappa mínimo viene del WWC. La recodificación humana controla que el agente codificador no sea el punto débil. |
 | P-07 | **Revisor:** dos pasadas automáticas por PR (contexto limpio del mismo modelo y otra familia de capacidad comparable o mayor), sin revelar la autoría, y ningún hallazgo se aplica sin un test que falle antes y pase después. | Es la combinación mínima de [[Propuestas existentes - Autorrevisión en equipos de uno]]. La regla del test filtra las regresiones que puede meter un revisor de otra familia: en Xiang y otros (2026), Codex revisando a Claude produjo 13 regresiones y 3 arreglos. Costo: una segunda suscripción. |
 | P-08 | **H2 (contra el mejor componente solo) pasa a exploratoria.** | Con el volumen de PR de una persona, 15 % de siembra repartido en tres condiciones difícilmente llega a 5 semillas por condición; la tesis se decide con H1. |
+| P-10 | **Fase 0 en dos tramos con veredicto congelado:** se evalúan las primeras 12 entrevistas por fecha; solo si dan ambiguo se suman 5 y se evalúa sobre 17 con umbrales propios: confirma con al menos 9 de dolor y al menos 5 de compromiso, descarta con 3 o menos. Más entrevistas de las previstas invalidan los datos. Cuenta como dolor la codificación ciega "sí" que el entrevistador no marcó como inducida. Compromiso = tiempo, dinero o una solución casera ya probada (unifica el libro de códigos). La recodificación humana de P-06 se registra aparte y se informa su kappa contra el agente; no pisa la codificación del agente. | Evita la parada opcional (agregar entrevistas hasta cambiar el veredicto) y que la segunda oportunidad baje la vara. Umbrales para 17 proporcionales a los de 12, sin fuente. | Completa P-05 y P-06 |
 | P-09 | Se mantienen como propuestas sin fuente, declaradas: alfa 0,05; K1 70 %; K2 50 % en 3 semanas; K3 4 semillas; latencia 30 s y aprobación 95 %; siembra 15 %; tolerancia de horas ±20 %; ventana de outcome 28 días con nivel mínimo 2. Se implementa K4 en el script con corte parcial en la semana 8. | No hay fuente mejor; declararlas antes de empezar es lo que las vuelve honestas. |
 
 ---
