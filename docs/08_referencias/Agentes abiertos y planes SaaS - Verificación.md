@@ -7,7 +7,7 @@ consultado: 2026-10-07
 
 # Agentes abiertos y planes SaaS: verificación
 
-Qué puede construir hoy un alumno con cada plan de ChatGPT, Claude y Gemini, qué riesgos tienen los cuatro agentes abiertos que el curso menciona como alternativa (OpenClaw, Agent Zero, Hermes Agent y Odysseus) y qué ofrecen los vendors en la misma categoría (dots, Grok Bot, Cowork, Muse). Sirve de respaldo para el callout de requisitos de [[Curso - Agentes de IA aplicados al trabajo técnico]] y para el ecosistema avanzado de [[Encuentro 3 - Herramientas, MCP, automatización y operación]].
+Qué puede construir hoy una persona con cada plan de ChatGPT, Claude y Gemini, qué riesgos tienen los cuatro agentes abiertos más citados como alternativa (OpenClaw, Agent Zero, Hermes Agent y Odysseus) y qué ofrecen los vendors en la misma categoría (dots, Grok Bot, Cowork, Muse).
 
 > [!warning] Esto vence rápido
 > Todo lo de esta nota se consultó el 2026-10-07. Entre junio y octubre cambiaron tres de las cinco afirmaciones sobre planes que tenía el curso. Antes de cada dictado corré:
@@ -124,4 +124,4 @@ También hay agentes de este tipo de Manus (por Telegram) y de Perplexity (sobre
 Tres agentes revisaron las afirmaciones del vault y las hipótesis de una investigación de junio, con la consigna de refutarlas. De las de junio cayeron cinco: el total de CVEs de OpenClaw, que Hermes aprobaba cada comando, que Odysseus era single-user y de un solo mantenedor, y el rótulo "public preview" de la app de Hermes. El script de arriba repite la parte que se puede repetir.
 
 ---
-Relacionado: [[Catálogo de herramientas y productividad]] · [[Módulo 4 - Ciberseguridad aplicada]] · [[Especificación de agentes cross-CLI]] · [[Curso - Agentes de IA aplicados al trabajo técnico]]
+Relacionado: [[Catálogo de herramientas y productividad]] · [[Módulo 4 - Ciberseguridad aplicada]] · [[Especificación de agentes cross-CLI]]

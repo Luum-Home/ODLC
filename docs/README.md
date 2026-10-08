@@ -7,7 +7,7 @@ created: 2026-06-10
 # Vault HACS + ODLC
 
 **Autor:** Matías Nahuel Améndola.
-**Contribuciones:** Sebastián Gauna, Damián Gambacorta.
+**Contribuciones:** Sebastián Gauna.
 
 > [!note] Si estás leyendo esto desde GitHub
 > La explicación general del repositorio está en `../README.md`.
@@ -57,8 +57,6 @@ Los PDFs históricos están en `00_crudo/` (`HACS_Canvas.pdf`, `ODLC_Canvas.pdf`
 **Para capacitación y ofertas:**
 
 - [[Cursos HACS-ODLC]]
-- [[Curso - Agentes de IA aplicados al trabajo técnico]]
-- [[Propuesta comercial - Agentes de IA aplicados al trabajo técnico]]
 
 **Para herramientas y referencias externas:**
 

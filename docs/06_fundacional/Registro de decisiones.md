@@ -42,12 +42,11 @@ Surgen del juez adversarial que revisó la aplicación de D-01 a D-13 y de la de
 | D-19 | **HACS queda sin umbral mínimo** hasta tener datos del piloto. "Agente que escribe en sistemas compartidos" (D-02) se define como agente con permisos de escritura sobre un sistema que usan otras personas o clientes; un agente que escribe solo en el repo propio del MVP no cae ahí. | D-02 sacó "ya es HACS" sin reemplazo y el término no estaba definido. | Completa D-02 |
 | D-20 | La autogestión de estilo Teal sigue con **dos tensiones abiertas** (aprobación jerárquica de lo irreversible frente al advice process, y métricas frente a "sentir y responder"). D-01 solo fija la frontera humano/agente. | La aplicación de D-01 había dado por resuelta una de las dos. | Corrige la lectura de D-01 |
 | D-21 | El motivo de D-03 se corrige: la evidencia de más fallas viene de cambios del modelo de empleo de fundadores (fuente secundaria), **extrapolada** a la adopción gradual de un método, sin medición de gradualidad. | El motivo decía más que la fuente. | Corrige el motivo de D-03 |
+| D-22 | **Se retira del vault todo lo relacionado con Damián y OliveX Security** (pedido del dueño): el draft crudo, el curso "Agentes de IA aplicados al trabajo técnico", su propuesta comercial y los cuatro encuentros de la serie aplicada, y las menciones en el índice de cursos y los README. | Pedido explícito del dueño. | D-09 (las promesas comerciales eran de ese curso) y D-12 en lo que tocaba a esas cinco notas |
 
 ## Pendientes del dueño
 
-| # | Decisión | Por qué no la toma la arquitectura |
-|---|---|---|
-| D-09 | Promesas comerciales del curso (entregables, cupos, precios, criterios de aprobación) | Decisión de negocio. |
+Ninguna al 2026-10-08.
 
 ---
 

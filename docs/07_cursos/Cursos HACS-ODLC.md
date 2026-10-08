@@ -38,14 +38,6 @@ El curso se divide en **cuatro módulos independientes** que cubren el espectro 
 
 ---
 
-## Serie aplicada
-
-**[[Curso - Agentes de IA aplicados al trabajo técnico]]** · Damián, OliveX Security · 8 hs (4 encuentros)
-
-Orientada a perfiles técnicos sin programación (infraestructura, operaciones, soporte, seguridad, QA, datos) que necesitan crear y operar agentes con herramientas comerciales y plataformas no-code. La serie técnica HACS-ODLC arriba cubre construir el sistema; esta serie cubre usarlo.
-
----
-
 ## Cómo utilizar este material
 - **Autocapacitación**: Lee secuencialmente cada uno de los módulos en tu lector de Markdown o editor de Obsidian.
 - **Talleres prácticos**: Utiliza los repositorios de referencia clonados en la carpeta `external/` (ver [[Recursos externos]]) para realizar las prácticas del Módulo 2, Módulo 3 y Módulo 4.
