@@ -298,6 +298,8 @@ La aprobación sin cambios es el indicador y la detección de semillas es el con
 
 **Cómo se siembra.** Un script o agente distinto del revisor, con su propia semilla aleatoria guardada fuera del repo, aplica con probabilidad fija una mutación chica a un PR del escritor antes de abrirlo, con el mismo autor de commit que el escritor, en archivos que no sean irreversibles (nunca pagos, migraciones ni borrado de datos). Registra el PR y el archivo en el manifiesto. Al inicio se commitea solo el hash del manifiesto (`siembra.sha256`). Un chequeo de CI revierte toda semilla antes del deploy, la detecte o no la revisión. La siembra de seguridad aeroportuaria (Threat Image Projection) y el laboratorio de Bahner y otros (2008) son la evidencia disponible, de otro dominio ([[Objeciones al marco]]).
 
+**Antecedente en software y alcance.** Sembrar defectos conocidos para estimar cuántos se escapan es una técnica vieja de software: la siembra de errores de Mills y el *bebugging* de Gilb, en los setenta. Los experimentos de inspección miden a los revisores sobre documentos con defectos conocidos (Porter, Votta y Basili, *IEEE Transactions on Software Engineering* 21(6), 1995). Lo que no se encontró es una aplicación publicada para medir revisores automáticos en producción; Meta usa mutantes para endurecer suites de tests, no para medir al revisor ([[Propuestas existentes - Revisión en manos de agentes]]). La semilla solo existe en este piloto, con la condición HA y su criterio K3; el [[Núcleo ODLC para tiny teams]] no la incluye porque el repo no trae un sembrador.
+
 ## 7. Outcomes con pocos clientes (el hueco de la Objeción 2)
 
 ### 7.1 Qué cuenta como evidencia

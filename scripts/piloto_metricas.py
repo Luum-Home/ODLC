@@ -781,6 +781,34 @@ def piloto(base, prot, salida, kills, alertas):
         kills.append("K5 tesis descartada por la regla de decisión pre-registrada")
 
 
+def validar_protocolo(prot):
+    """Falla con un mensaje claro si el protocolo no trae lo que el cálculo usa.
+    Corre antes de cualquier cálculo: una plantilla sin completar sale con
+    exit 2 y 'protocolo incompleto: falta <campo>' en vez de un traceback."""
+    def falta(campo):
+        raise DatosInvalidos(f"protocolo incompleto: falta {campo}")
+
+    for campo in ("inicio", "semanas", "fecha_corte"):
+        if prot.get(campo) in (None, ""):
+            falta(campo)
+    try:
+        date.fromisoformat(str(prot["inicio"]))
+    except ValueError:
+        raise DatosInvalidos(f"protocolo inválido: inicio {prot['inicio']!r} no es una fecha AAAA-MM-DD")
+    ts(prot["fecha_corte"])
+    if prot["diseno"] == "linea_base_multiple":
+        if not prot.get("ventanas"):
+            falta("ventanas")
+        asig = prot.get("asignacion")
+        if not isinstance(asig, dict):
+            falta("asignacion")
+        for t in prot.get("tiers") or []:
+            if asig.get(t) in (None, ""):
+                falta(f"asignacion.{t}")
+    elif not prot.get("fases_abab"):
+        falta("fases_abab")
+
+
 def main(argv):
     if len(argv) != 2:
         print(__doc__.split("Uso:")[1].strip(), file=sys.stderr)
@@ -795,6 +823,7 @@ def main(argv):
         prot = read_frontmatter(os.path.join(base, "protocolo.md"))
         if prot.get("diseno") not in ("linea_base_multiple", "abab"):
             raise DatosInvalidos("protocolo.diseno debe ser linea_base_multiple o abab")
+        validar_protocolo(prot)
         r0 = fase0(base, prot, salida, kills)
         if r0 == "descartado":
             salida.append("Piloto: no corresponde (K0 activo)")
