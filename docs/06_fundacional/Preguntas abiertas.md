@@ -20,6 +20,8 @@ Este documento consolida las principales **preguntas abiertas** e interrogantes 
 - **¿Qué pasa con un humano que no es proactivo?**
   - HACS supone que el humano define objetivos, decide y valida por iniciativa propia. Scrum compensaba la falta de iniciativa con sprints y compromisos; ODLC no tiene un equivalente. ¿Cómo se mide si las salvaguardas de diseño (plantilla que no arranca sin métrica, validación que no se aprueba sin evidencia) alcanzan? → [[Relectura del Manifiesto Ágil#El humano que no es proactivo]] · principios propuestos y su respaldo: [[Objeciones al marco#Principios para tolerar al humano de mínimo esfuerzo]]
   - ¿Cómo se logra que el debrief de Learning ocurra si nadie lo convoca? La evidencia sobre debriefs supone que alguien los conduce.
+- **¿Cómo se acorta la deliberación sin convertirla en atajo?**
+  - Si los agentes comprimen el research y el desarrollo, el tiempo total queda dominado por planificar, discutir, decidir y validar. Ninguna vía relevada tiene medido cuánto acorta la decisión, y un Decision Lead Time bajo no distingue decidir rápido con varias alternativas de decidir rápido imponiendo una. ¿Qué hay que registrar junto al DLT para separar los dos casos? → [[Objeciones al marco#Objeción 7: lo que no se acelera]]
 
 ### 2. Economía y Retorno de Inversión (ROI)
 - **¿Cómo se calcula el ROI real de implementar Cognitive OS?**
@@ -30,6 +32,8 @@ Este documento consolida las principales **preguntas abiertas** e interrogantes 
   - A medida que un repositorio acumula cientos de objetivos y miles de entradas en memoria, la ventana de contexto de los agentes se degrada. ¿Cómo curamos y sintetizamos la memoria de manera eficiente sin perder los matices históricos importantes? → [[Memoria organizacional]]
 - **¿Cómo mitigar la sobrecarga de revisión humana (Fatiga de Gobernanza)?**
   - Aunque el merge a main es configurable por madurez ([[Gobernanza]]), las aprobaciones que la matriz marca como humanas (decisión de arquitectura, deploy a producción, cambios de seguridad, gasto fuera de presupuesto) pueden saturar al humano: puede convertirse rápidamente en el nuevo cuello de botella operativo, aprobando cosas de forma automática por fatiga. ¿Cómo automatizar la gobernanza sin perder el control moral y de riesgo?
+- **¿Qué compensa la revisión cuando pasa a manos de agentes?**
+  - Si la revisión humana exhaustiva se vuelve cuello de botella o sello de goma y pasa a agentes, ¿con qué métricas responde quien diseña el sistema de revisión (tests que el escritor no edita, radio de daño, muestreo humano, defectos sembrados), y qué reemplaza la comprensión compartida que producía la revisión humana? → [[Objeciones al marco#Objeción 8: la revisión en manos de agentes]]
 
 ### 4. Sesgo y Evolución de la Memoria
 - **¿Cómo evitamos que la memoria organizacional amplifique malas decisiones históricas?**
