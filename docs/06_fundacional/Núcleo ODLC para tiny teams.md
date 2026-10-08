@@ -6,107 +6,102 @@ created: 2026-10-08
 
 # Núcleo ODLC para tiny teams
 
-Dinámica de trabajo para una a tres personas que construyen con agentes de IA. Cada elemento deja un archivo que mide `scripts/piloto_metricas.py`. Es la [[Piloto - Combinación A|combinación A]] aplicada; las etiquetas remiten a [[#Respaldo]].
+Para una a tres personas que construyen con agentes: tres roles y siete reglas. La unidad es humano más agentes [hipótesis]; el tiempo humano va a decidir y validar, que se aceleran mucho menos que construir [hipótesis]. Nombres provisionales; todo es hipótesis hasta que el [[Piloto - Combinación A|piloto]] lo pruebe. Las etiquetas remiten a [[#Respaldo]].
 
-## Lo que lo distingue
+## Los diez elementos
 
-La unidad es humano más agentes [hipótesis]. Se diseña para el humano de mínimo esfuerzo [hipótesis]. Se verifica corriendo y el humano audita el sistema de revisión, no cada artefacto [medido]. Se mide si cada acto humano hizo su trabajo, no esfuerzo ni velocidad [guía]. Decidir y validar se aceleran mucho menos que construir, y ahí va el tiempo humano [medido]. Con pocos clientes vale lo que le cuesta algo al cliente [medido]. Todo objetivo nace con criterio de abandono [medido].
-
-## Roles
-
-| Rol | Qué hace | Deja en el repo | Difícil de fingir porque | Respaldo |
-|---|---|---|---|---|
-| **Dueño del objetivo** (humano) | Fija target y salida, elige, valida, audita. Solo, cubre Sponsor, Product, Architect y Operator | Decisiones `decidida_por: humano` | Timestamps de la herramienta | [hipótesis] |
-| **Escritor** (agente) | Redacta la ficha, propone alternativas, implementa | PR, `registro-ia/` | Los tests los escribe otro agente y no puede editarlos | [medido] |
-| **Revisor** (agente) | Dos pasadas por PR: mismo modelo con contexto limpio y otra familia de capacidad comparable, sin saber quién escribió | `hallazgos`, `modelo_revisor` | El script alerta si comparte familia con el escritor | [medido] |
-| **Validador externo** (asesor, par o cliente que paga) | Aprueba lo irreversible; si no hay, excepción escrita | Decisión `clase: irreversible` | Es otra persona | [guía] |
-
-## Artefactos y reglas
-
-| Elemento | Qué es y cuándo | Deja en el repo | Difícil de fingir porque | Respaldo |
-|---|---|---|---|---|
-| **Ficha de objetivo** (central) | Antes de construir: resultado para el cliente, métrica con baseline, target y ventana, criterio de abandono con fecha, superficies que no se tocan | `unidades/U-*.md` | Se mide adherencia; `creada_en` contra el primer commit | [medido] |
-| **Elegir, no aprobar** | En decisiones significativas, dos opciones o más; el humano escribe el número que espera mover y qué lo haría rechazar | `decisiones/D-*.md` | La elección vacía cuenta como pasividad | [medido] |
-| **Lo irreversible frena** | Lo reversible avanza con revisor y tests; pagos, datos de clientes, borrado y deploy esperan al validador | `clase` en la decisión | Nadie aprueba lo propio | [guía] |
-| **Se verifica corriendo** | Cada PR cierra por CI obligatorio, no por lectura ni por declaración del agente | Corridas de CI | Alcanza también al administrador | [medido] |
-| **Hallazgo con test** | Ningún hallazgo se aplica sin un test que falle antes y pase después | Test en el PR | El rojo previo queda en CI | [medido] |
-| **Auditoría por sorteo** | Cada semana, un sorteo elige una unidad aprobada y el humano revisa su respaldo | Decisión `auditoria_muestreo` | No elige quien revisa | [guía] |
-| **Semilla** | Con tasa baja, entra un defecto conocido a la revisión | Manifiesto comprometido por hash | Sin semillas detectadas, la aprobación vale cero (K3) | [hipótesis] |
-| **Constancia de outcome** | A los 28 días de entregar, escalera de 0 (opinión o usuario simulado) a 3 (pago); cuentan 2 y 3 | `validaciones/V-*.md` | Pide un artefacto que un tercero pueda abrir | [medido] |
-| **Aprendizaje** | Al cerrar la unidad, un hook lo crea vacío | `aprendizajes/A-*.md` | Lo vacío o repetido se cuenta | [hipótesis] |
-| **Tablero** | Cada media semana: P1 (outcome validado), P2 (descarte tras entregar), abandono temprano, espera separada del trabajo, adherencia, pasividad, semillas y criterios de abandono | Salida del script; exit 1 con un criterio activo | Sin autoinforme; protocolo sellado | [medido]; umbrales [hipótesis] |
+| Elemento | Qué es y qué deja | Etiqueta | Antecedente |
+|---|---|---|---|
+| **Dueño del objetivo** (humano) | Fija target y abandono, elige, valida, audita | [hipótesis] | Sin antecedente directo: funde los cuatro [[Roles humanos]] |
+| **Escritor** (agente) | Escribe ficha y código; no edita los tests, que escribe otro agente | [medido, benchmark] | Separar quien escribe de quien prueba |
+| **Revisor** (agente) | Otra familia de modelo, sin saber quién escribió | [medido, benchmark] | Inspección de código (Fagan, 1976) |
+| **Ficha de objetivo** | Antes de construir: resultado para el cliente, métrica con baseline y target, criterio de abandono con fecha, lo que no se toca | Ficha [hipótesis]; abandono [hipótesis] con respaldo [medido, otro tratamiento] | Shape Up (pitch, apetito, no-gos, circuit breaker); OKR y contabilidad de la innovación de Lean Startup |
+| **Se verifica corriendo** | Cada PR cierra por CI obligatorio, también para el administrador | [medido, benchmark] | Integración continua de XP |
+| **Hallazgo con test** | Ningún hallazgo se aplica sin un test que falle antes y pase después. `registro-pr/` | [medido, benchmark]; la regla del rojo previo [hipótesis] | Test de regresión de TDD y XP |
+| **Lo irreversible frena** | Pagos, datos de clientes, borrado y migraciones destructivas esperan a un validador externo (asesor, par o cliente) o a una excepción escrita | [guía] | Puertas de una y dos vías (Amazon) |
+| **Auditoría elegida** | Semanal: un modelo distinto del escritor elige la unidad más sospechosa, más una fracción al azar; el humano la revisa. Registra criterio o semilla y unidad | [medido, benchmark de juguete] + [guía] | Muestreo de auditoría (COSO) |
+| **Constancia de outcome** | Al cierre, un compromiso o pago de cliente que un tercero pueda abrir | Escalera [hipótesis]; pago como señal [medido, observacional, otra plataforma] | Sin antecedente: escalera propia |
+| **Tablero** | `scripts/nucleo_tablero.py`: abandono vencido sin veredicto, fichas sin métrica o dueño, PR con rojo previo. Registro declarado y auditable | Umbrales [hipótesis] | Circuit breaker de Shape Up |
 
 ## Qué NO es
 
-- **No es Scrum con agentes:** sin sprint, daily ni backlog; cierra el outcome validado, no el Done.
+- **No es Scrum con agentes:** sin sprint ni daily. Hay una cola de fichas que el dueño ordena, pero el trabajo cierra con el outcome validado, no con el Done.
 - **No reemplaza hablar con clientes.**
-- **No demuestra el marco en general:** un caso único demuestra el caso; generalizar exige la regla 5-3-20 ([[Piloto - Combinación A#12. Qué puede concluir este piloto y qué no]]).
 - **No evalúa personas:** nadie cobra ni se califica por las métricas.
 
 ## Cómo empezar el lunes
 
-1. Copiar `scripts/fixtures/piloto/plantillas/` al repo y sellar `protocolo.md`: sin sello, el script no calcula.
-2. Configurar escritor, agente de tests y revisor de otro proveedor; registrarlos en `registro-ia/`; CI obligatorio sin excepción para administradores.
-3. Escribir la primera ficha con criterio de abandono y fecha.
-4. Instalar el hook de aprendizaje y agendar sorteo y tablero.
-5. Antes de construir, nombrar los clientes reales del escalón 2.
+Sin sellar el protocolo del piloto.
 
-En el piloto, el núcleo entra por tipo de objetivo según el sorteo.
+1. Copiar `scripts/nucleo_tablero.py`, `scripts/piloto_metricas.py` (el tablero reusa su lector de frontmatter) y `scripts/fixtures/nucleo/plantillas/`.
+2. Escribir la primera ficha en `fichas/` con criterio de abandono y fecha.
+3. Configurar escritor, agente de tests y revisor de otra familia; CI obligatorio con "Do not allow bypassing the above settings".
+4. Agendar la auditoría semanal y correr `python3 scripts/nucleo_tablero.py . --fecha AAAA-MM-DD` cada media semana.
+5. Antes de construir, nombrar los clientes que pueden dejar la constancia.
+
+## Costo mínimo [hipótesis]
+
+- **Protección de ramas en repo privado:** GitHub Pro o Team.
+- **Revisor de otra familia:** otra suscripción, del orden de USD 20 por mes.
+- **Fuera del repo:** selector de auditoría, CI y agente de tests.
+- **Horas:** unas dos por semana.
+- **Límite:** un administrador único puede apagar su propio CI. El núcleo no lo impide.
 
 ## Cuándo se agranda
 
-Cambiar el modelo organizacional inicial se asoció con el triple de fallas [medido]; por eso el núcleo ya trae las costuras. Al sumar gente se agrega un dueño nombrado por ficha (`responsable_humano`, de [[Fase 1 - Objective]]); la auditoría la hace alguien distinto del dueño; la segunda persona puede validar lo irreversible; la pasividad se agrega por etapa y el dato individual vuelve solo a la persona; y un consejo de pares con reuniones regulares, metas y feedback [medido]. No hay umbral medido para contratar.
+Cambiar el modelo de empleo inicial se asoció con el triple de fallas [medido, observacional, fuente secundaria]. Por eso el núcleo trae las costuras: dueño nombrado por ficha (`responsable_humano`, de [[Fase 1 - Objective]]), auditoría por alguien distinto del dueño, segunda persona como validador y un consejo de pares [medido]. Adoptar el núcleo en un equipo existente también es cambiar de modelo. No hay umbral medido para contratar.
 
 ---
 
 ## Respaldo
 
-Convención de [[Investigación - Tiny teams y bootstrapping]]: [medido] incluye estudios observacionales y de otro dominio, aclarado en cada línea; [guía] es recomendación sin evaluación de resultados; [testimonio] es relato o dato autodeclarado; [hipótesis] es propuesta de este vault sin evidencia directa, que se prueba en el piloto.
+Convención de [[Investigación - Tiny teams y bootstrapping]]: [medido] aclara entre corchetes si es benchmark, observacional, cualitativo o de otro dominio; [guía] es recomendación sin evaluación de resultados; [testimonio] es relato o dato autodeclarado o de proveedor; [hipótesis] es propuesta de este vault sin evidencia directa.
 
-### Ideas distintivas, contrastadas
+### Ideas que lo sostienen
 
-1. **Unidad humano más agentes** [hipótesis]. Las startups con IA son 12 % a 25 % más chicas (Kim y Koning 2026, correlacional) y redujeron empleo ~8 % (Gupta y otros 2026) [medido]; que produzcan como equipos grandes no está medido ([[Investigación - Tiny teams y bootstrapping]], huecos).
-2. **Humano de mínimo esfuerzo** [hipótesis]. Principios 1 y 2 de la Objeción 5 en [[Objeciones al marco]]; la autogestión mejoró solo a los proactivos (Lee) [medido].
-3. **Verificar corriendo y auditar el sistema** [medido]. Respaldo en benchmarks y en un experimento controlado: tests de solo lectura bloquean la trampa de modificar tests (ImpossibleBench); auditar un 2 % elegido por un modelo débil dio 62 % de seguridad, contra 15 % al azar (AI Control). Matiz: los tests son el blanco favorito del reward hacking, y tomar "los tests pasan" como garantía es una validación poco confiable (Dhanorkar y otros 2026). Compensaciones C1 y C4 de [[Propuestas existentes - Revisión en manos de agentes]].
-4. **Medir el acto, no el esfuerzo** [guía]. IMDA propone tasa de rechazo y tiempo de respuesta, sin umbrales validados. Con una persona no choca con nada; con dos o más reabre el conflicto 2.2 de [[Síntesis - Cómo encajan las propuestas existentes]] (medir personas contra no evaluarlas con números), que la combinación A resuelve midiendo la etapa.
-5. **Decidir y validar no se aceleran** [medido], con matiz. La ganancia cae de +240 % en commits a +30 % en releases (Demirer y otros 2026), el tiempo de revisión subió 91 % (Faros) y el tiempo en reuniones no cambió con IA (Dillon y otros); el vault los lee como "consistentes con el techo tipo Amdahl". Se refina la idea: la preparación sí se abarata (12,7 % a 16,4 % en P&G) y nadie midió el tiempo de decidir con y sin agentes ([[Propuestas existentes - Deliberación que no se acelera]]). Queda "se aceleran mucho menos", no "no se aceleran".
-6. **Pocos clientes** [medido, observacional]. En Kickstarter, 50 % más compromisos de pago se asocian con 9 % más probabilidad de comercializar (Xu). The Mom Test no tiene evaluación propia [testimonio].
-7. **Criterio de abandono** [medido]. El efecto replicado del enfoque científico es abandonar antes las ideas malas (Camuffo y otros 2020, 116 startups; réplica 2024, 759 firmas). En startups, no en equipos con agentes.
+1. **Unidad humano más agentes** [hipótesis]. Las startups con IA son 12 % a 25 % más chicas (Kim y Koning 2026, correlacional, leído vía fuente secundaria: SSRN devolvió 403) y redujeron empleo ~8 % en las más expuestas (Gupta y otros 2026) [medido, observacional]; que produzcan como equipos grandes no está medido.
+2. **Decidir y validar se aceleran mucho menos** [hipótesis]. Apoyo [medido, indirecto]: la ganancia cae de +240 % en commits a +30 % en releases (Demirer y otros 2026, NBER) y el tiempo en reuniones no cambió con IA (Dillon y otros, NBER). El tiempo de revisión subió 91 % según Faros [testimonio, dato de proveedor]. La preparación sí se abarata (12,7 % a 16,4 % en P&G) y nadie midió el tiempo de decidir con y sin agentes ([[Propuestas existentes - Deliberación que no se acelera]]).
+3. **Medir el acto, no el esfuerzo** [guía]. IMDA propone tasa de rechazo y tiempo de respuesta, sin umbrales validados.
 
 ### Por elemento
 
-- **Dueño del objetivo** [hipótesis]: [[Roles humanos]] supone que los cuatro roles pueden ser menos personas; ninguna fuente resuelve la separación de funciones con una sola (COSO 2006) [guía].
-- **Escritor y Revisor** [medido], estudios recientes y chicos: es la combinación mínima de [[Propuestas existentes - Autorrevisión en equipos de uno]]. Una pasada con contexto limpio más una de otra familia encontró 56,7 % de errores sembrados contra 42,7 % de dos pasadas del mismo modelo (Song 2026, un autor); ocultar la autoría redujo la autopreferencia (Chae y otros 2026). La revisión entre familias depende de la dirección y puede empeorar (Xiang y otros 2026: de 71,6 % a 89,7 % en un sentido, de 91,4 % a 82,8 % en el otro), y un revisor liviano no aportó. Tests de un agente separado: 87,8 % de precisión contra 61,0 % con un solo agente (AgentCoder). Los errores siguen correlacionados entre proveedores (Kim y otros 2025): el revisor reduce el sesgo, no es independiente. Nada de esto se midió en producción.
-- **Validador externo** [guía]: controles compensatorios (COSO 2006) y aprobación concentrada en lo irreversible (IMDA). Los consejos de pares influyen [medido], pero nadie midió al par como control.
-- **Ficha de objetivo** [medido]: Camuffo y otros, ver idea 7; criterio con estado y fecha (Duke, en la Síntesis) [testimonio].
-- **Elegir, no aprobar** [medido, otro dominio]: elección activa (Carroll y otros 2009) y forzado cognitivo (Buçinca y otros 2021). Asegura que haya decisión, no que sea buena, y es lo peor valorado por quien no disfruta pensar.
-- **Hallazgo con test** [medido]: regresiones al aplicar hallazgos (13 contra 3, Xiang y otros 2026) y sobrecorrección del revisor (Jin y Chen 2026), en [[Propuestas existentes - Autorrevisión en equipos de uno]].
-- **Lo irreversible frena** [guía]: IMDA; principio 5 de la Objeción 5; segunda persona externa o excepción escrita, sin reemplazo encontrado en [[Propuestas existentes - Autorrevisión en equipos de uno]].
-- **CI que alcanza al administrador** [guía]: GitHub deja a los administradores saltarse la protección de ramas salvo que se active "Do not allow bypassing the above settings".
-- **Se verifica corriendo** [medido, benchmarks]: ImpossibleBench (tests de solo lectura); Jin y Chen 2026; StrongDM [testimonio].
-- **Auditoría por sorteo** [guía]: COSO 2006. Quedó fuera de la combinación mínima de autorrevisión por falta de evidencia, no por falta de valor, igual que la revisión humana diferida (no replicó) y el par externo (solo testimonio); el núcleo la conserva porque la combinación A la usa. El sorteo puro rindió poco en AI Control; elegir qué auditar con un modelo débil es una mejora medida que el piloto no incorpora.
-- **Semilla** [hipótesis]: en software no hay aplicación publicada para medir revisores; la evidencia es de rayos X de aeropuerto y de un laboratorio con N = 24 donde no bajaron los errores de comisión. Bainbridge (1983) pide tasa baja. Es la pieza más débil según la Síntesis.
-- **Constancia de outcome** [medido, observacional]: Xu; los usuarios simulados fallan en categorías nuevas (Brand y otros) y aplanan grupos (Wang y otros) [medido].
-- **Aprendizaje** [hipótesis]: los debriefs mejoran el desempeño (Tannenbaum y Cerasoli 2013) [medido], pero todos suponen alguien que los convoca; el disparador automático no tiene evidencia.
-- **Tablero** [medido] contra autoinforme: en el ensayo de METR los desarrolladores tardaron 19 % más y creían haber ganado 20 %. Umbrales [hipótesis]: ver la tabla de decisiones pendientes del piloto.
-- **Cuándo se agranda** [medido, observacional]: Stanford Project on Emerging Companies (cambiar el modelo inicial, triple de fallas) y Chatterji y otros 2019 (RCT con 100 firmas: 28 % más crecimiento, 10 puntos menos de falla; no respondieron quienes tenían MBA o venían de aceleradoras). Las costuras desde el día uno son inferencia de la investigación, no resultado de SPEC.
+- **Dueño del objetivo** [hipótesis]: ninguna fuente resuelve la separación de funciones con una sola persona (COSO 2006) [guía].
+- **Escritor y Revisor** [medido, benchmark]: tests de un agente separado, 87,8 % de precisión contra 61,0 % con un solo agente (AgentCoder, GPT-3.5 en HumanEval). Una pasada con contexto limpio más una de otra familia encontró 56,7 % de errores sembrados contra 42,7 % (Song 2026, preprint de un autor); el contexto limpio solo no fue significativamente mejor que una autorrevisión (p = 0,26). Ocultar la autoría redujo la autopreferencia (Chae y otros 2026). La revisión entre familias depende de la dirección y puede empeorar (Xiang y otros 2026), y los errores siguen correlacionados entre proveedores (Kim y otros 2025). Nada de esto se midió en producción ([[Propuestas existentes - Autorrevisión en equipos de uno]]).
+- **Ficha de objetivo**: el criterio de abandono es [hipótesis] con respaldo [medido, otro tratamiento]. Camuffo y otros (2020, 116 startups) dieron la misma tasa de abandono temprano; la réplica (2024, 759 firmas) dio más abandono, no antes. Lo que se trató fue el método científico en startups, no una ficha con fecha.
+- **Se verifica corriendo** [medido, benchmark]: los tests de solo lectura bloquean la trampa de modificarlos (ImpossibleBench). Tomar "los tests pasan" como garantía es una validación poco confiable (Dhanorkar y otros 2026) [medido, cualitativo, 17 entrevistas]. GitHub deja a los administradores saltarse la protección salvo con "Do not allow bypassing the above settings" [guía].
+- **Hallazgo con test** [medido, benchmark]: regresiones al aplicar hallazgos, 13 contra 3 (Xiang y otros 2026), y sobrecorrección del revisor (Jin y Chen 2026). Exigir que el test falle antes es [hipótesis] tomada de TDD; el orden test antes o después no tuvo efecto importante en Fucci y otros (2016).
+- **Lo irreversible frena** [guía]: aprobación concentrada en lo irreversible (IMDA) y controles compensatorios (COSO 2006). El deploy no está en la lista: lo aprueba el dueño, como en [[Gobernanza]] y en la Fase 2 del piloto. Los consejos de pares influyen [medido], pero nadie midió al par como control.
+- **Auditoría elegida** [medido, benchmark de juguete] + [guía]: en AI Control, auditar al azar un 2 % dio 15 % de seguridad; que un modelo débil eligiera qué auditar subió a 62 %, y a 92 % si además editaba lo sospechoso. Problemas de programación con GPT-4 y GPT-3.5, no producción. [[Objeciones al marco]] pide la muestra "elegida por el sistema, no al azar"; la fracción al azar cubre lo que el selector no ve.
+- **Constancia de outcome**: la escalera de niveles y la ventana de 28 días del piloto son [hipótesis] (sin fuente, sección 13 del piloto). En Kickstarter, más compromisos de pago se asocian con más probabilidad de comercializar (Xu) [medido, observacional, otra plataforma]. Los usuarios simulados fallan en categorías nuevas (Brand y otros) [medido].
+- **Tablero**: las fechas son las que declara cada archivo; el script no usa git, así que el registro es declarado y auditable contra el historial, no automático. Contra el autoinforme: en el ensayo de METR, 16 desarrolladores con herramientas de 2025 tardaron 19 % más y creían haber ganado 20 % [medido, RCT].
+- **Cuándo se agranda** [medido, observacional, fuente secundaria]: el triple de fallas sale de una nota de prensa de Stanford GSB (2007) sobre el Stanford Project on Emerging Companies (Baron, Hannan y Burton). Chatterji y otros 2019: RCT con 100 firmas, 28 % más crecimiento y 10 puntos menos de falla con consejos de pares [medido].
+
+## Extensiones para el piloto
+
+Quedan fuera del núcleo; las define [[Piloto - Combinación A]] y las mide `scripts/piloto_metricas.py` con el protocolo sellado.
+
+- **Elegir, no aprobar**: dos opciones o más y el número que se espera mover. [medido, otro dominio]: elección activa (Carroll y otros 2009) y forzado cognitivo (Buçinca y otros 2021).
+- **Aprendizaje** al cerrar la unidad [hipótesis]. Antecedente: retrospectiva y after-action review; los debriefs mejoran el desempeño (Tannenbaum y Cerasoli 2013) [medido], pero suponen alguien que los convoca.
+- **Tablero del piloto**: P1, P2, abandono temprano, espera separada del trabajo (flow efficiency de Lean y Kanban), adherencia, pasividad y K0 a K5.
+- **Revisor de dos pasadas** (contexto limpio más otra familia), de la combinación mínima de autorrevisión.
+- **Semilla de defectos**: solo existe con la condición HA y su criterio K3; el repo no trae sembrador. Antecedente y alcance en la sección 6.4 del piloto.
+
+## Tensiones declaradas
+
+- **Quien valida no es quien ejecutó** ([[Fase 5 - Validation]], regla 3). Con una persona no se cumple; el núcleo lo compensa sin separación real.
+- **Autonomía ganada, no otorgada** ([[Gobernanza]]). El revisor agente decide lo reversible desde el primer día, sin historial que lo justifique.
+- **Merge a main con aprobación humana** ([[Gobernanza]]). El núcleo deja avanzar lo reversible con revisor y tests.
+- **Presupuesto de tokens y suspensión por Rework.** [[Fase 2 - Constraints]] pide presupuesto de tokens por unidad y [[Gobernanza]] suspende al agente con Rework sobre 40 %; el núcleo no trae ninguno de los dos.
+- **No iterar contra la señal que juzga** (C7 en [[Objeciones al marco]]). Iterar al escritor hasta que pase CI es exactamente eso; el agente de tests separado lo atenúa, no lo elimina.
+- **Comprensión compartida.** Ninguna compensación reemplaza lo que la revisión humana producía ([[Objeciones al marco]]).
+- **Primero la práctica, después el nombre** ([[Cómo nacieron los marcos que se adoptaron]]). El núcleo nombra antes de practicar; los nombres son provisionales hasta el piloto.
+- **Adopción por niveles** ([[Modelo de madurez AI-Native]]). La ficha como unidad desde el primer día es el criterio del Nivel 4.
+- **ODLC sin agentes** ([[Manifiesto HACS-ODLC]]). El núcleo supone agentes; no redefine qué cuenta como ODLC.
+- **La métrica no evalúa personas.** Es regla del núcleo; [[Objeciones al marco]] la lista como respuesta a Deming todavía no escrita.
 
 ## Relación con el resto del vault
 
-El núcleo es la versión aplicable de [[ODLC]]. Las seis fases ([[Fase 1 - Objective]] a [[Fase 6 - Learning]]), el [[Modelo de madurez AI-Native]], la [[Gobernanza]] completa y los cuatro [[Roles humanos]] quedan como referencia para organizaciones más grandes. La correspondencia con las fases está en la sección 5 de [[Piloto - Combinación A]]. Origen del encargo: [[Cómo nacieron los marcos que se adoptaron]].
-
-### Tensiones declaradas (no se resuelven acá)
-
-- **Quien valida no es quien ejecutó** ([[Fase 5 - Validation]], regla 3). Con una persona no se cumple; el núcleo lo compensa con sorteo, revisor de otra familia y validador externo, sin separación real.
-- **Merge a main con aprobación humana** ([[Gobernanza]]). El núcleo deja avanzar lo reversible con revisor agente y tests, y el piloto sortea una condición donde decide el agente solo. La matriz dice "configurable por madurez".
-- **Adopción por niveles** ([[Modelo de madurez AI-Native]], [[Manifiesto HACS-ODLC]]). El núcleo pone la ficha como unidad desde el primer día, que es el criterio del Nivel 4, y la evidencia de SPEC sugiere no cambiar de modelo a mitad de camino.
-- **ODLC sin agentes** ([[Manifiesto HACS-ODLC]]). El Manifiesto dice que la Fase 1 y la Fase 6 sin agentes ya son ODLC; el núcleo supone agentes. No redefine qué cuenta como ODLC.
-- **Revisión del piloto contra la combinación mínima de autorrevisión.** El piloto especifica un revisor de otra familia; la combinación mínima pide además una pasada con contexto limpio, autoría oculta, tests de un agente separado y hallazgos atados a un test. Sumarlos antes del sello es decisión del dueño; después, un desvío declarado.
-- **La métrica no evalúa personas.** El núcleo la escribe como regla; [[Objeciones al marco]] la lista como candidata a respuesta a Deming, todavía no escrita para el marco entero.
-
-## Decisiones pendientes que hereda del piloto
-
-Las toma el dueño, según la sección 13 de [[Piloto - Combinación A]]: producto del MVP; diseño (línea de base múltiple o A-B-A-B); duración, fechas y seguimiento; duración, incentivo y umbrales de la Fase 0; quién codifica a ciegas; ventana de outcome y nivel mínimo (28 días, nivel 2); alfa; umbrales de K1 a K3; latencia baja y alerta de aprobación; tasa de siembra (15 %) y semillas mínimas; tolerancia de horas; fuente de los bloques activos; segunda suscripción para el revisor; validador externo para lo irreversible; e implementar K4 en el script.
+El núcleo es la versión aplicable de [[ODLC]]. Las seis fases, el [[Modelo de madurez AI-Native]], la [[Gobernanza]] completa y los cuatro [[Roles humanos]] quedan como referencia para organizaciones más grandes. Las decisiones pendientes del piloto están en su sección 13. Origen del encargo: [[Cómo nacieron los marcos que se adoptaron]].
 
 ## Comandos de verificación
 
@@ -115,15 +110,44 @@ Read-only, desde la raíz del repo.
 ```bash
 # Palabras del cuerpo principal (hasta la sección Respaldo, sin frontmatter)
 awk 'NR>5 && /^## Respaldo/{exit} NR>5' "docs/06_fundacional/Núcleo ODLC para tiny teams.md" | wc -w
-# El tablero corre sobre el fixture ficticio (exit 0) y el sello rechaza un protocolo alterado (exit 2)
-python3 scripts/piloto_metricas.py scripts/fixtures/piloto; echo exit=$?
-# Las plantillas que nombra "Cómo empezar el lunes"
-ls scripts/fixtures/piloto/plantillas/
+# Tablero del núcleo: caso sin alertas (exit 0) y caso con alertas (exit 1)
+python3 scripts/nucleo_tablero.py scripts/fixtures/nucleo/caso-sin-alertas --fecha 2026-11-30; echo exit=$?
+python3 scripts/nucleo_tablero.py scripts/fixtures/nucleo/caso-con-alertas --fecha 2026-11-30; echo exit=$?
+# El tablero del piloto no lee criterios de abandono por ficha (da 0)
+grep -c criterio_abandono scripts/piloto_metricas.py
+# Protección de ramas en repos privados: Pro, Team o Enterprise
+curl -s https://docs.github.com/en/get-started/learning-about-github/githubs-plans | grep -o "Protected branches" | head -1
 # Cifras citadas, en sus notas de origen
-grep -n "25 % menos empleados\|triplicó la tasa de falla\|28 % más grandes" "docs/00_crudo/Investigación - Tiny teams y bootstrapping.md"
+grep -n "triplicó la tasa de falla\|28 % más grandes\|25 % menos empleados" "docs/00_crudo/Investigación - Tiny teams y bootstrapping.md"
+sed -n '77,78p;117p' "docs/00_crudo/Investigación - Tiny teams y bootstrapping.md"
 grep -n "15 % de seguridad\|solo lectura" "docs/00_crudo/Propuestas existentes - Revisión en manos de agentes.md"
+grep -n "p = 0,26\|AgentCoder, arXiv" "docs/00_crudo/Propuestas existentes - Autorrevisión en equipos de uno.md"
 grep -n "techo tipo Amdahl\|12,7 % a 16,4 %" "docs/00_crudo/Propuestas existentes - Deliberación que no se acelera.md"
 ```
+
+Salida al 2026-10-08:
+
+```text
+$ python3 scripts/nucleo_tablero.py scripts/fixtures/nucleo/caso-sin-alertas --fecha 2026-11-30; echo exit=$?
+Corte: 2026-11-30 · 2 ficha(s)
+  F-001: dueño fundadora, abandono 2026-11-23, veredicto sigue
+  F-002: dueño fundadora, abandono 2026-12-14, veredicto pendiente
+PR con test que falla antes y pasa después: 1/2 (0.50)
+Alertas (0):
+exit=0
+$ python3 scripts/nucleo_tablero.py scripts/fixtures/nucleo/caso-con-alertas --fecha 2026-11-30; echo exit=$?
+Corte: 2026-11-30 · 2 ficha(s)
+  F-001: dueño fundadora, abandono 2026-11-23, veredicto sigue
+  F-003: dueño s/d, abandono 2026-11-16, veredicto pendiente
+PR con test que falla antes y pasa después: sin registro-pr/
+Alertas (3):
+  - F-003: sin dueño
+  - F-003: métrica incompleta (falta baseline)
+  - F-003: criterio de abandono vencido el 2026-11-16 sin veredicto
+exit=1
+```
+
+Precios leídos el 2026-10-08 en páginas oficiales: GitHub Team, USD 4 por usuario por mes los primeros 12 meses (github.com/pricing); Claude Pro, USD 20 por mes (claude.com/pricing); Google AI Pro, USD 19,99 por mes (gemini.google/subscriptions). La página de precios de OpenAI devolvió 403: sin dato.
 
 ---
 Relacionado: [[Piloto - Combinación A]] · [[Objeciones al marco]] · [[Cómo nacieron los marcos que se adoptaron]] · [[ODLC]] · [[Roles humanos]] · [[Gobernanza]]
