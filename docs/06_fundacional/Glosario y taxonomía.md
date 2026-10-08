@@ -55,7 +55,7 @@ Este documento define la taxonomía y el vocabulario formal (Ubiquitous Language
 ### 9. Sandbox (Entorno de Ejecución)
 - **Definición**: El entorno aislado y con permisos acotados donde los agentes ejecutan acciones con efectos reales (CLI, Git, compilador, test runner) sin alcanzar directamente los sistemas productivos.
 - **Propósito**: Separa la orquestación lógica del agente de la ejecución física, de modo que un error o una alucinación tenga un radio de impacto contenido. Es donde se materializan los límites de la [[Gobernanza]] en tiempo de ejecución y donde se recolecta buena parte de la evidencia de validación.
-- **Ver en el vault**: [[Cognitive OS - Arquitectura de referencia]] · [[Gobernanza]].
+- **Ver en el vault**: [[Gobernanza#Controles técnicos]] · [[Gobernanza]].
 
 ---
 
@@ -63,20 +63,18 @@ Este documento define la taxonomía y el vocabulario formal (Ubiquitous Language
 
 - **HACS (Human-Agent Collaborative Systems)**: El modelo organizacional que define a los equipos de software como unidades cognitivas distribuidas de humanos y agentes sobre una memoria compartida. Ver [[HACS]].
 - **ODLC (Objective Driven Lifecycle)**: La metodología de trabajo iterativa de HACS, heredera de los valores del Manifiesto Ágil ([[Relectura del Manifiesto Ágil]]), que desplaza el foco del código hacia la consecución de objetivos y el aprendizaje continuo. Ver [[ODLC]].
-- **Cognitive OS**: La capa de arquitectura de software y tooling de soporte que materializa el funcionamiento lógico de HACS y ODLC. Ver [[Cognitive OS - Arquitectura de referencia]].
 - **Agent Loop Engineering**: Disciplina de diseño del loop de control de un agente: trigger, goal, state, action policy, observation parser, termination, memory update, guardrails, tracing y evals. Clasifica los loops en **niveles de complejidad del loop** (L0 a L6), que no son los niveles del [[Modelo de madurez AI-Native]] ([[Registro de decisiones]], D-13). Ver [[Agent Loop Engineering]].
 
 ---
 
 ## Términos de Arneses y Arbitraje
 
-Patrones operativos usados en la implementación técnica ([[Luum Cognitive OS - Implementación de referencia]]) y en el programa de cursos ([[Módulo 2 - Ingeniería de arneses]]).
+Patrones operativos usados en el diseño de loops ([[Agent Loop Engineering]]) y en el programa de cursos ([[Módulo 2 - Ingeniería de arneses]]).
 
 - **Arnés (Harness)**: Entorno lógico que envuelve al LLM unificando contexto, herramientas, memoria externa y validaciones automáticas. Hace al sistema agnóstico al modelo.
 - **Agent Loop (Bucle de Agente)**: Ciclo repetible en el que un agente observa, razona/planifica, actúa con herramientas, interpreta resultados, actualiza estado/memoria y decide si termina, reintenta o escala.
-- **Safety Mesh (Malla de Seguridad)**: Conjunto de interceptores independientes (hooks `PreToolUse`/`PostToolUse`) que aplican la [[Gobernanza]] en tiempo de ejecución, con comportamientos BLOCK/WARN/LOG sensibles al estado del proyecto (no a las fases de ODLC; [[Registro de decisiones]], D-13).
 - **HITL (Human-in-the-Loop)**: Compuerta donde el agente pausa su ejecución y espera aprobación humana explícita antes de continuar. Qué acciones la exigen lo dice la matriz única de [[Gobernanza]] (D-01).
-- **Ground Truth Checker**: Validador determinista que contrasta los reclamos de éxito del agente ("tests pasan", "archivo creado") contra la realidad del sistema de archivos, generando un puntaje de alucinación (fórmula del puntaje sin definir en el vault).
+- **Verificación de reclamos (ground truth)**: Control determinista que contrasta lo que el agente afirma ("los tests pasan", "creé el archivo") contra la realidad: el registro de la corrida de tests y el sistema de archivos. Si el reclamo no tiene respaldo, el cierre se rechaza ([[Gobernanza#Controles técnicos]], [[Fase 5 - Validation]]).
 - **Judgment Day (Día de la Justicia)**: Patrón de arbitraje cognitivo donde el código generado por un agente es evaluado por jueces independientes antes de integrarse — el autor nunca juzga su propio trabajo. Origen: skill `judgment-day` de gentle-pi (Gentleman Programming).
 - **Dual Blind Review**: Mecanismo del Judgment Day: dos agentes revisores aislados evalúan el mismo código sin ver el veredicto del otro.
 - **Agente Optimista / Agente Pesimista**: Perfiles de los jueces del Dual Blind Review: variante propuesta por el vault; en la skill original los dos jueces tienen el mismo objetivo y criterios. El optimista valida que el flujo de negocio funcione ("inocente hasta demostrar lo contrario"); el pesimista busca vulnerabilidades, race conditions y fallas de manejo de errores ("culpable hasta demostrar lo contrario").

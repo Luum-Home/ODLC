@@ -19,10 +19,10 @@ El **Modelo de madurez AI-Native** ayuda a las organizaciones a evaluar cómo in
 | **2** | **Agentes Especializados** | Se introducen agentes autónomos aislados para ejecutar tareas concretas y repetitivas. | Agente de revisión de PRs automático, generador de tests unitarios al compilar. Sin memoria común. |
 | **3** | **Memoria Organizacional** | Agentes y humanos colaboran utilizando un sustrato de conocimiento compartido y estructurado. | Los agentes leen y escriben en la [[Memoria organizacional]] (ADRs, lecciones aprendidas). Se reduce el Context Retrieval Time. |
 | **4** | **ODLC Pleno** | La organización adopta la metodología orientada a objetivos y restricciones. La ejecución es mayormente autónoma. | Adopción total de [[ODLC]]. El agente Planner orquesta sub-agentes bajo límites estrictos de [[Gobernanza]] humana. |
-| **5** | **Organización Autónoma** | Unidades HACS adaptativas autogestionadas. Múltiples agentes coordinan y refinan sub-objetivos de negocio. | El humano deja la ejecución táctica: gobierna objetivos estratégicos y presupuestos globales, y conserva la aprobación de lo irreversible (pagos, datos de clientes, borrado, migraciones destructivas), que no se relaja con la madurez ([[Registro de decisiones]], D-01). Auto-remediación en producción dentro de la matriz de [[Gobernanza]]. |
+| **5** | **Organización Autónoma** | Unidades HACS adaptativas autogestionadas. Múltiples agentes coordinan y refinan sub-objetivos de negocio. | El humano deja la ejecución táctica: gobierna objetivos estratégicos y presupuestos globales, y conserva lo que la matriz de [[Gobernanza]] marca como no relajable: definir objetivos, cambios de seguridad y accesos, gasto fuera de presupuesto, acciones externas y lo irreversible (pagos, datos de clientes, borrado, migraciones destructivas) ([[Registro de decisiones]], D-01 y D-18). Auto-remediación en producción dentro de la matriz de [[Gobernanza]]. |
 
 > [!note] El Nivel 5 usa vocabulario Teal
-> "Autogestionadas" viene de las organizaciones Teal (Frederic Laloux, *Reinventing Organizations*, 2014), donde la autogestión reemplaza la aprobación jerárquica por el *advice process* y desconfía de metas y pronósticos. La convivencia con la matriz de aprobaciones humanas de [[Gobernanza]] quedó fijada: la autogestión alcanza la ejecución táctica y lo irreversible sigue con aprobación humana ([[Registro de decisiones]], D-01). Lo que el nivel todavía no define es cómo convive con un marco centrado en métricas. Detalle: [[Objeciones al marco#Objeción 6: el Nivel 5 habla de autogestión sin definirla]] y [[Comparativa con metodologías existentes]].
+> "Autogestionadas" viene de las organizaciones Teal (Frederic Laloux, *Reinventing Organizations*, 2014), donde la autogestión reemplaza la aprobación jerárquica por el *advice process* y desconfía de metas y pronósticos. D-01 solo fija la frontera entre humano y agente: la ejecución táctica pasa a los agentes y lo no relajable de la matriz de [[Gobernanza]] sigue con aprobación humana. Las dos tensiones con la tradición Teal siguen abiertas: la aprobación jerárquica de lo irreversible frente al *advice process*, y un marco centrado en métricas frente a "sentir y responder" ([[Registro de decisiones]], D-20). Detalle: [[Objeciones al marco#Objeción 6: el Nivel 5 habla de autogestión sin definirla]] y [[Comparativa con metodologías existentes]].
 
 ---
 
@@ -46,7 +46,7 @@ Para transicionar de un nivel a otro, la organización debe medir y cumplir cond
 
 ## Decisiones
 
-- **D1**: Se exige el **Nivel 3** para iniciar un piloto solo cuando los agentes escriben en sistemas compartidos. Para adoptar ODLC alcanza con usar la ficha de objetivo con criterio de abandono y registrar el resultado validado ([[Núcleo ODLC para tiny teams]]), desde cualquier nivel ([[Registro de decisiones]], D-02).
+- **D1**: Se exige el **Nivel 3** para iniciar un piloto solo cuando los agentes escriben en sistemas compartidos, es decir, con permisos de escritura sobre un sistema que usan otras personas o clientes; un agente que escribe solo en el repo propio del MVP no cae ahí (D-19). Para adoptar ODLC alcanza con usar la ficha de objetivo con criterio de abandono y registrar el resultado validado ([[Núcleo ODLC para tiny teams]]), desde cualquier nivel ([[Registro de decisiones]], D-02).
 
 ## Preguntas abiertas
 

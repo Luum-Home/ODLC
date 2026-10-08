@@ -1,5 +1,5 @@
 ---
-tags: [cognitive-os, agent-loop, repositorios, gobernanza, memoria, validacion]
+tags: [ingenieria-de-agentes, agent-loop, repositorios, gobernanza, memoria, validacion]
 status: semilla
 created: 2026-06-13
 ---

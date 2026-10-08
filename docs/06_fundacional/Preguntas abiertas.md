@@ -24,7 +24,7 @@ Este documento consolida las principales **preguntas abiertas** e interrogantes 
   - Si los agentes comprimen el research y el desarrollo, el tiempo total queda dominado por planificar, discutir, decidir y validar. Ninguna vía relevada tiene medido cuánto acorta la decisión, y un Decision Lead Time bajo no distingue decidir rápido con varias alternativas de decidir rápido imponiendo una. ¿Qué hay que registrar junto al DLT para separar los dos casos? → [[Objeciones al marco#Objeción 7: lo que no se acelera]]
 
 ### 2. Economía y Retorno de Inversión (ROI)
-- **¿Cómo se calcula el ROI real de implementar Cognitive OS?**
+- **¿Cómo se calcula el ROI real de implementar HACS y ODLC?**
   - Configurar sandboxes seguros, buses de memoria estructurados y pagar tokens de modelos comerciales tiene un costo financiero inmediato. ¿Cómo cuantificamos el valor de evitar fallos de diseño y aumentar el aprendizaje organizativo en comparación con la contratación de ingenieros humanos tradicionales?
 
 ### 3. Límites Técnicos y Deriva de Contexto

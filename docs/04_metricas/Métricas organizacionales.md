@@ -31,7 +31,7 @@ $$CRT = T_{\text{contexto listo para ejecución}} - T_{\text{aprobación del obj
 
 ### Optimización en HACS
 - En equipos tradicionales, el CRT es alto y fragmentado (reuniones de onboarding, lectura de wikis desactualizados, chats en Slack).
-- En HACS, el agente Memory y las herramientas de Cognitive OS deben reducir el CRT a minutos u horas mediante la automatización de búsquedas vectoriales y síntesis de grafos de conocimiento.
+- En HACS, el agente Memory y la memoria compartida del arnés deben reducir el CRT a minutos u horas mediante la automatización de búsquedas vectoriales y síntesis de grafos de conocimiento.
 
 ---
 

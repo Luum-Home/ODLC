@@ -76,7 +76,7 @@ Las tres métricas tienen fórmula pero **no tienen definición operativa**: fal
 
 ## Hipótesis
 
-- **H1**: Centrar las métricas en OSR en lugar de "cantidad de código" o "tickets cerrados" reduce el desperdicio y la deuda técnica (en línea con la crítica de AWS: [[Más código no es más velocidad]]). Se refuta, en la parte de desperdicio, si en el [[Piloto - Combinación A]] la tasa de unidades descartadas después de entregar (P2) con método es mayor que sin método (D-07). La deuda técnica no la mide el piloto.
+- **H1**: Centrar las métricas en OSR en lugar de "cantidad de código" o "tickets cerrados" reduce el desperdicio y la deuda técnica (en línea con la crítica de AWS: [[Más código no es más velocidad]]). En la parte de desperdicio se evalúa con la regla de decisión de H1 del piloto ([[Piloto - Combinación A#8. Criterios de abandono y regla de decisión]]), no con una comparación suelta de tasas: se refuta si la regla da "descarta" con el protocolo cerrado, se sostiene solo si da "sostiene" (lo que incluye que la tasa de unidades descartadas después de entregar, P2, con método no supere a la de sin método), y un "ambiguo" no la sostiene ni la refuta (D-07). La deuda técnica no la mide el piloto.
 - **H2**: Un TTO corto correlaciona directamente con una alta madurez del sistema adaptativo de agentes.
 
 ## Decisiones

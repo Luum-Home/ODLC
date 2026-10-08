@@ -18,7 +18,7 @@ El curso se divide en **cuatro módulos independientes** que cubren el espectro 
 |--------|---------|-------------|
 | Módulo 1: Construcción de Agentes | Todo público | Diseño de identidad y comportamiento (SOUL/VOICE). |
 | Módulo 2: Ingeniería de Arneses | Técnico | Validación automática, sandboxes y entornos de prueba. |
-| Módulo 3: Gobernanza | Híbrido | Límites de autonomía, auditoría y control de costos. |
+| Módulo 3: Gobernanza | Híbrido | Matriz de aprobaciones, controles del arnés, sesgo de automatización y revisión con agentes. |
 | Módulo 4: Ciberseguridad Aplicada | Avanzado | Prompt injection, fuga de datos y seguridad en sandboxes. |
 
 ### Módulos Formativos
@@ -31,10 +31,10 @@ El curso se divide en **cuatro módulos independientes** que cubren el espectro 
     *   *Foco*: Diseño de arneses de prueba (Test Harness), validaciones automatizadas y ejecución en entornos seguros de Sandbox.
 3.  **[[Módulo 3 - Gobernanza]]**
     *   *Público objetivo*: Líderes de producto, ingenieros y roles en transición desde marcos ágiles (Scrum Masters, DevOps).
-    *   *Foco*: Establecimiento de límites de autonomía humano-agente, control presupuestario de APIs y flujos de aprobación (Human-in-the-loop).
+    *   *Foco*: Límites de autonomía humano-agente con la matriz única de [[Gobernanza]], controles técnicos del arnés, control de costos, sesgo de automatización y compensaciones cuando la revisión pasa a agentes.
 4.  **[[Módulo 4 - Ciberseguridad aplicada]]**
     *   *Público objetivo*: Desarrolladores sénior, auditores y especialistas de seguridad.
-    *   *Foco*: Identificación y mitigación de vulnerabilidades de agentes (inyección de prompts, secuestro de ejecución, sanitización de datos sensibles y PII).
+    *   *Foco*: Identificación y mitigación de vulnerabilidades de agentes (inyección de prompts, secuestro de ejecución, sanitización de datos sensibles y PII) y autoataque periódico de los controles.
 
 ---
 

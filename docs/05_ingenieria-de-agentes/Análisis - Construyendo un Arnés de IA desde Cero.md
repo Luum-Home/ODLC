@@ -187,11 +187,11 @@ El comando `/debug on` habilita un panel lateral interactivo en la terminal:
 
 ---
 
-## 8. Relación con HACS y Cognitive OS
+## 8. Relación con HACS
 
-Este arnés de referencia demuestra de manera práctica los conceptos clave de la arquitectura organizativa y metodológica de Luum:
+Este arnés de referencia demuestra de manera práctica los conceptos clave de la arquitectura organizativa y metodológica de HACS-ODLC:
 
-1. **Bucle de Evaluación Restringido**: El bucle interno del agente representa la capa de ejecución en [[Cognitive OS - Arquitectura de referencia]]. El bucle interno ejecuta herramientas y reinyecta sus resultados; no exige evidencia antes de terminar.
+1. **Bucle de Evaluación Restringido**: El bucle interno del agente representa la capa de ejecución de la [[HACS#Infraestructura mínima|infraestructura mínima de HACS]]. El bucle interno ejecuta herramientas y reinyecta sus resultados; no exige evidencia antes de terminar.
 2. **Gobernanza Práctica**: La intercepción manual de herramientas mediante confirmaciones visuales es la realización básica del límite de autonomía humano/agente descrito en [[Gobernanza]].
 3. **Resiliencia de Contexto**: La separación de tareas a subagentes restringidos (`delegate_research`) demuestra cómo estructurar los roles de agentes definidos en [[Roles de agentes]] para evitar la contaminación de memoria semántica.
 4. **Agent Loop Engineering**: El repositorio materializa un loop concreto con tool-use recursivo, stop conditions, compactación, memoria, HITL y debug/tracing, que son componentes canónicos de [[Agent Loop Engineering]].

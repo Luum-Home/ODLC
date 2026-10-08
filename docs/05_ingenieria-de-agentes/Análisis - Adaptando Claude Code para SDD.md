@@ -1,5 +1,5 @@
 ---
-tags: [recursos, cognitive-os, material-audiovisual, sdd, arneses]
+tags: [recursos, ingenieria-de-agentes, material-audiovisual, sdd, arneses]
 status: borrador
 created: 2026-06-10
 fuente:
@@ -86,4 +86,4 @@ Según el video, la estructura de EARS es tan precisa que **cada requisito funci
 * **Memoria Organizacional**: Todas las decisiones de arquitectura e historiales de cambios se persisten de forma estructurada en un archivo `history.md`, sirviendo como bitácora permanente del sistema.
 
 ---
-Relacionado: [[Cognitive OS - Arquitectura de referencia]] · [[Recursos externos]] · [[Memoria organizacional]] · [[Módulo 2 - Ingeniería de arneses]] · [[Fase 3 - Strategy]]
+Relacionado: [[Agent Loop Engineering]] · [[Recursos externos]] · [[Memoria organizacional]] · [[Módulo 2 - Ingeniería de arneses]] · [[Fase 3 - Strategy]]

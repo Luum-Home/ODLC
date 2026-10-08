@@ -15,7 +15,7 @@ Cuarta fase de [[ODLC]]. **Humanos y agentes ejecutan la estrategia elegida.** E
 - ☑ **Docs** (técnica, de usuario, ADRs)
 - ☑ **Infra** (IaC, pipelines CI/CD)
 - ☑ **Observabilidad** (dashboards, alertas, instrumentación)
-- ☑ **Operaciones** (análisis de logs, triage de incidentes, remediación propuesta; aplicarla en producción requiere aprobación humana)
+- ☑ **Operaciones** (análisis de logs, triage de incidentes, remediación propuesta; aplicarla en producción requiere aprobación humana, según la fila de remediación en producción de la matriz de [[Gobernanza#Límites de autonomía (matriz borrador)]])
 
 ## Plantilla
 

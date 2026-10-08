@@ -1,5 +1,5 @@
 ---
-tags: [recursos, cognitive-os, material-audiovisual, arquitectura]
+tags: [recursos, ingenieria-de-agentes, material-audiovisual, arquitectura]
 status: borrador
 created: 2026-06-10
 fuente:
@@ -12,7 +12,7 @@ fuente:
 
 # Análisis — Stop Using Claude Without an Agentic OS
 
-Este documento presenta un análisis y resumen estructurado del video referencial **"Stop Using Claude Without an Agentic OS"** (disponible en [YouTube](https://www.youtube.com/watch?v=1x32W8zAtrg)). El video explora la necesidad de abandonar el uso crudo de modelos de lenguaje aislados y adoptar en su lugar un **Sistema Operativo Agéntico (Agentic OS / Cognitive OS)** que unifique interfaz, conectores, automatización y memoria persistente.
+Este documento presenta un análisis y resumen estructurado del video referencial **"Stop Using Claude Without an Agentic OS"** (disponible en [YouTube](https://www.youtube.com/watch?v=1x32W8zAtrg)). El video explora la necesidad de abandonar el uso crudo de modelos de lenguaje aislados y adoptar en su lugar un **Sistema Operativo Agéntico (Agentic OS)** que unifique interfaz, conectores, automatización y memoria persistente.
 
 ---
 
@@ -24,7 +24,7 @@ Interactuar con modelos de IA (como Claude o GPT) a través de interfaces de cha
 
 ## 2. Las 5 Capas de un Agentic OS
 
-El video conceptualiza el funcionamiento de un sistema operativo de inteligencia artificial dividiéndolo en cinco capas lógicas. Este modelo es análogo y complementa nuestra [[Cognitive OS - Arquitectura de referencia]]:
+El video conceptualiza el funcionamiento de un sistema operativo de inteligencia artificial dividiéndolo en cinco capas lógicas. El modelo se puede contrastar con la [[HACS#Infraestructura mínima|infraestructura mínima de HACS]], que pone el foco en memoria compartida, sandbox, verificación y gobernanza en vez de en la interfaz:
 
 ```mermaid
 graph TD
@@ -85,4 +85,4 @@ El video propone una metodología alineada al quinto valor del [[Manifiesto HACS
 - **Incorporación de Acciones según Fricción**: Solo agrega botones de ejecución agéntica una vez que identifiques tareas repetitivas y molestas en tu día a día.
 
 ---
-Relacionado: [[Cognitive OS - Arquitectura de referencia]] · [[Recursos externos]] · [[Memoria organizacional]] · [[Manifiesto HACS-ODLC]]
+Relacionado: [[HACS]] · [[Recursos externos]] · [[Memoria organizacional]] · [[Manifiesto HACS-ODLC]]

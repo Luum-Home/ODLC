@@ -1,5 +1,5 @@
 ---
-tags: [recursos, cognitive-os, material-audiovisual, métricas, tokens, goodhart, adopción-ia]
+tags: [recursos, ingenieria-de-agentes, material-audiovisual, métricas, tokens, goodhart, adopción-ia]
 status: borrador
 created: 2026-06-10
 fuente:

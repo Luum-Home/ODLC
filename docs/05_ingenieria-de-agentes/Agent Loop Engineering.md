@@ -1,5 +1,5 @@
 ---
-tags: [cognitive-os, agent-loop, arneses, gobernanza, memoria, evals]
+tags: [ingenieria-de-agentes, agent-loop, arneses, gobernanza, memoria, evals]
 status: semilla
 created: 2026-06-13
 ---
@@ -109,7 +109,7 @@ Patrón:
 Explore → Attempt → Error/Feedback → Improve → Save Skill → Reuse Skill
 ```
 
-Esto conecta con [[Repositorios y catálogos de skills]] y con la visión de [[Cognitive OS - Arquitectura de referencia]]: el sistema mejora cuando transforma aprendizajes repetibles en herramientas, skills o políticas reutilizables.
+Esto conecta con [[Repositorios y catálogos de skills]] y con la [[Memoria organizacional]] de [[HACS]]: el sistema mejora cuando transforma aprendizajes repetibles en herramientas, skills o políticas reutilizables.
 
 ---
 
@@ -405,7 +405,7 @@ Un loop serio necesita compuertas para acciones riesgosas:
 - blast radius;
 - trust score antes de declarar éxito.
 
-Esto conecta directamente con [[Luum Cognitive OS - Implementación de referencia]]: la Safety Mesh no reemplaza al agente; gobierna su loop.
+Esto conecta directamente con los [[Gobernanza#Controles técnicos|controles técnicos de la gobernanza]]: no reemplazan al agente, gobiernan su loop.
 
 ---
 
@@ -512,18 +512,18 @@ Mitigación: tracing, logs de herramientas, comandos registrados, snapshots de e
 
 ---
 
-## Relación con Cognitive OS
+## Relación con la infraestructura de HACS
 
-El [[Cognitive OS - Arquitectura de referencia]] puede leerse como una arquitectura para operar agent loops gobernados:
+La [[HACS#Infraestructura mínima|infraestructura mínima de HACS]] puede leerse como lo que hace falta para operar agent loops gobernados:
 
-- **Interfaz de Definición**: captura Trigger, Goal y Constraints.
-- **Bus de Memoria**: provee estado histórico y guarda Memory Updates.
-- **Motor de Orquestación**: ejecuta Reason/Plan, Action Policy y coordinación multi-agente.
-- **Sandbox de Ejecución**: contiene las acciones con herramientas.
-- **Validation Engine**: recolecta evidencia y audita la ejecución. La decisión de terminar, reintentar o escalar la toma el propio agent loop (su condición de termination), que corre dentro del Motor de Orquestación.
-- **Aprendizaje (Fase 6)**: no es uno de los cinco componentes de la arquitectura; en su diagrama es la etapa que transforma la evidencia en memoria, políticas o skills y escribe en el Bus de Memoria.
+- **Ficha de objetivo y restricciones** ([[Fase 1 - Objective]], [[Fase 2 - Constraints]]): capturan Trigger, Goal y Constraints.
+- **Memoria compartida**: provee estado histórico y guarda Memory Updates.
+- **Orquestación**: ejecuta Reason/Plan, Action Policy y coordinación multi-agente. La decisión de terminar, reintentar o escalar la toma el propio agent loop (su condición de termination).
+- **Sandbox aislado**: contiene las acciones con herramientas.
+- **Verificación por evidencia**: recolecta evidencia y audita la ejecución ([[Fase 5 - Validation]]).
+- **Aprendizaje** ([[Fase 6 - Learning]]): transforma la evidencia en memoria, políticas o skills.
 
-Agent Loop Engineering es, por lo tanto, la disciplina microscópica; Cognitive OS es la arquitectura macroscópica que la vuelve operable en una organización.
+Agent Loop Engineering es, por lo tanto, la disciplina microscópica; la infraestructura de HACS es lo que la vuelve operable en una organización.
 
 ---
 
@@ -541,4 +541,4 @@ Agent Loop Engineering es, por lo tanto, la disciplina microscópica; Cognitive 
 - ¿Qué parte del observation parser debe ser determinística y qué parte puede delegarse a un LLM judge?
 
 ---
-Relacionado: [[Cognitive OS - Arquitectura de referencia]] · [[Análisis - Construyendo un Arnés de IA desde Cero]] · [[Luum Cognitive OS - Implementación de referencia]] · [[Riesgos]] · [[Glosario y taxonomía]] · [[Repositorios y catálogos de skills]]
+Relacionado: [[HACS]] · [[Gobernanza]] · [[Análisis - Construyendo un Arnés de IA desde Cero]] · [[Riesgos]] · [[Glosario y taxonomía]] · [[Repositorios y catálogos de skills]]

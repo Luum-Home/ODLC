@@ -35,7 +35,7 @@ Los PDFs históricos están en `00_crudo/` (`HACS_Canvas.pdf`, `ODLC_Canvas.pdf`
 | `02_hacs/` | El modelo organizacional HACS |
 | `03_odlc/` | La metodología ODLC, fase por fase |
 | `04_metricas/` | Métricas operativas, de agentes y organizacionales |
-| `05_cognitive-os/` | Arquitectura de referencia y casos de uso |
+| `05_ingenieria-de-agentes/` | Ingeniería de agentes y arneses (loops, patrones, economía de tokens), análisis de videos y casos de uso |
 | `06_fundacional/` | Manifiesto, madurez, glosario, roadmap, riesgos, preguntas abiertas |
 | `07_cursos/` | Programa de capacitación: Construcción de agentes, arneses, gobernanza y ciberseguridad |
 | `08_referencias/` | Catálogos volátiles: repos externos, herramientas, skills, especificaciones de terceros |
@@ -50,7 +50,7 @@ Los PDFs históricos están en `00_crudo/` (`HACS_Canvas.pdf`, `ODLC_Canvas.pdf`
 2. [[Por qué fallan las metodologías actuales]]
 3. [[HACS]]
 4. [[ODLC]]
-5. [[Cognitive OS - Arquitectura de referencia]]
+5. [[Agent Loop Engineering]]
 6. [[Manifiesto HACS-ODLC]]
 7. [[Glosario y taxonomía]] — vocabulario formal del marco; sirve también como consulta suelta mientras se leen las demás notas.
 

@@ -167,7 +167,7 @@ Execute your file-viewing tool on:
 - **Responsabilidad**: Contiene los comandos del sistema para compilar, testear y desplegar del proyecto, y un mapa semántico de los directorios para evitar que el agente explore a ciegas el sistema de archivos (evitando *Codebase Trips* inútiles).
 
 ### B. `SOUL.md` (La Constitución / Identity Core)
-- **Responsabilidad**: Define límites, postura, valores innegociables, nivel de autonomía asignado en el proyecto y rasgos estables de identidad. En OpenClaw, `SOUL.md` está documentado como archivo de voz, tono y límites; en HACS-ODLC se eleva a constitución operativa para mantener la Safety Mesh explícita.
+- **Responsabilidad**: Define límites, postura, valores innegociables, nivel de autonomía asignado en el proyecto y rasgos estables de identidad. En OpenClaw, `SOUL.md` está documentado como archivo de voz, tono y límites; en HACS-ODLC se eleva a constitución operativa para que los límites de [[Gobernanza]] queden explícitos.
 
 ### C. `VOICE.md` (Estilo Editorial / Tone)
 - **Responsabilidad**: Regula el comportamiento comunicativo, prohíbe las respuestas vacías y el "AI Sludge", y exige concisión extrema orientada a hechos. Es una separación propia de este patrón: OpenClaw puede concentrar voz en `SOUL.md`, pero el vault la separa para facilitar revisión editorial.
@@ -226,4 +226,4 @@ Al modularizar y redactar las instrucciones dentro de `.agent/`, aplicamos los s
     -   *Enlace*: [AGENTS.md Specification and Usage](https://github.com/agentsmd/agents.md) (repositorio canónico verificado 2026-10-07: `github.com/openai/agents.md` redirige ahí; la URL previa `github.com/agents-md/agents.md` devuelve 404)
 
 ---
-Relacionado: [[Recursos externos]] · [[Roles de agentes]] · [[Gobernanza]] · [[Cognitive OS - Arquitectura de referencia]]
+Relacionado: [[Recursos externos]] · [[Roles de agentes]] · [[Gobernanza]] · [[Agent Loop Engineering]]

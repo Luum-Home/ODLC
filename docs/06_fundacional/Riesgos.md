@@ -30,7 +30,7 @@ La implementación de **HACS** y la adopción de **ODLC** representan una transf
 
 ### B. Bucles Infinitos de Ejecución (Infinite Loops)
 - **Descripción**: Un agente Builder intenta resolver recursivamente un test roto y consume miles de dólares en tokens en pocas horas.
-- **Mitigación**: Límites rígidos y alertas de costos (Cost Caps) a nivel del orquestador en [[Cognitive OS - Arquitectura de referencia]]. Límite de 5 reintentos automáticos antes de requerir intervención de un operador humano. Ver [[Agent Loop Engineering]] para failure modes como loop infinito, tool ping-pong, observation blindness, context rot, memory poisoning y premature success.
+- **Mitigación**: Topes rígidos de llamadas y de gasto por hora y por objetivo, con alertas, en el arnés que orquesta a los agentes ([[Gobernanza#Controles técnicos]]); el gasto fuera de presupuesto lo decide siempre un humano (matriz de [[Gobernanza]]). Un tope de reintentos automáticos antes de escalar a una persona, por ejemplo 5, es una heurística declarada, sin calibrar. Ver [[Agent Loop Engineering]] para failure modes como loop infinito, tool ping-pong, observation blindness, context rot, memory poisoning y premature success.
 
 ### C. Contaminación de Memoria
 - **Descripción**: Entradas obsoletas o erróneas en la memoria organizacional desvían la toma de decisiones de los agentes en ciclos futuros.
@@ -46,7 +46,7 @@ La implementación de **HACS** y la adopción de **ODLC** representan una transf
 
 ### F. Secuestro de Ejecución en Sandbox
 - **Descripción**: Código vulnerable o malicioso generado por un agente escapa de un sandbox mal aislado y daña el host o la red interna.
-- **Mitigación**: Aislamiento de infraestructura (contenedores con virtualización de syscalls), límites de escritura por directorio y simulación periódica de intrusión (`/pentest-self`). Ver [[Módulo 4 - Ciberseguridad aplicada]].
+- **Mitigación**: Aislamiento de infraestructura (contenedores con virtualización de syscalls), límites de escritura por directorio y simulación periódica de intrusión con una suite propia de autoataque. Ver [[Módulo 4 - Ciberseguridad aplicada]].
 
 ---
 

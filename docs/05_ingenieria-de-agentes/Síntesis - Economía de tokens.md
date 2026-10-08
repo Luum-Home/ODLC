@@ -1,5 +1,5 @@
 ---
-tags: [cognitive-os, tokens, sintesis, gobernanza, metricas]
+tags: [ingenieria-de-agentes, tokens, sintesis, gobernanza, metricas]
 status: borrador
 created: 2026-06-10
 ---
@@ -17,7 +17,7 @@ Consolidación de las implicaciones para HACS-ODLC de los tres análisis sobre e
 ## Implicaciones consolidadas para HACS-ODLC
 
 1. **Medir conversión, no consumo.** La métrica madura es valor por token (Token ROI), nunca volumen de tokens ni volumen de código. Mapea a Agent Contribution y Agent Cost ([[Métricas de agentes]]) y a Objective Success Rate ([[Métricas operativas]]). Premiar consumo bruto es Goodhart's Law garantizada.
-2. **El presupuesto de tokens es una constraint de primera clase.** Se declara por objetivo en [[Fase 2 - Constraints]] y se estima en [[Fase 3 - Strategy]] (práctica "token poker"), no se descubre en Execution. En tiny teams no se estima: se fija un tope de tiempo y costo por objetivo, y el pronóstico por Monte Carlo se retoma con los datos del piloto ([[Registro de decisiones]], D-08).
+2. **El presupuesto de tokens es una constraint de primera clase.** Se declara por objetivo en [[Fase 2 - Constraints]] y no se descubre en Execution. En tiny teams no se estima: se fija un tope de tiempo y costo por objetivo, y el pronóstico por Monte Carlo se retoma con los datos del piloto ([[Registro de decisiones]], D-08). Fuera de tiny teams, con historial suficiente, además se estima en [[Fase 3 - Strategy]] (práctica "token poker").
 3. **Evitar los dos errores simétricos.** Ni error tacaño (recortar el acceso y matar la experimentación) ni error performativo (gamificar el consumo): uso libre con foco en resultado, gobernado por [[Gobernanza]] con límites de gasto y alertas — no con rankings.
 4. **Diseñar para la escasez.** Arnés agnóstico al proveedor, contextos destilados (no heredar chats completos), memoria externa ([[Memoria organizacional]]) como amortiguador de re-procesamiento, y conciencia del peaje lingüístico para equipos hispanohablantes.
 5. **La deuda técnica generada por agentes es el riesgo agregado.** Volumen barato + incentivos de consumo + sin estimación de costo = crisis de deuda a escala inédita (advertencia de Hotz, según el video, no verificada). Mitigación: revisión obligatoria en [[Fase 5 - Validation]] y detección temprana de patrones en [[Fase 6 - Learning]] → [[Software bloated]].
