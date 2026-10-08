@@ -67,6 +67,8 @@ created: 2026-06-10
 - [[Preguntas abiertas]] — lo que todavía no sabemos responder
 - [[Objeciones al marco]] — ¿tiene sentido ODLC? Las seis objeciones más fuertes (linaje de la gestión por objetivos y la crítica de Deming, feedback lento, sin casos medidos, identidad ODLC vs. HACS, personas motivadas, autogestión Teal) y qué haría falta para contestarlas
 - [[Piloto - Combinación A]] — diseño pre-registrado del piloto de caso único que prueba la combinación A en un MVP propio: Fase 0 de entrevistas, línea de base múltiple con inicio sorteado, medidas desde artefactos del repo, criterios de abandono y script de cálculo
+- [[Núcleo ODLC para tiny teams]] — la versión aplicable desde el lunes para una a tres personas con agentes: roles, ficha de objetivo, reglas y tablero medibles desde el repo, cada uno con su respaldo
+- [[Cómo nacieron los marcos que se adoptaron]] — XP, Scrum, Kanban, Team Topologies y squads: qué tienen en común, qué aporta ODLC de nuevo y el camino núcleo + piloto
 - [[Nuevos roles profesionales en la era de IA]] — CAIO, AI Engineer, Context Engineer, Memory Engineer y su alineación con el modelo HACS
 
 ## Parte VII — Capacitación y Educación
