@@ -57,8 +57,6 @@ Los PDFs históricos están en `00_crudo/` (`HACS_Canvas.pdf`, `ODLC_Canvas.pdf`
 **Para capacitación y ofertas:**
 
 - [[Cursos HACS-ODLC]]
-- [[Curso - Agentes de IA aplicados al trabajo técnico]]
-- [[Propuesta comercial - Agentes de IA aplicados al trabajo técnico]]
 
 **Para herramientas y referencias externas:**
 

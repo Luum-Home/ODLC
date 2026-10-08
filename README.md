@@ -60,7 +60,6 @@ Si querés entender el marco completo:
 Si querés usarlo para capacitación:
 
 - [`docs/07_cursos/Cursos HACS-ODLC.md`](docs/07_cursos/Cursos%20HACS-ODLC.md)
-- [`docs/07_cursos/Curso - Agentes de IA aplicados al trabajo técnico.md`](docs/07_cursos/Curso%20-%20Agentes%20de%20IA%20aplicados%20al%20trabajo%20técnico.md)
 
 Si querés ver herramientas y referencias externas:
 
