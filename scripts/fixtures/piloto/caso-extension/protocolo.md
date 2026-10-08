@@ -1,7 +1,7 @@
 ---
 tipo: protocolo
 version: 1
-estado: cerrado               # borrador | sellado | en_curso | cerrado
+estado: sellado               # borrador | sellado | en_curso | cerrado
 diseno: linea_base_multiple   # linea_base_multiple | abab
 inicio: 2026-11-02            # lunes de la semana 1 (FICTICIO)
 semanas: 12
@@ -49,4 +49,4 @@ umbrales:                     # decididos en P-05, P-09 y P-10 del Registro de d
   auditorias_por_semana_min: 1
 ---
 
-Protocolo FICTICIO del fixture. El del piloto real se escribe con la plantilla de protocolo y se sella antes de la semana 1.
+Protocolo FICTICIO: el tramo 1 de la Fase 0 da ambiguo, se suman 5 entrevistas y el tramo 2 se evalúa con sus umbrales propios (P-10).

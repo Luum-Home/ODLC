@@ -4,7 +4,7 @@ version: 1
 estado: borrador              # borrador | sellado | en_curso | cerrado
 diseno: linea_base_multiple   # linea_base_multiple | abab
 inicio:                       # lunes de la semana 1 (decisión pendiente del dueño)
-semanas: 12                   # 8 a 12
+semanas: 12                   # P-04
 periodos_por_semana: 2        # puntos de medición por semana
 fecha_corte:                  # fin de la última semana + ventana_outcome_dias
 tiers: [producto, clientes, operacion]
@@ -21,14 +21,17 @@ semilla_atd:                  # en el protocolo sellado va su sha256; el valor s
 fase0_perfiles: [fundador_solo, tiny_team, bootstrapper]
 fase0_temas: [revision_desbordada, decidir_vs_construir, validar_pocos_clientes, sumar_gente]
 fase0_temas_centrales: [revision_desbordada, decidir_vs_construir]
-umbrales:                     # decididos en P-05 y P-09 del Registro de decisiones; sin fuente salvo kappa_min
+umbrales:                     # decididos en P-05, P-09 y P-10 del Registro de decisiones; sin fuente salvo kappa_min
   fase0:
-    min_entrevistas: 12       # fijas (P-05)
-    extension: 5
-    kappa_min: 0.6
-    confirma_dolor_casos: 6   # en casos, no en porcentajes (P-05)
+    entrevistas_fijas: 12     # tramo 1: las primeras 12 por fecha; su veredicto se congela (P-05, P-10)
+    extension: 5              # una sola vez, solo si el tramo 1 da ambiguo
+    kappa_min: 0.6            # Hartmann y otros 2004, citado por WWC 2010
+    confirma_dolor_casos: 6   # tramo 1, en casos y no en porcentajes (P-05)
     confirma_compromiso_casos: 3
     descarta_dolor_casos: 2   # 2 o menos descarta
+    extension_confirma_dolor_casos: 9         # tramo 2, sobre 17 (P-10; sin fuente)
+    extension_confirma_compromiso_casos: 5
+    extension_descarta_dolor_casos: 3
   nivel_outcome_min: 2
   ventana_outcome_dias: 28
   k4_semana: 8                # corte parcial de K4 (P-09)

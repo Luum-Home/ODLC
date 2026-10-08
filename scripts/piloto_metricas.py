@@ -21,7 +21,9 @@ protocolo.md y protocolo.sha256):
   protocolo.sha256        sello: hash del protocolo al momento de congelarlo
   desvios/*.md            desvíos declarados (hash_anterior -> hash_nuevo)
   fase0/entrevistas/*.md  registro por entrevista (codificación del entrevistador)
-  fase0/codificacion/*.md codificación ciega de un segundo codificador
+  fase0/codificacion/*.md codificación ciega: una por entrevista del agente
+                          (agente_ciego) y, aparte, la recodificación humana
+                          (persona_ciega); nunca dos del mismo tipo
   unidades/*.md           unidad de trabajo (ítem sin método, objetivo con método)
   decisiones/*.md         decisión o revisión humana / del agente
   validaciones/*.md       evidencia de outcome por unidad
@@ -38,7 +40,9 @@ Uso:
 
 Exit codes: 0 = sin criterios de abandono activos
             1 = al menos un criterio de abandono activo
-            2 = error (datos ilegibles, sello roto, protocolo inválido)
+            2 = error (datos ilegibles, sello roto, protocolo inválido o con
+                claves desconocidas, codificación duplicada, más entrevistas
+                de las previstas en la Fase 0)
 """
 import hashlib
 import itertools
@@ -274,73 +278,171 @@ def verificar_sello(base, salida):
 # Fase 0
 # --------------------------------------------------------------------------
 
-def fase0(base, prot, salida, kills):
-    u = prot.get("umbrales", {}).get("fase0", {})
+# Claves exactas de umbrales.fase0 (P-05 y P-10). Una clave faltante o
+# desconocida es un error: una clave vieja o mal escrita no puede caer en
+# silencio a un valor por defecto.
+CLAVES_FASE0 = (
+    "entrevistas_fijas",              # tramo 1: las primeras N por fecha (P-05)
+    "extension",                      # entrevistas que se suman una sola vez si el tramo 1 es ambiguo
+    "kappa_min",
+    "confirma_dolor_casos",           # umbrales del tramo 1 (P-05)
+    "confirma_compromiso_casos",
+    "descarta_dolor_casos",
+    "extension_confirma_dolor_casos",         # umbrales propios del tramo 2 (P-10)
+    "extension_confirma_compromiso_casos",
+    "extension_descarta_dolor_casos",
+)
+CODIFICADORES = ("agente_ciego", "persona_ciega")
+SENALES_COMPROMISO = ("tiempo", "dinero", "solucion_casera")  # libro de códigos (P-10)
+
+
+def _regla(dolor, comp, k, umb, pre, kappa_min):
+    if k is None or k < kappa_min:
+        return "ambiguo", True
+    if dolor >= umb[f"{pre}confirma_dolor_casos"] and comp >= umb[f"{pre}confirma_compromiso_casos"]:
+        return "confirmado", False
+    if dolor <= umb[f"{pre}descarta_dolor_casos"]:
+        return "descartado", False
+    return "ambiguo", False
+
+
+def fase0(base, prot, salida, kills, alertas):
+    u = prot["umbrales"]["fase0"]
     entrevistas = load_dir(base, "fase0/entrevistas")
-    cods = {c.get("entrevista"): c for c in load_dir(base, "fase0/codificacion")}
     if not entrevistas:
         salida.append("Fase 0: sin entrevistas registradas")
         return None
     temas = prot.get("fase0_temas") or []
     centrales = prot.get("fase0_temas_centrales") or temas
     perfiles = set(prot.get("fase0_perfiles") or [])
-    validas = [e for e in entrevistas if not perfiles or e.get("perfil") in perfiles]
+
+    ids = set()
+    for e in entrevistas:
+        if e.get("id") in ids:
+            raise DatosInvalidos(f"{e['_archivo']}: id de entrevista repetido {e.get('id')!r}")
+        ids.add(e.get("id"))
+        if not e.get("fecha"):
+            raise DatosInvalidos(f"{e['_archivo']}: falta fecha (el tramo 1 se arma por fecha, P-10)")
+        for s in e.get("senales_compromiso") or []:
+            if s not in SENALES_COMPROMISO:
+                raise DatosInvalidos(f"{e['_archivo']}: señal de compromiso {s!r} fuera del libro de códigos "
+                                     f"({', '.join(SENALES_COMPROMISO)})")
+
+    # Una codificación por entrevista y por tipo de codificador (P-10): la
+    # recodificación humana se guarda aparte y no pisa la del agente.
+    cods = {c: {} for c in CODIFICADORES}
+    for c in load_dir(base, "fase0/codificacion"):
+        quien, eid = c.get("codificador"), c.get("entrevista")
+        if quien not in CODIFICADORES:
+            raise DatosInvalidos(f"{c['_archivo']}: codificador {quien!r} (debe ser {' o '.join(CODIFICADORES)})")
+        if eid not in ids:
+            raise DatosInvalidos(f"{c['_archivo']}: codifica la entrevista {eid!r}, que no está registrada")
+        if eid in cods[quien]:
+            raise DatosInvalidos(f"{c['_archivo']}: segunda codificación {quien} de {eid} "
+                                 f"(la otra es {cods[quien][eid]['_archivo']})")
+        cods[quien][eid] = c
+    ciego = cods["agente_ciego"]
+
+    validas = sorted((e for e in entrevistas if not perfiles or e.get("perfil") in perfiles),
+                     key=lambda e: (str(e.get("fecha")), str(e.get("id"))))
     fuera = len(entrevistas) - len(validas)
+    n1, n_ext = int(u["entrevistas_fijas"]), int(u["extension"])
+    n2 = n1 + n_ext
+    kappa_min = u["kappa_min"]
 
-    pares_dolor, pares_comp = [], []
-    dolor_ciego, comp_ciego, inducidas, sin_codificar = 0, 0, 0, 0
-    for e in validas:
-        dm = e.get("dolor_mencionado") or {}
-        c = cods.get(e.get("id"))
-        if c is None:
-            sin_codificar += 1
-            continue
-        if any(v == "inducido" for v in dm.values()):
-            inducidas += 1
-        cd = c.get("dolor") or {}
-        for t in temas:
-            a = 1 if dm.get(t) == "espontaneo" else 0
-            b = 1 if cd.get(t) == "si" else 0
-            pares_dolor.append((a, b))
-        a_c = 1 if (e.get("senales_compromiso") or []) else 0
-        b_c = 1 if c.get("compromiso") == "si" else 0
-        pares_comp.append((a_c, b_c))
-        if any(cd.get(t) == "si" for t in centrales):
-            dolor_ciego += 1
-        if b_c:
-            comp_ciego += 1
+    def evaluar(tramo):
+        pares_dolor, pares_comp = [], []
+        dolor, comp, inducidas, sin_cod = 0, 0, 0, 0
+        for e in tramo:
+            dm = e.get("dolor_mencionado") or {}
+            if any(v == "inducido" for v in dm.values()):
+                inducidas += 1
+            c = ciego.get(e.get("id"))
+            if c is None:
+                sin_cod += 1
+                continue
+            cd = c.get("dolor") or {}
+            for t in temas:
+                pares_dolor.append((1 if dm.get(t) == "espontaneo" else 0, 1 if cd.get(t) == "si" else 0))
+            b_c = 1 if c.get("compromiso") == "si" else 0
+            pares_comp.append((1 if (e.get("senales_compromiso") or []) else 0, b_c))
+            # dolor = codificación ciega "si" en un tema central que el entrevistador no indujo (P-10)
+            if any(cd.get(t) == "si" and dm.get(t) != "inducido" for t in centrales):
+                dolor += 1
+            comp += b_c
+        return pares_dolor, pares_comp, dolor, comp, inducidas, sin_cod
 
-    n = len(validas) - sin_codificar
-    k_d, po_d = kappa(pares_dolor)
-    k_c, po_c = kappa(pares_comp)
     salida.append(f"Fase 0: {len(entrevistas)} entrevistas, {len(validas)} con perfil válido "
-                  f"({fuera} fuera de perfil), {sin_codificar} sin codificación ciega, "
-                  f"{inducidas} con algún tema inducido por el entrevistador")
-    salida.append(f"  acuerdo entrevistador vs. codificador ciego — dolor: kappa {fmt(k_d)} "
-                  f"(acuerdo {fmt(po_d)}); compromiso: kappa {fmt(k_c)} (acuerdo {fmt(po_c)})")
-    if n == 0:
-        salida.append("  sin entrevistas codificadas: Fase 0 en curso")
-        return "en_curso"
-    fd, fc = dolor_ciego / n, comp_ciego / n
-    salida.append(f"  según el codificador ciego: dolor central en {dolor_ciego}/{n} ({fmt(fd)}), "
-                  f"señal de compromiso en {comp_ciego}/{n} ({fmt(fc)})")
+                  f"({fuera} fuera de perfil); tramo 1 = primeras {n1} por fecha, extensión única de {n_ext}")
 
-    # Umbrales en casos, no en proporciones (P-05 del Registro de decisiones)
-    min_n = u.get("min_entrevistas", 12)
-    if n < min_n:
+    def reportar(nombre, tramo, pre):
+        pd, pc, dolor, comp, ind, sin_cod = evaluar(tramo)
+        k_d, po_d = kappa(pd)
+        k_c, po_c = kappa(pc)
+        n = len(tramo)
+        salida.append(f"  {nombre} ({n} entrevistas, {tramo[0].get('fecha')} a {tramo[-1].get('fecha')}): "
+                      f"{sin_cod} sin codificación ciega, {ind} con algún tema inducido por el entrevistador")
+        salida.append(f"    acuerdo entrevistador vs. agente ciego — dolor: kappa {fmt(k_d)} "
+                      f"(acuerdo {fmt(po_d)}); compromiso: kappa {fmt(k_c)} (acuerdo {fmt(po_c)})")
+        if sin_cod:
+            salida.append(f"    faltan codificaciones ciegas: {nombre} en curso")
+            return "en_curso"
+        umb = (f"confirma con dolor ≥ {u[pre + 'confirma_dolor_casos']} y compromiso ≥ "
+               f"{u[pre + 'confirma_compromiso_casos']}; descarta con dolor ≤ {u[pre + 'descarta_dolor_casos']}")
+        salida.append(f"    según el agente ciego: dolor central no inducido en {dolor} de {n} entrevistas, "
+                      f"compromiso en {comp} de {n} ({umb})")
+        res, por_kappa = _regla(dolor, comp, k_d, u, pre, kappa_min)
+        if por_kappa:
+            salida.append(f"    acuerdo insuficiente (kappa de dolor < {kappa_min} o indefinido): "
+                          "revisar el libro de códigos y recodificar")
+        salida.append(f"    veredicto del {nombre}: {res.upper()}")
+        return res
+
+    if len(validas) < n1:
+        salida.append(f"  tramo 1 incompleto: {len(validas)} de {n1} entrevistas con perfil válido")
         res = "en_curso"
-    elif k_d is None or k_d < u.get("kappa_min", 0.6):
-        res = "ambiguo"
-        salida.append(f"  acuerdo insuficiente (kappa < {u.get('kappa_min')}): revisar el libro de códigos y recodificar")
-    elif dolor_ciego >= u.get("confirma_dolor_casos", 6) and comp_ciego >= u.get("confirma_compromiso_casos", 3):
-        res = "confirmado"
-    elif dolor_ciego <= u.get("descarta_dolor_casos", 2):
-        res = "descartado"
     else:
-        res = "ambiguo"
-    if res == "ambiguo" and n >= min_n + u.get("extension", 5):
-        res = "descartado"
-        salida.append("  sigue ambiguo después de la extensión pre-registrada: cuenta como descartado")
+        res = reportar("tramo 1", validas[:n1], "")
+        if res in ("confirmado", "descartado") and len(validas) > n1:
+            raise DatosInvalidos(f"Fase 0: el tramo 1 dio {res.upper()} y quedó congelado, pero hay "
+                                 f"{len(validas)} entrevistas con perfil válido (previstas {n1}, P-10)")
+        if res == "ambiguo":
+            if len(validas) > n2:
+                raise DatosInvalidos(f"Fase 0: hay {len(validas)} entrevistas con perfil válido y la extensión "
+                                     f"admite como máximo {n2} (P-10)")
+            if len(validas) < n2:
+                salida.append(f"  extensión en curso: {len(validas)} de {n2} entrevistas con perfil válido")
+                res = "en_curso"
+            else:
+                res = reportar("tramo 2", validas[:n2], "extension_")
+                if res == "ambiguo":
+                    res = "descartado"
+                    salida.append("    sigue ambiguo después de la extensión pre-registrada: cuenta como descartado")
+
+    # Recodificación humana (P-06, P-10): se informa aparte, no decide.
+    persona = cods["persona_ciega"]
+    if persona:
+        pd, pc = [], []
+        for eid, cp in sorted(persona.items()):
+            ca = ciego.get(eid)
+            if ca is None:
+                alertas.append(f"recodificación humana de {eid} sin codificación del agente para comparar")
+                continue
+            da, dp = ca.get("dolor") or {}, cp.get("dolor") or {}
+            for t in temas:
+                pd.append((1 if da.get(t) == "si" else 0, 1 if dp.get(t) == "si" else 0))
+            pc.append((1 if ca.get("compromiso") == "si" else 0, 1 if cp.get("compromiso") == "si" else 0))
+        k_p, po_p = kappa(pd)
+        k_pc, po_pc = kappa(pc)
+        salida.append(f"  recodificación humana (persona ciega) de {len(persona)} entrevistas, contra el agente: "
+                      f"dolor kappa {fmt(k_p)} (acuerdo {fmt(po_p)}); compromiso kappa {fmt(k_pc)} "
+                      f"(acuerdo {fmt(po_pc)}); no entra en el veredicto")
+        if k_p is None or k_p < kappa_min:
+            alertas.append(f"acuerdo agente vs. persona ciega en dolor por debajo de {kappa_min} o indefinido: "
+                           "el agente codificador no queda verificado")
+    else:
+        salida.append("  recodificación humana (persona ciega): sin registros")
+
     salida.append(f"  resultado Fase 0: {res.upper()}")
     if res == "descartado":
         kills.append("K0 Fase 0: el problema no se confirma; el piloto no arranca")
@@ -474,7 +576,7 @@ def piloto(base, prot, salida, kills, alertas):
                       f"mediana de días hasta abandonar {fmt(median(dias), 1)}")
 
     # --- K4: piloto no informativo, con corte parcial en la semana 8 (P-09) --
-    sem_k4 = int(u.get("k4_semana", 8))
+    sem_k4 = int(u["k4_semana"])
     if semana_de(corte, inicio) <= sem_k4:
         salida.append(f"  K4 (corte parcial en la semana {sem_k4}): pendiente, la fecha de corte no llega a esa semana")
     else:
@@ -829,6 +931,24 @@ def validar_protocolo(prot):
                 falta(f"asignacion.{t}")
     elif not prot.get("fases_abab"):
         falta("fases_abab")
+    umbrales = prot.get("umbrales")
+    if not isinstance(umbrales, dict):
+        falta("umbrales")
+    if umbrales.get("k4_semana") in (None, ""):
+        falta("umbrales.k4_semana")
+    f0 = umbrales.get("fase0")
+    if not isinstance(f0, dict):
+        falta("umbrales.fase0")
+    faltan = [k for k in CLAVES_FASE0 if f0.get(k) in (None, "")]
+    sobran = sorted(k for k in f0 if k not in CLAVES_FASE0)
+    if faltan or sobran:
+        raise DatosInvalidos("protocolo inválido en umbrales.fase0: "
+                             + "; ".join(x for x in (
+                                 f"faltan {', '.join(faltan)}" if faltan else "",
+                                 f"claves desconocidas {', '.join(sobran)}" if sobran else "") if x))
+    for k in CLAVES_FASE0:
+        if k != "kappa_min" and not isinstance(f0[k], int):
+            raise DatosInvalidos(f"protocolo inválido: umbrales.fase0.{k} debe ser un entero (casos, no proporción)")
 
 
 def main(argv):
@@ -846,7 +966,7 @@ def main(argv):
         if prot.get("diseno") not in ("linea_base_multiple", "abab"):
             raise DatosInvalidos("protocolo.diseno debe ser linea_base_multiple o abab")
         validar_protocolo(prot)
-        r0 = fase0(base, prot, salida, kills)
+        r0 = fase0(base, prot, salida, kills, alertas)
         if r0 == "descartado":
             salida.append("Piloto: no corresponde (K0 activo)")
         else:

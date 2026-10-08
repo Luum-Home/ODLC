@@ -1,12 +1,12 @@
 ---
 tipo: protocolo
 version: 1
-estado: cerrado               # borrador | sellado | en_curso | cerrado
+estado: sellado               # borrador | sellado | en_curso | cerrado
 diseno: linea_base_multiple   # linea_base_multiple | abab
-inicio: 2026-11-02            # lunes de la semana 1 (FICTICIO)
+inicio: 2026-11-09            # lunes de la semana 1 (FICTICIO)
 semanas: 12
 periodos_por_semana: 2        # un punto de medición cada media semana: 24 puntos
-fecha_corte: 2027-02-21T23:59:00-03:00   # fin de la semana 12 + 28 días de seguimiento
+fecha_corte: 2027-02-28T23:59:00-03:00   # fin de la semana 12 + 28 días de seguimiento
 tiers: [producto, clientes, operacion]
 ventanas:                     # período de inicio permitido por posición (≥ 5 puntos por fase)
   1: [6, 7, 8]
@@ -49,4 +49,4 @@ umbrales:                     # decididos en P-05, P-09 y P-10 del Registro de d
   auditorias_por_semana_min: 1
 ---
 
-Protocolo FICTICIO del fixture. El del piloto real se escribe con la plantilla de protocolo y se sella antes de la semana 1.
+Protocolo FICTICIO: caso de cadena de desvíos declarados, sin datos todavía. Errata corregida en el texto.

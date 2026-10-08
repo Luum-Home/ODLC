@@ -10,7 +10,7 @@ dolor_mencionado:             # lo codifica el entrevistador al terminar; NO se 
   decidir_vs_construir: no_mencionado
   validar_pocos_clientes: no_mencionado
   sumar_gente: no_mencionado
-senales_compromiso: []        # tiempo | dinero | solucion_casera | reputacion (hechos que ya ocurrieron, no promesas)
+senales_compromiso: []        # tiempo | dinero | solucion_casera (hechos que ya ocurrieron, no promesas; P-10)
 citas: []                     # frases cortas, anonimizadas, sin nombres de personas, empresas ni productos
 ---
 
@@ -20,4 +20,4 @@ Qué pasó, cuándo, qué hizo. Sin interpretación. Este cuerpo es lo único qu
 
 ## Señales de compromiso observadas
 
-Qué ya gastó en el problema: horas, dinero, herramientas probadas, scripts propios.
+Qué ya gastó en el problema: horas, dinero, o una solución casera ya probada (herramienta, script propio).
