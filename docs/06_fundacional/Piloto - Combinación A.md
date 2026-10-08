@@ -8,7 +8,7 @@ created: 2026-10-08
 
 Diseño del piloto que pone a prueba la combinación A, "medir para aprender", de [[Síntesis - Cómo encajan las propuestas existentes]]. Contesta el punto 2 de "Qué haría falta para que tenga sentido" en [[Objeciones al marco]]: un piloto que mida la tesis con el criterio de abandono fijado antes de empezar.
 
-**Estado:** borrador del protocolo. No está sellado. Las decisiones de la sección 13 están tomadas (P-01 a P-09 en [[Registro de decisiones]]) y se confirman al sellar; desde ese commit, cualquier cambio es un desvío declarado (sección 9).
+**Estado:** borrador del protocolo. No está sellado. Las decisiones de la sección 13 están tomadas (P-01 a P-10 en [[Registro de decisiones]]) y se confirman al sellar; desde ese commit, cualquier cambio es un desvío declarado (sección 9).
 
 Decisiones del dueño que esta nota no reabre: el sujeto es un MVP propio y nuevo, construido por el dueño solo o con un equipo mínimo, con sus suscripciones de IA, sin financiamiento externo y con clientes potenciales reales. El producto concreto es un parámetro, elegido con los criterios de P-01. La duración es de 12 semanas (P-04). La comparación es de caso único, con el método entrando escalonado (P-02). El público del marco son los tiny teams y los bootstrappers, y todo lo que se arme tiene que ser demostrable.
 
@@ -18,7 +18,7 @@ Decisiones del dueño que esta nota no reabre: el sujeto es un MVP propio y nuev
 2. **Tesis:** a igualdad de horas humanas activas, trabajar con la combinación A produce más unidades de trabajo con outcome validado y menos trabajo descartado después de entregar que trabajar por flujo de ítems con los mismos agentes. En la revisión de cambios, humano más agente detecta al menos tanto como el mejor de los dos solos.
 3. **El A-B-A-B se descartó** ([[Registro de decisiones]], P-02). Lo aprendido con el método no se desaprende, y la propia guía del WWC desaconseja el diseño de reversión cuando el efecto no se revierte. El diseño elegido es una **línea de base múltiple entre tres tipos de objetivo, con inicio sorteado**, y dentro de ella un **diseño de tratamientos alternantes** para la revisión de PR (humano solo, agente solo, humano más agente). El script conserva el cálculo del A-B-A-B solo como referencia.
 4. **Puntos de medición:** dos por semana (media semana). Con 12 semanas hay 24 puntos y cada fase de cada tipo de objetivo tiene al menos 5, como exige el WWC para cumplir sin reservas. La prueba de aleatorización tiene 162 asignaciones posibles, así que el p mínimo es 0,006. Con 8 semanas quedan 48 asignaciones (p mínimo 0,021).
-5. **Fase 0, antes de la línea de base:** 12 entrevistas sobre hechos pasados, al estilo de The Mom Test, codificadas a ciegas por un agente de otra familia, con 3 recodificadas por una persona externa y acuerdo reportado (P-05 y P-06). Si el problema no se confirma, el piloto no arranca.
+5. **Fase 0, antes de la línea de base:** 12 entrevistas sobre hechos pasados, al estilo de The Mom Test, codificadas a ciegas por un agente de otra familia. El veredicto de las primeras 12 se congela; solo si es ambiguo se suman 5, una vez, con umbrales propios (P-05 y P-10). Una persona externa recodifica 3 y su acuerdo con el agente se informa aparte (P-06 y P-10). Si el problema no se confirma, el piloto no arranca.
 6. **Medidas primarias:** P1, unidades con outcome validado por período (evidencia de nivel 2 o más dentro de los 28 días posteriores a la entrega). P2, tasa de unidades descartadas después de entregar. Las dos salen de archivos y timestamps del repo del MVP; ninguna medida usa autoinforme.
 7. **Con pocos clientes, la evidencia es una escalera:** uso, compromiso de tiempo o reputación, y compromiso de pago. La preventa es el escalón más fuerte. Los usuarios simulados con LLM se registran pero valen cero: filtran, no validan.
 8. **Seis criterios de abandono** (K0 a K5) y una regla de decisión fijada de antemano, con tres salidas: sostiene, descarta o ambiguo. Con un resultado ambiguo no se declara apoyo y no se extiende el piloto para buscar significancia.
@@ -54,7 +54,7 @@ Seth Roberts presenta la autoexperimentación como fuente de hipótesis, no como
 
 H2 es exploratoria ([[Registro de decisiones]], P-08): con el volumen de PR de una persona difícilmente llega a 5 semillas por condición, así que se reporta y no entra en la regla de decisión. La tesis se decide con H1.
 
-**Se refuta si** el límite superior del intervalo de HA queda por debajo de la mayor tasa entre H y A, con al menos 5 semillas por condición (sección 6.2). Por ser exploratoria, la refutación no decide la tesis.
+**Se refuta si** el límite superior del intervalo de HA queda por debajo de la mayor tasa entre H y A, con al menos 5 semillas por condición (sección 6.2; el mínimo de 5 es una propuesta sin fuente). Hay una segunda vía, K3 (sección 8): si en HA se revisaron 4 o más semillas y no se detectó ninguna, la compuerta humana está muerta y H2 se descarta. Por ser exploratoria, ninguna de las dos vías decide la tesis.
 
 ### H3 (secundaria, de Camuffo)
 
@@ -151,9 +151,9 @@ La condición sale de `sha256("<semilla_atd>:<PR>") mod 3`. La semilla se compro
 
 ### 4.1 Qué valida y cuándo
 
-La Fase 0 valida el problema del público del marco (tiny teams, fundadores solos y bootstrappers que construyen con agentes de IA), no el del MVP. Corre antes de la semana 1 y no cuenta dentro de las 8 a 12 semanas. Duración: hasta 3 semanas, sin incentivo (P-05).
+La Fase 0 valida el problema del público del marco (tiny teams, fundadores solos y bootstrappers que construyen con agentes de IA), no el del MVP. Corre antes de la semana 1 y no cuenta dentro de las 12 semanas (P-04). Duración: hasta 3 semanas, sin incentivo (P-05).
 
-**Cuántas entrevistas.** 12 fijas, más una sola extensión de 5 si el resultado es ambiguo (P-05). Guest, Bunce y Johnson (2006), con 60 entrevistas en profundidad, encontraron que la saturación ocurrió dentro de las primeras doce y que los elementos básicos de los metatemas aparecieron desde la sexta. Su muestra fueron mujeres de dos países de África occidental; acá hay tres perfiles distintos y el dominio es otro, por eso la extensión.
+**Cuántas entrevistas.** 12 fijas, más una sola extensión de 5 si el resultado es ambiguo (P-05). Las 12 son las primeras por fecha y su veredicto queda congelado: si confirma o descarta, no se hacen más; solo si da ambiguo se suman 5 y se evalúa sobre 17 con umbrales propios (P-10). Más entrevistas que las previstas invalidan los datos y el script termina con exit 2, para que nadie agregue entrevistas hasta que el veredicto cambie. Guest, Bunce y Johnson (2006), con 60 entrevistas en profundidad, encontraron que la saturación ocurrió dentro de las primeras doce y que los elementos básicos de los metatemas aparecieron desde la sexta. Su muestra fueron mujeres de dos países de África occidental; acá hay tres perfiles distintos y el dominio es otro, por eso la extensión.
 
 ### 4.2 Principios (The Mom Test, parafraseados)
 
@@ -164,7 +164,7 @@ Reglas operativas:
 1. **No se presenta ODLC ni la idea.** Si la persona pregunta por qué se la entrevista, la respuesta es "estoy estudiando cómo trabajan quienes construyen solos con agentes".
 2. **No se nombra el tema antes de que aparezca.** Si el entrevistador sugiere un dolor ("¿no te pasa que…?"), ese tema se registra como `inducido` y no cuenta.
 3. **Solo hechos pasados.** "La última vez que…", "¿qué hiciste después?", "¿cuánto tiempo te llevó?". "Usualmente", "me gustaría" o "usaría" no cuentan como dato.
-4. **El compromiso cuenta solo si ya ocurrió:** horas gastadas en un rodeo, dinero pagado por una herramienta, un script casero, haberle pedido ayuda a un tercero.
+4. **El compromiso cuenta solo si ya ocurrió:** horas gastadas en un rodeo, dinero pagado por una herramienta o una solución casera ya probada (un script propio, una planilla). Es la misma definición del libro de códigos (P-10). La reputación cuenta en la escalera de outcomes (sección 7), no en la Fase 0.
 
 ### 4.3 Guion de preguntas
 
@@ -180,7 +180,7 @@ Las preguntas abren sin sugerir el dolor; las repreguntas solo profundizan lo qu
    - ¿Con cuántas personas lo hablaste? ¿Qué hicieron ellas, no qué dijeron?
 6. ¿Trabajaste con alguien más en este producto o en uno anterior? ¿Qué cambió cuando se sumó? *(abre sumar gente)*
 7. ¿Probaste algo para resolver lo que me contaste? ¿Qué, cuándo, cuánto te costó, lo seguís usando? *(señales de compromiso)*
-8. ¿Hay alguien más con quien debería hablar? *(compromiso de reputación y reclutamiento)*
+8. ¿Hay alguien más con quien debería hablar? *(reclutamiento; en la Fase 0 no cuenta como compromiso)*
 
 ### 4.4 Canales de reclutamiento
 
@@ -197,7 +197,7 @@ Sin nombrar organizaciones del dueño ni pagar por las entrevistas (sin incentiv
 
 Cada entrevista genera un archivo con la plantilla `entrevista.md`: fecha, perfil, canal, duración, `dolor_mencionado` por tema (`espontaneo`, `no_mencionado` o `inducido`), `senales_compromiso` (hechos pasados) y citas cortas anonimizadas. El cuerpo tiene solo hechos, en orden.
 
-**Mitigación del sesgo de confirmación.** El entrevistador es el diseñador del marco. Un segundo codificador, un agente de otra familia de modelo sin acceso a la hipótesis ni al protocolo, lee **solo el cuerpo** de cada entrevista y codifica con la plantilla `codificacion.md`. No puede ser el modelo que asistió al entrevistador, y se registra en `registro-ia`. Para verificar al agente, una persona externa recodifica 3 entrevistas con la misma plantilla (`codificador: persona_ciega`) y se reporta su acuerdo con el agente (P-06).
+**Mitigación del sesgo de confirmación.** El entrevistador es el diseñador del marco. Un segundo codificador, un agente de otra familia de modelo sin acceso a la hipótesis ni al protocolo, lee **solo el cuerpo** de cada entrevista y codifica con la plantilla `codificacion.md`. No puede ser el modelo que asistió al entrevistador, y se registra en `registro-ia`. Para verificar al agente, una persona externa recodifica 3 entrevistas con la misma plantilla (`codificador: persona_ciega`), en un archivo aparte. Esa recodificación no reemplaza la del agente ni entra en el veredicto: se informa su kappa contra el agente (P-06 y P-10), y el script termina con exit 2 si hay dos codificaciones del mismo tipo para una entrevista. La cantidad de 3 no tiene fuente: es 25 % de 12 y 18 % de 17, así que con la extensión queda debajo del 20 % de sesiones que el WWC pide para medir acuerdo (ver Acuerdo, más abajo).
 
 **Libro de códigos** (lo único que recibe el codificador ciego):
 
@@ -207,19 +207,24 @@ Cada entrevista genera un archivo con la plantilla `entrevista.md`: fecha, perfi
 | `decidir_vs_construir` | tiempo concreto perdido en decidir, discutir o validar, comparable o mayor que el de construir |
 | `validar_pocos_clientes` | no haber podido saber si algo funcionó por tener pocos usuarios o pocas respuestas |
 | `sumar_gente` | un problema concreto que apareció al sumar a otra persona al trabajo |
-| `compromiso` | haber gastado tiempo, dinero o reputación en ese problema (herramienta pagada, script propio, ayuda pedida) |
+| `compromiso` | haber gastado tiempo o dinero en ese problema, o haber probado ya una solución casera (horas en un rodeo, herramienta pagada, script propio) |
 
-**Acuerdo.** Kappa de Cohen entre el entrevistador (`espontaneo` = 1) y el codificador ciego (`si` = 1), por tema y para el compromiso. El WWC toma como mínimo aceptable un kappa de 0,60 (Hartmann y otros, 2004, citado en Kratochwill y otros, 2010) y pide medir acuerdo en al menos 20 % de las sesiones; acá se codifica el 100 %.
+**Acuerdo.** Kappa de Cohen entre el entrevistador (`espontaneo` = 1) y el codificador ciego (`si` = 1), por tema y para el compromiso. El WWC toma como mínimo aceptable un kappa de 0,60 (Hartmann y otros, 2004, citado en Kratochwill y otros, 2010) y pide medir acuerdo en al menos 20 % de las sesiones; entre el entrevistador y el agente se codifica el 100 %. El kappa entre el agente y la persona ciega se calcula igual, solo sobre las entrevistas recodificadas, y el script alerta si queda debajo de 0,60.
 
 ### 4.6 Regla de decisión de la Fase 0 (pre-registrada)
 
-La regla usa la codificación ciega, no la del entrevistador. Los umbrales los fija P-05 ([[Registro de decisiones]]) y no tienen fuente salvo el kappa. Se cuentan en casos y no en porcentajes, para evitar la ambigüedad de redondeo. P-05 no dice cómo se leen sobre las 17 entrevistas de la extensión: el script aplica los mismos conteos, y eso se confirma al sellar.
+La regla usa la codificación ciega del agente, no la del entrevistador ni la recodificación humana. Cuenta como dolor una entrevista en la que el agente marcó "si" en un tema central (`revision_desbordada` o `decidir_vs_construir`) que el entrevistador no marcó como `inducido`; cuenta como compromiso una en la que el agente marcó `compromiso: si` (P-10). Los umbrales los fijan P-05 y P-10 ([[Registro de decisiones]]) y no tienen fuente salvo el kappa; los de 17 son proporcionales a los de 12. Se cuentan en casos y no en porcentajes, para evitar la ambigüedad de redondeo. Solo cuentan las entrevistas con perfil válido.
 
-| Resultado | Condición (P-05) | Qué se hace |
-|---|---|---|
-| Confirmado | 12 entrevistas con perfil válido; kappa de dolor ≥ 0,60; al menos 6 de 12 con dolor espontáneo en un tema central (`revision_desbordada` o `decidir_vs_construir`) y al menos 3 de 12 con señal de compromiso (tiempo, dinero o una solución casera ya probada) | Arranca la línea de base |
-| Descartado | Dolor central en 2 o menos de 12 | **K0: el piloto no arranca.** El problema que ODLC dice atacar no aparece en el público elegido |
-| Ambiguo | Cualquier otro caso, o kappa < 0,60 | Una sola extensión de 5 entrevistas (y recodificación si el kappa fue bajo). Si sigue ambiguo, cuenta como descartado |
+| Tramo | Resultado | Condición (P-05 y P-10) | Qué se hace |
+|---|---|---|---|
+| 1: las primeras 12 por fecha | Confirmado | Kappa de dolor ≥ 0,60; dolor en al menos 6 y compromiso en al menos 3 | Arranca la línea de base. El veredicto queda congelado |
+| 1 | Descartado | Dolor en 2 entrevistas o menos | **K0: el piloto no arranca.** El problema que ODLC dice atacar no aparece en el público elegido |
+| 1 | Ambiguo | Cualquier otro caso, o kappa < 0,60 o indefinido | Una sola extensión de 5 entrevistas (y recodificación si el kappa fue bajo) |
+| 2: las 17 | Confirmado | Kappa de dolor ≥ 0,60; dolor en al menos 9 y compromiso en al menos 5 | Arranca la línea de base |
+| 2 | Descartado | Dolor en 3 entrevistas o menos, o cualquier resultado que siga ambiguo | **K0** |
+| Datos inválidos | Exit 2 | Más de 12 entrevistas con el tramo 1 confirmado o descartado, o más de 17 en total | Se corrigen los datos; el veredicto no se recalcula con entrevistas de más |
+
+El protocolo trae estas claves exactas en `umbrales.fase0` (`entrevistas_fijas`, `extension`, `kappa_min`, los tres `*_casos` del tramo 1 y los tres `extension_*_casos` del tramo 2), además de `umbrales.k4_semana`. Una clave faltante o desconocida, o un umbral escrito como proporción, termina con exit 2: una clave vieja no puede caer en silencio a un valor por defecto.
 
 ## 5. La combinación A en el día a día
 
@@ -228,7 +233,7 @@ La regla usa la codificación ciega, no la del entrevistador. Los umbrales los f
 | Fase ODLC | Práctica concreta | Pieza de la combinación A | Qué deja en el repo |
 |---|---|---|---|
 | [[Fase 1 - Objective]] | Cada unidad nace como objetivo: resultado esperado para el cliente potencial, métrica con baseline, target y ventana, y criterio de abandono con estado y fecha. El agente propone la redacción; el humano escribe el target. | Meta separada del pronóstico (Beyond Budgeting); kill criteria (Duke) | `unidades/U-*.md` completo |
-| [[Fase 2 - Constraints]] | Presupuesto de tokens por unidad y superficies que no se tocan (pagos, datos de clientes, borrado) | Aprobación humana solo en lo irreversible (IMDA) | Campos en la unidad; `registro-ia` |
+| [[Fase 2 - Constraints]] | Presupuesto de tokens por unidad y superficies que no se tocan (pagos, datos de clientes, borrado) | Aprobaciones según la matriz única de [[Gobernanza]] (D-01 y D-18), sin relajar lo irreversible, la seguridad, el gasto ni las acciones externas. **Tensión declarada:** en la condición A de la revisión (sección 3.3) el agente decide el merge de cambios reversibles sin aprobación humana. La matriz relaja el merge con la madurez; el piloto lo relaja por diseño experimental, sin medir madurez, y lo compensa con la auditoría por muestreo | Campos en la unidad; `registro-ia` |
 | [[Fase 3 - Strategy]] | El agente presenta al menos dos alternativas con costos; el humano elige una entre opciones, no aprueba una sola. Se cita al menos un aprendizaje previo si existe. | Fricción concentrada en decisiones significativas | `decisiones/D-*.md` con `opciones_presentadas` ≥ 2 |
 | [[Fase 4 - Execution]] | Cada PR recibe **dos pasadas de revisión automática**: el mismo modelo con contexto limpio y un modelo de otra familia de capacidad comparable o mayor, sin revelarles la autoría. Ningún hallazgo se aplica sin un test que falle antes y pase después (P-07). Los PR reciben la condición de revisión sorteada (H, A o HA). | Contra la autopreferencia del revisor (Panickssery y otros, 2024); la regla del test filtra las regresiones que mete un revisor de otra familia | PR, `decisiones/` con `condicion_revision` |
 | [[Fase 5 - Validation]] | A los 28 días de la entrega se registra la evidencia del outcome con la escalera de la sección 7, citando un artefacto que un tercero pueda abrir. El veredicto copia el target sin reinterpretarlo. | Validar contra el outcome; responsabilidad sobre el proceso de verificación (Mosier y Skitka) | `validaciones/V-*.md` |
@@ -237,7 +242,7 @@ La regla usa la codificación ciega, no la del entrevistador. Los umbrales los f
 Transversales, en las dos fases:
 
 - **Auditoría compensatoria por muestreo.** Una vez por semana, un sorteo elige una unidad ya aprobada (en especial, lo aprobado por el agente solo) y el humano revisa su respaldo contra la evidencia. Es el control que COSO (2006) propone cuando no hay gente para separar funciones (citado en [[Investigación - Tiny teams y bootstrapping]]); queda registrado como decisión de clase `auditoria_muestreo`.
-- **Una persona, todos los roles.** Ninguna fuente relevada resuelve la separación de funciones con una sola persona. Las compensaciones del piloto son tres: el muestreo de COSO, un revisor agente de otra familia sabiendo que no es independiente (los modelos de proveedores distintos también se equivocan parecido, Kim y otros, 2025, en [[Propuestas existentes - Revisión en manos de agentes]]), y para lo irreversible, un validador externo (asesor, par o el propio cliente que paga) o la excepción escrita ([[Registro de decisiones]], D-04).
+- **Una persona, todos los roles.** Ninguna fuente relevada resuelve la separación de funciones con una sola persona. Las compensaciones del piloto son tres: el muestreo de COSO; las dos pasadas de revisión automática de P-07 (contexto limpio del mismo modelo y otra familia), sabiendo que no son independientes (los modelos de proveedores distintos también se equivocan parecido, Kim y otros, 2025, en [[Propuestas existentes - Revisión en manos de agentes]]); y para lo irreversible, el validador externo siempre (asesor, par o el propio cliente que paga; [[Registro de decisiones]], D-16). Con una persona, que quien ejecuta valide exige además la excepción escrita de D-04, compensada con la constancia de outcome que un tercero puede abrir y verificar (D-17). La excepción no reemplaza al validador externo.
 - **Medir la etapa o la persona.** Con una persona, el conflicto 2.2 de la Síntesis desaparece: la etapa de revisión y el revisor son lo mismo. Las métricas de pasividad se devuelven al propio dueño como calibración y no se usan para nada más.
 - **Sin recompensa por la métrica.** Nadie cobra ni se evalúa por P1 (Holmström y Milgrom, en la Síntesis).
 
@@ -268,7 +273,7 @@ Regla general: **ninguna medida sale de autoinforme.** En el ensayo de METR (202
 | Medida | Definición operativa | Evento de origen | Unidad | Ventana |
 |---|---|---|---|---|
 | **R** Detección por condición | Semillas detectadas sobre semillas revisadas, por condición H, A y HA, con intervalo de Wilson al 95 % | `siembra/manifiesto.md` cruzado con `decisiones/*.md` (`pr`, `resultado`, `hallazgos`) | Proporción | Fase con método |
-| Regla del contraste | Sostiene si el límite inferior de HA supera la mayor tasa entre H y A; descarta si el límite superior de HA queda por debajo; si no, ambiguo. Exige ≥ 5 semillas por condición (propuesta) | Calculado | Categórico | Cierre |
+| Regla del contraste | Sostiene si el límite inferior de HA supera la mayor tasa entre H y A; descarta si el límite superior de HA queda por debajo; si no, ambiguo. Exige ≥ 5 semillas por condición (propuesta sin fuente) | Calculado | Categórico | Cierre |
 
 ### 6.3 Secundarias
 
@@ -348,7 +353,7 @@ Se fijan antes de empezar y los evalúa el script. Exit 1 si alguno está activo
 | **K4** Piloto no informativo | Ninguna validación de nivel 2 o más en toda la fase A ni en la B al llegar a la semana 8 | Semana 8 | El producto no da outcome observable. El piloto no puede decidir la tesis: se declara no informativo; no se pivotea el producto a mitad sin desvío |
 | **K5** Tesis descartada | La regla de decisión da "descarta" con el protocolo cerrado | Al cierre | Se descarta la tesis, no la medición |
 
-El script evalúa K4 con corte parcial en la semana 8 (`k4_semana` del protocolo, P-09): cuenta las validaciones de nivel 2 o más con `evidencia_en` hasta esa semana, en la fase A y en la B, y lo marca pendiente si la fecha de corte todavía no la alcanza.
+El script evalúa K4 con corte parcial en la semana 8 (`k4_semana` del protocolo, P-09; el corte en la semana 8 no tiene fuente): cuenta las validaciones de nivel 2 o más con `evidencia_en` hasta esa semana, en la fase A y en la B, y lo marca pendiente si la fecha de corte todavía no la alcanza.
 
 **Regla de decisión de H1** (línea de base múltiple, al cierre):
 
@@ -400,7 +405,7 @@ Prueba de que el sello funciona, sobre una copia descartable del fixture (sed co
 ```bash
 d=$(mktemp -d) && cp -R scripts/fixtures/piloto/. "$d" && sed -i '' 's/alfa: 0.05/alfa: 0.10/' "$d/protocolo.md"
 python3 scripts/piloto_metricas.py "$d"; echo exit=$?; rm -rf "$d"
-# ERROR: DatosInvalidos: sello roto: protocolo.md tiene sha256 763b1df8… y la cadena sello+desvíos termina en 5311f119…
+# ERROR: DatosInvalidos: sello roto: protocolo.md tiene sha256 2d195d94… y la cadena sello+desvíos termina en b2fed1d7…
 # exit=2
 ```
 
@@ -430,7 +435,7 @@ git -C <repo-mvp> log --diff-filter=A --format=%aI -- unidades/U-012.md | tail -
 | Maduración | El MVP crece, el dueño mejora con las herramientas, aparecen más clientes | Los inicios escalonados: si todos los tipos mejoran a la vez, sin importar su inicio, es maduración y no método | Una maduración que coincida con el orden sorteado no se separa |
 | Historia (eventos externos) | Un lanzamiento, una nota en un medio, una caída del proveedor | Registro de eventos en `desvios/` con fecha | Igual que maduración |
 | Cambio de modelos de IA | El proveedor cambia o retira el modelo durante el piloto | `registro-ia` con modelo, familia, versión, configuración y hash del prompt; preferir versiones fijadas; el script alerta si un cambio cae a una semana o menos de un inicio | Si el cambio coincide con un inicio, ese tipo no cuenta como demostración limpia |
-| Revisor no independiente | El agente revisor favorece lo que él mismo produjo (Panickssery y otros, 2024) y comparte errores con otros modelos (Kim y otros, 2025) | Revisor de otra familia; el script alerta si coinciden | La correlación entre familias no se elimina |
+| Revisor no independiente | El agente revisor favorece lo que él mismo produjo (Panickssery y otros, 2024) y comparte errores con otros modelos (Kim y otros, 2025) | Dos pasadas de P-07 (contexto limpio del mismo modelo y otra familia, sin revelar autoría); el script alerta si escritor y revisor son de la misma familia | La correlación entre familias no se elimina |
 | Volumen bajo | Pocas unidades por período: P1 queda lleno de ceros | Puntos de media semana; prueba de aleatorización, que no supone normalidad | El fixture muestra que un efecto grande en tasa puede no alcanzar p ≤ 0,05 |
 | Goodhart sobre las métricas del piloto | Inflar aprendizajes, latencias o niveles de evidencia | Las de pasividad no deciden; la evidencia exige artefacto; auditoría semanal | Ver sección 6.4 |
 | Piloto contra mandato | Un piloto exitoso no predice la adopción obligatoria (checklist de la OMS frente a Ontario, en [[Objeciones al marco]]) | Se declara | No se resuelve con un piloto |
@@ -454,19 +459,22 @@ Están en `scripts/fixtures/piloto/plantillas/` y no bajo `docs/`, porque su fro
 
 ### 11.2 Script
 
-`scripts/piloto_metricas.py <directorio>`: solo stdlib (incluye un lector de YAML acotado a las plantillas), read-only, sin reloj ni red; la fecha de corte sale del protocolo. Exit 0 sin criterios de abandono activos, 1 con al menos uno, 2 por error o sello roto. Calcula la Fase 0 (kappa, regla), P1, P2, NAP por tipo (Parker y Vannest, 2009: proporción de pares en que la observación con método mejora a la de línea de base, con empates a 1/2, según la documentación de SingleCaseES), la prueba de aleatorización, adherencia, pasividad, siembra con intervalos de Wilson, el contraste de Vaccaro, el TTO separado, la paridad de horas, el registro de IA, la auditoría por muestreo y la regla de decisión. Soporta `diseno: abab` con el índice de arrastre.
+`scripts/piloto_metricas.py <directorio>`: solo stdlib (incluye un lector de YAML acotado a las plantillas), read-only, sin reloj ni red; la fecha de corte sale del protocolo. Exit 0 sin criterios de abandono activos, 1 con al menos uno, 2 por error, sello roto, protocolo con claves faltantes o desconocidas, codificación duplicada o más entrevistas de las previstas. Calcula la Fase 0 (dos tramos con veredicto congelado, kappa entrevistador contra agente y agente contra persona ciega, regla), P1, P2, NAP por tipo (Parker y Vannest, 2009: proporción de pares en que la observación con método mejora a la de línea de base, con empates a 1/2, según la documentación de SingleCaseES), la prueba de aleatorización, adherencia, pasividad, siembra con intervalos de Wilson, el contraste de Vaccaro, el TTO separado, la paridad de horas, el registro de IA, la auditoría por muestreo y la regla de decisión. Soporta `diseno: abab` con el índice de arrastre.
 
-El fixture `scripts/fixtures/piloto/` es **ficticio**: 12 entrevistas, 49 unidades, 12 semanas. `scripts/fixtures/piloto/caso-abandono/` es una Fase 0 que descarta el problema.
+El fixture `scripts/fixtures/piloto/` es **ficticio**: 12 entrevistas (3 recodificadas por una persona ciega), 49 unidades, 12 semanas. Tres casos más, también ficticios: `caso-abandono/` descarta el problema en el tramo 1; `caso-extension/` da ambiguo en el tramo 1 (4 de 12) y en el tramo 2 llega a 7 de 17 con dolor, debajo de 9, así que cuenta como descartado (con los umbrales de 12 y contando la entrevista inducida habría confirmado); `caso-desvio/` es un protocolo cambiado dos veces con desvíos encadenados, que el sello acepta.
 
 ```bash
 python3 scripts/piloto_metricas.py scripts/fixtures/piloto; echo exit=$?
 ```
 
 ```text
-Sello: OK (5311f119eb4b…, 0 desvío(s) declarado(s))
-Fase 0: 12 entrevistas, 12 con perfil válido (0 fuera de perfil), 0 sin codificación ciega, 0 con algún tema inducido por el entrevistador
-  acuerdo entrevistador vs. codificador ciego — dolor: kappa 0.91 (acuerdo 0.96); compromiso: kappa 1.00 (acuerdo 1.00)
-  según el codificador ciego: dolor central en 7/12 (0.58), señal de compromiso en 5/12 (0.42)
+Sello: OK (b2fed1d7c171…, 0 desvío(s) declarado(s))
+Fase 0: 12 entrevistas, 12 con perfil válido (0 fuera de perfil); tramo 1 = primeras 12 por fecha, extensión única de 5
+  tramo 1 (12 entrevistas, 2026-10-13 a 2026-10-24): 0 sin codificación ciega, 0 con algún tema inducido por el entrevistador
+    acuerdo entrevistador vs. agente ciego — dolor: kappa 0.91 (acuerdo 0.96); compromiso: kappa 1.00 (acuerdo 1.00)
+    según el agente ciego: dolor central no inducido en 7 de 12 entrevistas, compromiso en 5 de 12 (confirma con dolor ≥ 6 y compromiso ≥ 3; descarta con dolor ≤ 2)
+    veredicto del tramo 1: CONFIRMADO
+  recodificación humana (persona ciega) de 3 entrevistas, contra el agente: dolor kappa 0.75 (acuerdo 0.92); compromiso kappa s/d (acuerdo 1.00); no entra en el veredicto
   resultado Fase 0: CONFIRMADO
 
 Piloto: diseño linea_base_multiple, 12 semanas (24 períodos de medición) desde 2026-11-02, corte 2027-02-21
@@ -529,12 +537,49 @@ python3 scripts/piloto_metricas.py scripts/fixtures/piloto/caso-abandono; echo e
 
 ```text
 ...
+    según el agente ciego: dolor central no inducido en 1 de 12 entrevistas, compromiso en 0 de 12 (confirma con dolor ≥ 6 y compromiso ≥ 3; descarta con dolor ≤ 2)
+    veredicto del tramo 1: DESCARTADO
+  recodificación humana (persona ciega): sin registros
   resultado Fase 0: DESCARTADO
 Piloto: no corresponde (K0 activo)
 ...
 Criterios de abandono activos (1):
   - K0 Fase 0: el problema no se confirma; el piloto no arranca
 exit=1
+```
+
+```bash
+python3 scripts/piloto_metricas.py scripts/fixtures/piloto/caso-extension; echo exit=$?
+```
+
+```text
+...
+    según el agente ciego: dolor central no inducido en 4 de 12 entrevistas, compromiso en 2 de 12 (confirma con dolor ≥ 6 y compromiso ≥ 3; descarta con dolor ≤ 2)
+    veredicto del tramo 1: AMBIGUO
+  tramo 2 (17 entrevistas, 2026-10-05 a 2026-10-21): 0 sin codificación ciega, 1 con algún tema inducido por el entrevistador
+    acuerdo entrevistador vs. agente ciego — dolor: kappa 0.93 (acuerdo 0.99); compromiso: kappa 1.00 (acuerdo 1.00)
+    según el agente ciego: dolor central no inducido en 7 de 17 entrevistas, compromiso en 5 de 17 (confirma con dolor ≥ 9 y compromiso ≥ 5; descarta con dolor ≤ 3)
+    veredicto del tramo 2: AMBIGUO
+    sigue ambiguo después de la extensión pre-registrada: cuenta como descartado
+  recodificación humana (persona ciega): sin registros
+  resultado Fase 0: DESCARTADO
+Piloto: no corresponde (K0 activo)
+...
+exit=1
+```
+
+```bash
+python3 scripts/piloto_metricas.py scripts/fixtures/piloto/caso-desvio; echo exit=$?
+```
+
+```text
+Sello: OK (f1797ce0f884…, 2 desvío(s) declarado(s))
+  - desvío 2026-10-30: FICTICIO: el inicio y el corte se corren una semana por una ausencia del dueño; no se vio ningún dato del piloto
+  - desvío 2026-10-31: FICTICIO: errata en el texto del protocolo; ningún parámetro cambia
+Fase 0: sin entrevistas registradas
+Piloto: sin unidades registradas
+...
+exit=0
 ```
 
 **Lo que enseña el fixture.** Los datos ficticios tienen un efecto grande en tasa (0,17 contra 0,81) y en abandono temprano (5 contra 1,5 días), y aun así el veredicto es ambiguo: 49 unidades en 24 períodos dejan series casi binarias, el NAP queda cerca de 0,6 y la prueba de aleatorización da p = 0,123. La tasa sube en parte porque con método se abandonan más unidades antes de entregarlas (8 contra 2), lo que achica el denominador; por eso la tesis se decide sobre P1 en conteo y no sobre la tasa. Con el volumen real de una persona, el piloto puede terminar ambiguo aunque el método funcione. La regla no se ablanda por eso: el resultado ambiguo lleva a la réplica (sección 8).
@@ -579,19 +624,20 @@ Mientras no se cumpla la regla completa, el marco solo puede decir "funcionó en
 
 ## 13. Decisiones del piloto
 
-Tomadas el 2026-10-08 y registradas en [[Registro de decisiones]] (P-01 a P-09); se confirman al sellar el protocolo. Lo que queda sin decisión lo dice la columna.
+Tomadas el 2026-10-08 y registradas en [[Registro de decisiones]] (P-01 a P-10); se confirman al sellar el protocolo. Lo que queda sin decisión lo dice la columna.
 
 | Decisión | Propuesta de esta nota | Fuente de la propuesta | Decisión |
 |---|---|---|---|
-| Producto concreto del MVP | — | Parámetro del dueño | P-01: lo elige el dueño con criterios fijados; no puede ser un producto sobre ODLC |
+| Producto concreto del MVP | — | Parámetro del dueño | P-01: lo elige el dueño con criterios fijados; no puede ser un producto sobre ODLC. El mínimo de tres clientes potenciales no tiene fuente |
 | Diseño | Línea de base múltiple más alternantes | WWC 2010; Kratochwill y Levin 2010 | P-02: elegido; A-B-A-B descartado |
 | Tamaño de la unidad | — | — | P-03: como máximo 3 días de trabajo activo |
 | Duración | 12 semanas, 2 puntos por semana, más 28 días de seguimiento | WWC (≥ 5 puntos por fase) | P-04 |
 | Fecha de inicio y de corte | — | Calendario del dueño | Sin decisión: se fija al sellar |
 | Duración e incentivo de la Fase 0 | Hasta 3 semanas, sin incentivo | Sin fuente | P-05 |
-| Umbrales de la Fase 0 | 50 % dolor, 30 % compromiso, 20 % descarte, extensión de 5 | Sin fuente; el kappa mínimo de 0,60 sí tiene (WWC) | P-05: 12 entrevistas; confirma con ≥ 6 de dolor y ≥ 3 de compromiso; descarta con ≤ 2; extensión de 5 una vez |
-| Quién codifica a ciegas | Un agente de otra familia de modelo, sin acceso al protocolo | Sin fuente | P-06: más 3 entrevistas recodificadas por una persona externa |
-| Revisor | Agente de otra familia | Panickssery y otros 2024 | P-07: dos pasadas sin revelar autoría y regla del test rojo-verde |
+| Umbrales de la Fase 0 | 50 % dolor, 30 % compromiso, 20 % descarte, extensión de 5 | Sin fuente; el kappa mínimo de 0,60 sí tiene (WWC) | P-05 y P-10: tramo 1 con las primeras 12 por fecha y veredicto congelado: confirma con ≥ 6 de dolor y ≥ 3 de compromiso, descarta con ≤ 2. Solo si es ambiguo, extensión de 5 una vez y tramo 2 sobre 17: confirma con ≥ 9 y ≥ 5, descarta con ≤ 3, y si sigue ambiguo se descarta. Los umbrales de 17 son proporcionales y sin fuente |
+| Quién codifica a ciegas | Un agente de otra familia de modelo, sin acceso al protocolo | Sin fuente | P-06: más 3 entrevistas recodificadas por una persona externa (cantidad sin fuente; 3 de 17 queda debajo del 20 % del WWC). P-10: la recodificación se informa aparte, con su kappa contra el agente, y no pisa la del agente |
+| Qué cuenta como dolor y como compromiso | — | — | P-10: dolor = codificación ciega "si" en un tema central que el entrevistador no marcó como inducido; compromiso = tiempo, dinero o una solución casera ya probada (unifica el libro de códigos) |
+| Revisor | Dos pasadas: contexto limpio del mismo modelo y otra familia de capacidad comparable o mayor | Song 2026 (preprint de un autor) para la combinación de las dos pasadas; Panickssery y otros 2024 para la autopreferencia; Xiang y otros 2026 para la regla del test | P-07: dos pasadas sin revelar autoría y regla del test rojo-verde |
 | Ventana de outcome y nivel mínimo | 28 días, nivel 2 | Sin fuente | P-09: se mantiene, declarada |
 | Alfa | 0,05 | Convención | P-09: se mantiene, declarada |
 | Umbrales de K1, K2, K3 | 70 %, 50 % en 3 semanas, 4 semillas | Sin fuente | P-09: se mantienen, declarados |
@@ -599,10 +645,10 @@ Tomadas el 2026-10-08 y registradas en [[Registro de decisiones]] (P-01 a P-09);
 | Tasa de siembra | 15 % de los PR | Sin fuente para la cifra; Bainbridge pide que sea baja | P-09: se mantiene, declarada |
 | Semillas mínimas para H2 | 5 por condición | Sin fuente | P-08: H2 pasa a exploratoria; el mínimo no se decidió aparte |
 | Tolerancia de horas | ±20 % | Sin fuente | P-09: se mantiene, declarada |
-| Fuente de los bloques activos | Commits más registros de sesión de los agentes | Sin fuente | Sin decisión: P-01 a P-09 no la cubren |
+| Fuente de los bloques activos | Commits más registros de sesión de los agentes | Sin fuente | Sin decisión: P-01 a P-10 no la cubren |
 | Segunda suscripción para el revisor | Un proveedor distinto del escritor | Panickssery y otros 2024 | P-07: el costo de una segunda suscripción se acepta |
-| Validador externo para lo irreversible | Un par o asesor, o excepción escrita | [[Investigación - Tiny teams y bootstrapping]] | D-04: con una persona, excepción escrita compensada con el validador externo |
-| Implementar K4 en el script | Sí, con corte parcial en la semana 8 | — | P-09: implementado (`k4_semana`) |
+| Validador externo para lo irreversible | Un par, un asesor o el cliente que paga | [[Investigación - Tiny teams y bootstrapping]] | D-16: validador externo siempre. Con una persona, además la excepción escrita de D-04 para que quien ejecuta valide, compensada con la constancia de outcome que un tercero puede abrir (D-17) |
+| Implementar K4 en el script | Sí, con corte parcial en la semana 8 | — | P-09: implementado (`k4_semana`); el corte en la semana 8 no tiene fuente |
 
 ## 14. Fuentes
 
@@ -624,9 +670,13 @@ Citadas desde notas del vault, con la fuente original en cada una: Vaccaro y otr
 Read-only, desde la raíz del repo.
 
 ```bash
-# El script corre sobre el fixture (exit 0) y sobre el caso de abandono (exit 1)
+# El script corre sobre el fixture (exit 0), los casos de abandono y de extensión (exit 1) y la cadena de desvíos (exit 0)
 python3 scripts/piloto_metricas.py scripts/fixtures/piloto; echo exit=$?
-python3 scripts/piloto_metricas.py scripts/fixtures/piloto/caso-abandono; echo exit=$?
+for c in caso-abandono caso-extension caso-desvio; do python3 scripts/piloto_metricas.py scripts/fixtures/piloto/$c; echo "$c exit=$?"; done
+# Sin el último desvío, la cadena no llega al protocolo actual: sello roto (exit 2)
+d=$(mktemp -d) && cp -R scripts/fixtures/piloto/caso-desvio/. "$d" && rm "$d/desvios/DV-02.md" && python3 scripts/piloto_metricas.py "$d"; echo exit=$?; rm -rf "$d"
+# Una clave vieja en umbrales.fase0 no cae a un valor por defecto: exit 2
+d=$(mktemp -d) && cp -R scripts/fixtures/piloto/caso-abandono/. "$d" && sed -i '' 's/entrevistas_fijas: 12/min_entrevistas: 12/' "$d/protocolo.md" && (cd "$d" && shasum -a 256 protocolo.md | awk '{print $1"  protocolo.md"}' > protocolo.sha256) && python3 scripts/piloto_metricas.py "$d"; echo exit=$?; rm -rf "$d"
 # WWC: reversión no apropiada si el efecto no se revierte; tres intentos; 5 puntos; 5-3-20
 curl -sL https://ies.ed.gov/ncee/WWC/Docs/ReferenceResources/wwc_scd.pdf -o /tmp/wwc.pdf && pdftotext /tmp/wwc.pdf - | grep -n "unlikely to be reversed\|at least three attempts\|at least 5 data points per phase\|five repetitions of the alternating\|three different research teams\|totals at least 20\|professional conventions\|at least 0.60 if"; rm -f /tmp/wwc.pdf
 # Guest y otros: saturación dentro de las primeras doce entrevistas
