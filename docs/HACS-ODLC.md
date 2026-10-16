@@ -45,7 +45,7 @@ created: 2026-06-10
 
 - [[Agent Loop Engineering]] — diseño del ciclo trigger → goal → state → action → observation → validation → memory/termination que gobierna agentes, herramientas, retries y evals
 - [[Patrones de loops agénticos para repositorios]] — repo como sistema operativo para agentes: process-as-code, memoria con ciclo de vida, Apply/Judge/Fix loop, TDD con evidencia y fresh-context validation
-- [[Caso - Onboarding de comercios]] — primer caso de aplicación real (métricas pendientes de evidencia)
+- [[Caso - Onboarding de comercios]] — caso ilustrativo de aplicación del ciclo (sin mediciones)
 - [[Síntesis - Economía de tokens]] — implicaciones consolidadas de los tres análisis de tokens
 - [[Análisis - Stop Using Claude Without an Agentic OS]] — resumen y lecciones del Agentic OS (capas, beneficios y opciones)
 - [[Análisis - Adaptando Claude Code para SDD]] — lecciones de Harness Engineering y multi-agentes en flujos SDD
